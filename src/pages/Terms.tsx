@@ -1,0 +1,73 @@
+import { motion } from "framer-motion";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+const Terms = () => {
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      
+      <main className="pt-24 pb-20">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="prose prose-invert max-w-none"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-8">
+              Terms and Conditions
+            </h1>
+            
+            <div className="space-y-8 text-muted-foreground">
+              <section>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">1. Introduction</h2>
+                <p>
+                  These terms and conditions govern your use of our services and website. 
+                  By contacting us or using our services, you agree to these terms.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">2. Services</h2>
+                <p>
+                  We provide web development, mobile app development, and cloud development services. 
+                  All services are provided on a project basis with agreed-upon specifications.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">3. Privacy</h2>
+                <p>
+                  Your personal information provided through our contact form will only be used 
+                  to respond to your inquiry and discuss potential projects. We do not share 
+                  your information with third parties.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">4. Project Terms</h2>
+                <p>
+                  Project specifications, timelines, and pricing will be agreed upon before 
+                  work begins. Changes to project scope may affect timeline and cost.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">5. Contact</h2>
+                <p>
+                  If you have any questions about these terms, please contact us at 
+                  yash@example.com.
+                </p>
+              </section>
+            </div>
+          </motion.div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Terms;
