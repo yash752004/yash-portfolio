@@ -46,6 +46,7 @@ import ecommerse3 from "../Assets/Ecommerse/3.png";
 import ecommerse4 from "../Assets/Ecommerse/4.png";
 import ecommerse5 from "../Assets/Ecommerse/5.png";
 import ecommerse6 from "../Assets/Ecommerse/6.png";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<unknown>(null);
@@ -139,8 +140,7 @@ const Projects = () => {
         sports5
 
       ],
-      liveLink: "https://gemini-chat-app-gamma.vercel.app/",
-      hasLiveLink: true,
+      hasLiveLink: false,
       category: "Web App"
     },
 
@@ -172,8 +172,12 @@ const Projects = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-24 pb-20">
+        <BackgroundBeams />
+           <ShootingStars />
+      <StarsBackground />
         <div className="container mx-auto px-6 ">
           {/* Header */}
+          
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -189,7 +193,7 @@ const Projects = () => {
           </motion.div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto z-10000">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -367,8 +371,7 @@ const Projects = () => {
           </motion.div>
         )}
       </AnimatePresence>
-       <ShootingStars />
-      <StarsBackground />
+    
       <Footer />
     </div>
   );
