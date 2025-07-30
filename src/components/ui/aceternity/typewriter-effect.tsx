@@ -41,7 +41,7 @@ export const TypewriterEffect = ({
               : currentWord.slice(0, prevText.length + 1)
           );
         },
-        shouldDelete ? 50 : 100
+        shouldDelete ? 20 : 40
       );
 
       return () => clearTimeout(timeout);
