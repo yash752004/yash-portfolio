@@ -10,6 +10,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 // import { WorldMapDemo } from "@/components/sections/WorkmapComponent";
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -31,29 +32,62 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!formData.acceptTerms) {
-      toast({
-        title: "Terms Required",
-        description: "Please accept the terms and conditions",
-        variant: "destructive",
-      });
-      return;
-    }
+  // Validate Terms Acceptance
+  if (!formData.acceptTerms) {
+    toast({
+      title: "Terms Required",
+      description: "Please accept the terms and conditions",
+      variant: "destructive",
+    });
+    return;
+  }
 
-    setIsSubmitting(true);
+  // Validate Form Fields
+  if (!formData.name || !formData.email || !formData.message) {
+    toast({
+      title: "Missing Fields",
+      description: "Please fill out all the required fields.",
+      variant: "destructive",
+    });
+    return;
+  }
 
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message Sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      setFormData({ name: "", email: "", message: "", acceptTerms: false });
-      setIsSubmitting(false);
-    }, 2000);
-  };
+  setIsSubmitting(true);
+
+  try {
+    // Send email via EmailJS
+    await emailjs.send(
+      'service_r00qv2b',
+      'template_f3733d9',
+      {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      },
+      'pSnuKTyHtXF0V1iGa' // your public key
+    );
+
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for reaching out. I'll get back to you soon.",
+    });
+
+    // Reset form
+    setFormData({ name: "", email: "", message: "", acceptTerms: false });
+  } catch (error) {
+    console.error(error);
+    toast({
+      title: "Submission Failed",
+      description: "Something went wrong while sending your message.",
+      variant: "destructive",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -200,7 +234,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="text-foreground font-medium">yash@example.com</p>
+                      <p className="text-foreground font-medium">yashpatel.dev01@gmail.com</p>
                     </div>
                   </div>
 
@@ -210,7 +244,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Phone</p>
-                      <p className="text-foreground font-medium">+1 (555) 123-4567</p>
+                      <p className="text-foreground font-medium">+91 7861945362</p>
                     </div>
                   </div>
 
@@ -220,7 +254,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Location</p>
-                      <p className="text-foreground font-medium">San Francisco, CA</p>
+                      <p className="text-foreground font-medium">Ahmedabad, India</p>
                     </div>
                   </div>
                 </div>

@@ -4,6 +4,8 @@ import { ExternalLink, Github, X, ChevronLeft, ChevronRight } from "lucide-react
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import {ShootingStars}  from "@/components/ui/shooting-stars";
+import { StarsBackground } from "@/components/ui/stars-background";
 
 import thumbail1 from "../Assets/carehq/1.png";
 import carehq2 from "../Assets/carehq/2.png";
@@ -170,7 +172,7 @@ const Projects = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-24 pb-20">
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto px-6 ">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -365,6 +367,8 @@ const Projects = () => {
           </motion.div>
         )}
       </AnimatePresence>
+       <ShootingStars />
+      <StarsBackground />
       <Footer />
     </div>
   );
