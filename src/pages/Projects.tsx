@@ -5,99 +5,146 @@ import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
+import thumbail1 from "../Assets/carehq/1.png";
+import carehq2 from "../Assets/carehq/2.png";
+import carehq3 from "../Assets/carehq/3.png";
+import carehq4 from "../Assets/carehq/4.png";
+import carehq5 from "../Assets/carehq/5.png";
+import carehq6 from "../Assets/carehq/6.png";
+import carehq7 from "../Assets/carehq/7.png";
+
+import wiretime1 from "../Assets/WireTime/1.jpeg";
+import wiretime2 from "../Assets/WireTime/2.jpeg";
+import wiretime3 from "../Assets/WireTime/3.png";
+import wiretime4 from "../Assets/WireTime/4.png";
+import wiretime5 from "../Assets/WireTime/5.png";
+import wiretime6 from "../Assets/WireTime/6.png";
+import wiretime7 from "../Assets/WireTime/7.jpeg";
+
+import sports1 from "../Assets/sportsportal/1.png";
+import sports2 from "../Assets/sportsportal/2.png";
+import sports3 from "../Assets/sportsportal/3.png";
+import sports4 from "../Assets/sportsportal/4.png";
+import sports5 from "../Assets/sportsportal/5.png";
+
+// import inventoryscan1 from "../Assets/inventoryscan/1.png";
+// import inventoryscan2 from "../Assets/inventoryscan/2.png";
+
+import gemini1 from "../Assets/chatapp/1.png";
+import gemini2 from "../Assets/chatapp/3.png";
+import gemini3 from "../Assets/chatapp/7.png";
+import gemini4 from "../Assets/chatapp/4.png";
+import gemini5 from "../Assets/chatapp/5.png";
+import gemini6 from "../Assets/chatapp/6.png";
+
+import ecommerse0 from "../Assets/Ecommerse/0.png";
+import ecommerse1 from "../Assets/Ecommerse/1.png";
+import ecommerse2 from "../Assets/Ecommerse/2.png";
+import ecommerse3 from "../Assets/Ecommerse/3.png";
+import ecommerse4 from "../Assets/Ecommerse/4.png";
+import ecommerse5 from "../Assets/Ecommerse/5.png";
+import ecommerse6 from "../Assets/Ecommerse/6.png";
+
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<unknown>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
-      description: "A full-featured e-commerce platform with React, Node.js, and MongoDB. Features include user authentication, payment integration, admin dashboard, and real-time inventory management.",
-      tools: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
-      thumbnail: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+      title: "Jewellery Ecommerce App",
+      description: "Developed a comprehensive Ecommerce platform for jewellery, Home page with diffrent diffrent categories.",
+      tools: ['Next.JS', 'Tailwind CSS', 'NodeJs', 'Express', 'MongoDB'],
+      thumbnail: ecommerse0,
       screenshots: [
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&h=600&fit=crop"
+        ecommerse1,
+        ecommerse2,
+        ecommerse3,
+        ecommerse4,
+        ecommerse5,
+        ecommerse6
       ],
-      liveLink: "https://ecommerce-demo.com",
+      liveLink: "https://jewellery-ecommerce-flax.vercel.app/",
       hasLiveLink: true,
       category: "Web App"
     },
     {
       id: 2,
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, team collaboration features, and advanced project tracking capabilities.",
-      tools: ["Vue.js", "Firebase", "TypeScript", "Vuetify"],
-      thumbnail: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
+      title: "Gemini Chat App",
+      description: "Built a Gemini-style conversational AI chat application with features like OTP-based authentication, multi-chatroom management, real-time AI message simulation, image uploads, and reverse infinite scroll with pagination. Implements Redux for state management, form validation with React Hook Form + Zod, and a polished, responsive UI using Material UI. Dark mode, scroll-to-bottom, and keyboard accessibility are also integrated for a complete UX.",
+      tools: ['React', 'Redux', 'Material UI', 'Zod', 'JavaScript'],
+      thumbnail: gemini1,
       screenshots: [
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop"
+        gemini2,
+        gemini3,
+        gemini4,
+        gemini5,
+        gemini6
       ],
-      liveLink: null,
-      hasLiveLink: false,
+      liveLink: "https://gemini-chat-app-gamma.vercel.app/",
+      hasLiveLink: true,
       category: "Web App"
     },
     {
       id: 3,
-      title: "Weather App",
-      description: "A beautiful weather application with location-based forecasts, interactive maps, and detailed weather analytics. Built with React Native for cross-platform compatibility.",
-      tools: ["React Native", "OpenWeather API", "Maps", "Redux"],
-      thumbnail: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop",
+      title: "CareHQ",
+      description: "Engineered a health monitoring system CareHQ using Vite, TypeScript, designed for staff operating in hazardous environments. The platform allows uploading of staff profiles and medical records, facilitates consultations, highlights abnormal health conditions, and integrates comprehensive checklists for ambulance preparedness and medicine inventory. This system improves on-site safety compliance and supports proactive health management across the organization.",
+      tools: ["react", "vite", 'restApi', "typescript", "docker"],
+      thumbnail: thumbail1,
       screenshots: [
-        "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&h=600&fit=crop"
+        thumbail1,
+        carehq2,
+        carehq3,
+        carehq4,
+        carehq5,
+        carehq6,
+        carehq7
       ],
-      liveLink: "https://weather-app-demo.com",
-      hasLiveLink: true,
-      category: "Mobile App"
-    },
-    {
-      id: 4,
-      title: "Cloud Analytics Dashboard",
-      description: "A comprehensive analytics dashboard deployed on AWS with real-time data processing, interactive charts, and automated reporting features.",
-      tools: ["React", "AWS", "D3.js", "Lambda", "DynamoDB"],
-      thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      screenshots: [
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
-      ],
-      liveLink: null,
       hasLiveLink: false,
-      category: "Cloud App"
-    },
-    {
-      id: 5,
-      title: "Social Media Platform",
-      description: "A modern social media platform with real-time messaging, content sharing, and advanced privacy controls. Built with scalable architecture.",
-      tools: ["Next.js", "PostgreSQL", "Socket.io", "AWS S3"],
-      thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop",
-      screenshots: [
-        "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&h=600&fit=crop"
-      ],
-      liveLink: "https://social-platform-demo.com",
-      hasLiveLink: true,
       category: "Web App"
     },
     {
-      id: 6,
-      title: "Fitness Tracker",
-      description: "A comprehensive fitness tracking mobile application with workout plans, nutrition tracking, and progress analytics. Integrates with wearable devices.",
-      tools: ["Flutter", "Node.js", "MongoDB", "HealthKit"],
-      thumbnail: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop",
+      id: 4,
+      title: "WiReTime",
+      description: "Developed a workforce management platform used by 50+ team members to track tasks and time, improving productivity by 40%. WireTime using Vite, TypeScript, React (MUI). The application streamlines task assignment, real-time punch-in/out tracking with geolocation, leave management, and automated email notifications. Additional modules include user profile customization and a dynamic dashboard, empowering managers with clear visibility into project progress and team productivity.",
+      tools: ["vite", 'restApi', "typescript", "docker"],
+      thumbnail: wiretime1,
       screenshots: [
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
-        "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?w=800&h=600&fit=crop"
+        wiretime1,
+        wiretime2,
+        wiretime3,
+        wiretime4,
+        wiretime5,
+        wiretime6,
+        wiretime7
+
       ],
-      liveLink: null,
+
       hasLiveLink: false,
-      category: "Mobile App"
-    }
+      category: "Web App"
+    },
+    {
+      id: 5,
+      title: "Sports Portal",
+      description: "Developed an interactive Sports Portal using React, enabling users to explore training batches based on location and age group, choose from multiple packages, and seamlessly complete online payments. The platform features a dynamic landing page for user engagement and streamlines the booking process for sports programs. On the admin side, it supports batch creation, with functionalities to add trainers, configure package pricing, assign time slots, and monitor user activity. This system enhances operational efficiency and provides a unified interface for both users and administrators in managing sports training programs.",
+      tools: ["react", 'MUI', 'css', "docker", 'restApi'],
+      thumbnail: sports1,
+      screenshots: [
+        sports1,
+        sports2,
+        sports3,
+        sports4,
+        sports5
+
+      ],
+      liveLink: "https://gemini-chat-app-gamma.vercel.app/",
+      hasLiveLink: true,
+      category: "Web App"
+    },
+
   ];
 
-  const openProject = (project: any) => {
+  const openProject = (project: unknown) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
   };
@@ -122,7 +169,6 @@ const Projects = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-6">
           {/* Header */}
@@ -246,109 +292,72 @@ const Projects = () => {
             >
               <div className="flex">
                 {/* Left side - Details */}
-                <div className="flex-1 p-8">
-                  <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-3xl font-bold text-gradient">
-                      {selectedProject.title}
-                    </h2>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={closeProject}
-                      className="hover:bg-destructive/10 hover:text-destructive"
-                    >
-                      <X className="w-5 h-5" />
-                    </Button>
-                  </div>
-
-                  <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                    {selectedProject.description}
-                  </p>
-
-                  {/* Tools */}
-                  <div className="mb-8">
-                    <h3 className="text-xl font-semibold mb-4">Technologies Used</h3>
-                    <div className="flex flex-wrap gap-3">
-                      {selectedProject.tools.map((tool: string) => (
-                        <span
-                          key={tool}
-                          className="px-3 py-2 bg-primary/20 text-primary rounded-lg text-sm font-medium"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Links */}
-                  <div className="flex gap-4">
-                    {selectedProject.hasLiveLink && (
+                <div className="flex-1 p-8 overflow-y-auto max-h-[90vh] flex items-center justify-center">
+                  <div className="w-full max-w-xl">
+                    <div className="flex items-center justify-between mb-6">
+                      <h2 className="text-3xl font-bold text-gradient">
+                        {selectedProject.title}
+                      </h2>
                       <Button
-                        asChild
-                        className="bg-gradient-primary"
+                        variant="ghost"
+                        size="sm"
+                        onClick={closeProject}
+                        className="hover:bg-destructive/10 hover:text-destructive"
                       >
-                        <a
-                          href={selectedProject.liveLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Live Demo
-                        </a>
+                        <X className="w-5 h-5" />
                       </Button>
-                    )}
-                    <Button variant="outline">
-                      <Github className="w-4 h-4 mr-2" />
-                      Source Code
-                    </Button>
+                    </div>
+
+                    <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+                      {selectedProject.description}
+                    </p>
+
+                    {/* Tools */}
+                    <div className="mb-8">
+                      <h3 className="text-xl font-semibold mb-4">Technologies Used</h3>
+                      <div className="flex flex-wrap gap-3">
+                        {selectedProject.tools.map((tool: string) => (
+                          <span
+                            key={tool}
+                            className="px-3 py-2 bg-primary/20 text-primary rounded-lg text-sm font-medium"
+                          >
+                            {tool}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Links */}
+                    <div className="flex gap-4">
+                      {selectedProject.hasLiveLink && (
+                        <Button asChild className="bg-gradient-primary">
+                          <a
+                            href={selectedProject.liveLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            Live Demo
+                          </a>
+                        </Button>
+                      )}
+
+                    </div>
                   </div>
                 </div>
 
+
                 {/* Right side - Screenshots */}
-                <div className="flex-1 bg-muted/10 relative">
-                  <div className="relative h-full">
-                    <img
-                      src={selectedProject.screenshots[currentImageIndex]}
-                      alt={`${selectedProject.title} screenshot ${currentImageIndex + 1}`}
-                      className="w-full h-full object-cover"
-                    />
-
-                    {/* Navigation buttons */}
-                    {selectedProject.screenshots.length > 1 && (
-                      <>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={prevImage}
-                          disabled={currentImageIndex === 0}
-                          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white"
-                        >
-                          <ChevronLeft className="w-5 h-5" />
-                        </Button>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={nextImage}
-                          disabled={currentImageIndex === selectedProject.screenshots.length - 1}
-                          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white"
-                        >
-                          <ChevronRight className="w-5 h-5" />
-                        </Button>
-
-                        {/* Dots indicator */}
-                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                          {selectedProject.screenshots.map((_: any, index: number) => (
-                            <button
-                              key={index}
-                              onClick={() => setCurrentImageIndex(index)}
-                              className={`w-2 h-2 rounded-full transition-colors ${
-                                index === currentImageIndex ? "bg-white" : "bg-white/50"
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      </>
-                    )}
+                <div className="flex-1 bg-muted/10 p-6 overflow-y-auto max-h-[90vh]">
+                  <div className="flex flex-col gap-4">
+                    {selectedProject.screenshots.map((src: string, index: number) => (
+                      <img
+                        key={index}
+                        src={src}
+                        alt={`${selectedProject.title} screenshot ${index + 1}`}
+                        className="w-full max-h-[400px] rounded-xl object-contain border border-border hover:scale-[1.01] transition-transform duration-300"
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
@@ -356,7 +365,6 @@ const Projects = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
       <Footer />
     </div>
   );

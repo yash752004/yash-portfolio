@@ -83,9 +83,9 @@ const TechStackSection = () => {
           </div>
         </motion.div>
 
-       
 
-        
+
+
 
 
         {/* Tools Stack */}
@@ -112,18 +112,19 @@ const TechStackSection = () => {
                 whileHover={{ scale: 1.1, y: -5 }}
                 className="group"
               >
-                <div className="bg-glass backdrop-blur-xl rounded-2xl p-6 border border-border/20 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+                <div className="bg-glass backdrop-blur-xl rounded-2xl p-6 border border-border/20 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 flex flex-col items-center gap-3">
                   <tool.icon
-                    className="w-12 h-12 mb-3 group-hover:scale-110 transition-transform duration-300"
+                    className="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
                     style={{ color: tool.color }}
                   />
-                  <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
+                  <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300 text-center">
                     {tool.name}
                   </p>
                 </div>
               </motion.div>
             ))}
           </div>
+
         </motion.div>
       </div>
 

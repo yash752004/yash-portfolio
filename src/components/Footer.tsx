@@ -15,12 +15,11 @@ const Footer = () => {
           <div className="flex items-center gap-2 text-muted-foreground text-sm mb-4 md:mb-0">
             <span>Developed by</span>
             <span className="text-primary font-semibold">Yash Patel</span>
-            <Heart className="w-4 h-4 text-red-500 animate-pulse" />
           </div>
 
           {/* Center - Copyright */}
           <div className="text-muted-foreground text-sm mb-4 md:mb-0">
-            © 2024 All rights reserved
+            @ {new Date().getFullYear()} All rights reserved
           </div>
 
           {/* Right - Social Links */}
@@ -36,7 +35,7 @@ const Footer = () => {
               <Github className="w-5 h-5" />
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/yashpatel"
+              href="https://www.linkedin.com/in/yash-patel-18a93a230/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1, y: -2 }}

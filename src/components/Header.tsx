@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
+import { Home, FolderKanban, Mail } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,17 +16,17 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Projects", path: "/projects" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", path: "/", icon: Home },
+    { name: "Projects", path: "/projects", icon: FolderKanban },
+    { name: "Contact", path: "/contact", icon: Mail },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-   <motion.header
-  className="fixed top-0 left-0 right-0 z-50 bg-glass backdrop-blur-xl border-b border-border/20"
->
+    <motion.header
+      className="fixed top-0 left-0 right-0 z-50 bg-glass backdrop-blur-xl border-b border-border/20"
+    >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Desktop Navigation - Centered */}
@@ -34,10 +35,10 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary ${
-                  isActive(item.path) ? "text-primary" : "text-muted-foreground"
-                }`}
+                className={`relative flex items-center gap-2 px-4 py-2 text-base  font-semibold transition-all duration-300 hover:text-primary ${isActive(item.path) ? "text-primary" : "text-muted-foreground"
+                  }`}
               >
+                <item.icon size={16} />
                 {item.name}
                 {isActive(item.path) && (
                   <motion.div
@@ -49,9 +50,10 @@ const Header = () => {
                 )}
               </Link>
             ))}
+
           </nav>
 
-        
+
 
           {/* Mobile Menu Button */}
           <button
@@ -75,9 +77,8 @@ const Header = () => {
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 text-sm font-medium transition-all duration-300 hover:text-primary hover:bg-primary/5 rounded-lg ${
-                  isActive(item.path) ? "text-primary bg-primary/10" : "text-muted-foreground"
-                }`}
+                className={`block px-4 py-3 text-sm font-medium transition-all duration-300 hover:text-primary hover:bg-primary/5 rounded-lg ${isActive(item.path) ? "text-primary bg-primary/10" : "text-muted-foreground"
+                  }`}
               >
                 {item.name}
               </Link>
