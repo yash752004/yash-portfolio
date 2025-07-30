@@ -42,9 +42,9 @@ const TechStackSection = () => {
   return (
     <section id="tech-stack" className="relative py-20 overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 opacity-30">
+      {/* <div className="absolute inset-0 opacity-30">
         <BackgroundBeams />
-      </div>
+      </div> */}
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Tech Stack */}
@@ -89,7 +89,7 @@ const TechStackSection = () => {
 
 
         {/* Tools Stack */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -125,7 +125,7 @@ const TechStackSection = () => {
             ))}
           </div>
 
-        </motion.div>
+        </motion.div> */}
       </div>
 
     </section>

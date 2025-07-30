@@ -1,27 +1,35 @@
 import { motion } from "framer-motion";
-import { Smartphone, Globe, Cloud, Code, Database, Rocket } from "lucide-react";
+import { Smartphone, Globe, Cloud, Code, Database, Rocket, Code2 } from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: Smartphone,
-      title: "Mobile App Developer",
-      description: "Native and cross-platform mobile applications with React Native and Flutter. Creating intuitive user experiences for iOS and Android platforms.",
-      features: ["React Native", "Flutter", "iOS Development", "Android Development"],
-      color: "from-blue-500 to-purple-600",
+      icon: Code2,
+      title: "CMS Developer",
+      description:
+        "Custom and headless CMS solutions for scalable, content-driven websites. Empower teams with easy content management workflows.",
+      features: ["WordPress", "Sanity.io", "Strapi", "Contentful", "Headless CMS"],
+      color: "from-yellow-400 to-orange-500",
     },
+    // {
+    //   icon: Smartphone,
+    //   title: "Mobile App Developer",
+    //   description: "Native and cross-platform mobile applications with React Native and Flutter. Creating intuitive user experiences for iOS and Android platforms.",
+    //   features: ["React Native", "Flutter", "iOS Development", "Android Development"],
+    //   color: "from-blue-500 to-purple-600",
+    // },
     {
       icon: Globe,
       title: "Web App Developer",
       description: "Modern, responsive web applications using cutting-edge technologies. From simple websites to complex enterprise solutions.",
-      features: ["React/Next.js", "Vue.js", "TypeScript", "Progressive Web Apps", "Responsive Design"],
+      features: ["React/Next.js", "Vue.js", "TypeScript", "Progressive Web Apps", "Responsive Design", "SEO Optimization"],
       color: "from-green-500 to-blue-500",
     },
     {
       icon: Cloud,
       title: "Cloud Developer",
       description: "Scalable cloud infrastructure and serverless applications. Expertise in AWS, Google Cloud, and Azure for robust deployments.",
-      features: ["AWS/Azure/GCP", "Serverless Architecture", "DevOps", "CI/CD Pipelines", "Microservices"],
+      features: ["AWS/Azure/GCP", "Serverless Architecture", "DevOps", "CI/CD Pipelines", "Microservices", "Containerization"],
       color: "from-purple-500 to-pink-500",
     },
   ];
