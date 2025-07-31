@@ -83,7 +83,7 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="mt-4 pt-4 border-t border-border/20">
+            {/* <div className="mt-4 pt-4 border-t border-border/20">
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
@@ -91,7 +91,7 @@ const Header = () => {
                 {mounted && (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />)}
                 {mounted && (theme === "dark" ? "Light Mode" : "Dark Mode")}
               </button>
-            </div>
+            </div> */}
           </motion.nav>
         )}
       </div>
