@@ -32,61 +32,75 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  // Validate Terms Acceptance
-  if (!formData.acceptTerms) {
-    toast({
-      title: "Terms Required",
-      description: "Please accept the terms and conditions",
-      variant: "destructive",
-    });
-    return;
-  }
+    // Validate Terms Acceptance
+    if (!formData.acceptTerms) {
+      toast({
+        title: "Terms Required",
+        description: "Please accept the terms and conditions",
+        variant: "destructive",
+      });
+      return;
+    }
 
-  // Validate Form Fields
-  if (!formData.name || !formData.email || !formData.message) {
-    toast({
-      title: "Missing Fields",
-      description: "Please fill out all the required fields.",
-      variant: "destructive",
-    });
-    return;
-  }
+    // Validate Form Fields
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Missing Fields",
+        description: "Please fill out all the required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
 
-  setIsSubmitting(true);
+    setIsSubmitting(true);
 
-  try {
-    // Send email via EmailJS
-    await emailjs.send(
-      'service_r00qv2b',
-      'template_f3733d9',
-      {
-        name: formData.name,
-        email: formData.email,
-        message: formData.message,
-      },
-      'pSnuKTyHtXF0V1iGa'
-    );
+    try {
+      // 1. Send user-submitted message to you
+      await emailjs.send(
+        'service_0pj210f',
+        'template_smk2wgd',
+        {
+          name: formData.name,
+          email: formData.email,
+          to_email: formData.email,
+          message: formData.message,
+        },
+        'tditcM8PZPUoK7LvR'
+      );
 
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
+      // 2. Send confirmation message to user
+      await emailjs.send(
+        'service_0pj210f',
+        'template_q8ouzz5',
+        {
+          name: formData.name,
+          email: formData.email,
+          to_email: formData.email,
+          message: formData.message,
+        },
+        'tditcM8PZPUoK7LvR'
+      );
 
-    // Reset form
-    setFormData({ name: "", email: "", message: "", acceptTerms: false });
-  } catch (error) {
-    console.error(error);
-    toast({
-      title: "Submission Failed",
-      description: "Something went wrong while sending your message.",
-      variant: "destructive",
-    });
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      // Reset form
+      setFormData({ name: "", email: "", message: "", acceptTerms: false });
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: "Submission Failed",
+        description: "Something went wrong while sending your message.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
 
   return (
