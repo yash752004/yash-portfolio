@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Smartphone, Globe, Cloud, Code, Database, Rocket, Code2 } from "lucide-react";
+import { Spotlight } from "../ui/spotlight-new";
 
 const ServicesSection = () => {
   const services = [
@@ -40,7 +41,7 @@ const ServicesSection = () => {
     <section id="services" className="relative py-20 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
-
+     <Spotlight />
       <div className="relative z-10 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
