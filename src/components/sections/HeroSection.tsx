@@ -5,6 +5,8 @@ import { TypewriterEffect } from "@/components/ui/aceternity/typewriter-effect";
 import { Spotlight } from "@/components/ui/aceternity/spotlight";
 import { BackgroundBeams } from "@/components/ui/aceternity/background-beams";
 import Spline from '@splinetool/react-spline';
+import { ShootingStars } from "../ui/shooting-stars";
+import { StarsBackground } from "../ui/stars-background";
 // import FeatureSlider from "./FeatureSection";
 
 const HeroSection = () => {
@@ -17,12 +19,19 @@ const HeroSection = () => {
       <div className="absolute inset-0">
         <Spotlight className="opacity-80" />
         <BackgroundBeams />
+        <ShootingStars />
+        <StarsBackground />
       </div>
+
+      {/* ✨ Decorative Top-Left Spline */}
+      {/* <div className="absolute top-20 left-0 w-[500px] h-[500px] opacity-20 pointer-events-none select-none">
+        <Spline scene="https://prod.spline.design/HW90AKGVww72qdOv/scene.splinecode" />
+      </div> */}
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center mt-20">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-         
+
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,9 +96,9 @@ const HeroSection = () => {
             </motion.div>
             {/* <FeatureSlider /> */}
 
-          
 
-         
+
+
           </motion.div>
 
           <div className="w-full lg:w-2/4 h-[400px] md:h-[500px] lg:h-[600px]">
