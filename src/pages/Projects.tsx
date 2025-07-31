@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ExternalLink, X,  } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -48,8 +48,20 @@ import ecommerse5 from "../Assets/Ecommerse/5.png";
 import ecommerse6 from "../Assets/Ecommerse/6.png";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  tools: string[];
+  thumbnail: string;
+  screenshots: string[];
+  liveLink?: string;
+  hasLiveLink?: boolean;
+  category: string;
+}
+
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState<unknown>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const projects = [
@@ -146,7 +158,7 @@ const Projects = () => {
 
   ];
 
-  const openProject = (project: unknown) => {
+  const openProject = (project: Project) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
   };

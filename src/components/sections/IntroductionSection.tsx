@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { LampContainer } from "@/components/ui/aceternity/lamp";
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 
 
@@ -14,10 +13,6 @@ import carehq7 from "../../Assets/carehq/7.png";
 import wiretime1 from "../../Assets/WireTime/1.jpeg";
 import wiretime2 from "../../Assets/WireTime/2.jpeg";
 import wiretime3 from "../../Assets/WireTime/3.png";
-import wiretime4 from "../../Assets/WireTime/4.png";
-import wiretime5 from "../../Assets/WireTime/5.png";
-import wiretime6 from "../../Assets/WireTime/6.png";
-import wiretime7 from "../../Assets/WireTime/7.jpeg";
 
 import sports1 from "../../Assets/sportsportal/1.png";
 import sports2 from "../../Assets/sportsportal/2.png";
