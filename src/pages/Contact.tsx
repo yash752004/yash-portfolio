@@ -66,7 +66,7 @@ const Contact = () => {
         email: formData.email,
         message: formData.message,
       },
-      'pSnuKTyHtXF0V1iGa' // your public key
+      'pSnuKTyHtXF0V1iGa'
     );
 
     toast({
@@ -238,7 +238,7 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4">
+                  {/* <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
                       <Phone className="w-6 h-6 text-primary" />
                     </div>
@@ -246,7 +246,7 @@ const Contact = () => {
                       <p className="text-sm text-muted-foreground">Phone</p>
                       <p className="text-foreground font-medium">+91 7861945362</p>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
