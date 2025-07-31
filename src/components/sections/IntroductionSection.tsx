@@ -50,7 +50,7 @@ const IntroductionSection = () => {
     wiretime1,
     wiretime2,
     wiretime3,
-   
+
     inventoryscan1,
     inventoryscan2,
     sports1,
@@ -88,77 +88,76 @@ const IntroductionSection = () => {
   const shuffledImages = shuffleArray(images);
 
   return (
-      <section id="introduction" className="relative mt-[150px] px-4 md:px-8">
-        
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mb-20">
+    <section id="introduction" className="relative mt-[150px] px-4 md:px-8">
 
-          {/* Left: About Me */}
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mb-20">
+
+        {/* Left: About Me */}
+        <motion.div
+          initial={{ opacity: 0.5, y: 100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="w-full lg:w-1/2"
+        >
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-center lg:text-left">
+            <span className="bg-gradient-to-br from-[#8b5cf6] to-[#8b5cf6] bg-clip-text text-transparent">
+              About
+            </span>{" "}
+            <span className="text-white">Me</span>
+          </h2>
+
+
           <motion.div
-            initial={{ opacity: 0.5, y: 100 }}
+            initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: "easeInOut",
-            }}
-            className="w-full lg:w-1/2"
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="text-lg md:text-xl leading-relaxed text-slate-300 space-y-6"
           >
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 bg-gradient-to-br from-slate-300 to-slate-500 bg-clip-text text-transparent text-center lg:text-left">
-              About Me
-            </h2>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="text-lg md:text-xl leading-relaxed text-slate-300 space-y-6"
-            >
-              <p>
-                I'm a passionate full-stack developer with expertise in creating scalable,
-                secure, and high-performance web applications. With years of experience in
-                modern technologies, I transform ideas into digital realities.
-              </p>
-              <p>
-                My journey in web development has equipped me with a comprehensive understanding
-                of both frontend and backend technologies, allowing me to deliver complete
-                end-to-end solutions that exceed expectations.
-              </p>
-              <p>
-                I believe in writing clean, maintainable code and staying updated with the
-                latest industry trends to provide cutting-edge solutions for every project.
-              </p>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
-              className="grid grid-cols-3 gap-8 mt-12 max-w-xl"
-            >
-              {[
-                { number: "5+", label: "Projects Completed" },
-                // { number: "5+", label: "Years Experience" },
-                { number: "100%", label: "Client Satisfaction" },
-              ].map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-slate-400">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
+            <p>
+              I'm a full-stack web developer focused on delivering end-to-end digital solutions — from concept to deployment. I specialize in building reliable, scalable, and modern web applications tailored to your business needs.
+            </p>
+            <p>
+              My skill set spans across frontend and backend development, CMS integration, cloud deployment, and custom API design. I help businesses streamline workflows, enhance performance, and scale effectively with future-ready technology.
+            </p>
+            <p>
+              Beyond coding, I'm a creative problem solver who thrives on turning complex challenges into elegant, user-centric solutions. I’m committed to clean code, intuitive UX, and continuous innovation.
+            </p>
           </motion.div>
 
-          {/* Right: Marquee */}
-          <div className="w-full lg:w-1/2">
-            <ThreeDMarquee images={shuffledImages} />
-          </div>
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.9, duration: 0.8 }}
+            className="grid grid-cols-3 gap-8 mt-12 max-w-xl"
+          >
+            {[
+              { number: "5+", label: "Projects Completed" },
+              // { number: "5+", label: "Years Experience" },
+              { number: "100%", label: "Client Satisfaction" },
+            ].map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-sm text-slate-400">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </motion.div>
 
+        {/* Right: Marquee */}
+        <div className="w-full lg:w-1/2">
+          <ThreeDMarquee images={shuffledImages} />
         </div>
 
-      </section>
+      </div>
+
+    </section>
 
   );
 };

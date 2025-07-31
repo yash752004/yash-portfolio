@@ -3,6 +3,14 @@ import { Smartphone, Globe, Cloud, Code, Database, Rocket, Code2 } from "lucide-
 
 const ServicesSection = () => {
   const services = [
+
+    {
+      icon: Globe,
+      title: "Web App Developer",
+      description: "Modern, responsive web applications using cutting-edge technologies. From simple websites to complex enterprise solutions.",
+      features: ["React/Next.js", "Vue.js", "TypeScript", "Progressive Web Apps", "Responsive Design", "SEO Optimization"],
+      color: "from-green-500 to-blue-500",
+    },
     {
       icon: Code2,
       title: "CMS Developer",
@@ -18,13 +26,7 @@ const ServicesSection = () => {
     //   features: ["React Native", "Flutter", "iOS Development", "Android Development"],
     //   color: "from-blue-500 to-purple-600",
     // },
-    {
-      icon: Globe,
-      title: "Web App Developer",
-      description: "Modern, responsive web applications using cutting-edge technologies. From simple websites to complex enterprise solutions.",
-      features: ["React/Next.js", "Vue.js", "TypeScript", "Progressive Web Apps", "Responsive Design", "SEO Optimization"],
-      color: "from-green-500 to-blue-500",
-    },
+
     {
       icon: Cloud,
       title: "Cloud Developer",
@@ -38,7 +40,7 @@ const ServicesSection = () => {
     <section id="services" className="relative py-20 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
-      
+
       <div className="relative z-10 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -46,9 +48,13 @@ const ServicesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-6">
-            My Services
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center ">
+            <span className="bg-gradient-to-br from-[#8b5cf6] to-[#8b5cf6] bg-clip-text text-transparent">
+              My
+            </span>{" "}
+            <span className="text-white">Services</span>
           </h2>
+
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Comprehensive development solutions tailored to your business needs
           </p>
@@ -68,7 +74,7 @@ const ServicesSection = () => {
               <div className="relative bg-glass backdrop-blur-xl rounded-3xl p-8 border border-border/20 hover:border-primary/30 transition-all duration-500 overflow-hidden">
                 {/* Background gradient on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
-                
+
                 {/* Icon */}
                 <div className="relative z-10 mb-6">
                   <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} p-4 mb-4 group-hover:scale-110 transition-transform duration-300`}>
@@ -81,7 +87,7 @@ const ServicesSection = () => {
                   <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
                     {service.title}
                   </h3>
-                  
+
                   <p className="text-muted-foreground mb-6 leading-relaxed">
                     {service.description}
                   </p>

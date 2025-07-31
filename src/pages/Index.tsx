@@ -16,18 +16,10 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-
-        
         <IntroductionSection />
         <ServicesSection />
         <TechStackSection />
 
-
-
-
-
-
-        {/* Contact Me Button Section */}
 
         <BackgroundBeamsWithCollision>
           <section className="py-20 text-center">
@@ -36,8 +28,11 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-8">
-                Ready to Work Together?
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center ">
+                <span className="bg-gradient-to-br from-[#8b5cf6] to-[#8b5cf6] bg-clip-text text-transparent">
+                  Ready to Work
+                </span>{" "}
+                <span className="text-white">Together?</span>
               </h2>
               <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
                 Let's discuss your project and bring your ideas to life with cutting-edge technology and exceptional quality.
