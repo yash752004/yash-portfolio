@@ -71,14 +71,14 @@ const TechStackSection = () => {
               {[...techStack, ...techStack].map((tech, index) => (
                 <motion.div
                   key={`tech-${index}`}
-                  className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border border-border/20 hover:border-primary/30 transition-all duration-300"
+                  className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"
                   whileHover={{ scale: 1.05, y: -2 }}
                 >
                   <tech.icon
                     className="w-6 h-6 mr-3"
                     style={{ color: tech.color }}
                   />
-                  <span className="text-base font-semibold text-foreground whitespace-nowrap">
+                  <span className="text-base font-semibold whitespace-nowrap">
                     {tech.name}
                   </span>
                 </motion.div>
@@ -116,12 +116,12 @@ const TechStackSection = () => {
                 whileHover={{ scale: 1.1, y: -5 }}
                 className="group"
               >
-                <div className="bg-glass backdrop-blur-xl rounded-2xl p-6 border border-border/20 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 flex flex-col items-center gap-3">
+                <div className="bg-glass backdrop-blur-xl rounded-2xl p-6 border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 flex flex-col items-center gap-3">
                   <tool.icon
                     className="w-12 h-12 group-hover:scale-110 transition-transform duration-300"
                     style={{ color: tool.color }}
                   />
-                  <p className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors duration-300 text-center">
+                  <p className="text-sm font-semibold group-hover:text-primary transition-colors duration-300 text-center">
                     {tool.name}
                   </p>
                 </div>

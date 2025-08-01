@@ -25,7 +25,7 @@ const Header = () => {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 bg-glass backdrop-blur-xl border-b border-border/20"
+      className="fixed top-0 left-0 right-0 z-50 bg-glass backdrop-blur-xl border-b"
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -58,7 +58,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-2 hover:text-primary transition-colors"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -70,7 +70,7 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 pb-4 border-t border-border/20 pt-4"
+            className="md:hidden mt-4 pb-4 border-t pt-4"
           >
             {navItems.map((item) => (
               <Link
@@ -83,7 +83,7 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <div className="mt-4 pt-4 border-t border-border/20">
+            <div className="mt-4 pt-4 border-t">
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"

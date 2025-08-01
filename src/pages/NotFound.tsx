@@ -14,17 +14,17 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background px-4">
+    <div className="min-h-screen flex items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="bg-glass backdrop-blur-xl border border-border/20 rounded-2xl p-8 max-w-md text-center shadow-md"
+        className="bg-glass backdrop-blur-xl border rounded-2xl p-8 max-w-md text-center shadow-md"
       >
         <div className="flex justify-center mb-4">
           <Ghost className="w-12 h-12 text-primary" />
         </div>
-        <h1 className="text-5xl font-bold text-foreground mb-4">404</h1>
+        <h1 className="text-5xl font-bold mb-4">404</h1>
         <p className="text-muted-foreground text-lg mb-6">
           Oops! The page you're looking for doesn't exist.
         </p>

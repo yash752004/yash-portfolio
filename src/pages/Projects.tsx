@@ -181,7 +181,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Header />
       <main className="pt-24 pb-20">
         <BackgroundBeams />
@@ -215,7 +215,7 @@ const Projects = () => {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group cursor-pointer"
               >
-                <div className="bg-glass backdrop-blur-xl rounded-2xl overflow-hidden border border-border/20 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+                <div className="bg-glass backdrop-blur-xl rounded-2xl overflow-hidden border hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
                   {/* Thumbnail */}
                   <div className="aspect-video overflow-hidden">
                     <img
@@ -228,7 +228,7 @@ const Projects = () => {
                   {/* Content */}
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
                         {project.title}
                       </h3>
                       <span className="text-xs px-2 py-1 bg-primary/20 text-primary rounded-full">
@@ -305,7 +305,7 @@ const Projects = () => {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-background rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden"
+              className="rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex">
@@ -373,7 +373,7 @@ const Projects = () => {
                         key={index}
                         src={src}
                         alt={`${selectedProject.title} screenshot ${index + 1}`}
-                        className="w-full max-h-[400px] rounded-xl object-contain border border-border hover:scale-[1.01] transition-transform duration-300"
+                        className="w-full max-h-[400px] rounded-xl object-contain border hover:scale-[1.01] transition-transform duration-300"
                       />
                     ))}
                   </div>

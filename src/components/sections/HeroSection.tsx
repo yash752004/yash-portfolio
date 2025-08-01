@@ -60,7 +60,7 @@ const HeroSection = () => {
             </motion.h1>
 
             {/* Animated subtitle */}
-            <div className="text-xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-8">
+            <div className="text-xl md:text-4xl lg:text-5xl font-semibold mb-8">
               <TypewriterEffect
                 words={["End to End Web Service", "Full Stack Developer", "Creative Problem Solver"]}
                 className="text-gradient"
@@ -87,9 +87,9 @@ const HeroSection = () => {
                   transition={{ delay: 1.4 + index * 0.1, duration: 0.6 }}
                   className="group"
                 >
-                  <div className="bg-glass p-6 rounded-2xl border border-border/20 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
+                  <div className="bg-glass p-6 rounded-2xl border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1">
                     <item.icon className={`w-8 h-8 ${item.color} mx-auto mb-3 group-hover:scale-110 transition-transform duration-300`} />
-                    <p className="text-sm font-medium text-foreground">{item.text}</p>
+                    <p className="text-sm font-medium">{item.text}</p>
                   </div>
                 </motion.div>
               ))}

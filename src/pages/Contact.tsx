@@ -90,7 +90,7 @@ const Contact = () => {
 
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Header />
 
       <main className="pt-24 pb-20 relative overflow-hidden">
@@ -119,13 +119,13 @@ const Contact = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <div className="bg-glass backdrop-blur-xl rounded-3xl p-8 border border-border/20">
-                <h2 className="text-2xl font-bold text-foreground mb-6">Send me a message</h2>
+              <div className="bg-glass backdrop-blur-xl rounded-3xl p-8 border">
+                <h2 className="text-2xl font-bold mb-6">Send me a message</h2>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name */}
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">
                       Name *
                     </label>
                     <Input
@@ -136,13 +136,13 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Your full name"
-                      className="bg-background/50 border-border/20 focus:border-primary/50"
+                      className="focus:border-primary/50"
                     />
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">
                       Email *
                     </label>
                     <Input
@@ -153,13 +153,13 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="your.email@example.com"
-                      className="bg-background/50 border-border/20 focus:border-primary/50"
+                      className="focus:border-primary/50"
                     />
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                    <label htmlFor="message" className="block text-sm font-medium mb-2">
                       Message *
                     </label>
                     <Textarea
@@ -170,7 +170,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       placeholder="Tell me about your project..."
                       rows={6}
-                      className="bg-background/50 border-border/20 focus:border-primary/50 resize-none"
+                      className="focus:border-primary/50 resize-none"
                     />
                   </div>
 
@@ -198,7 +198,7 @@ const Contact = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-primary hover:shadow-glow text-lg py-6 rounded-xl"
+                    className="w-full bg-gradient hover:shadow-glow text-lg py-6 rounded-xl"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center gap-2">
@@ -224,8 +224,8 @@ const Contact = () => {
               className="space-y-8"
             >
               {/* Contact Information */}
-              <div className="bg-glass backdrop-blur-xl rounded-3xl p-8 border border-border/20">
-                <h3 className="text-xl font-bold text-foreground mb-6">Contact Information</h3>
+              <div className="bg-glass backdrop-blur-xl rounded-3xl p-8 border">
+                <h3 className="text-xl font-bold mb-6">Contact Information</h3>
 
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
@@ -234,7 +234,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="text-foreground font-medium">yashpatel.dev01@gmail.com</p>
+                      <p className="font-medium">yashpatel.dev01@gmail.com</p>
                     </div>
                   </div>
 
@@ -244,7 +244,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Phone</p>
-                      <p className="text-foreground font-medium">+91 7861945362</p>
+                      <p className="font-medium">+91 7861945362</p>
                     </div>
                   </div>
 
@@ -254,28 +254,28 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Location</p>
-                      <p className="text-foreground font-medium">Ahmedabad, India</p>
+                      <p className="font-medium">Ahmedabad, India</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Availability */}
-              <div className="bg-glass backdrop-blur-xl rounded-3xl p-8 border border-border/20">
-                <h3 className="text-xl font-bold text-foreground mb-6">Availability</h3>
+              <div className="bg-glass backdrop-blur-xl rounded-3xl p-8 border">
+                <h3 className="text-xl font-bold mb-6">Availability</h3>
 
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-green-400" />
-                    <span className="text-foreground">Available for new projects</span>
+                    <span>Available for new projects</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-green-400" />
-                    <span className="text-foreground">Response within 24 hours</span>
+                    <span>Response within 24 hours</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-green-400" />
-                    <span className="text-foreground">Free initial consultation</span>
+                    <span>Free initial consultation</span>
                   </div>
                 </div>
               </div>

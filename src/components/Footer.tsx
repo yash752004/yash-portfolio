@@ -7,7 +7,7 @@ const Footer = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="bg-card/50 backdrop-blur-xl border-t border-border/20 mt-20"
+      className="bg-card/50 backdrop-blur-xl border-t mt-20"
     >
       <div className="container mx-auto px-6 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between">

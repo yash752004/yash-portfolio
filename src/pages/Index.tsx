@@ -12,7 +12,7 @@ import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-w
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Header />
       <main>
         <HeroSection />

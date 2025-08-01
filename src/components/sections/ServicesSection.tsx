@@ -72,7 +72,7 @@ const ServicesSection = () => {
               className="group relative"
             >
               {/* Card */}
-              <div className="relative bg-glass backdrop-blur-xl rounded-3xl p-8 border border-border/20 hover:border-primary/30 transition-all duration-500 overflow-hidden">
+              <div className="relative bg-glass backdrop-blur-xl rounded-3xl p-8 border hover:border-primary/30 transition-all duration-500 overflow-hidden">
                 {/* Background gradient on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
 
@@ -85,7 +85,7 @@ const ServicesSection = () => {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <h3 className="text-2xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
                     {service.title}
                   </h3>
 
@@ -125,9 +125,9 @@ const ServicesSection = () => {
           transition={{ delay: 0.8, duration: 0.8 }}
           className="text-center mt-16"
         >
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-glass rounded-full border border-border/20">
+          <div className="inline-flex items-center gap-4 px-8 py-4 bg-glass rounded-full border">
             <Rocket className="w-6 h-6 text-primary animate-bounce" />
-            <span className="text-lg font-semibold text-foreground">Ready to launch your project?</span>
+            <span className="text-lg font-semibold">Ready to launch your project?</span>
           </div>
         </motion.div>
       </div>

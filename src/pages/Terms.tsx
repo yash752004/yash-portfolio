@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const Terms = () => {
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen">
       <Header />
 
       <main className="pt-24 pb-20">
@@ -29,7 +29,7 @@ const Terms = () => {
 
             <div className="space-y-10 text-base leading-relaxed text-muted-foreground">
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">1. Introduction</h2>
+                <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
                 <p>
                   These terms and conditions govern your use of our services and website.
                   By contacting us or using our services, you agree to these terms.
@@ -37,7 +37,7 @@ const Terms = () => {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">2. Services</h2>
+                <h2 className="text-2xl font-semibold mb-4">2. Services</h2>
                 <p>
                   We provide web development, mobile app development, and cloud development services.
                   All services are provided on a project basis with agreed-upon specifications.
@@ -45,7 +45,7 @@ const Terms = () => {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">3. Privacy</h2>
+                <h2 className="text-2xl font-semibold mb-4">3. Privacy</h2>
                 <p>
                   Your personal information provided through our contact form will only be used
                   to respond to your inquiry and discuss potential projects. We do not share
@@ -54,7 +54,7 @@ const Terms = () => {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">4. Project Terms</h2>
+                <h2 className="text-2xl font-semibold mb-4">4. Project Terms</h2>
                 <p>
                   Project specifications, timelines, and pricing will be agreed upon before
                   work begins. Changes to project scope may affect timeline and cost.
@@ -62,7 +62,7 @@ const Terms = () => {
               </section>
 
               <section>
-                <h2 className="text-2xl font-semibold text-foreground mb-4">5. Contact</h2>
+                <h2 className="text-2xl font-semibold mb-4">5. Contact</h2>
                 <p>
                   If you have any questions about these terms, please contact us at{" "}
                   <a href="mailto:yashpatel.dev01@gmail.com" className="text-primary underline">

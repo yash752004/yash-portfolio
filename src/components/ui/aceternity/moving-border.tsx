@@ -27,7 +27,7 @@ export const MovingBorder = ({
           }}
         />
       </div>
-      <div className="relative flex h-full w-full items-center justify-center rounded-full bg-background px-8 py-4 text-sm antialiased">
+      <div className="relative flex h-full w-full items-center justify-center rounded-full px-8 py-4 text-sm antialiased">
         {children}
       </div>
     </button>

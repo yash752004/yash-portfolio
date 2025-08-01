@@ -33,7 +33,7 @@ const FeatureSlider = () => {
             className="flex items-center justify-center gap-4 my-3"
           >
             <item.icon className={`w-6 h-6 ${item.color}`} />
-            <p className="text-xl font-semibold text-foreground">
+            <p className="text-xl font-semibold">
               {item.text}
             </p>
           </div>
