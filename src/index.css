@@ -8,6 +8,8 @@ All colors MUST be HSL.
   :root {
     --background: 222 47% 11%;
     --foreground: 213 31% 91%;
+    /* White theme */
+    --black: 0 0% 0%;
 
     --card: 223 47% 11%;
     --card-foreground: 213 31% 91%;
@@ -15,7 +17,7 @@ All colors MUST be HSL.
     --popover: 224 47% 11%;
     --popover-foreground: 213 31% 91%;
 
-    --primary: 262 83% 58%;
+    /* --primary: 262 83% 58%; */
     --primary-foreground: 210 40% 98%;
     --primary-glow: 270 91% 65%;
 
@@ -40,15 +42,15 @@ All colors MUST be HSL.
     /* Premium gradients */
     /* --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow))); */
     --gradient-primary: linear-gradient(135deg, #57ebde, #aefb2a);
-    --gradient-purple: linear-gradient(135deg, #8b5cf6, #a855f7, #c084fc);
+    --gradient-purple: linear-gradient(135deg, #a78bfa, #c084fc, #d8b4fe);
     --gradient-blue: linear-gradient(135deg, #3b82f6, #6366f1, #8b5cf6);
     --gradient-cosmic: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
     --gradient-sunset: linear-gradient(135deg, #ff6b6b, #feca57, #ff9ff3);
-    
+
     /* Shadows */
     --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
     --shadow-elegant: 0 25px 50px -12px hsl(var(--primary) / 0.25);
-    
+
     /* Animation variables */
     --animation-duration: 0.5s;
     --animation-curve: cubic-bezier(0.4, 0, 0.2, 1);
@@ -133,13 +135,20 @@ All colors MUST be HSL.
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  .text-gradient-purple {
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
   .bg-gradient {
     background: var(--gradient-primary);
   }
 
   .bg-glass {
-    background: rgba(255, 255, 255, 0.05);
+    /* background: rgba(255, 255, 255, 0.05); */
+    background: rgb(101 101 101 / 5%);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
@@ -162,28 +171,52 @@ All colors MUST be HSL.
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes glow {
-  from { box-shadow: 0 0 20px hsl(var(--primary) / 0.5); }
-  to { box-shadow: 0 0 40px hsl(var(--primary) / 0.8), 0 0 60px hsl(var(--primary-glow) / 0.3); }
+  from {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+  to {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.8),
+      0 0 60px hsl(var(--primary-glow) / 0.3);
+  }
 }
 
 @keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes typewriter {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .typewriter {
@@ -194,11 +227,20 @@ All colors MUST be HSL.
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: hsl(var(--primary)); }
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: hsl(var(--primary));
+  }
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }

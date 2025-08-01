@@ -49,6 +49,9 @@ export const BackgroundBeams = ({ className }: { className?: string }) => {
                 <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0" />
                 <stop offset="50%" stopColor="#a855f7" stopOpacity="1" />
                 <stop offset="100%" stopColor="#c084fc" stopOpacity="0" />
+                {/* <stop offset="0%" stopColor="#57ebde" stopOpacity="0" />
+                <stop offset="50%" stopColor="#aefb2a" stopOpacity="1" />
+                <stop offset="100%" stopColor="#57ebde" stopOpacity="0" /> */}
               </linearGradient>
             ))}
             <clipPath id="clip">

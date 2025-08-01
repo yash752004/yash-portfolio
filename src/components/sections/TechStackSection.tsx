@@ -54,11 +54,8 @@ const TechStackSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center  ">
-            <span className="bg-gradient-to-br from-[#8b5cf6] to-[#8b5cf6] bg-clip-text text-transparent">
-              Tech
-            </span>{" "}
-            <span className="text-white">Stack</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
+            Tech Stack
           </h2>
 
           <p className="text-xl text-muted-foreground mb-12">

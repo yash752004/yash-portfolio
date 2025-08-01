@@ -98,11 +98,8 @@ const IntroductionSection = () => {
           }}
           className="w-full lg:w-1/2"
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-center lg:text-left">
-            <span className="bg-gradient-to-br from-[#8b5cf6] to-[#8b5cf6] bg-clip-text text-transparent">
-              About
-            </span>{" "}
-            <span className="text-white">Me</span>
+          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
+            About Me
           </h2>
 
 
@@ -110,7 +107,8 @@ const IntroductionSection = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-lg md:text-xl leading-relaxed text-slate-300 space-y-6"
+           className="text-lg md:text-xl leading-relaxed text-[hsl(var(--black))] space-y-6"
+
           >
             <p>
               I'm a full-stack web developer focused on delivering end-to-end digital solutions — from concept to deployment. I specialize in building reliable, scalable, and modern web applications tailored to your business needs.
@@ -128,7 +126,7 @@ const IntroductionSection = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="grid grid-cols-3 gap-8 mt-12 max-w-xl"
+            className="grid grid-cols-3  text-[hsl(var(--black))] gap-8 mt-12 max-w-xl"
           >
             {[
               { number: "5+", label: "Projects Completed" },

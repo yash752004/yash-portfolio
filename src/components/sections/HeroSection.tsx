@@ -17,16 +17,16 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <Spotlight className="opacity-80" />
+        <Spotlight fill="gradient" className="opacity-80" />
         <BackgroundBeams />
         <ShootingStars />
         <StarsBackground />
       </div>
 
       {/* ✨ Decorative Top-Left Spline */}
-      {/* <div className="absolute top-20 left-0 w-[500px] h-[500px] opacity-20 pointer-events-none select-none">
+      <div className="absolute top-20 left-0 w-[500px] h-[500px] opacity-20 pointer-events-none select-none">
         <Spline scene="https://prod.spline.design/HW90AKGVww72qdOv/scene.splinecode" />
-      </div> */}
+      </div>
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center mt-20">
@@ -36,7 +36,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="w-full lg:w-2/4"
+            className="w-full lg:w-3/4"
           >
             {/* Greeting */}
             <motion.p
@@ -56,14 +56,14 @@ const HeroSection = () => {
               className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
             >
               <span className="text-gradient">I'M</span>{" "}
-              <span className="text-white">Yash Patel</span>
+              <span className="text-gradient">Yash Patel</span>
             </motion.h1>
 
             {/* Animated subtitle */}
             <div className="text-xl md:text-4xl lg:text-5xl font-semibold mb-8">
               <TypewriterEffect
                 words={["End to End Web Service", "Full Stack Developer", "Creative Problem Solver"]}
-                className="text-gradient"
+                className="text-gradient-purple"
               />
             </div>
 
@@ -101,10 +101,21 @@ const HeroSection = () => {
 
           </motion.div>
 
-          <div className="w-full lg:w-2/4 h-[400px] md:h-[500px] lg:h-[600px]">
-            <Spline
-              scene="https://prod.spline.design/R0GvWogs8d1MaeXK/scene.splinecode"
-            />
+          {/* Hero Image */}
+          <div className="w-full lg:w-1/4 flex justify-center">
+            <motion.div
+              whileHover={{ rotate: [0, 3, -3, 0], scale: 1.05 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="relative w-52 h-52 md:w-80 md:h-80 rounded-full group"
+            >
+              <div className="absolute inset-0 rounded-full border-2 border-purple-500/30 animate-pulse group-hover:border-purple-500 transition duration-300" />
+              <img
+                src="./Yash.jpeg"
+                alt="Hero"
+                className="w-full h-full object-cover rounded-full shadow-xl ring-4 ring-purple-500/40 group-hover:ring-purple-500 transition duration-300"
+              />
+              <div className="absolute bottom-0 right-0 w-4 h-4 bg-purple-500 rounded-full shadow-md animate-ping" />
+            </motion.div>
           </div>
 
         </div>

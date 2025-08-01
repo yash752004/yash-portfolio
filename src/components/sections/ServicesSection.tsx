@@ -49,11 +49,8 @@ const ServicesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center ">
-            <span className="bg-gradient-to-br from-[#8b5cf6] to-[#8b5cf6] bg-clip-text text-transparent">
-              My
-            </span>{" "}
-            <span className="text-white">Services</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-6">
+            My Services
           </h2>
 
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -103,7 +100,7 @@ const ServicesSection = () => {
                         transition={{ delay: index * 0.2 + idx * 0.1, duration: 0.5 }}
                         className="flex items-center text-sm text-muted-foreground"
                       >
-                        <div className="w-2 h-2 rounded-full bg-primary mr-3" />
+                        <div className="w-2 h-2 rounded-full bg-glass mr-3" />
                         {feature}
                       </motion.div>
                     ))}
@@ -111,8 +108,8 @@ const ServicesSection = () => {
                 </div>
 
                 {/* Decorative elements */}
-                <div className="absolute top-4 right-4 w-20 h-20 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/10 transition-colors duration-500" />
-                <div className="absolute bottom-4 left-4 w-16 h-16 bg-primary-glow/5 rounded-full blur-lg group-hover:bg-primary-glow/10 transition-colors duration-500" />
+                <div className="absolute top-4 right-4 w-20 h-20 bg-glass/5 rounded-full blur-xl group-hover:bg-glass/10 transition-colors duration-500" />
+                <div className="absolute bottom-4 left-4 w-16 h-16 bg-glass-glow/5 rounded-full blur-lg group-hover:bg-glass-glow/10 transition-colors duration-500" />
               </div>
             </motion.div>
           ))}

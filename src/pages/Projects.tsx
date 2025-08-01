@@ -310,7 +310,7 @@ const Projects = () => {
             >
               <div className="flex">
                 {/* Left side - Details */}
-                <div className="flex-1 p-8 overflow-y-auto max-h-[90vh] flex items-center justify-center">
+                <div className="flex-1 p-8 overflow-y-auto max-h-[90vh] flex items-center text-white justify-center">
                   <div className="w-full max-w-xl">
                     <div className="flex items-center justify-between mb-6">
                       <h2 className="text-3xl font-bold text-gradient">
@@ -320,7 +320,7 @@ const Projects = () => {
                         variant="ghost"
                         size="sm"
                         onClick={closeProject}
-                        className="hover:bg-destructive/10 hover:text-destructive"
+                        className="hover:bg-destructive/10 hover:text-destructive "
                       >
                         <X className="w-5 h-5" />
                       </Button>
@@ -348,7 +348,7 @@ const Projects = () => {
                     {/* Links */}
                     <div className="flex gap-4">
                       {selectedProject.hasLiveLink && (
-                        <Button asChild className="bg-gradient-primary">
+                        <Button asChild className="bg-glass">
                           <a
                             href={selectedProject.liveLink}
                             target="_blank"

@@ -305,12 +305,12 @@ const Contact = () => {
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="bg-gradient-primary rounded-3xl p-8 text-center text-white relative overflow-hidden"
+                className="bg-glass rounded-3xl p-8 text-center text-white relative overflow-hidden"
               >
                 <div className="relative z-10">
                   <div className="text-4xl mb-4">🚀</div>
-                  <h4 className="text-lg font-bold mb-2">Let's Build Something Amazing!</h4>
-                  <p className="text-sm opacity-90">
+                  <h4 className="text-lg text-black  font-bold mb-2">Let's Build Something Amazing!</h4>
+                  <p className="text-sm text-black opacity-90">
                     Ready to transform your ideas into reality? I'm here to help!
                   </p>
                 </div>
