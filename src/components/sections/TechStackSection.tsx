@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import {
   SiHtml5, SiCss3, SiTailwindcss, SiWordpress, SiJavascript, SiTypescript,
   SiVite, SiNextdotjs, SiReact, SiMui, SiNodedotjs, SiExpress, SiMongodb

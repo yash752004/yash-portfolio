@@ -119,7 +119,7 @@ All colors MUST be HSL.
       radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
       radial-gradient(circle at 80% 20%, hsl(var(--primary-glow) / 0.1) 0%, transparent 50%),
       radial-gradient(circle at 40% 80%, hsl(var(--accent) / 0.1) 0%, transparent 50%); */
-
+    font-family: "Roboto Flex", sans-serif;
     @apply bg-gray-50;
   }
 

@@ -2,7 +2,7 @@ import HeroSection from "@/components/sections/HeroSection";
 import IntroductionSection from "@/components/sections/IntroductionSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import TechStackSection from "@/components/sections/TechStackSection";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { MovingBorder } from "@/components/ui/aceternity/moving-border";
 import Header from "@/components/Header";

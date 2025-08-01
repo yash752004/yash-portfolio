@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Smartphone, Globe, Cloud, Code, Database, Rocket, Code2 } from "lucide-react";
 import { Spotlight } from "../ui/spotlight-new";
 
