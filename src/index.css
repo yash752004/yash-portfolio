@@ -244,3 +244,32 @@ All colors MUST be HSL.
     transform: translateX(-50%);
   }
 }
+/* scroll reverse */
+@keyframes scroll-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* Scroll Bar */
+:root {
+  --gradient-primary: linear-gradient(135deg, #57ebde, #aefb2a);
+}
+
+/* Custom Scrollbar for Chrome/Edge/Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: var(--gradient-primary);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}

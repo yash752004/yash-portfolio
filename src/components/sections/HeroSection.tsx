@@ -16,8 +16,8 @@ const HeroSection = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <Spotlight fill="gradient" className="opacity-80" />
-        <BackgroundBeams />
+        <Spotlight fill="purple" />
+        {/* <BackgroundBeams /> */}
         <ShootingStars />
         <StarsBackground />
       </div>
@@ -32,17 +32,24 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="w-full lg:w-3/4"
+            className="w-full lg:w-3/4 "
           >
+
+
 
             {/* badge */}
             <div className="flex items-center gap-3 mb-4">
-              <div
-                className="flex items-center gap-2 px-3 py-1 rounded-full  bg-gradient-to-r from-[#a78bfa]/10 via-[#c084fc]/10 to-[#d8b4fe]/10"
-              >
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-[#57ebde]/10 via-[#85f0a9]/10 to-[#aefb2a]/10">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_4px_2px_#22c55e]" />
-                <span className="text-sm font-medium bg-gradient-to-r from-[#a78bfa] via-[#c084fc] to-[#d8b4fe] text-transparent bg-clip-text">
+                <span className="text-sm font-medium bg-gradient-to-r from-[#57ebde] via-[#85f0a9] to-[#aefb2a] text-transparent bg-clip-text">
                   Available for projects
+                </span>
+              </div>
+              {/* Badge 2: Open to collaborate */}
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-[#a78bfa]/10 via-[#c084fc]/10 to-[#f472b6]/10">
+                <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse shadow-[0_0_4px_2px_#c084fc]" />
+                <span className="text-sm font-medium bg-gradient-to-r from-[#a78bfa] via-[#c084fc] to-[#f472b6] text-transparent bg-clip-text">
+                  Open to collaborate
                 </span>
               </div>
             </div>
@@ -85,7 +92,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12"
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 "
             >
               {[
                 { icon: Zap, text: "Faster", color: "text-yellow-400", highlight: "group-hover:text-yellow-300" },
@@ -101,7 +108,7 @@ const HeroSection = () => {
                   className="group"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 cursor-pointer">
                     <item.icon
                       className={`w-6 h-6 ${item.color} group-hover:scale-110 transition-transform duration-300`}
                     />
@@ -125,14 +132,14 @@ const HeroSection = () => {
             >
 
               {/* Outer Neon Glow Border */}
-              <div className="absolute -inset-3 rounded-full border-2 border-purple-500 animate-pulse transition duration-300 pointer-events-none z-0 shadow-[0_0_20px_4px_rgba(168,85,247,0.6)] group-hover:shadow-[0_0_30px_8px_rgba(168,85,247,0.8)]" />
+              <div className="absolute -inset-3 rounded-full border-2 border-green-500 animate-pulse transition duration-300 pointer-events-none z-0 shadow-[0_0_20px_4px_rgba(133,240,169,0.6)] group-hover:shadow-[0_0_30px_8px_rgba(133,240,169,0.8)]" />
 
+              <div className="absolute top-0 left-0 w-4 h-4 bg-green-500 rounded-full shadow-md animate-ping" />
               <img
                 src="./Yash.jpeg"
                 alt="Hero"
-                className="w-full h-full object-cover rounded-full shadow-xl ring-4 ring-purple-500/40 group-hover:ring-purple-500 transition duration-300"
+                className="w-full h-full object-cover rounded-full shadow-xl ring-4 ring-green-500/40 group-hover:ring-green-500 transition duration-300"
               />
-              <div className="absolute bottom-0 right-0 w-4 h-4 bg-purple-500 rounded-full shadow-md animate-ping" />
 
             </motion.div>
 

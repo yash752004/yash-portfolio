@@ -9,6 +9,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import Spline from '@splinetool/react-spline';
+import { Button } from "@/components/ui/button";
+import { Send } from "lucide-react";
 
 const Index = () => {
   return (
@@ -16,8 +18,8 @@ const Index = () => {
       <Header />
       <main>
         <HeroSection />
-        <IntroductionSection />
         <ServicesSection />
+        <IntroductionSection />
         <TechStackSection />
 
 
@@ -32,25 +34,30 @@ const Index = () => {
               {/* LEFT - Text Content */}
               <div className="w-full lg:w-1/2 text-center lg:text-left">
                 <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6">
-                  <span className="bg-gradient-to-br from-[#8b5cf6] to-[#a855f7] bg-clip-text text-transparent">
+                  <span className=" text-gray-900 ">
                     Ready to take your
                   </span>{" "}
                   <span className="text-white">project to the next level?</span>
                 </h2>
-                <p className="text-xl text-muted-foreground text-white mb-8 max-w-xl">
+                <p className="text-xl  text-muted-foreground text-white mb-8 max-w-xl">
                   Let's discuss your project and bring your ideas to life with cutting-edge technology and exceptional quality.
                 </p>
                 <Link to="/contact">
-                  <MovingBorder className="hover:scale-105 transition-all duration-300">
-                    <span className="text-lg font-semibold text-primary px-4 py-2">
+                  <Button
+                    type="submit"
+                    className="bg-[#57ebde]  hover:shadow-glow text-lg py-6 rounded-xl cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                  >
+
+                    <div className="flex items-center text-white gap-2">
+                      <Send className="w-5 h-5" />
                       Contact Me
-                    </span>
-                  </MovingBorder>
+                    </div>
+                  </Button>
                 </Link>
               </div>
 
               {/* RIGHT - Spline Model */}
-              <div className="w-full lg:w-1/2 h-[400px] lg:h-[500px]">
+              <div className="hidden lg:block w-full lg:w-1/2 h-[400px] lg:h-[500px]">
                 <Spline scene="https://prod.spline.design/R0GvWogs8d1MaeXK/scene.splinecode" />
               </div>
             </motion.div>

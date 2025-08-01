@@ -65,9 +65,29 @@ const TechStackSection = () => {
           {/* Infinite scroll animation */}
           <div className="relative overflow-hidden">
             <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
-              {[...techStack, ...techStack].map((tech, index) => (
+              {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, index) => (
                 <motion.div
                   key={`tech-${index}`}
+                  className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                >
+                  <tech.icon
+                    className="w-6 h-6 mr-3"
+                    style={{ color: tech.color }}
+                  />
+                  <span className="text-base font-semibold whitespace-nowrap">
+                    {tech.name}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden mt-4">
+            <div className="flex animate-[scroll-reverse_20s_linear_infinite] whitespace-nowrap">
+              {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, index) => (
+                <motion.div
+                  key={`tech-reverse-${index}`}
                   className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"
                   whileHover={{ scale: 1.05, y: -2 }}
                 >

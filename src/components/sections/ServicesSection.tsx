@@ -7,14 +7,14 @@ const ServicesSection = () => {
 
     {
       icon: Globe,
-      title: "Web App Developer",
+      title: "Web App Development",
       description: "Modern, responsive web applications using cutting-edge technologies. From simple websites to complex enterprise solutions.",
       features: ["React/Next.js", "Vue.js", "TypeScript", "Progressive Web Apps", "Responsive Design", "SEO Optimization"],
       color: "from-green-500 to-blue-500",
     },
     {
       icon: Code2,
-      title: "CMS Developer",
+      title: "CMS Development",
       description:
         "Custom and headless CMS solutions for scalable, content-driven websites. Empower teams with easy content management workflows.",
       features: ["WordPress", "Sanity.io", "Strapi", "Contentful", "Headless CMS"],
@@ -22,7 +22,7 @@ const ServicesSection = () => {
     },
     // {
     //   icon: Smartphone,
-    //   title: "Mobile App Developer",
+    //   title: "Mobile App Development",
     //   description: "Native and cross-platform mobile applications with React Native and Flutter. Creating intuitive user experiences for iOS and Android platforms.",
     //   features: ["React Native", "Flutter", "iOS Development", "Android Development"],
     //   color: "from-blue-500 to-purple-600",
@@ -30,10 +30,31 @@ const ServicesSection = () => {
 
     {
       icon: Cloud,
-      title: "Cloud Developer",
+      title: "Cloud Development",
       description: "Scalable cloud infrastructure and serverless applications. Expertise in AWS, Google Cloud, and Azure for robust deployments.",
       features: ["AWS/Azure/GCP", "Serverless Architecture", "DevOps", "CI/CD Pipelines", "Microservices", "Containerization"],
       color: "from-purple-500 to-pink-500",
+    },
+    {
+      icon: Database,
+      title: "Database Development",
+      description: "Database design, optimization, and management for high-performance applications. Expertise in SQL and NoSQL databases.",
+      features: ["MongoDB", "PostgreSQL", "MySQL", "Firebase", "Database Optimization", "Data Migration"],
+      color: "from-red-500 to-pink-500",
+    },
+    {
+      icon: Rocket,
+      title: "Full Stack Development",
+      description: "End-to-end development solutions covering both frontend and backend. Building robust, scalable applications with modern tech stacks.",
+      features: ["MERN Stack", "MEAN Stack", "LAMP Stack", "GraphQL APIs", "RESTful Services"],
+      color: "from-teal-500 to-cyan-500",
+    },
+    {
+      icon: Code,
+      title: "API Development",
+      description: "Custom API development for seamless integration and data exchange. Building secure, scalable APIs for web and mobile applications.",
+      features: ["RESTful APIs", "GraphQL", "API Documentation", "Authentication/Authorization", "Rate Limiting"],
+      color: "from-indigo-500 to-blue-600",
     },
   ];
 

@@ -64,13 +64,46 @@ export const BackgroundBeamsWithCollision = ({
             delay: 2,
             className: "h-6",
         },
+        {
+            initialX: 1400,
+            translateX: 1400,
+            duration: 5,
+            repeatDelay: 3,
+            delay: 1,
+            className: "h-8",
+        },
+        {
+            initialX: 1600,
+            translateX: 1600,
+            duration: 5,
+            repeatDelay: 3,
+            delay: 1,
+            className: "h-8",
+        },
+        {
+            initialX: 1800,
+            translateX: 1800,
+            duration: 5,
+            repeatDelay: 3,
+            delay: 1,
+            className: "h-10",
+        },
+        {
+            initialX: 2000,
+            translateX: 2000,
+            duration: 5,
+            repeatDelay: 3,
+            delay: 1,
+            className: "h-12",
+        },
     ];
 
     return (
         <div
             ref={parentRef}
-            className={cn(
-                "h-96 md:h-[40rem] bg-gradient-to-b from-[#0f0f1a] via-[#151530] to-[#1a1a2e] relative flex items-center w-full justify-center overflow-hidden",
+                className={cn(
+                    "h-96 md:h-[40rem] bg-gradient-to-b from-[#57ebde] via-[#85f0a9] to-[#aefb2a]  relative flex items-center w-full justify-center overflow-hidden",
+                // "h-96 md:h-[40rem] bg-gradient-to-b from-[#0f0f1a] via-[#151530] to-[#1a1a2e]  relative flex items-center w-full justify-center overflow-hidden",
                 className
             )}
 
@@ -200,9 +233,11 @@ const CollisionMechanism = React.forwardRef<
                     repeatDelay: beamOptions.repeatDelay || 0,
                 }}
                 className={cn(
-                    "absolute left-0 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent",
+                    "absolute left-0 top-20 m-auto h-14 w-px rounded-full bg-white",
                     beamOptions.className
                 )}
+
+
             />
             <AnimatePresence>
                 {collision.detected && collision.coordinates && (
@@ -251,7 +286,7 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
                         opacity: 0,
                     }}
                     transition={{ duration: Math.random() * 1.5 + 0.5, ease: "easeOut" }}
-                    className="absolute h-1 w-1 rounded-full bg-gradient-to-b from-indigo-500 to-purple-500"
+                    className="absolute h-1 w-1 rounded-full bg-white"
                 />
             ))}
         </div>
