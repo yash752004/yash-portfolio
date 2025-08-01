@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 // import { WorldMapDemo } from "@/components/sections/WorkmapComponent";
 import emailjs from 'emailjs-com';
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -108,39 +109,60 @@ const Contact = () => {
       <Header />
 
       <main className="pt-24 pb-20 relative overflow-hidden">
-        <BackgroundBeams />
+        {/* <BackgroundBeams /> */}
+        <div className="container mx-auto px-6 py-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-full">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex flex-col justify-center mb-16"
+            >
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-6">
+                  Get In Touch
+                </h1>
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                  Ready to start your next project? Let's discuss how I can help bring your ideas to life.
+                </p>
+                <motion.div
+                  animate={{
+                    rotate: [0, 5, -5, 0],
+                    scale: [1, 1.05, 1]
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="rounded-3xl shadow-md p-8 text-center text-white relative overflow-hidden"
+                >
+                  <div className="relative z-10">
+                    <div className="text-4xl mb-4">🚀</div>
+                    <h4 className="text-lg text-black  font-bold mb-2">Let's Build Something Amazing!</h4>
+                    <p className="text-sm text-black opacity-90">
+                      Ready to transform your ideas into reality? I'm here to help!
+                    </p>
+                  </div>
 
-        <div className="container mx-auto px-6 relative z-10">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-6">
-              Get In Touch
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Ready to start your next project? Let's discuss how I can help bring your ideas to life.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Left side - Contact Form */}
+                  {/* Background decoration */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
+                  <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl" />
+                  <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/5 rounded-full blur-lg" />
+                </motion.div>
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              <div className="bg-glass backdrop-blur-xl rounded-3xl p-8 border">
-                <h2 className="text-2xl font-bold mb-6">Send me a message</h2>
+              <div className="rounded-3xl bg-white shadow-lg p-8">
+                <h2 className="text-2xl font-bold mb-6">Tell me your Thoughts</h2>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name */}
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      Name *
+                      Name<span className="text-red-500">*</span>
                     </label>
                     <Input
                       id="name"
@@ -149,15 +171,15 @@ const Contact = () => {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      placeholder="Your full name"
-                      className="focus:border-primary/50"
+                      placeholder="Your Name"
+                      className="input-focus"
                     />
                   </div>
 
                   {/* Email */}
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      Email *
+                      Email<span className="text-red-500">*</span>
                     </label>
                     <Input
                       id="email"
@@ -166,15 +188,15 @@ const Contact = () => {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="your.email@example.com"
-                      className="focus:border-primary/50"
+                      placeholder="Your Email"
+                      className="input-focus"
                     />
                   </div>
 
                   {/* Message */}
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Message *
+                      Message
                     </label>
                     <Textarea
                       id="message"
@@ -182,9 +204,9 @@ const Contact = () => {
                       required
                       value={formData.message}
                       onChange={handleInputChange}
-                      placeholder="Tell me about your project..."
+                      placeholder="Your Thoughts, Project Ideas or Questions..."
                       rows={6}
-                      className="focus:border-primary/50 resize-none"
+                      className="input-focus resize-none"
                     />
                   </div>
 
@@ -194,17 +216,12 @@ const Contact = () => {
                       id="terms"
                       checked={formData.acceptTerms}
                       onCheckedChange={handleCheckboxChange}
-                      className="mt-1"
+                      className="mt-1 input-focus"
                     />
-                    <label htmlFor="terms" className="text-sm text-muted-foreground leading-relaxed">
+                    <label htmlFor="terms" className="text-sm leading-relaxed">
                       I accept the{" "}
-                      <a
-                        href="/terms"
-                        className="text-primary hover:text-primary-glow underline transition-colors"
-                      >
-                        terms and conditions
-                      </a>
-                      {" "}and understand that my information will be used to respond to my inquiry.
+                      <Link to="/terms" className="text-primary underline input-focus">Terms & Condition</Link>
+                      {" "}and <Link to="/privacy" className="text-primary underline input-focus">Privacy Policy</Link>.
                     </label>
                   </div>
 
@@ -212,7 +229,7 @@ const Contact = () => {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient hover:shadow-glow text-lg py-6 rounded-xl"
+                    className="w-full bg-gradient-repeat scroll text-lg py-6 rounded-xl"
                   >
                     {isSubmitting ? (
                       <div className="flex items-center gap-2">
@@ -230,7 +247,6 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            {/* Right side - Contact Info & Visual */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -295,35 +311,11 @@ const Contact = () => {
               </div>
 
               {/* Fun Visual Element */}
-              <motion.div
-                animate={{
-                  rotate: [0, 5, -5, 0],
-                  scale: [1, 1.05, 1]
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="bg-glass rounded-3xl p-8 text-center text-white relative overflow-hidden"
-              >
-                <div className="relative z-10">
-                  <div className="text-4xl mb-4">🚀</div>
-                  <h4 className="text-lg text-black  font-bold mb-2">Let's Build Something Amazing!</h4>
-                  <p className="text-sm text-black opacity-90">
-                    Ready to transform your ideas into reality? I'm here to help!
-                  </p>
-                </div>
-
-                {/* Background decoration */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
-                <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-xl" />
-                <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/5 rounded-full blur-lg" />
-              </motion.div>
+              
             </motion.div>
           </div>
         </div>
-        <BackgroundBeams />
+        {/* <BackgroundBeams /> */}
       </main>
       {/* <WorldMapDemo /> */}
       <Footer />

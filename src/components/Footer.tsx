@@ -1,50 +1,46 @@
 import { motion } from "motion/react";
-import { Github, Linkedin, Heart } from "lucide-react";
+import { Github, Linkedin, Heart, Mail, Phone } from "lucide-react";
 
 const Footer = () => {
+  var contactDetails = {
+    name: "Yash Patel",
+    phone: "+123456",
+    email: "yashpatel.dev01@gmail.com",
+    github: "https://github.com/yash752004",
+    linkedin: "https://www.linkedin.com/in/yash-patel-18a93a230/",
+  };
+
   return (
     <motion.footer
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="bg-card/50 backdrop-blur-xl border-t "
+      className="bg-card/50 border-t"
     >
       <div className="container mx-auto px-6 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          {/* Left - Copyright */}
-          <div className="flex items-center gap-2 text-muted-foreground text-sm mb-4 md:mb-0">
-            <span>Developed by</span>
-            <span className="text-primary font-semibold">Yash Patel</span>
+        <div className="flex flex-col md:flex-row justify-between text-gray-600">
+          <div className="flex flex-col gap-4">
+            <div className="text-sm">Developed by</div>
+            <div className="flex flex-col">
+              <p className="text-xl font-semibold text-gray-950">{contactDetails.name}</p>
+              <p>{contactDetails.phone}</p>
+              <p>{contactDetails.email}</p>
+            </div>
+            <div className="flex gap-4">
+              <a href={contactDetails.github} target="_blank" className="hover:bg-gradient"><Github className="w-5 h-5" /></a>
+              <a href={contactDetails.linkedin} target="_blank" className="hover:bg-gradient"><Linkedin className="w-5 h-5" /></a>
+            </div>
           </div>
-
-          {/* Center - Copyright */}
-          <div className="text-muted-foreground text-sm mb-4 md:mb-0">
-            @ {new Date().getFullYear()} All rights reserved
-          </div>
-
-          {/* Right - Social Links */}
-          <div className="flex items-center gap-4">
-            <motion.a
-              href="https://github.com/yash752004"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-2 bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-300 text-primary hover:shadow-lg hover:shadow-primary/25"
-            >
-              <Github className="w-5 h-5" />
-            </motion.a>
-            <motion.a
-              href="https://www.linkedin.com/in/yash-patel-18a93a230/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-2 bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-300 text-primary hover:shadow-lg hover:shadow-primary/25"
-            >
-              <Linkedin className="w-5 h-5" />
-            </motion.a>
-          </div>
+          <div className="flex flex-col gap-2">
+              <a href={contactDetails.linkedin} target="_blank" className="hover:underline hover:text-gray-950">About</a>
+              <a href={contactDetails.linkedin} target="_blank" className="hover:underline hover:text-gray-950">Portfolio</a>
+              <a href={contactDetails.linkedin} target="_blank" className="hover:underline hover:text-gray-950">Contact</a>
+              <a href={contactDetails.github} target="_blank" className="hover:underline hover:text-gray-950">Terms & Conditions</a>
+              <a href={contactDetails.linkedin} target="_blank" className="hover:underline hover:text-gray-950">Privacy Policy</a>
+            </div>
+        </div>
+        <div className="container mx-auto text-center mt-6 text-gray-500">
+          &copy; 2025 All rights reserved.
         </div>
       </div>
     </motion.footer>

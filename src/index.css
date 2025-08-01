@@ -39,9 +39,15 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
+    --primary-1: #57ebde;
+    --primary-2: #aefb2a;
+    /* --primary-solid: rgb(43 240 139); */
+    --primary-solid: #05d168;
+
     /* Premium gradients */
     /* --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow))); */
-    --gradient-primary: linear-gradient(135deg, #57ebde, #aefb2a);
+    --gradient-primary: linear-gradient(135deg, var(--primary-1), var(--primary-2));
+    --gradient-primary-repeat: linear-gradient(135deg, var(--primary-1), var(--primary-2), var(--primary-1));
     --gradient-purple: linear-gradient(135deg, #a78bfa, #c084fc, #d8b4fe);
     --gradient-blue: linear-gradient(135deg, #3b82f6, #6366f1, #8b5cf6);
     --gradient-cosmic: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
@@ -129,6 +135,41 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  .navbar-block {
+    @apply fixed top-0 left-0 right-0 h-16 z-50;
+  }
+
+  .navbar-block nav {
+    @apply container w-full h-full mx-auto hidden md:flex;
+  }
+
+  .navbar-block nav .link {
+    @apply px-4 py-2 rounded-full;
+
+    &.active {
+      @apply text-white bg-(--primary-solid) shadow-lg;
+    }
+
+    &:not(.active):hover {
+      background: var(--gradient-primary-repeat);
+      background-size: 200% 200%;
+      animation: bg-scroll-x 0.8s linear infinite;
+    }
+  }
+
+  .navbar-block nav .theme-btn {
+    @apply flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors;
+    
+    div {
+      @apply w-0 overflow-clip text-start h-6 line-break;
+      transition: width 2s linear;
+    }
+
+    &:hover div {
+      @apply w-full;
+    }
+  }
+
   .text-gradient {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -146,10 +187,20 @@ All colors MUST be HSL.
     background: var(--gradient-primary);
   }
 
+  .bg-gradient-repeat{
+    background: var(--gradient-primary-repeat);
+    background-size: 200% 200%;
+
+    &.scroll:hover {
+      animation: bg-scroll-x 0.8s linear infinite;
+    }
+  }
+
   .bg-glass {
     /* background: rgba(255, 255, 255, 0.05); */
     background: rgb(101 101 101 / 5%);
-    backdrop-filter: blur(10px);
+    /* @apply bg-(--primary-1)/[2%]; */
+    backdrop-filter: blur(6px);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
@@ -168,6 +219,23 @@ All colors MUST be HSL.
   .animate-fade-in {
     animation: fadeIn 0.8s ease-out;
   }
+
+  .input-checkbox {
+    @apply h-4 w-4 shrink-0 rounded-sm border-1 border-black disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .input-focus {
+    &:focus-visible {
+      @apply outline-none ring-(--primary-solid) ring-4 rounded-sm;
+    }
+  }
+
+}
+
+@keyframes bg-scroll-x {
+  0% { background-position-x: 0%; }
+  50% { background-position-x: -100%; }
+  100% { background-position-x: -200%; }
 }
 
 @keyframes float {

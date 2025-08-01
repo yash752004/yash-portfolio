@@ -24,21 +24,12 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <motion.header
-      className="fixed top-0 left-0 right-0 z-50 bg-glass backdrop-blur-xl border-b"
-    >
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Desktop Navigation - Centered */}
-          <nav className="hidden md:flex items-center space-x-8 mx-auto">
+    <div className="navbar-block bg-glass">
+      <nav>
+        <div className="w-full flex justify-between">
+          <div className="flex items-center gap-8">
             {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`relative flex items-center gap-2 px-4 py-2 text-base  font-semibold transition-all duration-300 hover:text-primary ${isActive(item.path) ? "text-primary" : "text-muted-foreground"
-                  }`}
-              >
-                <item.icon size={16} />
+              <Link key={item.name} to={item.path} className={`link ${isActive(item.path) ? "active" : "hover:bg-gradient-repeat hover:scroll"}`}>
                 {item.name}
                 {isActive(item.path) && (
                   <motion.div
@@ -50,10 +41,24 @@ const Header = () => {
                 )}
               </Link>
             ))}
-
-          </nav>
-
-
+          </div>
+          <div className="h-full flex items-center">
+            {theme === "dark"
+              ? <button onClick={() => setTheme("light")} className="theme-btn">
+                <Moon size={24} />
+                <div>Dark Mode</div>
+              </button>
+              :
+              <button onClick={() => setTheme("dark")} className="theme-btn">
+                <Sun size={24} />
+                <div>Light Mode</div>
+              </button>
+            }
+          </div>
+        </div>
+      </nav>
+      <div className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
 
           {/* Mobile Menu Button */}
           <button
@@ -83,7 +88,7 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            {/* <div className="mt-4 pt-4 border-t">
+            <div className="mt-4 pt-4 border-t">
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
@@ -91,11 +96,11 @@ const Header = () => {
                 {mounted && (theme === "dark" ? <Sun size={18} /> : <Moon size={18} />)}
                 {mounted && (theme === "dark" ? "Light Mode" : "Dark Mode")}
               </button>
-            </div> */}
+            </div>
           </motion.nav>
         )}
       </div>
-    </motion.header>
+    </div>
   );
 };
 
