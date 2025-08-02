@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import {
   SiHtml5, SiCss3, SiTailwindcss, SiWordpress, SiJavascript, SiTypescript,
-  SiVite, SiNextdotjs, SiReact, SiMui, SiNodedotjs, SiExpress, SiMongodb
+  SiVite, SiNextdotjs, SiReact, SiMui, SiNodedotjs, SiExpress, SiMongodb, SiRedux,
+  SiMysql,
 } from "react-icons/si";
 import {
   SiGithub, SiFigma, SiPostman, SiDocker,
@@ -9,6 +10,7 @@ import {
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 import { BackgroundBeams } from "@/components/ui/aceternity/background-beams";
+import { BackgroundBeamsWithCollision } from "../ui/background-beams-with-collision";
 
 const TechStackSection = () => {
   const techStack = [
@@ -21,10 +23,37 @@ const TechStackSection = () => {
     { name: "Vite", icon: SiVite, color: "#646CFF" },
     { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
     { name: "React", icon: SiReact, color: "#61DAFB" },
+    { name: "Redux", icon: SiRedux, color: "#764ABC" },
     { name: "Material UI", icon: SiMui, color: "#007FFF" },
     { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
     { name: "Express", icon: SiExpress, color: "#000000" },
     { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+    { name: "MongoDB Atlas", icon: SiMongodb, color: "#00ED64" },
+    { name: "SQL", icon: SiMysql, color: "#00758F" },
+    { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+    { name: "AWS", icon: SiAmazon, color: "#FF9900" },
+    { name: "Vercel", icon: SiVercel, color: "#000000" },
+  ];
+  const techStack2 = [
+    { name: "Material UI", icon: SiMui, color: "#007FFF" },
+    { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+    { name: "Express", icon: SiExpress, color: "#000000" },
+    { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+    { name: "MongoDB Atlas", icon: SiMongodb, color: "#00ED64" },
+    { name: "SQL", icon: SiMysql, color: "#00758F" },
+    { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+    { name: "AWS", icon: SiAmazon, color: "#FF9900" },
+    { name: "Vercel", icon: SiVercel, color: "#000000" },
+    { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+    { name: "CSS", icon: SiCss3, color: "#1572B6" },
+    { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+    { name: "WordPress", icon: SiWordpress, color: "#21759B" },
+    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+    { name: "Vite", icon: SiVite, color: "#646CFF" },
+    { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+    { name: "React", icon: SiReact, color: "#61DAFB" },
+    { name: "Redux", icon: SiRedux, color: "#764ABC" },
   ];
 
   const tools = [
@@ -41,76 +70,73 @@ const TechStackSection = () => {
 
   return (
     <section id="tech-stack" className="relative py-20 overflow-hidden">
-      {/* Background Effects */}
-      {/* <div className="absolute inset-0 opacity-30">
-        <BackgroundBeams />
-      </div> */}
 
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Tech Stack */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
-            Tech Stack
-          </h2>
+      <BackgroundBeamsWithCollision>
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Tech Stack */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Tech Stack
+            </h2>
 
-          <p className="text-xl text-muted-foreground mb-12">
-            Technologies I work with
-          </p>
+            <p className="text-xl text-muted-foreground mb-12">
+              Technologies I work with
+            </p>
 
-          {/* Infinite scroll animation */}
-          <div className="relative overflow-hidden">
-            <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
-              {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, index) => (
-                <motion.div
-                  key={`tech-${index}`}
-                  className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                >
-                  <tech.icon
-                    className="w-6 h-6 mr-3"
-                    style={{ color: tech.color }}
-                  />
-                  <span className="text-base font-semibold whitespace-nowrap">
-                    {tech.name}
-                  </span>
-                </motion.div>
-              ))}
+            {/* Infinite scroll animation */}
+            <div className="relative overflow-hidden">
+              <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
+                {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, index) => (
+                  <motion.div
+                    key={`tech-${index}`}
+                    className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                  >
+                    <tech.icon
+                      className="w-6 h-6 mr-3"
+                      style={{ color: tech.color }}
+                    />
+                    <span className="text-base font-semibold whitespace-nowrap">
+                      {tech.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div className="relative overflow-hidden mt-4">
-            <div className="flex animate-[scroll-reverse_20s_linear_infinite] whitespace-nowrap">
-              {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, index) => (
-                <motion.div
-                  key={`tech-reverse-${index}`}
-                  className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                >
-                  <tech.icon
-                    className="w-6 h-6 mr-3"
-                    style={{ color: tech.color }}
-                  />
-                  <span className="text-base font-semibold whitespace-nowrap">
-                    {tech.name}
-                  </span>
-                </motion.div>
-              ))}
+            <div className="relative overflow-hidden mt-4">
+              <div className="flex animate-[scroll-reverse_20s_linear_infinite] whitespace-nowrap">
+                {[...techStack2, ...techStack2, ...techStack2, ...techStack2].map((tech, index) => (
+                  <motion.div
+                    key={`tech-reverse-${index}`}
+                    className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                  >
+                    <tech.icon
+                      className="w-6 h-6 mr-3"
+                      style={{ color: tech.color }}
+                    />
+                    <span className="text-base font-semibold whitespace-nowrap">
+                      {tech.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
 
 
 
 
 
 
-        {/* Tools Stack */}
-        {/* <motion.div
+          {/* Tools Stack */}
+          {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -147,8 +173,8 @@ const TechStackSection = () => {
           </div>
 
         </motion.div> */}
-      </div>
-
+        </div>
+      </BackgroundBeamsWithCollision>
     </section>
   );
 };

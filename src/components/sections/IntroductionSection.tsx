@@ -37,8 +37,13 @@ import ecommerse3 from "../../Assets/Ecommerse/3.png";
 import ecommerse4 from "../../Assets/Ecommerse/4.png";
 import ecommerse5 from "../../Assets/Ecommerse/5.png";
 import ecommerse6 from "../../Assets/Ecommerse/6.png";
+import { Send } from "lucide-react";
+import { Button } from "../ui/button";
+import { useNavigate } from 'react-router-dom';
+
 
 const IntroductionSection = () => {
+  const navigate = useNavigate();
 
   const images = [
 
@@ -107,7 +112,7 @@ const IntroductionSection = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-           className="text-lg md:text-xl leading-relaxed text-[hsl(var(--black))] space-y-6"
+            className="text-lg md:text-xl leading-relaxed text-[hsl(var(--black))] space-y-6"
 
           >
             <p>
@@ -144,9 +149,43 @@ const IntroductionSection = () => {
         </motion.div>
 
         {/* Right: Marquee */}
-        <div className="w-full lg:w-1/2">
-          <ThreeDMarquee images={shuffledImages} />
+        <div className="w-full lg:w-1/2 relative  h-full overflow-hidden text-white  rounded-[15px]">
+
+          {/* Background Marquee */}
+          <div className="absolute inset-0 h-full w-full z-0">
+            <ThreeDMarquee images={shuffledImages} />
+          </div>
+
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-neutral-800 to-black opacity-45 z-5" />
+
+          {/* Foreground Content - Centered */}
+          <div className="relative z-10 p-6 h-80vh flex justify-center items-center" style={{height: '80vh'}}>
+            <div className="flex flex-col items-center text-white max-w-xl text-center">
+              <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6">
+                <span>Ready to take your </span>
+                <span className="text-gradient">project to the next level?</span>
+              </h2>
+
+              <p className="text-xl mb-8 max-w-xl text-white/80">
+                Let's discuss your project and bring your ideas to life with cutting-edge technology and exceptional quality.
+              </p>
+
+              <Button
+                type="submit"
+                className="bg-[#57ebde] hover:shadow-glow text-lg py-6 rounded-xl cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                onClick={() => navigate('/contact')}
+              >
+                <div className="flex items-center text-white gap-2">
+                  <Send className="w-5 h-5" />
+                  Contact Me
+                </div>
+              </Button>
+            </div>
+          </div>
         </div>
+ 
+
 
       </div>
 

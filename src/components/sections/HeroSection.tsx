@@ -2,25 +2,27 @@ import { motion } from "framer-motion";
 import { Sparkles, ArrowDown, Code, Zap, Shield, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TypewriterEffect } from "@/components/ui/aceternity/typewriter-effect";
-import { Spotlight } from "@/components/ui/aceternity/spotlight";
-import { BackgroundBeams } from "@/components/ui/background-beams";
-import { ShootingStars } from "../ui/shooting-stars";
-import { StarsBackground } from "../ui/stars-background";
+// import { Spotlight } from "@/components/ui/aceternity/spotlight";
+// import { BackgroundBeams } from "@/components/ui/background-beams";
+// import { ShootingStars } from "../ui/shooting-stars";
+// import { StarsBackground } from "../ui/stars-background";
+import ProfileCard from "../ui/ProfileCard";
+import { useNavigate } from "react-router-dom";
 // import FeatureSlider from "./FeatureSection";
 
 const HeroSection = () => {
-
+  const navigate = useNavigate();
 
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+
       {/* Background Effects */}
-      <div className="absolute inset-0">
-        <Spotlight fill="purple" />
-        {/* <BackgroundBeams /> */}
+      {/* <div className="absolute inset-0">
+        <BackgroundBeams />
         <ShootingStars />
         <StarsBackground />
-      </div>
+      </div> */}
 
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
@@ -34,7 +36,6 @@ const HeroSection = () => {
             transition={{ duration: 0.8 }}
             className="w-full lg:w-3/4 "
           >
-
 
 
             {/* badge */}
@@ -124,22 +125,36 @@ const HeroSection = () => {
           </motion.div>
 
           {/* Hero Image */}
-          <div className="w-full lg:w-1/4 flex justify-center">
+          <div className="hidden lg:flex w-full lg:w-1/4 flex justify-center">
             <motion.div
               whileHover={{ rotate: [0, 3, -3, 0], scale: 1.05 }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="relative w-52 h-52 md:w-80 md:h-80 rounded-full group"
+              className="relative w-52 h-52 md:w-80 md:h-80 rounded-full group "
             >
 
               {/* Outer Neon Glow Border */}
-              <div className="absolute -inset-3 rounded-full border-2 border-green-500 animate-pulse transition duration-300 pointer-events-none z-0 shadow-[0_0_20px_4px_rgba(133,240,169,0.6)] group-hover:shadow-[0_0_30px_8px_rgba(133,240,169,0.8)]" />
+              {/* <div className="absolute -inset-3 rounded-full border-2 border-green-500 animate-pulse transition duration-300 pointer-events-none z-0 shadow-[0_0_20px_4px_rgba(133,240,169,0.6)] group-hover:shadow-[0_0_30px_8px_rgba(133,240,169,0.8)]" /> */}
 
-              <div className="absolute top-0 left-0 w-4 h-4 bg-green-500 rounded-full shadow-md animate-ping" />
-              <img
+              {/* <div className="absolute top-0 left-0 w-4 h-4 bg-green-500 rounded-full shadow-md animate-ping" /> */}
+              {/* <img
                 src="./Yash.jpeg"
                 alt="Hero"
                 className="w-full h-full object-cover rounded-full shadow-xl ring-4 ring-green-500/40 group-hover:ring-green-500 transition duration-300"
+              /> */}
+
+              <ProfileCard
+                name="Yash Patel"
+                title="Software Engineer"
+                handle="yashpatel"
+                status="Online"
+                contactText="Contact Me"
+                avatarUrl="./yash png 2.png"
+                showUserInfo={true}
+                enableTilt={true}
+                enableMobileTilt={false}
+                onContactClick={() => navigate('/contact')}
               />
+
 
             </motion.div>
 

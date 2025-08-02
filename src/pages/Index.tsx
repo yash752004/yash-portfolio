@@ -11,8 +11,11 @@ import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-w
 import Spline from '@splinetool/react-spline';
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
-
+import ProfileCard from "@/components/ui/ProfileCard";
+import { useNavigate } from 'react-router-dom';
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -23,47 +26,6 @@ const Index = () => {
         <TechStackSection />
 
 
-        <BackgroundBeamsWithCollision>
-          <section className="py-20">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12"
-            >
-              {/* LEFT - Text Content */}
-              <div className="w-full lg:w-1/2 text-center lg:text-left">
-                <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6">
-                  <span className=" text-gray-900 ">
-                    Ready to take your
-                  </span>{" "}
-                  <span className="text-white">project to the next level?</span>
-                </h2>
-                <p className="text-xl  text-muted-foreground text-white mb-8 max-w-xl">
-                  Let's discuss your project and bring your ideas to life with cutting-edge technology and exceptional quality.
-                </p>
-                <Link to="/contact">
-                  <Button
-                    type="submit"
-                    className="bg-[#57ebde]  hover:shadow-glow text-lg py-6 rounded-xl cursor-pointer transform transition-transform duration-300 hover:scale-105"
-                  >
-
-                    <div className="flex items-center text-white gap-2">
-                      <Send className="w-5 h-5" />
-                      Contact Me
-                    </div>
-                  </Button>
-                </Link>
-              </div>
-
-              {/* RIGHT - Spline Model */}
-              <div className="hidden lg:block w-full lg:w-1/2 h-[400px] lg:h-[500px]">
-                <Spline scene="https://prod.spline.design/R0GvWogs8d1MaeXK/scene.splinecode" />
-              </div>
-            </motion.div>
-          </section>
-
-        </BackgroundBeamsWithCollision>
       </main>
       <Footer />
     </div>
