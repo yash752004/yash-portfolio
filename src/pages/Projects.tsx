@@ -189,29 +189,24 @@ const Projects = () => {
       <StarsBackground />
         <div className="container mx-auto px-6 ">
           {/* Header */}
-          
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
+
+          <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-6">
               My Projects
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               A showcase of my recent work and the technologies I've mastered
             </p>
-          </motion.div>
+          </div>
 
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto z-10000">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.6 }}
+                // initial={{ opacity: 0, y: 50 }}
+                // animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group cursor-pointer"
               >

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Sparkles, ArrowDown, Code, Zap, Shield, Globe } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Sparkles,  Code, Zap, Shield, Globe } from "lucide-react";
+// import { Button } from "@/components/ui/button";
 import { TypewriterEffect } from "@/components/ui/aceternity/typewriter-effect";
 // import { Spotlight } from "@/components/ui/aceternity/spotlight";
 // import { BackgroundBeams } from "@/components/ui/background-beams";
@@ -30,12 +30,7 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center mt-20">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="w-full lg:w-3/4 "
-          >
+          <div className="w-full lg:w-3/4 " >
 
 
             {/* badge */}
@@ -56,26 +51,16 @@ const HeroSection = () => {
             </div>
 
             {/* Greeting */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="flex items-center  gap-2 text-lg  md:text-xl text-muted-foreground mb-4 text-left"
-            >
+            <p className="flex items-center  gap-2 text-lg  md:text-xl text-muted-foreground mb-4 text-left" >
               <Sparkles className=" h-6 w-6 animate-glow" />
               Hi There!
-            </motion.p>
+            </p>
 
             {/* Name */}
-            <motion.h1
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-left"
-            >
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-left">
               <span className="">I'M</span>{" "}
               <span className="text-gradient">Yash Patel</span>
-            </motion.h1>
+            </h1>
 
             {/* Animated subtitle */}
             <div className="text-xl md:text-4xl lg:text-5xl font-semibold mb-8 text-left">
@@ -89,12 +74,7 @@ const HeroSection = () => {
             </div>
 
             {/* Features */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 "
-            >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 ">
               {[
                 { icon: Zap, text: "Faster", color: "text-yellow-400", highlight: "group-hover:text-yellow-300" },
                 { icon: Shield, text: "Reliable", color: "text-green-400", highlight: "group-hover:text-green-300" },
@@ -103,8 +83,6 @@ const HeroSection = () => {
               ].map((item, index) => (
                 <motion.div
                   key={item.text}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1.4 + index * 0.1, duration: 0.6 }}
                   className="group"
                   whileHover={{ scale: 1.05 }}
@@ -121,16 +99,12 @@ const HeroSection = () => {
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Hero Image */}
           <div className="hidden lg:flex w-full lg:w-1/4 flex justify-center">
-            <motion.div
-              whileHover={{ rotate: [0, 3, -3, 0], scale: 1.05 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="relative w-52 h-52 md:w-80 md:h-80 rounded-full group "
-            >
+            <div className="relative w-52 h-52 md:w-80 md:h-80 rounded-full group">
 
               {/* Outer Neon Glow Border */}
               {/* <div className="absolute -inset-3 rounded-full border-2 border-green-500 animate-pulse transition duration-300 pointer-events-none z-0 shadow-[0_0_20px_4px_rgba(133,240,169,0.6)] group-hover:shadow-[0_0_30px_8px_rgba(133,240,169,0.8)]" /> */}
@@ -156,7 +130,7 @@ const HeroSection = () => {
               />
 
 
-            </motion.div>
+            </div>
 
           </div>
         </div>

@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import {
   SiHtml5, SiCss3, SiTailwindcss, SiWordpress, SiJavascript, SiTypescript,
   SiVite, SiNextdotjs, SiReact, SiMui, SiNodedotjs, SiExpress, SiMongodb, SiRedux,
@@ -9,7 +8,6 @@ import {
   SiAmazon, SiVercel, SiFirebase
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
-import { BackgroundBeams } from "@/components/ui/aceternity/background-beams";
 import { BackgroundBeamsWithCollision } from "../ui/background-beams-with-collision";
 
 const TechStackSection = () => {
@@ -74,12 +72,7 @@ const TechStackSection = () => {
       <BackgroundBeamsWithCollision>
         <div className="container mx-auto px-6 relative z-10">
           {/* Tech Stack */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16" >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
               Tech Stack
             </h2>
@@ -92,10 +85,10 @@ const TechStackSection = () => {
             <div className="relative overflow-hidden">
               <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
                 {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, index) => (
-                  <motion.div
+                  <div
                     key={`tech-${index}`}
                     className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"
-                    whileHover={{ scale: 1.05, y: -2 }}
+                    // whileHover={{ scale: 1.05, y: -2 }}
                   >
                     <tech.icon
                       className="w-6 h-6 mr-3"
@@ -104,7 +97,7 @@ const TechStackSection = () => {
                     <span className="text-base font-semibold whitespace-nowrap">
                       {tech.name}
                     </span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
@@ -112,10 +105,9 @@ const TechStackSection = () => {
             <div className="relative overflow-hidden mt-4">
               <div className="flex animate-[scroll-reverse_20s_linear_infinite] whitespace-nowrap">
                 {[...techStack2, ...techStack2, ...techStack2, ...techStack2].map((tech, index) => (
-                  <motion.div
+                  <div
                     key={`tech-reverse-${index}`}
                     className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"
-                    whileHover={{ scale: 1.05, y: -2 }}
                   >
                     <tech.icon
                       className="w-6 h-6 mr-3"
@@ -124,11 +116,11 @@ const TechStackSection = () => {
                     <span className="text-base font-semibold whitespace-nowrap">
                       {tech.name}
                     </span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
 
 
 

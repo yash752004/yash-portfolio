@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 
 
@@ -93,28 +92,13 @@ const IntroductionSection = () => {
       <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mb-20">
 
         {/* Left: About Me */}
-        <motion.div
-          initial={{ opacity: 0.5, y: 100 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="w-full lg:w-1/2"
-        >
+        <div className="w-full lg:w-1/2" >
           <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
             About Me
           </h2>
 
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="text-lg md:text-xl leading-relaxed text-[hsl(var(--black))] space-y-6"
-
-          >
+          <div className="text-lg md:text-xl leading-relaxed text-[hsl(var(--black))] space-y-6">
             <p>
               I'm a full-stack web developer focused on delivering end-to-end digital solutions — from concept to deployment. I specialize in building reliable, scalable, and modern web applications tailored to your business needs.
             </p>
@@ -124,15 +108,10 @@ const IntroductionSection = () => {
             <p>
               Beyond coding, I'm a creative problem solver who thrives on turning complex challenges into elegant, user-centric solutions. I’m committed to clean code, intuitive UX, and continuous innovation.
             </p>
-          </motion.div>
+          </div>
 
           {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="grid grid-cols-3  text-[hsl(var(--black))] gap-8 mt-12 max-w-xl"
-          >
+          <div  className="grid grid-cols-3  text-[hsl(var(--black))] gap-8 mt-12 max-w-xl">
             {[
               { number: "5+", label: "Projects Completed" },
               // { number: "5+", label: "Years Experience" },
@@ -145,11 +124,11 @@ const IntroductionSection = () => {
                 <div className="text-sm text-slate-400">{stat.label}</div>
               </div>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Right: Marquee */}
-        <div className="w-full lg:w-1/2 relative  h-full overflow-hidden text-white  rounded-[15px]">
+        <div className="w-full lg:w-1/2 relative  h-full overflow-hidden text-white">
 
           {/* Background Marquee */}
           <div className="absolute inset-0 h-full w-full z-0">
