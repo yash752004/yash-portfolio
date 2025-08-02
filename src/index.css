@@ -135,17 +135,22 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  .container {
+    @media (width >= 96rem /* 1536px */) {
+      max-width: 80rem /* 1280px */;
+    }
+  }
+
   .navbar-block {
     @apply fixed top-0 left-0 right-0 z-1000 shadow-lg md:shadow-none;
   }
 
   .navbar-block > nav {
-    @apply w-full max-w-[80rem] h-full mx-auto hidden md:flex items-center gap-4 px-6 pt-6;
+    @apply container h-full mx-auto hidden md:flex items-center gap-4 px-6 pt-6;
 
     .main-block {
       @apply w-full flex justify-between pl-6 pr-4 py-3 rounded-full shadow-none;
       transition: all 0.2s ease-out;
-      /* border: solid 0px transparent; */
 
       .name-block {
         @apply flex items-center gap-4 lg:gap-8;
@@ -162,6 +167,10 @@ All colors MUST be HSL.
 
       .link-block {
         @apply flex items-center gap-4;
+
+        @media (width < 64rem /* 1024px */) {
+          @apply gap-2;
+        }
 
         .link {
           @apply px-4 py-1.5 rounded-full;
