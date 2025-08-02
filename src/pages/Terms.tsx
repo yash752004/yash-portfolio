@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "motion/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -14,12 +11,7 @@ const Terms = () => {
         <div className="container mx-auto px-6 max-w-4xl">
         
 
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="prose prose-invert max-w-none"
-          >
+          <div className="prose prose-invert max-w-none"  >
             <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-2">
               Terms and Conditions
             </h1>
@@ -71,7 +63,7 @@ const Terms = () => {
                 </p>
               </section>
             </div>
-          </motion.div>
+          </div>
         </div>
       </main>
 

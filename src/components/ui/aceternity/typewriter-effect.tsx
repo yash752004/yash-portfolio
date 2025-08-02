@@ -56,7 +56,7 @@ export const TypewriterEffect = ({
       <span>{currentText}</span>
       <motion.span
         className={cn(
-          "inline-block w-1 h-6 bg-primary ml-1",
+          "inline-block w-1 h-6 bg-black ml-1",
           cursorClassName
         )}
         animate={{ opacity: [1, 0] }}
