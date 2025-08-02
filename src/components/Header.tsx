@@ -19,7 +19,7 @@ const Header = () => {
 
   return (
     <div className="navbar-block">
-      <nav>
+      <nav className="container">
         <div className="main-block">
           <div className="name-block">
             <span className="name-text">Yash Patel</span>

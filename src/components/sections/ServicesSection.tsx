@@ -1,9 +1,7 @@
-import { motion } from "framer-motion";
 import {  Globe, Cloud, Code, Database, Rocket, Code2 } from "lucide-react";
 
 const ServicesSection = () => {
   const services = [
-
     {
       icon: Globe,
       title: "Web App Development",
@@ -11,7 +9,6 @@ const ServicesSection = () => {
       features: ["React/Next.js", "Vue.js", "TypeScript", "Progressive Web Apps", "Responsive Design", "SEO Optimization"],
       color: "from-green-500 to-blue-500",
     },
-
     {
       icon: Database,
       title: "Database Development",
@@ -26,7 +23,6 @@ const ServicesSection = () => {
       features: ["RESTful APIs", "GraphQL", "API Documentation", "Authentication/Authorization", "Rate Limiting"],
       color: "from-indigo-500 to-blue-600",
     },
-    
     {
       icon: Rocket,
       title: "Full Stack Development",
@@ -49,15 +45,11 @@ const ServicesSection = () => {
       features: ["AWS/Azure/GCP", "Serverless Architecture", "DevOps", "CI/CD Pipelines", "Microservices", "Containerization"],
       color: "from-purple-500 to-pink-500",
     },
-    
-
   ];
 
   return (
     <section id="services" className="relative py-20 overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
-      {/* <Spotlight /> */}
       <div className="relative z-10 container mx-auto px-6">
         <div
           className="text-center mb-16"
@@ -73,21 +65,14 @@ const ServicesSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              // whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.2 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group relative"
-            >
-              {/* Card */}
-              <div className="relative bg-glass backdrop-blur-xl rounded-3xl p-8 border hover:border-primary/30 transition-all duration-500 overflow-hidden">
+            <div key={service.title} className="group relative">
+              <div className="relative h-full bg-green-50 rounded-3xl p-8 transition-all duration-250 overflow-hidden hover:shadow-2xl">
                 {/* Background gradient on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
 
                 {/* Icon */}
                 <div className="relative z-10 mb-6">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} p-4 mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.color} p-4 mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <service.icon className="w-full h-full text-white" />
                   </div>
                 </div>
@@ -103,7 +88,7 @@ const ServicesSection = () => {
                   </p>
 
                   {/* Features */}
-                  <div className="space-y-2">
+                  {/* <div className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <div
                         key={feature}
@@ -113,26 +98,26 @@ const ServicesSection = () => {
                         {feature}
                       </div>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
 
                 {/* Decorative elements */}
                 <div className="absolute top-4 right-4 w-20 h-20 bg-glass/5 rounded-full blur-xl group-hover:bg-glass/10 transition-colors duration-500" />
                 <div className="absolute bottom-4 left-4 w-16 h-16 bg-glass-glow/5 rounded-full blur-lg group-hover:bg-glass-glow/10 transition-colors duration-500" />
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Bottom decoration */}
-        <div
+        {/* <div
           className="text-center mt-16"
         >
           <div className="inline-flex items-center gap-4 px-8 py-4 bg-glass rounded-full border">
             <Rocket className="w-6 h-6 text-primary animate-bounce" />
             <span className="text-lg font-semibold">Ready to launch your project?</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

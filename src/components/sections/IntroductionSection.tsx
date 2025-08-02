@@ -35,7 +35,7 @@ import ecommerse3 from "../../Assets/Ecommerse/3.png";
 import ecommerse4 from "../../Assets/Ecommerse/4.png";
 import ecommerse5 from "../../Assets/Ecommerse/5.png";
 import ecommerse6 from "../../Assets/Ecommerse/6.png";
-import { Send } from "lucide-react";
+import { Handshake, Send } from "lucide-react";
 import { Button } from "../ui/button";
 import { useNavigate } from 'react-router-dom';
 
@@ -85,31 +85,18 @@ const IntroductionSection = () => {
   const shuffledImages = shuffleArray(images);
 
   return (
-    <section id="introduction" className="relative mt-[150px] px-4 md:px-8">
-
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-10 mb-20">
-
+    <section id="introduction" className="w-full">
+      <div className="container m-auto px-6 flex flex-col md:flex-row items-center gap-12">
         {/* Left: About Me */}
         <div className="w-full lg:w-1/2" >
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
-            About Me
-          </h2>
-
-
+          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">About Me</h2>
           <div className="text-lg md:text-xl leading-relaxed text-[hsl(var(--black))] space-y-6">
-            <p>
-              I'm a full-stack web developer focused on delivering end-to-end digital solutions — from concept to deployment. I specialize in building reliable, scalable, and modern web applications tailored to your business needs.
-            </p>
-            <p>
-              My skill set spans across frontend and backend development, CMS integration, cloud deployment, and custom API design. I help businesses streamline workflows, enhance performance, and scale effectively with future-ready technology.
-            </p>
-            <p>
-              Beyond coding, I'm a creative problem solver who thrives on turning complex challenges into elegant, user-centric solutions. I’m committed to clean code, intuitive UX, and continuous innovation.
-            </p>
+            <p>I'm a full-stack web developer focused on delivering end-to-end digital solutions — from concept to deployment. I specialize in building reliable, scalable, and modern web applications tailored to your business needs.</p>
+            <p>My skill set spans across frontend and backend development, CMS integration, cloud deployment, and custom API design. I help businesses streamline workflows, enhance performance, and scale effectively with future-ready technology.</p>
+            <p>Beyond coding, I'm a creative problem solver who thrives on turning complex challenges into elegant, user-centric solutions. I’m committed to clean code, intuitive UX, and continuous innovation.</p>
           </div>
 
-          {/* Stats */}
-          <div  className="grid grid-cols-3  text-[hsl(var(--black))] gap-8 mt-12 max-w-xl">
+          {/* <div  className="grid grid-cols-3  text-[hsl(var(--black))] gap-8 mt-12 max-w-xl">
             {[
               { number: "5+", label: "Projects Completed" },
               // { number: "5+", label: "Years Experience" },
@@ -122,38 +109,38 @@ const IntroductionSection = () => {
                 <div className="text-sm text-slate-400">{stat.label}</div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* Right: Marquee */}
-        <div className="w-full lg:w-1/2 relative  h-full overflow-hidden text-white">
-
+        <div className="w-full lg:w-1/2 h-full relative rounded-3xl overflow-hidden text-white">
           {/* Background Marquee */}
-          <div className="absolute inset-0 h-full w-full z-0">
+          <div className="absolute h-full w-full">
             <ThreeDMarquee images={shuffledImages} />
           </div>
 
           {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-neutral-800 to-black opacity-45 z-5" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-neutral-800 to-black opacity-70 z-5" />
 
           {/* Foreground Content - Centered */}
-          <div className="relative z-10 p-6 h-80vh flex justify-center items-center" style={{height: '80vh'}}>
+          <div className="relative z-10 px-6 py-24 flex justify-center items-center">
             <div className="flex flex-col items-center text-white max-w-xl text-center">
               <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6">
-                <span>Ready to take your </span>
-                <span className="text-gradient">project to the next level?</span>
+                <Handshake size={80} />
+                <span>Let's Collaborate and </span><br />
+                <span className="text-gradient">Grow together!</span>
               </h2>
 
-              <p className="text-xl mb-8 max-w-xl text-white/80">
+              <p className="text-xl mb-8 max-w-xl text-gray-200">
                 Let's discuss your project and bring your ideas to life with cutting-edge technology and exceptional quality.
               </p>
 
               <Button
                 type="submit"
-                className="bg-[#57ebde] hover:shadow-glow text-lg py-6 rounded-xl cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                className="bg-gradient scroll text-lg py-6 rounded-xl cursor-pointer transition-transform duration-250 hover:scale-105"
                 onClick={() => navigate('/contact')}
               >
-                <div className="flex items-center text-white gap-2">
+                <div className="flex items-center text-black gap-2">
                   <Send className="w-5 h-5" />
                   Contact Me
                 </div>
@@ -161,13 +148,8 @@ const IntroductionSection = () => {
             </div>
           </div>
         </div>
- 
-
-
       </div>
-
     </section>
-
   );
 };
 

@@ -183,35 +183,17 @@ const Projects = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <main className="pt-24 pb-20">
-        <BackgroundBeams />
-           <ShootingStars />
-      <StarsBackground />
+      <main className="pt-30 pb-20">
         <div className="container mx-auto px-6 ">
-          {/* Header */}
-
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-6">
-              My Projects
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A showcase of my recent work and the technologies I've mastered
-            </p>
+          <div className="flex flex-col gap-2 mb-12">
+            <h1 className="w-max h-[3.5rem] text-5xl font-bold text-gradient">My Projects</h1>
+            <p className="text-xl">A showcase of my recent work and the technologies I've mastered</p>
           </div>
 
           {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto z-10000">
+          <div className="project-container">
             {projects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                // initial={{ opacity: 0, y: 50 }}
-                // animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="group cursor-pointer"
-              >
-                <div className="bg-glass backdrop-blur-xl rounded-2xl overflow-hidden border hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
-                  {/* Thumbnail */}
+              <div className="project-card">
                   <div className="aspect-video overflow-hidden">
                     <img
                       src={project.thumbnail}
@@ -258,11 +240,11 @@ const Projects = () => {
                         onClick={() => openProject(project)}
                         variant="outline"
                         size="sm"
-                        className="flex-1"
+                        className="detail-btn bg-gradient-repeat scroll"
                       >
                         View Details
                       </Button>
-                      {project.hasLiveLink && (
+                      {/* {project.hasLiveLink && (
                         <Button
                           asChild
                           size="sm"
@@ -276,11 +258,10 @@ const Projects = () => {
                             <ExternalLink className="w-4 h-4" />
                           </a>
                         </Button>
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </div>
-              </motion.div>
             ))}
           </div>
         </div>
@@ -293,19 +274,19 @@ const Projects = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+            className="fixed inset-0 z-2000 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
             onClick={closeProject}
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden"
+              className="bg-black/50 rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex">
                 {/* Left side - Details */}
-                <div className="flex-1 p-8 overflow-y-auto max-h-[90vh] flex items-center text-white justify-center">
+                <div className="flex-1 p-8 pt-16 overflow-y-auto max-h-[90vh] flex items-start text-white">
                   <div className="w-full max-w-xl">
                     <div className="flex items-center justify-between mb-6">
                       <h2 className="text-3xl font-bold text-gradient">
