@@ -39,18 +39,14 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
-    --primary-1: #57ebde;
+    --primary-1: --color-emerald-500;
     --primary-2: #aefb2a;
     --primary-solid: #05d168;
 
     /* Premium gradients */
-    /* --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow))); */
-    --gradient-primary: linear-gradient(135deg, var(--primary-solid), var(--primary-2));
-    --gradient-primary-repeat: linear-gradient(135deg, var(--primary-1), var(--primary-2), var(--primary-1));
-    --gradient-purple: linear-gradient(135deg, #a78bfa, #c084fc, #d8b4fe);
-    --gradient-blue: linear-gradient(135deg, #3b82f6, #6366f1, #8b5cf6);
-    --gradient-cosmic: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-    --gradient-sunset: linear-gradient(135deg, #ff6b6b, #feca57, #ff9ff3);
+    --gradient-primary: linear-gradient(135deg, var(--color-emerald-500), var(--color-emerald-300));
+    --gradient-primary-light: linear-gradient(135deg, var(--color-emerald-100), var(--color-emerald-50));
+    --gradient-primary-repeat: linear-gradient(135deg, var(--color-emerald-500), var(--color-emerald-300), var(--color-emerald-500));
 
     /* Shadows */
     --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
@@ -126,7 +122,7 @@ All colors MUST be HSL.
       radial-gradient(circle at 40% 80%, hsl(var(--accent) / 0.1) 0%, transparent 50%); */
     font-family: "Roboto Flex", sans-serif;
     @apply bg-white;
-    @apply selection:bg-(--primary-solid) selection:text-white;
+    @apply selection:bg-(--primary-1) selection:text-white;
   }
 
   html {
@@ -176,7 +172,7 @@ All colors MUST be HSL.
           @apply px-4 py-1.5 rounded-full;
       
           &.active {
-            @apply text-white bg-(--primary-solid) shadow-lg;
+            @apply text-white bg-emerald-500 shadow-lg;
           }
       
           &:not(.active):hover {
@@ -239,7 +235,7 @@ All colors MUST be HSL.
         transition: all 1s ease-in-out;
         
         .link { @apply text-lg flex items-center justify-start gap-2; }
-        .active { @apply size-2 rounded-full bg-(--primary-solid); }
+        .active { @apply size-2 rounded-full bg-(--primary-1); }
       }
     }
   }
@@ -272,8 +268,8 @@ All colors MUST be HSL.
     background-clip: text;
   }
 
-  .text-gradient-purple {
-    background: var(--gradient-purple);
+  .text-gradient-light {
+    background: var(--gradient-primary-light);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -326,7 +322,7 @@ All colors MUST be HSL.
 
   .input-focus {
     &:focus-visible {
-      @apply outline-none ring-(--primary-solid) ring-4 rounded-sm;
+      @apply outline-none ring-(--primary-1) ring-4 rounded-sm;
     }
   }
 
@@ -422,10 +418,6 @@ All colors MUST be HSL.
   }
 }
 /* Scroll Bar */
-:root {
-  --gradient-primary: linear-gradient(135deg, #57ebde, #aefb2a);
-}
-
 /* Custom Scrollbar for Chrome/Edge/Safari */
 ::-webkit-scrollbar {
   width: 10px;

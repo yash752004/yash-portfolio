@@ -1,5 +1,3 @@
-import { ThreeDMarquee } from "@/components/ui/3d-marquee";
-
 import thumbail1 from "../../Assets/carehq/1.png";
 import carehq2 from "../../Assets/carehq/2.png";
 import carehq3 from "../../Assets/carehq/3.png";
@@ -86,7 +84,7 @@ const IntroductionSection = () => {
 
   return (
     <section id="introduction" className="w-full">
-      <div className="container m-auto px-6 flex flex-col md:flex-row items-center gap-12">
+      <div className="container m-auto px-6 flex flex-col md:flex-row items-stretched gap-12">
         {/* Left: About Me */}
         <div className="w-full lg:w-1/2" >
           <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">About Me</h2>
@@ -113,39 +111,31 @@ const IntroductionSection = () => {
         </div>
 
         {/* Right: Marquee */}
-        <div className="w-full lg:w-1/2 h-full relative rounded-3xl overflow-hidden text-white">
-          {/* Background Marquee */}
-          <div className="absolute h-full w-full">
-            <ThreeDMarquee images={shuffledImages} />
-          </div>
+        <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden text-white bg-gradient p-8">
+          <div className="h-full px-6 flex flex-col justify-center items-center gap-8 text-center">
+            <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold">
+              {/* <Handshake size={60} className="text-black mx-auto" /> */}
+              <span className="text-white">Let's Collaborate and </span><br />
+              <span className="text-white">Grow together!</span>
+            </h2>
 
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-neutral-800 to-black opacity-70 z-5" />
+            <p className="text-xl text-emerald-50">
+              Whether you need a new website, a web application, or an e-commerce platform, I can help you achieve your goals with innovative solutions and a focus on quality.
+            </p>
+            <p className="text-xl text-emerald-50">
+              Let's discuss your project and bring your ideas to life with cutting-edge technology and exceptional quality.
+            </p>
 
-          {/* Foreground Content - Centered */}
-          <div className="relative z-10 px-6 py-24 flex justify-center items-center">
-            <div className="flex flex-col items-center text-white max-w-xl text-center">
-              <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold mb-6">
-                <Handshake size={80} />
-                <span>Let's Collaborate and </span><br />
-                <span className="text-gradient">Grow together!</span>
-              </h2>
-
-              <p className="text-xl mb-8 max-w-xl text-gray-200">
-                Let's discuss your project and bring your ideas to life with cutting-edge technology and exceptional quality.
-              </p>
-
-              <Button
-                type="submit"
-                className="bg-gradient scroll text-lg py-6 rounded-xl cursor-pointer transition-transform duration-250 hover:scale-105"
-                onClick={() => navigate('/contact')}
-              >
-                <div className="flex items-center text-black gap-2">
-                  <Send className="w-5 h-5" />
-                  Contact Me
-                </div>
-              </Button>
-            </div>
+            <Button
+              type="submit"
+              className="bg-white hover:bg-emerald-50 hover:shadow-xl hover:scale-105 text-lg py-6 rounded-xl cursor-pointer transition-all duration-150"
+              onClick={() => navigate('/contact')}
+            >
+              <div className="flex items-center text-black gap-2">
+                <Send className="w-5 h-5" />
+                Contact Me
+              </div>
+            </Button>
           </div>
         </div>
       </div>
