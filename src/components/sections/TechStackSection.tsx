@@ -1,16 +1,36 @@
-import { motion } from "framer-motion";
 import {
   SiHtml5, SiCss3, SiTailwindcss, SiWordpress, SiJavascript, SiTypescript,
-  SiVite, SiNextdotjs, SiReact, SiMui, SiNodedotjs, SiExpress, SiMongodb
+  SiVite, SiNextdotjs, SiReact, SiMui, SiNodedotjs, SiExpress, SiMongodb, SiRedux,
+  SiMysql,
+  SiShadcnui,
 } from "react-icons/si";
 import {
   SiGithub, SiFigma, SiPostman, SiDocker,
   SiAmazon, SiVercel, SiFirebase
 } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
-import { BackgroundBeams } from "@/components/ui/aceternity/background-beams";
+import { BackgroundBeamsWithCollision } from "../ui/background-beams-with-collision";
 
 const TechStackSection = () => {
+  const frontendTechStack = {
+    color: "#61DAFB",
+    title: "Front End",
+    technologies: [
+      { name: "React", icon: SiReact, color: "#61DAFB" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+      { name: "Material UI", icon: SiMui, color: "#007FFF" },
+      { name: "Shadcn", icon: SiShadcnui, color: "#FFFFFF" },
+      { name: "Vite", icon: SiVite, color: "#646CFF" },
+    ],
+  };
+
+  const allStack = [
+    frontendTechStack,
+  ];
+
   const techStack = [
     { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
     { name: "CSS", icon: SiCss3, color: "#1572B6" },
@@ -21,10 +41,37 @@ const TechStackSection = () => {
     { name: "Vite", icon: SiVite, color: "#646CFF" },
     { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
     { name: "React", icon: SiReact, color: "#61DAFB" },
+    { name: "Redux", icon: SiRedux, color: "#764ABC" },
     { name: "Material UI", icon: SiMui, color: "#007FFF" },
     { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
     { name: "Express", icon: SiExpress, color: "#000000" },
     { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+    { name: "MongoDB Atlas", icon: SiMongodb, color: "#00ED64" },
+    { name: "SQL", icon: SiMysql, color: "#00758F" },
+    { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+    { name: "AWS", icon: SiAmazon, color: "#FF9900" },
+    { name: "Vercel", icon: SiVercel, color: "#000000" },
+  ];
+  const techStack2 = [
+    { name: "Material UI", icon: SiMui, color: "#007FFF" },
+    { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+    { name: "Express", icon: SiExpress, color: "#000000" },
+    { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+    { name: "MongoDB Atlas", icon: SiMongodb, color: "#00ED64" },
+    { name: "SQL", icon: SiMysql, color: "#00758F" },
+    { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+    { name: "AWS", icon: SiAmazon, color: "#FF9900" },
+    { name: "Vercel", icon: SiVercel, color: "#000000" },
+    { name: "HTML5", icon: SiHtml5, color: "#E34F26" },
+    { name: "CSS", icon: SiCss3, color: "#1572B6" },
+    { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+    { name: "WordPress", icon: SiWordpress, color: "#21759B" },
+    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+    { name: "Vite", icon: SiVite, color: "#646CFF" },
+    { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+    { name: "React", icon: SiReact, color: "#61DAFB" },
+    { name: "Redux", icon: SiRedux, color: "#764ABC" },
   ];
 
   const tools = [
@@ -40,57 +87,146 @@ const TechStackSection = () => {
 
 
   return (
-    <section id="tech-stack" className="relative py-20 overflow-hidden">
-      {/* Background Effects */}
-      {/* <div className="absolute inset-0 opacity-30">
-        <BackgroundBeams />
-      </div> */}
+    <section id="tech-stack" className="relative py-20 mt-20 overflow-hidden bg-gradient">
 
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Tech Stack */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
-            Tech Stack
-          </h2>
-
-          <p className="text-xl text-muted-foreground mb-12">
-            Technologies I work with
-          </p>
-
-          {/* Infinite scroll animation */}
-          <div className="relative overflow-hidden">
-            <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
-              {[...techStack, ...techStack].map((tech, index) => (
-                <motion.div
-                  key={`tech-${index}`}
-                  className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                >
-                  <tech.icon
-                    className="w-6 h-6 mr-3"
-                    style={{ color: tech.color }}
-                  />
-                  <span className="text-base font-semibold whitespace-nowrap">
-                    {tech.name}
-                  </span>
-                </motion.div>
+      {/* <BackgroundBeamsWithCollision> */}
+        <div className="container mx-auto px-6 relative z-10">
+          {/* Tech Stack */}
+          <div className="bg-gray-950/70 rounded-3xl p-6 text-monospace">
+            <h2 className="font-bold text-white">Tech Stack</h2>
+            <p className="font-bold text-gray-400">Technologies I work with</p>
+            <p>&nbsp;</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg-grid-cols-4">
+              {allStack.map((stack, index) => (
+                <div key={index} className="text-monospace flex flex-col items-start" style={{ color: stack.color }}>
+                  <h2>## {stack.title}</h2>
+                  <p className="text-white">------------</p>
+                  <div className="flex flex-col gap-2">
+                    {stack.technologies.map((tech, techIndex) => (
+                      <div key={techIndex} className="inline-flex items-center">-
+                        <tech.icon className="w-4 h-4 mx-3" style={{ color: tech.color }} />
+                        <span>{tech.name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               ))}
+
+            <div className="text-monospace flex flex-col items-start">
+              <h2 className="text-2xl font-bold text-white mb-4">## Back End</h2>
+              <div className="flex flex-col gap-2">
+                {/* <div className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"> */}
+                <div className="inline-flex items-center">
+                  -
+                  <SiCss3 className="w-5 h-5 mx-3" style={{ color: '#1572B6' }} />
+                  <span className="text-base font-semibold whitespace-nowrap">CSS3</span>
+                </div>
+                <div className="inline-flex items-center">
+                  -
+                  <SiCss3 className="w-5 h-5 mx-3" style={{ color: '#1572B6' }} />
+                  <span className="text-base font-semibold whitespace-nowrap">CSS3</span>
+                </div>
+                <div className="inline-flex items-center">
+                  -
+                  <SiCss3 className="w-5 h-5 mx-3" style={{ color: '#1572B6' }} />
+                  <span className="text-base font-semibold whitespace-nowrap">CSS3</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-monospace flex flex-col items-start">
+              <h2 className="text-2xl font-bold text-white mb-4">## Cloud End</h2>
+              <div className="flex flex-col gap-2">
+                {/* <div className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"> */}
+                <div className="inline-flex items-center">
+                  -
+                  <SiCss3 className="w-5 h-5 mx-3" style={{ color: '#1572B6' }} />
+                  <span className="text-base font-semibold whitespace-nowrap">CSS3</span>
+                </div>
+                <div className="inline-flex items-center">
+                  -
+                  <SiCss3 className="w-5 h-5 mx-3" style={{ color: '#1572B6' }} />
+                  <span className="text-base font-semibold whitespace-nowrap">CSS3</span>
+                </div>
+                <div className="inline-flex items-center">
+                  -
+                  <SiCss3 className="w-5 h-5 mx-3" style={{ color: '#1572B6' }} />
+                  <span className="text-base font-semibold whitespace-nowrap">CSS3</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-monospace flex flex-col items-start">
+              <h2 className="text-2xl font-bold text-white mb-4">## Database</h2>
+              <div className="flex flex-col gap-2">
+                {/* <div className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"> */}
+                <div className="inline-flex items-center">
+                  -
+                  <SiCss3 className="w-5 h-5 mx-3" style={{ color: '#1572B6' }} />
+                  <span className="text-base font-semibold whitespace-nowrap">CSS3</span>
+                </div>
+                <div className="inline-flex items-center">
+                  -
+                  <SiCss3 className="w-5 h-5 mx-3" style={{ color: '#1572B6' }} />
+                  <span className="text-base font-semibold whitespace-nowrap">CSS3</span>
+                </div>
+                <div className="inline-flex items-center">
+                  -
+                  <SiCss3 className="w-5 h-5 mx-3" style={{ color: '#1572B6' }} />
+                  <span className="text-base font-semibold whitespace-nowrap">CSS3</span>
+                </div>
+              </div>
+            </div>
+            </div>
+
+            {/* Infinite scroll animation */}
+            <div className="relative overflow-hidden">
+              <div className="flex animate-[scroll_20s_linear_infinite] whitespace-nowrap">
+                {[...techStack, ...techStack, ...techStack, ...techStack].map((tech, index) => (
+                  <div
+                    key={`tech-${index}`}
+                    className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"
+                    // whileHover={{ scale: 1.05, y: -2 }}
+                  >
+                    <tech.icon
+                      className="w-6 h-6 mr-3"
+                      style={{ color: tech.color }}
+                    />
+                    <span className="text-base font-semibold whitespace-nowrap">
+                      {tech.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative overflow-hidden mt-4">
+              <div className="flex animate-[scroll-reverse_20s_linear_infinite] whitespace-nowrap">
+                {[...techStack2, ...techStack2, ...techStack2, ...techStack2].map((tech, index) => (
+                  <div
+                    key={`tech-reverse-${index}`}
+                    className="inline-flex items-center mx-4 px-6 py-3 bg-glass rounded-full border hover:border-primary/30 transition-all duration-300"
+                  >
+                    <tech.icon
+                      className="w-6 h-6 mr-3"
+                      style={{ color: tech.color }}
+                    />
+                    <span className="text-base font-semibold whitespace-nowrap">
+                      {tech.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </motion.div>
 
 
 
 
 
 
-        {/* Tools Stack */}
-        {/* <motion.div
+          {/* Tools Stack */}
+          {/* <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -127,8 +263,8 @@ const TechStackSection = () => {
           </div>
 
         </motion.div> */}
-      </div>
-
+        </div>
+      {/* </BackgroundBeamsWithCollision> */}
     </section>
   );
 };
