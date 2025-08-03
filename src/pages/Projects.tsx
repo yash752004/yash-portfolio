@@ -5,49 +5,8 @@ import { ExternalLink, X, } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ShootingStars } from "@/components/ui/shooting-stars";
-import { StarsBackground } from "@/components/ui/stars-background";
 
-import thumbail1 from "../Assets/carehq/1.png";
-import carehq2 from "../Assets/carehq/2.png";
-import carehq3 from "../Assets/carehq/3.png";
-import carehq4 from "../Assets/carehq/4.png";
-import carehq5 from "../Assets/carehq/5.png";
-import carehq6 from "../Assets/carehq/6.png";
-import carehq7 from "../Assets/carehq/7.png";
-
-import wiretime1 from "../Assets/WireTime/1.jpeg";
-import wiretime2 from "../Assets/WireTime/2.jpeg";
-import wiretime3 from "../Assets/WireTime/3.png";
-import wiretime4 from "../Assets/WireTime/4.png";
-import wiretime5 from "../Assets/WireTime/5.png";
-import wiretime6 from "../Assets/WireTime/6.png";
-import wiretime7 from "../Assets/WireTime/7.jpeg";
-
-import sports1 from "../Assets/sportsportal/1.png";
-import sports2 from "../Assets/sportsportal/2.png";
-import sports3 from "../Assets/sportsportal/3.png";
-import sports4 from "../Assets/sportsportal/4.png";
-import sports5 from "../Assets/sportsportal/5.png";
-
-// import inventoryscan1 from "../Assets/inventoryscan/1.png";
-// import inventoryscan2 from "../Assets/inventoryscan/2.png";
-
-import gemini1 from "../Assets/chatapp/1.png";
-import gemini2 from "../Assets/chatapp/3.png";
-import gemini3 from "../Assets/chatapp/7.png";
-import gemini4 from "../Assets/chatapp/4.png";
-import gemini5 from "../Assets/chatapp/5.png";
-import gemini6 from "../Assets/chatapp/6.png";
-
-import ecommerse0 from "../Assets/Ecommerse/0.png";
-import ecommerse1 from "../Assets/Ecommerse/1.png";
-import ecommerse2 from "../Assets/Ecommerse/2.png";
-import ecommerse3 from "../Assets/Ecommerse/3.png";
-import ecommerse4 from "../Assets/Ecommerse/4.png";
-import ecommerse5 from "../Assets/Ecommerse/5.png";
-import ecommerse6 from "../Assets/Ecommerse/6.png";
-import { BackgroundBeams } from "@/components/ui/background-beams";
+import { BACKEND_URL } from "../../config";
 interface ProjectDetails {
   id: number;
   title: string;
@@ -69,7 +28,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjectDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:1337/api/portfolioprojects?populate=*`);
+        const response = await axios.get(`${BACKEND_URL}/api/portfolioprojects?populate=*`);
         const projectData = response.data.data;
        
         const transformedProjects = projectData.map((item) => {
@@ -79,8 +38,8 @@ const Projects = () => {
             title: attributes.titile,
             description: attributes.description,
             tools: attributes.techtools?.map(tool => tool.techtools) || [],
-            thumbnail: 'http://localhost:1337' + attributes.thumbnail?.url,
-            screenshots: attributes.images?.map(img => 'http://localhost:1337' + img.url) || [],
+            thumbnail: `${BACKEND_URL}` + attributes.thumbnail?.url,
+            screenshots: attributes.images?.map(img => `${BACKEND_URL}` + img.url) || [],
             liveLink: attributes.liveLink || "",
             hasLiveLink: attributes.hasLiveLink || false,
             category: attributes.category || "Web App",

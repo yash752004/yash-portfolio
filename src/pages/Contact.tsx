@@ -11,6 +11,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import emailjs from 'emailjs-com';
 import { Link } from "react-router-dom";
+import { BACKEND_URL } from "../../config";
 
 interface ContactDetails {
   name?: string;
@@ -33,7 +34,7 @@ const Contact = () => {
   useEffect(() => {
     const fetchContactDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:1337/api/portfoliocontacts`);
+        const response = await axios.get(`${BACKEND_URL}/api/portfoliocontacts`);
         const contactData = response.data.data[0];
         setContactDetails(contactData);
       } catch (error) {

@@ -3,8 +3,7 @@ import axios from 'axios';
 import { BACKEND_URL } from '../../../config';
 
 export const fetchContacts = createAsyncThunk('contact/fetchContacts', async () => {
-//   const response = await axios.get(`${BACKEND_URL}/api/portfoliocontacts`);
-  const response = await axios.get(`http://localhost:1337/api/portfoliocontacts`);
+  const response = await axios.get(`${BACKEND_URL}/api/portfoliocontacts`);
   return response.data.data[0];
 });
 
