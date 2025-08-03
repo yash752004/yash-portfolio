@@ -11,14 +11,14 @@ const IntroductionSection = () => {
         {/* Left: About Me */}
         <div className="w-full lg:w-1/2" >
           <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">About Me</h2>
-          <div className="text-lg md:text-xl leading-relaxed text-[hsl(var(--black))] space-y-6">
+          <div className="text-lg md:text-xl leading-relaxed dark:text-zinc-400 space-y-6">
             <p>I'm a full-stack web developer focused on delivering end-to-end digital solutions — from concept to deployment. I specialize in building reliable, scalable, and modern web applications tailored to your business needs.</p>
             <p>My skill set spans across frontend and backend development, CMS integration, cloud deployment, and custom API design. I help businesses streamline workflows, enhance performance, and scale effectively with future-ready technology.</p>
             <p>Beyond coding, I'm a creative problem solver who thrives on turning complex challenges into elegant, user-centric solutions. I’m committed to clean code, intuitive UX, and continuous innovation.</p>
           </div>
 
-          {/* <div  className="grid grid-cols-3  text-[hsl(var(--black))] gap-8 mt-12 max-w-xl">
-            {[
+          {/* <div  className="grid grid-cols-3 text-black gap-8 mt-12 max-w-xl">
+            {[{
               { number: "5+", label: "Projects Completed" },
               // { number: "5+", label: "Years Experience" },
               { number: "100%", label: "Client Satisfaction" },

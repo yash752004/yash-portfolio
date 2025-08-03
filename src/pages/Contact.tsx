@@ -107,13 +107,13 @@ const Contact = () => {
       <main className="pt-24 pb-12 relative overflow-hidden">
         <div className="container mx-auto px-6 py-6 relative z-10">
           <div className="flex flex-col-reverse md:flex-row gap-8 lg:gap-12">
-            <div className="w-full md:w-1/2 flex flex-col justify-start gap-12 bg-green-100 p-8 rounded-3xl">
+            <div className="w-full md:w-1/2 flex flex-col justify-start gap-12 bg-green-100 dark:bg-zinc-800 p-8 rounded-3xl">
               <div className="flex flex-col gap-4">
                 <h1 className="text-5xl font-bold text-gradient">Get In Touch</h1>
                 <p className="text-xl">Feel free to drop a message. Let's discuss your ideas, projects or questions.</p>
                 <p className="text-2xl font-bold">Let's builds something amazing together.</p>
               </div>
-              <div className="rounded-3xl p-6 border-2 border-green-300 bg-white">
+              <div className="rounded-3xl p-6 border-2 border-emerald-300 dark:border-emerald-600 bg-white dark:bg-zinc-900">
                 <h3 className="text-xl font-bold mb-4">My Contact Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
@@ -121,7 +121,7 @@ const Contact = () => {
                       <Mail className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Email</p>
+                      <p className="text-sm">Email</p>
                       <p className="font-medium">yashpatel.dev01@gmail.com</p>
                     </div>
                   </div>
@@ -130,7 +130,7 @@ const Contact = () => {
                       <Phone className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Phone</p>
+                      <p className="text-sm">Phone</p>
                       <p className="font-medium">+91 78619 45362</p>
                     </div>
                   </div>
@@ -139,14 +139,14 @@ const Contact = () => {
                       <MapPin className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Location</p>
+                      <p className="text-sm">Location</p>
                       <p className="font-medium">Ahmedabad, India</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="w-full md:w-1/2 rounded-3xl bg-gray-50 shadow-lg p-8">
+            <div className="w-full md:w-1/2 rounded-3xl bg-gray-50 dark:bg-emerald-900 shadow-lg p-8">
               <h2 className="text-2xl font-bold mb-6">Tell me your Thoughts</h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -211,8 +211,8 @@ const Contact = () => {
                   />
                   <label htmlFor="terms" className="text-sm leading-relaxed">
                     I accept the{" "}
-                    <Link to="/terms" className="text-primary underline input-focus">Terms & Condition</Link>
-                    {" "}and <Link to="/privacy" className="text-primary underline input-focus">Privacy Policy</Link>.
+                    <Link to="/terms" className="text-primary underline input-focus hover:text-emerald-500">Terms & Condition</Link>
+                    {" "}and <Link to="/privacy" className="text-primary underline input-focus hover:text-emerald-500">Privacy Policy</Link>.
                   </label>
                 </div>
 

@@ -213,7 +213,7 @@ const Projects = () => {
                       </span>
                     </div>
 
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                    <p className="text-sm mb-4 line-clamp-3">
                       {project.description}
                     </p>
 
@@ -222,13 +222,13 @@ const Projects = () => {
                       {project.tools.slice(0, 3).map((tool) => (
                         <span
                           key={tool}
-                          className="text-xs px-2 py-1 bg-muted/50 text-muted-foreground rounded"
+                          className="text-xs px-2 py-1 rounded"
                         >
                           {tool}
                         </span>
                       ))}
                       {project.tools.length > 3 && (
-                        <span className="text-xs px-2 py-1 bg-muted/50 text-muted-foreground rounded">
+                        <span className="text-xs px-2 py-1 rounded">
                           +{project.tools.length - 3} more
                         </span>
                       )}
@@ -296,13 +296,13 @@ const Projects = () => {
                         variant="ghost"
                         size="sm"
                         onClick={closeProject}
-                        className="hover:bg-destructive/10 hover:text-destructive "
+                        className="hover:bg-destructive/10 hover:text-destructive"
                       >
                         <X className="w-5 h-5" />
                       </Button>
                     </div>
 
-                    <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+                    <p className="text-lg mb-8 leading-relaxed">
                       {selectedProject.description}
                     </p>
 
@@ -340,7 +340,7 @@ const Projects = () => {
                 </div>
 
                 {/* Right side - Screenshots */}
-                <div className="flex-1 bg-muted/10 p-6 overflow-y-auto max-h-[90vh]">
+                <div className="flex-1 p-6 overflow-y-auto max-h-[90vh]">
                   <div className="flex flex-col gap-4">
                     {selectedProject.screenshots.map((src: string, index: number) => (
                       <img

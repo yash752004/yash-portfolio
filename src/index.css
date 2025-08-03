@@ -4,121 +4,35 @@
 All colors MUST be HSL.
 */
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   :root {
-    --background: 222 47% 11%;
-    --foreground: 213 31% 91%;
-    /* White theme */
-    --black: 0 0% 0%;
-
-    --card: 223 47% 11%;
-    --card-foreground: 213 31% 91%;
-
-    --popover: 224 47% 11%;
-    --popover-foreground: 213 31% 91%;
-
-    /* --primary: 262 83% 58%; */
     --primary-foreground: 210 40% 98%;
-    --primary-glow: 270 91% 65%;
 
     --secondary: 217 33% 17%;
     --secondary-foreground: 213 31% 91%;
-
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 57%;
-
-    --accent: 262 83% 58%;
-    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 262 83% 58%;
-
-    --radius: 0.75rem;
-
-    --primary-1: --color-emerald-500;
-    --primary-2: #aefb2a;
-    --primary-solid: #05d168;
-
     /* Premium gradients */
     --gradient-primary: linear-gradient(135deg, var(--color-emerald-500), var(--color-emerald-300));
+    --gradient-primary-dark: linear-gradient(135deg, var(--color-emerald-700), var(--color-emerald-800));
     --gradient-primary-light: linear-gradient(135deg, var(--color-emerald-100), var(--color-emerald-50));
     --gradient-primary-repeat: linear-gradient(90deg, var(--color-emerald-500), var(--color-emerald-300), var(--color-emerald-500));
     --gradient-primary-repeat-light: linear-gradient(90deg, var(--color-emerald-200), var(--color-white), var(--color-emerald-200));
-
-    /* Shadows */
-    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
-    --shadow-elegant: 0 25px 50px -12px hsl(var(--primary) / 0.25);
-
-    /* Animation variables */
-    --animation-duration: 0.5s;
-    --animation-curve: cubic-bezier(0.4, 0, 0.2, 1);
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222 47% 11%;
-    --foreground: 213 31% 91%;
-
-    --card: 223 47% 11%;
-    --card-foreground: 213 31% 91%;
-
-    --popover: 224 47% 11%;
-    --popover-foreground: 213 31% 91%;
-
-    --primary: 262 83% 58%;
-    --primary-foreground: 210 40% 98%;
-    --primary-glow: 270 91% 65%;
-
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 213 31% 91%;
-
-    --muted: 223 47% 11%;
-    --muted-foreground: 215.4 16.3% 57%;
-
-    --accent: 262 83% 58%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 262 83% 58%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
 @layer base {
   body {
     font-family: "Roboto Flex", sans-serif;
-    @apply bg-white;
-    @apply selection:bg-(--color-emerald-600) selection:text-white;
+    @apply bg-white selection:bg-(--color-emerald-600) selection:text-white;
+
+    @variant dark {
+      @apply bg-neutral-900 text-gray-200;
+    }
   }
 
   html {
@@ -146,6 +60,10 @@ All colors MUST be HSL.
 
   .bg-gradient {
     background: var(--gradient-primary);
+
+    @variant dark {
+      background: var(--gradient-primary-dark);
+    }
   }
 
   .bg-gradient-repeat-transparent {
@@ -191,13 +109,20 @@ All colors MUST be HSL.
   }
 
   .input-checkbox {
-    @apply h-4 w-4 shrink-0 rounded-sm border-1 border-black disabled:cursor-not-allowed disabled:opacity-50;
+    @apply h-4 w-4 shrink-0 rounded-sm border-1 disabled:cursor-not-allowed disabled:opacity-50;
   }
 
   .input-focus {
     &:focus-visible {
-      @apply outline-none ring-(--primary-1) ring-4 rounded-sm;
+      @apply outline-none ring-emerald-500 ring-4 rounded-sm;
     }
+  }
+
+  .typewriter {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--primary));
+    white-space: nowrap;
+    animation: typewriter 3s steps(40, end), blink-caret 0.75s step-end infinite;
   }
 }
 
@@ -207,7 +132,6 @@ All colors MUST be HSL.
   100% { background-position: -200%; }
 }
 
-
 @keyframes typewriter {
   from {
     width: 0;
@@ -215,13 +139,6 @@ All colors MUST be HSL.
   to {
     width: 100%;
   }
-}
-
-.typewriter {
-  overflow: hidden;
-  border-right: 2px solid hsl(var(--primary));
-  white-space: nowrap;
-  animation: typewriter 3s steps(40, end), blink-caret 0.75s step-end infinite;
 }
 
 @keyframes blink-caret {
@@ -234,23 +151,6 @@ All colors MUST be HSL.
   }
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-/* scroll reverse */
-@keyframes scroll-reverse {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
 /* Scroll Bar */
 /* Custom Scrollbar for Chrome/Edge/Safari */
 ::-webkit-scrollbar {

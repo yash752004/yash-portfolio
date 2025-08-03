@@ -9,17 +9,15 @@ const Terms = () => {
 
       <main className="pt-24 pb-20">
         <div className="container mx-auto px-6 max-w-4xl">
-        
-
           <div className="prose prose-invert max-w-none"  >
             <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-2">
               Terms and Conditions
             </h1>
-            <p className="text-lg text-muted-foreground mb-8">
+            <p className="text-lg mb-8">
               Please read these terms carefully before using our services. By accessing our site or contacting us, you agree to be bound by them.
             </p>
 
-            <div className="space-y-10 text-base leading-relaxed text-muted-foreground">
+            <div className="space-y-10 text-base leading-relaxed">
               <section>
                 <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
                 <p>

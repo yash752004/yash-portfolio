@@ -10,9 +10,9 @@ const Footer = () => {
   };
 
   return (
-    <footer className="border-t">
+    <footer className="bg-zinc-100 dark:bg-zinc-950 pt-8">
       <div className="container mx-auto px-6 py-8">
-        <div className="flex flex-col md:flex-row gap-8 justify-between text-gray-600">
+        <div className="flex flex-col md:flex-row gap-8 justify-between text-gray-600 dark:text-gray-400">
           <div className="flex flex-col gap-0">
             <div className="font-light text-monospace">// Developed by</div>
             <div className="font-semibold text-monospace">// {contactDetails.name}</div>
@@ -33,11 +33,11 @@ const Footer = () => {
             </div> */}
           </div>
           <div className="flex flex-col gap-0 md:gap-2">
-              <a href={contactDetails.linkedin} target="_blank" className="hover:underline hover:text-gray-950">About</a>
-              <a href={contactDetails.linkedin} target="_blank" className="hover:underline hover:text-gray-950">Portfolio</a>
-              <a href={contactDetails.linkedin} target="_blank" className="hover:underline hover:text-gray-950">Contact</a>
-              <a href={contactDetails.github} target="_blank" className="hover:underline hover:text-gray-950">Terms & Conditions</a>
-              <a href={contactDetails.linkedin} target="_blank" className="hover:underline hover:text-gray-950">Privacy Policy</a>
+              <a href={contactDetails.linkedin} target="_blank" className="hover:underline hover:text-emerald-500">About</a>
+              <a href={contactDetails.linkedin} target="_blank" className="hover:underline hover:text-emerald-500">Portfolio</a>
+              <a href={contactDetails.linkedin} target="_blank" className="hover:underline hover:text-emerald-500">Contact</a>
+              <a href={contactDetails.github} target="_blank" className="hover:underline hover:text-emerald-500">Terms & Conditions</a>
+              <a href={contactDetails.linkedin} target="_blank" className="hover:underline hover:text-emerald-500">Privacy Policy</a>
             </div>
         </div>
         <div className="container mx-auto text-center mt-6 text-gray-500">
