@@ -89,9 +89,9 @@ const Projects = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="project-container">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projectDetails?.map((project, index) => (
-              <div className="project-card">
+              <div className="shadow-xl rounded-3xl border-green-300 overflow-hidden transition-all duration-100 ease-out hover:shadow-2xl hover:scale-105">
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={project.thumbnail}
@@ -138,7 +138,7 @@ const Projects = () => {
                       onClick={() => openProject(project)}
                       variant="outline"
                       size="sm"
-                      className="detail-btn bg-gradient-repeat scroll"
+                      className="border-none w-full rounded-xl font-bold p-6 bg-gradient-repeat text-white hover:shadow-xl"
                     >
                       View Details
                     </Button>
@@ -233,11 +233,9 @@ const Projects = () => {
                           </a>
                         </Button>
                       )}
-
                     </div>
                   </div>
                 </div>
-
 
                 {/* Right side - Screenshots */}
                 <div className="flex-1 bg-muted/10 p-6 overflow-y-auto max-h-[90vh]">

@@ -6,28 +6,28 @@ const ServicesSection = () => {
       icon: Globe,
       title: "Web App Development",
       description: "Modern, responsive web applications using cutting-edge technologies. From simple websites to complex enterprise solutions.",
-      features: ["React/Next.js", "Vue.js", "TypeScript", "Progressive Web Apps", "Responsive Design", "SEO Optimization"],
+      features: ["Progressive Web Apps", "Responsive Design", "SEO Optimization"],
       color: "from-green-500 to-blue-500",
     },
     {
       icon: Database,
       title: "Database Development",
       description: "Database design, optimization, and management for high-performance applications. Expertise in SQL and NoSQL databases.",
-      features: ["MongoDB", "PostgreSQL", "MySQL", "Firebase", "Database Optimization", "Data Migration"],
+      features: ["Design", "Administration", "Optimization", "Migration"],
       color: "from-red-500 to-pink-500",
     },
     {
       icon: Code,
       title: "API Development",
       description: "Custom API development for seamless integration and data exchange. Building secure, scalable APIs for web and mobile applications.",
-      features: ["RESTful APIs", "GraphQL", "API Documentation", "Authentication/Authorization", "Rate Limiting"],
+      features: ["RESTful APIs", "API Documentation", "Authentication/Authorization", "Rate Limiting"],
       color: "from-indigo-500 to-blue-600",
     },
     {
       icon: Rocket,
       title: "Full Stack Development",
       description: "End-to-end development solutions covering both frontend and backend. Building robust, scalable applications with modern tech stacks.",
-      features: ["MERN Stack", "MEAN Stack", "LAMP Stack", "GraphQL APIs", "RESTful Services"],
+      features: ["Scalable Architecture", "Microservices", "Real-time Applications", "Cross-platform Development"],
       color: "from-teal-500 to-cyan-500",
     },
     {
@@ -35,26 +35,24 @@ const ServicesSection = () => {
       title: "CMS Development",
       description:
         "Custom and headless CMS solutions for scalable, content-driven websites. Empower teams with easy content management workflows.",
-      features: ["WordPress", "Sanity.io", "Strapi", "Contentful", "Headless CMS"],
+      features: ["Contentful", "Headless CMS", "Easy to  Manage", "Custom workflows", "Multi language Support"],
       color: "from-yellow-400 to-orange-500",
     },
     {
       icon: Cloud,
       title: "Cloud Development",
       description: "Scalable cloud infrastructure and serverless applications. Expertise in AWS, Google Cloud, and Azure for robust deployments.",
-      features: ["AWS/Azure/GCP", "Serverless Architecture", "DevOps", "CI/CD Pipelines", "Microservices", "Containerization"],
+      features: ["Cloud Computing", "Cloud Storage", "Serverless Architecture", "CI/CD Pipelines", "Microservices", "Containerization"],
       color: "from-purple-500 to-pink-500",
     },
   ];
 
   return (
-    <section id="services" className="relative py-20 overflow-hidden">
+    <section id="services" className="relative py-20 overflow-hidden bg-emerald-50">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
       <div className="relative z-10 container mx-auto px-6">
-        <div
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gradient mb-6 h-18">
             My Services
           </h2>
 
@@ -66,7 +64,7 @@ const ServicesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <div key={service.title} className="group relative">
-              <div className="relative h-full bg-green-50 rounded-3xl p-8 transition-all duration-250 overflow-hidden hover:shadow-2xl">
+              <div className="relative h-full bg-white rounded-3xl p-8 transition-all duration-250 overflow-hidden hover:shadow-2xl">
                 {/* Background gradient on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
 
@@ -88,36 +86,22 @@ const ServicesSection = () => {
                   </p>
 
                   {/* Features */}
-                  {/* <div className="space-y-2">
+                  <div className="space-y-2">
                     {service.features.map((feature, idx) => (
                       <div
                         key={feature}
                         className="flex items-center text-sm text-muted-foreground"
                       >
-                        <div className="w-2 h-2 rounded-full bg-glass mr-3" />
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 mr-3" />
                         {feature}
                       </div>
                     ))}
-                  </div> */}
+                  </div>
                 </div>
-
-                {/* Decorative elements */}
-                <div className="absolute top-4 right-4 w-20 h-20 bg-glass/5 rounded-full blur-xl group-hover:bg-glass/10 transition-colors duration-500" />
-                <div className="absolute bottom-4 left-4 w-16 h-16 bg-glass-glow/5 rounded-full blur-lg group-hover:bg-glass-glow/10 transition-colors duration-500" />
               </div>
             </div>
           ))}
         </div>
-
-        {/* Bottom decoration */}
-        {/* <div
-          className="text-center mt-16"
-        >
-          <div className="inline-flex items-center gap-4 px-8 py-4 bg-glass rounded-full border">
-            <Rocket className="w-6 h-6 text-primary animate-bounce" />
-            <span className="text-lg font-semibold">Ready to launch your project?</span>
-          </div>
-        </div> */}
       </div>
     </section>
   );

@@ -130,8 +130,8 @@ const Contact = () => {
       <Header />
       <main className="pt-24 pb-12 relative overflow-hidden">
         <div className="container mx-auto px-6 py-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-18">
-            <div className="flex flex-col justify-start gap-12 bg-green-100 p-8 rounded-3xl">
+          <div className="flex flex-col-reverse md:flex-row gap-8 lg:gap-12">
+            <div className="w-full md:w-1/2 flex flex-col justify-start gap-12 bg-green-100 p-8 rounded-3xl">
               <div className="flex flex-col gap-4">
                 <h1 className="text-5xl font-bold text-gradient">Get In Touch</h1>
                 <p className="text-xl">Feel free to drop a message. Let's discuss your ideas, projects or questions.</p>
@@ -170,7 +170,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div className="rounded-3xl bg-gray-50 shadow-lg p-8">
+            <div className="w-full md:w-1/2 rounded-3xl bg-gray-50 shadow-lg p-8">
               <h2 className="text-2xl font-bold mb-6">Tell me your Thoughts</h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -244,11 +244,11 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-repeat scroll text-lg py-6 rounded-xl"
+                  className="w-full bg-gradient-repeat text-lg py-6 rounded-xl text-white"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2" />
                       Sending...
                     </div>
                   ) : (
