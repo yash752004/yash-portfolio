@@ -7,8 +7,6 @@ export const fetchContacts = createAsyncThunk('contact/fetchContacts', async () 
   const response = await axios.get(`http://localhost:1337/api/portfoliocontacts`);
   return response.data.data[0];
 });
-// console.log('Contact slice initialized', BACKEND_URL);
-// console.log('Contact data', response.data.data[0]);
 
 const contactSlice = createSlice({
   name: 'contact',

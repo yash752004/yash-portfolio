@@ -17,8 +17,8 @@ const Footer = () => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  if (loading) return <p>Loading contact info...</p>;
-  if (error) return <p>Error: {error}</p>;
+  // if (loading) return <p>Loading contact info...</p>;
+  // if (error) return <p>Error: {error}</p>;
   if (!data || Array.isArray(data)) return null;
   
   const { name, Email, phone, location, githubURL, linkedinURL } = data as {

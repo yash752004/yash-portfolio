@@ -36,7 +36,6 @@ const Contact = () => {
         const response = await axios.get(`http://localhost:1337/api/portfoliocontacts`);
         const contactData = response.data.data[0];
         setContactDetails(contactData);
-        console.log("Contact details fetched:", contactData);
       } catch (error) {
         console.error("Error fetching contact details:", error);
       }
