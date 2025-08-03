@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { motion } from "motion/react";
+import { useState,useEffect } from "react";
+import axios from "axios";
+// import { motion } from "motion/react";
 import { Send, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,6 +11,14 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import emailjs from 'emailjs-com';
 import { Link } from "react-router-dom";
+import { BACKEND_URL } from "../../config";
+
+interface ContactDetails {
+  name?: string;
+  Email?: string;
+  phone?: string;
+  location?: string;
+}
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +29,21 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const [contactDetails, setContactDetails] = useState<ContactDetails | null>(null);
+  useEffect(() => {
+    const fetchContactDetails = async () => {
+      try {
+        const response = await axios.get(`${BACKEND_URL}/api/portfoliocontacts`);
+        const contactData = response.data.data[0];
+        setContactDetails(contactData);
+      } catch (error) {
+        console.error("Error fetching contact details:", error);
+      }
+    };
+
+    fetchContactDetails();
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -106,14 +130,14 @@ const Contact = () => {
       <Header />
       <main className="pt-24 pb-12 relative overflow-hidden">
         <div className="container mx-auto px-6 py-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-18">
-            <div className="flex flex-col justify-start gap-12 bg-green-100 p-8 rounded-3xl">
+          <div className="flex flex-col-reverse md:flex-row gap-8 lg:gap-12">
+            <div className="w-full md:w-1/2 flex flex-col justify-start gap-12 bg-green-100 dark:bg-zinc-800 p-8 rounded-3xl">
               <div className="flex flex-col gap-4">
                 <h1 className="text-5xl font-bold text-gradient">Get In Touch</h1>
                 <p className="text-xl">Feel free to drop a message. Let's discuss your ideas, projects or questions.</p>
                 <p className="text-2xl font-bold">Let's builds something amazing together.</p>
               </div>
-              <div className="rounded-3xl p-6 border-2 border-green-300 bg-white">
+              <div className="rounded-3xl p-6 border-2 border-emerald-300 dark:border-emerald-600 bg-white dark:bg-zinc-900">
                 <h3 className="text-xl font-bold mb-4">My Contact Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
@@ -121,8 +145,8 @@ const Contact = () => {
                       <Mail className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="font-medium">yashpatel.dev01@gmail.com</p>
+                      <p className="text-sm">Email</p>
+                      <p className="font-medium">{contactDetails?.Email}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -130,8 +154,8 @@ const Contact = () => {
                       <Phone className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Phone</p>
-                      <p className="font-medium">+91 78619 45362</p>
+                      <p className="text-sm">Phone</p>
+                      <p className="font-medium">+91 {contactDetails?.phone}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -139,14 +163,14 @@ const Contact = () => {
                       <MapPin className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Location</p>
-                      <p className="font-medium">Ahmedabad, India</p>
+                      <p className="text-sm">Location</p>
+                      <p className="font-medium">{contactDetails?.location}</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="rounded-3xl bg-gray-50 shadow-lg p-8">
+            <div className="w-full md:w-1/2 rounded-3xl bg-gray-50 dark:bg-emerald-900 shadow-lg p-8">
               <h2 className="text-2xl font-bold mb-6">Tell me your Thoughts</h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -211,8 +235,8 @@ const Contact = () => {
                   />
                   <label htmlFor="terms" className="text-sm leading-relaxed">
                     I accept the{" "}
-                    <Link to="/terms" className="text-primary underline input-focus">Terms & Condition</Link>
-                    {" "}and <Link to="/privacy" className="text-primary underline input-focus">Privacy Policy</Link>.
+                    <Link to="/terms" className="text-primary underline input-focus hover:text-emerald-500">Terms & Condition</Link>
+                    {" "}and <Link to="/privacy" className="text-primary underline input-focus hover:text-emerald-500">Privacy Policy</Link>.
                   </label>
                 </div>
 
@@ -220,11 +244,11 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-repeat scroll text-lg py-6 rounded-xl"
+                  className="w-full bg-gradient-repeat text-lg py-6 rounded-xl text-white"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2" />
                       Sending...
                     </div>
                   ) : (

@@ -1,164 +1,62 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { motion, AnimatePresence } from "motion/react";
-import { ExternalLink, X,  } from "lucide-react";
+import { ExternalLink, X, } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import {ShootingStars}  from "@/components/ui/shooting-stars";
-import { StarsBackground } from "@/components/ui/stars-background";
 
-import thumbail1 from "../Assets/carehq/1.png";
-import carehq2 from "../Assets/carehq/2.png";
-import carehq3 from "../Assets/carehq/3.png";
-import carehq4 from "../Assets/carehq/4.png";
-import carehq5 from "../Assets/carehq/5.png";
-import carehq6 from "../Assets/carehq/6.png";
-import carehq7 from "../Assets/carehq/7.png";
-
-import wiretime1 from "../Assets/WireTime/1.jpeg";
-import wiretime2 from "../Assets/WireTime/2.jpeg";
-import wiretime3 from "../Assets/WireTime/3.png";
-import wiretime4 from "../Assets/WireTime/4.png";
-import wiretime5 from "../Assets/WireTime/5.png";
-import wiretime6 from "../Assets/WireTime/6.png";
-import wiretime7 from "../Assets/WireTime/7.jpeg";
-
-import sports1 from "../Assets/sportsportal/1.png";
-import sports2 from "../Assets/sportsportal/2.png";
-import sports3 from "../Assets/sportsportal/3.png";
-import sports4 from "../Assets/sportsportal/4.png";
-import sports5 from "../Assets/sportsportal/5.png";
-
-// import inventoryscan1 from "../Assets/inventoryscan/1.png";
-// import inventoryscan2 from "../Assets/inventoryscan/2.png";
-
-import gemini1 from "../Assets/chatapp/1.png";
-import gemini2 from "../Assets/chatapp/3.png";
-import gemini3 from "../Assets/chatapp/7.png";
-import gemini4 from "../Assets/chatapp/4.png";
-import gemini5 from "../Assets/chatapp/5.png";
-import gemini6 from "../Assets/chatapp/6.png";
-
-import ecommerse0 from "../Assets/Ecommerse/0.png";
-import ecommerse1 from "../Assets/Ecommerse/1.png";
-import ecommerse2 from "../Assets/Ecommerse/2.png";
-import ecommerse3 from "../Assets/Ecommerse/3.png";
-import ecommerse4 from "../Assets/Ecommerse/4.png";
-import ecommerse5 from "../Assets/Ecommerse/5.png";
-import ecommerse6 from "../Assets/Ecommerse/6.png";
-import { BackgroundBeams } from "@/components/ui/background-beams";
-
-interface Project {
+import { BACKEND_URL } from "../../config";
+interface ProjectDetails {
   id: number;
   title: string;
   description: string;
   tools: string[];
   thumbnail: string;
   screenshots: string[];
-  liveLink?: string;
-  hasLiveLink?: boolean;
+  liveLink: string;
+  hasLiveLink: boolean;
   category: string;
 }
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectDetails | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const projects = [
-    {
-      id: 1,
-      title: "Jewellery Ecommerce App",
-      description: "Developed a comprehensive Ecommerce platform for jewellery, Home page with diffrent diffrent categories.",
-      tools: ['Next.JS', 'Tailwind CSS', 'NodeJs', 'Express', 'MongoDB'],
-      thumbnail: ecommerse0,
-      screenshots: [
-        ecommerse1,
-        ecommerse2,
-        ecommerse3,
-        ecommerse4,
-        ecommerse5,
-        ecommerse6
-      ],
-      liveLink: "https://jewellery-ecommerce-flax.vercel.app/",
-      hasLiveLink: true,
-      category: "Web App"
-    },
-    {
-      id: 2,
-      title: "Gemini Chat App",
-      description: "Built a Gemini-style conversational AI chat application with features like OTP-based authentication, multi-chatroom management, real-time AI message simulation, image uploads, and reverse infinite scroll with pagination. Implements Redux for state management, form validation with React Hook Form + Zod, and a polished, responsive UI using Material UI. Dark mode, scroll-to-bottom, and keyboard accessibility are also integrated for a complete UX.",
-      tools: ['React', 'Redux', 'Material UI', 'Zod', 'JavaScript'],
-      thumbnail: gemini1,
-      screenshots: [
-        gemini2,
-        gemini3,
-        gemini4,
-        gemini5,
-        gemini6
-      ],
-      liveLink: "https://gemini-chat-app-gamma.vercel.app/",
-      hasLiveLink: true,
-      category: "Web App"
-    },
-    {
-      id: 3,
-      title: "CareHQ",
-      description: "Engineered a health monitoring system CareHQ using Vite, TypeScript, designed for staff operating in hazardous environments. The platform allows uploading of staff profiles and medical records, facilitates consultations, highlights abnormal health conditions, and integrates comprehensive checklists for ambulance preparedness and medicine inventory. This system improves on-site safety compliance and supports proactive health management across the organization.",
-      tools: ["react", "vite", 'restApi', "typescript", "docker"],
-      thumbnail: thumbail1,
-      screenshots: [
-        thumbail1,
-        carehq2,
-        carehq3,
-        carehq4,
-        carehq5,
-        carehq6,
-        carehq7
-      ],
-      hasLiveLink: false,
-      category: "Web App"
-    },
-    {
-      id: 4,
-      title: "WiReTime",
-      description: "Developed a workforce management platform used by 50+ team members to track tasks and time, improving productivity by 40%. WireTime using Vite, TypeScript, React (MUI). The application streamlines task assignment, real-time punch-in/out tracking with geolocation, leave management, and automated email notifications. Additional modules include user profile customization and a dynamic dashboard, empowering managers with clear visibility into project progress and team productivity.",
-      tools: ["vite", 'restApi', "typescript", "docker"],
-      thumbnail: wiretime1,
-      screenshots: [
-        wiretime1,
-        wiretime2,
-        wiretime3,
-        wiretime4,
-        wiretime5,
-        wiretime6,
-        wiretime7
+  const [projectDetails, setProjectDetails] = useState<ProjectDetails[]>([]);
 
-      ],
+  useEffect(() => {
+    const fetchProjectDetails = async () => {
+      try {
+        const response = await axios.get(`${BACKEND_URL}/api/portfolioprojects?populate=*`);
+        const projectData = response.data.data;
+       
+        const transformedProjects = projectData.map((item) => {
+          const attributes = item;
+          return {
+            id: item.id,
+            title: attributes.titile,
+            description: attributes.description,
+            tools: attributes.techtools?.map(tool => tool.techtools) || [],
+            thumbnail: `${BACKEND_URL}` + attributes.thumbnail?.url,
+            screenshots: attributes.images?.map(img => `${BACKEND_URL}` + img.url) || [],
+            liveLink: attributes.liveLink || "",
+            hasLiveLink: attributes.hasLiveLink || false,
+            category: attributes.category || "Web App",
+          };
+        });
 
-      hasLiveLink: false,
-      category: "Web App"
-    },
-    {
-      id: 5,
-      title: "Sports Portal",
-      description: "Developed an interactive Sports Portal using React, enabling users to explore training batches based on location and age group, choose from multiple packages, and seamlessly complete online payments. The platform features a dynamic landing page for user engagement and streamlines the booking process for sports programs. On the admin side, it supports batch creation, with functionalities to add trainers, configure package pricing, assign time slots, and monitor user activity. This system enhances operational efficiency and provides a unified interface for both users and administrators in managing sports training programs.",
-      tools: ["react", 'MUI', 'css', "docker", 'restApi'],
-      thumbnail: sports1,
-      screenshots: [
-        sports1,
-        sports2,
-        sports3,
-        sports4,
-        sports5
+        setProjectDetails(transformedProjects);
+        console.log("Transformed Projects:", transformedProjects);
+      } catch (error) {
+        console.error("Error fetching project details:", error);
+      }
+    };
 
-      ],
-      hasLiveLink: false,
-      category: "Web App"
-    },
+    fetchProjectDetails();
+  }, []);
 
-  ];
-
-  const openProject = (project: Project) => {
+  const openProject = (project: ProjectDetails) => {
     setSelectedProject(project);
     setCurrentImageIndex(0);
   };
@@ -191,60 +89,60 @@ const Projects = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="project-container">
-            {projects.map((project, index) => (
-              <div className="project-card">
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={project.thumbnail}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projectDetails?.map((project, index) => (
+              <div className="shadow-xl rounded-3xl border-green-300 overflow-hidden transition-all duration-100 ease-out hover:shadow-2xl hover:scale-105">
+                <div className="aspect-video overflow-hidden">
+                  <img
+                    src={project.thumbnail}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3">
+                    <h3 className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    {/* <span className="text-xs px-2 py-1 bg-primary/20 text-primary rounded-full">
+                      {project.category}
+                    </span> */}
                   </div>
 
-                  {/* Content */}
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors duration-300">
-                        {project.title}
-                      </h3>
-                      <span className="text-xs px-2 py-1 bg-primary/20 text-primary rounded-full">
-                        {project.category}
-                      </span>
-                    </div>
+                  <p className="text-sm mb-4 line-clamp-3">
+                    {project.description}
+                  </p>
 
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                      {project.description}
-                    </p>
-
-                    {/* Tools */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tools.slice(0, 3).map((tool) => (
-                        <span
-                          key={tool}
-                          className="text-xs px-2 py-1 bg-muted/50 text-muted-foreground rounded"
-                        >
-                          {tool}
-                        </span>
-                      ))}
-                      {project.tools.length > 3 && (
-                        <span className="text-xs px-2 py-1 bg-muted/50 text-muted-foreground rounded">
-                          +{project.tools.length - 3} more
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Buttons */}
-                    <div className="flex gap-3">
-                      <Button
-                        onClick={() => openProject(project)}
-                        variant="outline"
-                        size="sm"
-                        className="detail-btn bg-gradient-repeat scroll"
+                  {/* Tools */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tools.slice(0, 3).map((tool) => (
+                      <span
+                        key={tool}
+                        className="text-xs px-2 py-1 rounded"
                       >
-                        View Details
-                      </Button>
-                      {/* {project.hasLiveLink && (
+                        {tool}
+                      </span>
+                    ))}
+                    {project.tools.length > 3 && (
+                      <span className="text-xs px-2 py-1 rounded">
+                        +{project.tools.length - 3} more
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Buttons */}
+                  <div className="flex gap-3">
+                    <Button
+                      onClick={() => openProject(project)}
+                      variant="outline"
+                      size="sm"
+                      className="border-none w-full rounded-xl font-bold p-6 bg-gradient-repeat text-white hover:shadow-xl"
+                    >
+                      View Details
+                    </Button>
+                    {/* {project.hasLiveLink && (
                         <Button
                           asChild
                           size="sm"
@@ -259,9 +157,9 @@ const Projects = () => {
                           </a>
                         </Button>
                       )} */}
-                    </div>
                   </div>
                 </div>
+              </div>
             ))}
           </div>
         </div>
@@ -296,13 +194,13 @@ const Projects = () => {
                         variant="ghost"
                         size="sm"
                         onClick={closeProject}
-                        className="hover:bg-destructive/10 hover:text-destructive "
+                        className="hover:bg-destructive/10 hover:text-destructive"
                       >
                         <X className="w-5 h-5" />
                       </Button>
                     </div>
 
-                    <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
+                    <p className="text-lg mb-8 leading-relaxed">
                       {selectedProject.description}
                     </p>
 
@@ -335,14 +233,12 @@ const Projects = () => {
                           </a>
                         </Button>
                       )}
-
                     </div>
                   </div>
                 </div>
 
-
                 {/* Right side - Screenshots */}
-                <div className="flex-1 bg-muted/10 p-6 overflow-y-auto max-h-[90vh]">
+                <div className="flex-1 p-6 overflow-y-auto max-h-[90vh]">
                   <div className="flex flex-col gap-4">
                     {selectedProject.screenshots.map((src: string, index: number) => (
                       <img
@@ -359,7 +255,7 @@ const Projects = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    
+
       <Footer />
     </div>
   );
