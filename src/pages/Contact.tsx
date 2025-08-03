@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { motion } from "motion/react";
+import { useState,useEffect } from "react";
+import axios from "axios";
+// import { motion } from "motion/react";
 import { Send, Mail, MapPin, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,6 +12,13 @@ import Footer from "@/components/Footer";
 import emailjs from 'emailjs-com';
 import { Link } from "react-router-dom";
 
+interface ContactDetails {
+  name?: string;
+  Email?: string;
+  phone?: string;
+  location?: string;
+}
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -20,6 +28,22 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const [contactDetails, setContactDetails] = useState<ContactDetails | null>(null);
+  useEffect(() => {
+    const fetchContactDetails = async () => {
+      try {
+        const response = await axios.get(`http://localhost:1337/api/portfoliocontacts`);
+        const contactData = response.data.data[0];
+        setContactDetails(contactData);
+        console.log("Contact details fetched:", contactData);
+      } catch (error) {
+        console.error("Error fetching contact details:", error);
+      }
+    };
+
+    fetchContactDetails();
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -122,7 +146,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="font-medium">yashpatel.dev01@gmail.com</p>
+                      <p className="font-medium">{contactDetails?.Email}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -131,7 +155,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Phone</p>
-                      <p className="font-medium">+91 78619 45362</p>
+                      <p className="font-medium">+91 {contactDetails?.phone}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -140,7 +164,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Location</p>
-                      <p className="font-medium">Ahmedabad, India</p>
+                      <p className="font-medium">{contactDetails?.location}</p>
                     </div>
                   </div>
                 </div>
