@@ -36,7 +36,7 @@ const HeroSection = () => {
 
               {/* Greeting */}
               <p className="flex items-center gap-2 text-lg  md:text-xl text-muted-foreground mb-4 text-left" >
-                <Sparkles className=" h-6 w-6 animate-glow" />
+                <Sparkles className=" h-6 w-6" />
                 Hi There!
               </p>
 

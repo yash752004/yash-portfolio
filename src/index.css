@@ -144,15 +144,18 @@ All colors MUST be HSL.
     background-clip: text;
   }
 
-  .text-gradient-light {
-    background: var(--gradient-primary-light);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
   .bg-gradient {
     background: var(--gradient-primary);
+  }
+
+  .bg-gradient-repeat-transparent {
+    background-color: transparent;
+    background-size: 200% 200%;
+
+    &:hover {
+      background-image: var(--gradient-primary-repeat);
+      animation: bg-scroll-x 0.8s linear infinite;
+    }
   }
 
   .bg-gradient-repeat {
@@ -187,22 +190,6 @@ All colors MUST be HSL.
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out;
-  }
-
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out;
-  }
-
   .input-checkbox {
     @apply h-4 w-4 shrink-0 rounded-sm border-1 border-black disabled:cursor-not-allowed disabled:opacity-50;
   }
@@ -220,45 +207,6 @@ All colors MUST be HSL.
   100% { background-position: -200%; }
 }
 
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes glow {
-  from {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
-  }
-  to {
-    box-shadow: 0 0 40px hsl(var(--primary) / 0.8),
-      0 0 60px hsl(var(--primary-glow) / 0.3);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
 @keyframes typewriter {
   from {

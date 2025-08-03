@@ -335,11 +335,9 @@ const Projects = () => {
                           </a>
                         </Button>
                       )}
-
                     </div>
                   </div>
                 </div>
-
 
                 {/* Right side - Screenshots */}
                 <div className="flex-1 bg-muted/10 p-6 overflow-y-auto max-h-[90vh]">

@@ -92,16 +92,12 @@ const ServicesSection = () => {
                         key={feature}
                         className="flex items-center text-sm text-muted-foreground"
                       >
-                        <div className="w-2 h-2 rounded-full bg-glass mr-3" />
+                        <div className="w-2 h-2 rounded-full bg-emerald-500 mr-3" />
                         {feature}
                       </div>
                     ))}
                   </div>
                 </div>
-
-                {/* Decorative elements */}
-                <div className="absolute top-4 right-4 w-20 h-20 bg-glass/5 rounded-full blur-xl group-hover:bg-glass/10 transition-colors duration-500" />
-                <div className="absolute bottom-4 left-4 w-16 h-16 bg-glass-glow/5 rounded-full blur-lg group-hover:bg-glass-glow/10 transition-colors duration-500" />
               </div>
             </div>
           ))}

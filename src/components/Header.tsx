@@ -30,7 +30,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`px-4 py-1.5 rounded-full hover:bg-gradient-repeat ${isActive(item.path) ? "text-white bg-emerald-500 shadow-lg" : ""}`}
+                className={`px-4 py-1.5 rounded-full ${isActive(item.path) ? "text-white bg-emerald-500 shadow-lg" : "bg-gradient-repeat-transparent hover:text-white"}`}
               >
                 {item.name}
               </Link>
