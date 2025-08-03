@@ -30,7 +30,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`link ${isActive(item.path) ? "active" : "hover:bg-gradient-repeat hover:scroll"}`}
+                className={`link ${isActive(item.path) ? "active" : "hover:bg-gradient-repeat"}`}
               >
                 {item.name}
               </Link>

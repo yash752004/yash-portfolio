@@ -46,7 +46,8 @@ All colors MUST be HSL.
     /* Premium gradients */
     --gradient-primary: linear-gradient(135deg, var(--color-emerald-500), var(--color-emerald-300));
     --gradient-primary-light: linear-gradient(135deg, var(--color-emerald-100), var(--color-emerald-50));
-    --gradient-primary-repeat: linear-gradient(135deg, var(--color-emerald-500), var(--color-emerald-300), var(--color-emerald-500));
+    --gradient-primary-repeat: linear-gradient(90deg, var(--color-emerald-500), var(--color-emerald-300), var(--color-emerald-500));
+    --gradient-primary-repeat-light: linear-gradient(90deg, var(--color-emerald-200), var(--color-white), var(--color-emerald-200));
 
     /* Shadows */
     --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
@@ -115,14 +116,9 @@ All colors MUST be HSL.
 
 @layer base {
   body {
-    /* background: hsl(var(--background));
-    background-image: 
-      radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, hsl(var(--primary-glow) / 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, hsl(var(--accent) / 0.1) 0%, transparent 50%); */
     font-family: "Roboto Flex", sans-serif;
     @apply bg-white;
-    @apply selection:bg-(--primary-1) selection:text-white;
+    @apply selection:bg-(--color-emerald-600) selection:text-white;
   }
 
   html {
@@ -145,7 +141,11 @@ All colors MUST be HSL.
     @apply h-full mx-auto hidden md:flex items-center gap-4 px-6 pt-6;
 
     .main-block {
-      @apply w-full flex justify-between pl-6 pr-4 py-3 rounded-full shadow-none;
+      @apply w-full flex justify-between pl-6 pr-4 py-3 rounded-full;
+      background: rgb(255 255 255 / 60%);
+      backdrop-filter: blur(10px);
+      box-shadow: 0px 6px 20px 2px rgb(0 0 0 / 20%);
+      .title-text { @apply text-gray-800; }
       transition: all 0.2s ease-out;
 
       .name-block {
@@ -176,6 +176,7 @@ All colors MUST be HSL.
           }
       
           &:not(.active):hover {
+            color: var(--color-white);
             background: var(--gradient-primary-repeat);
             background-size: 200% 200%;
             animation: bg-scroll-x 0.8s linear infinite;
@@ -183,13 +184,6 @@ All colors MUST be HSL.
         }
       }
     }
-  }
-
-  html:not([data-scroll='0']) .navbar-block .main-block {
-    background: rgb(255 255 255 / 60%);
-    backdrop-filter: blur(10px);
-    box-shadow: 0px 6px 20px 2px rgb(0 0 0 / 20%);
-    .title-text { @apply text-gray-800; }
   }
 
   .navbar-block .theme-block {
@@ -280,10 +274,21 @@ All colors MUST be HSL.
   }
 
   .bg-gradient-repeat{
-    background: var(--gradient-primary-repeat);
+    background-color: var(--color-emerald-500);
     background-size: 200% 200%;
 
-    &.scroll:hover {
+    &:hover {
+      background-image: var(--gradient-primary-repeat);
+      animation: bg-scroll-x 0.8s linear infinite;
+    }
+  }
+
+  .bg-gradient-repeat-light {
+    background-color: white;
+    background-size: 200% 200%;
+    
+    &:hover {
+      background-image: var(--gradient-primary-repeat-light);
       animation: bg-scroll-x 0.8s linear infinite;
     }
   }
@@ -325,13 +330,12 @@ All colors MUST be HSL.
       @apply outline-none ring-(--primary-1) ring-4 rounded-sm;
     }
   }
-
 }
 
 @keyframes bg-scroll-x {
-  0% { background-position-x: 0%; }
-  50% { background-position-x: -100%; }
-  100% { background-position-x: -200%; }
+  0% { background-position: 0%; }
+  50% { background-position: -100%; }
+  100% { background-position: -200%; }
 }
 
 @keyframes float {

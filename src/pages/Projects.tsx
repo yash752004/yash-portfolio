@@ -240,7 +240,7 @@ const Projects = () => {
                         onClick={() => openProject(project)}
                         variant="outline"
                         size="sm"
-                        className="detail-btn bg-gradient-repeat scroll"
+                        className="detail-btn bg-gradient-repeat text-white hover:shadow-xl"
                       >
                         View Details
                       </Button>

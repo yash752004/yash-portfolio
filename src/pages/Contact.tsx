@@ -220,11 +220,11 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-repeat scroll text-lg py-6 rounded-xl"
+                  className="w-full bg-gradient-repeat text-lg py-6 rounded-xl text-white"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white" />
+                      <div className="animate-spin rounded-full h-5 w-5 border-b-2" />
                       Sending...
                     </div>
                   ) : (
