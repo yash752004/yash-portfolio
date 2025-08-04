@@ -1,51 +1,114 @@
-import {  Globe, Cloud, Code, Database, Rocket, Code2 } from "lucide-react";
+import { BACKEND_URL } from "../../../config";
+import { Globe, Cloud, Code, Database, Rocket, Code2 } from "lucide-react";
+import { useEffect, useState } from "react";
+
+const iconMap: Record<string, React.ElementType> = {
+  "Web App Development": Globe,
+  "Database Development": Database,
+  "API Development": Code,
+  "Full Stack Development": Rocket,
+  "CMS Development": Code2,
+  "Cloud Development": Cloud,
+};
+
+const colorMap: Record<string, string> = {
+  "Web App Development": "from-green-500 to-blue-500",
+  "Database Development": "from-red-500 to-pink-500",
+  "API Development": "from-indigo-500 to-blue-600",
+  "Full Stack Development": "from-teal-500 to-cyan-500",
+  "CMS Development": "from-yellow-400 to-orange-500",
+  "Cloud Development": "from-purple-500 to-pink-500",
+};
+
 
 const ServicesSection = () => {
-  const services = [
-    {
-      icon: Globe,
-      title: "Web App Development",
-      description: "Modern, responsive web applications using cutting-edge technologies. From simple websites to complex enterprise solutions.",
-      features: ["Progressive Web Apps", "Responsive Design", "SEO Optimization"],
-      color: "from-green-500 to-blue-500",
-    },
-    {
-      icon: Database,
-      title: "Database Development",
-      description: "Database design, optimization, and management for high-performance applications. Expertise in SQL and NoSQL databases.",
-      features: ["Design", "Administration", "Optimization", "Migration"],
-      color: "from-red-500 to-pink-500",
-    },
-    {
-      icon: Code,
-      title: "API Development",
-      description: "Custom API development for seamless integration and data exchange. Building secure, scalable APIs for web and mobile applications.",
-      features: ["RESTful APIs", "API Documentation", "Authentication/Authorization", "Rate Limiting"],
-      color: "from-indigo-500 to-blue-600",
-    },
-    {
-      icon: Rocket,
-      title: "Full Stack Development",
-      description: "End-to-end development solutions covering both frontend and backend. Building robust, scalable applications with modern tech stacks.",
-      features: ["Scalable Architecture", "Microservices", "Real-time Applications", "Cross-platform Development"],
-      color: "from-teal-500 to-cyan-500",
-    },
-    {
-      icon: Code2,
-      title: "CMS Development",
-      description:
-        "Custom and headless CMS solutions for scalable, content-driven websites. Empower teams with easy content management workflows.",
-      features: ["Contentful", "Headless CMS", "Easy to  Manage", "Custom workflows", "Multi language Support"],
-      color: "from-yellow-400 to-orange-500",
-    },
-    {
-      icon: Cloud,
-      title: "Cloud Development",
-      description: "Scalable cloud infrastructure and serverless applications. Expertise in AWS, Google Cloud, and Azure for robust deployments.",
-      features: ["Cloud Computing", "Cloud Storage", "Serverless Architecture", "CI/CD Pipelines", "Microservices", "Containerization"],
-      color: "from-purple-500 to-pink-500",
-    },
-  ];
+  // const services = [
+  //   {
+  //     icon: Globe,
+  //     title: "Web App Development",
+  //     description: "Modern, responsive web applications using cutting-edge technologies. From simple websites to complex enterprise solutions.",
+  //     features: ["Progressive Web Apps", "Responsive Design", "SEO Optimization"],
+  //     color: "from-green-500 to-blue-500",
+  //   },
+  //   {
+  //     icon: Database,
+  //     title: "Database Development",
+  //     description: "Database design, optimization, and management for high-performance applications. Expertise in SQL and NoSQL databases.",
+  //     features: ["Design", "Administration", "Optimization", "Migration"],
+  //     color: "from-red-500 to-pink-500",
+  //   },
+  //   {
+  //     icon: Code,
+  //     title: "API Development",
+  //     description: "Custom API development for seamless integration and data exchange. Building secure, scalable APIs for web and mobile applications.",
+  //     features: ["RESTful APIs", "API Documentation", "Authentication/Authorization", "Rate Limiting"],
+  //     color: "from-indigo-500 to-blue-600",
+  //   },
+  //   {
+  //     icon: Rocket,
+  //     title: "Full Stack Development",
+  //     description: "End-to-end development solutions covering both frontend and backend. Building robust, scalable applications with modern tech stacks.",
+  //     features: ["Scalable Architecture", "Microservices", "Real-time Applications", "Cross-platform Development"],
+  //     color: "from-teal-500 to-cyan-500",
+  //   },
+  //   {
+  //     icon: Code2,
+  //     title: "CMS Development",
+  //     description:
+  //       "Custom and headless CMS solutions for scalable, content-driven websites. Empower teams with easy content management workflows.",
+  //     features: ["Contentful", "Headless CMS", "Easy to  Manage", "Custom workflows", "Multi language Support"],
+  //     color: "from-yellow-400 to-orange-500",
+  //   },
+  //   {
+  //     icon: Cloud,
+  //     title: "Cloud Development",
+  //     description: "Scalable cloud infrastructure and serverless applications. Expertise in AWS, Google Cloud, and Azure for robust deployments.",
+  //     features: ["Cloud Computing", "Cloud Storage", "Serverless Architecture", "CI/CD Pipelines", "Microservices", "Containerization"],
+  //     color: "from-purple-500 to-pink-500",
+  //   },
+  // ];
+
+  const [services, setServices] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${BACKEND_URL}/api/portfoliomy-services?populate=*`
+        );
+        const json = await response.json();
+
+        const desiredOrder = [
+          "Web App Development",
+          "Database Development",
+          "API Development",
+          "Full Stack Development",
+          "CMS Development",
+          "Cloud Development",
+        ];
+
+        // Sort json.data in the order of desiredOrder
+        const sortedData = json.data.sort((a, b) => {
+          const aName = a.name;
+          const bName = b.name;
+          return desiredOrder.indexOf(aName) - desiredOrder.indexOf(bName);
+        });
+
+        const transformed = sortedData.map((item) => ({
+          title: item.name,
+          description: item.description,
+          features: item.features.map((f) => f.features),
+          icon: iconMap[item.name] || Code,
+          color: colorMap[item.name] || "from-red-500 to-pink-500",
+        }));
+
+        setServices(transformed);
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <section id="services" className="relative py-20 overflow-hidden bg-emerald-50 dark:bg-zinc-800">
