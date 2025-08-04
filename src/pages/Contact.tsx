@@ -235,8 +235,8 @@ const Contact = () => {
                   />
                   <label htmlFor="terms" className="text-sm leading-relaxed">
                     I accept the{" "}
-                    <Link to="/terms" className="text-primary underline input-focus hover:text-emerald-500">Terms & Condition</Link>
-                    {" "}and <Link to="/privacy" className="text-primary underline input-focus hover:text-emerald-500">Privacy Policy</Link>.
+                    <Link to="/terms" target="_blank" className="text-primary underline input-focus hover:text-emerald-500">Terms & Condition</Link>
+                    {" "}and <Link to="/privacy-policy" target="_blank" className="text-primary underline input-focus hover:text-emerald-500">Privacy Policy</Link>.
                   </label>
                 </div>
 
