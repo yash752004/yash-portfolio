@@ -46,8 +46,8 @@ const Footer = () => {
             <div className="font-semibold text-monospace">// {contactDetails.phone}</div>
             <div className="font-semibold text-monospace">// {contactDetails.Email}</div>
             <div className="font-semibold text-monospace">//&nbsp;
-              <a href={contactDetails.githubURL} className="underline hover:text-emerald-500">Github</a>&nbsp;|&nbsp;
-              <a href={contactDetails.linkdinURL} className="underline hover:text-emerald-500">LinkedIn</a>
+              <a href={contactDetails.githubURL} target='_blank' className="underline hover:text-emerald-500">Github</a>&nbsp;|&nbsp;
+              <a href={contactDetails.linkdinURL} target='_blank' className="underline hover:text-emerald-500">LinkedIn</a>
             </div>
             {/* <div className="flex gap-4 text-monospace">
               <a href={contactDetails.github} target="_blank" className="hover:text-emerald-500"><SiGithub className="w-5 h-5" /></a>

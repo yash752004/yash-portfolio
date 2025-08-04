@@ -1,3 +1,6 @@
+import axios from "axios";
+import { BACKEND_URL } from "../../../config";
+import { useState, useEffect } from "react";
 import {
   SiTailwindcss, SiJavascript, SiTypescript,
   SiVite, SiNextdotjs, SiReact, SiMui, SiNodedotjs, SiExpress, SiMongodb, SiRedux,
@@ -22,88 +25,157 @@ import {
 } from "react-icons/si";
 import { Link } from "react-router-dom";
 
+const iconMap: Record<string, unknown> = {
+  React: SiReact,
+  "Next.js": SiNextdotjs,
+  JavaScript: SiJavascript,
+  TypeScript: SiTypescript,
+  "Tailwind CSS": SiTailwindcss,
+  "Material UI": SiMui,
+  Shadcn: SiShadcnui,
+
+  "Node.js": SiNodedotjs,
+  Express: SiExpress,
+  Fastify: SiFastify,
+  Koa: SiKoa,
+  ".NET": SiDotnet,
+  Blazor: SiBlazor,
+
+  PostgreSQL: SiPostgresql,
+  MySQL: SiMysql,
+  SQLite: SiSqlite,
+  MongoDB: SiMongodb,
+  Turso: SiTurso,
+  Supabase: SiSupabase,
+  Firebase: SiFirebase,
+
+  AWS: SiAmazon,
+  GCP: SiGooglecloud,
+  Vultr: SiVultr,
+  Hostinger: SiHostinger,
+
+  Strapi: SiStrapi,
+  Keystone: SiKeystone,
+
+  Vite: SiVite,
+  Docker: SiDocker,
+  Nginx: SiNginx,
+  GitHub: SiGithub,
+  Postman: SiPostman,
+};
+
 const TechStackSection = () => {
-  const frontendTechStack = {
-    color: "#61DAFB",
-    title: "Front End",
-    technologies: [
-      { name: "React", icon: SiReact, color: "#61DAFB" },
-      { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
-      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
-      { name: "Material UI", icon: SiMui, color: "#007FFF" },
-      { name: "Shadcn", icon: SiShadcnui, color: "#FFFFFF" },
-    ],
-  };
 
-  const backendTechStack = {
-    color: "#339933",
-    title: "Back End",
-    technologies: [
-      { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
-      { name: "Express", icon: SiExpress, color: "#000000" },
-      { name: "Fastify", icon: SiFastify, color: "#000000" },
-      { name: "Koa", icon: SiKoa, color: "#000000" },
-      { name: ".NET", icon: SiDotnet, color: "#47A248" },
-      { name: "Blazor", icon: SiBlazor, color: "#00758F" },
-    ],
-  };
+  const [allStack, setAllStack] = useState([]);
 
-  const databaseTechStack = {
-    color: "#47A248",
-    title: "Database",
-    technologies: [
-      { name: "PostgreSQL", icon: SiPostgresql, color: "#47A248" },
-      { name: "MySQL", icon: SiMysql, color: "#00758F" },
-      { name: "SQLite", icon: SiSqlite, color: "#00758F" },
-      { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-      { name: "Turso", icon: SiTurso, color: "#47A248" },
-      { name: "Supabase", icon: SiSupabase, color: "#47A248" },
-      { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
-    ],
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BACKEND_URL}/api/tech-stack?populate=*`);
+        const data = response.data.data;
 
-  const cloudTechStack = {
-    color: "#FF9900",
-    title: "Cloud & Hosting",
-    technologies: [
-      { name: "AWS", icon: SiAmazon, color: "#FF9900" },
-      { name: "GCP", icon: SiGooglecloud, color: "#000000" },
-      { name: "Vultr", icon: SiVultr, color: "#000000" },
-      { name: "Hostinger", icon: SiHostinger, color: "#000000" },
-    ],
-  };
-  
-  const cmsTechStack = {
-    color: "#21759B",
-    title: "CMS",
-    technologies: [
-      { name: "Strapi", icon: SiStrapi, color: "#21759B" },
-      { name: "Keystone", icon: SiKeystone, color: "#21759B" },
-    ],
-  };
-  
-  const buildToolsTechStack = {
-    color: "#181717",
-    title: "Build & Deployment",
-    technologies: [
-      { name: "Vite", icon: SiVite, color: "#646CFF" },
-      { name: "Docker", icon: SiDocker, color: "#2496ED" },
-      { name: "Nginx", icon: SiNginx, color: "#2496ED" },
-      { name: "GitHub", icon: SiGithub, color: "#181717" },
-      { name: "Postman", icon: SiPostman, color: "#FF6C37" },
-    ],
-  };
+        const transformedStack = [
+          {
+            color: "#61DAFB",
+            title: "Front End",
+            technologies: data.frontEnd.map((tech) => ({
+              name: tech.frontEndStack,
+              icon: iconMap[tech.frontEndStack] || null,
+              color: getColor(tech.frontEndStack),
+            })),
+          },
+          {
+            color: "#339933",
+            title: "Back End",
+            technologies: data.backEnd.map((tech) => ({
+              name: tech.backEndStack,
+              icon: iconMap[tech.backEndStack] || null,
+              color: getColor(tech.backEndStack),
+            })),
+          },
+          {
+            color: "#336791",
+            title: "Database",
+            technologies: data.database.map((tech) => ({
+              name: tech.dataBase,
+              icon: iconMap[tech.dataBase] || null,
+              color: getColor(tech.dataBase),
+            })),
+          },
+          {
+            color: "#FF9900",
+            title: "Cloud & Hosting",
+            technologies: data.cloudev.map((tech) => ({
+              name: tech.clouStack,
+              icon: iconMap[tech.clouStack] || null,
+              color: getColor(tech.clouStack),
+            })),
+          },
+          {
+            color: "#8E75FF",
+            title: "CMS",
+            technologies: data.cms.map((tech) => ({
+              name: tech.cms,
+              icon: iconMap[tech.cms] || null,
+              color: getColor(tech.cms),
+            })),
+          },
+          {
+            color: "#181717",
+            title: "Build & Deployment",
+            technologies: data.build_deployment.map((tech) => ({
+              name: tech.build_deployment,
+              icon: iconMap[tech.build_deployment] || null,
+              color: getColor(tech.build_deployment),
+            })),
+          },
+        ];
+        setAllStack(transformedStack);
+      } catch (error) {
+        console.error("Error fetching tech stack data:", error);
+      }
+    };
 
-  const allStack = [
-    frontendTechStack,
-    backendTechStack,
-    databaseTechStack,
-    cloudTechStack,
-    cmsTechStack,
-    buildToolsTechStack,
-  ];
+    fetchData();
+  }, []);
+
+  const getColor = (name: string): string => {
+    const colorMap: Record<string, string> = {
+      React: "#61DAFB",
+      "Next.js": "#000000",
+      JavaScript: "#F7DF1E",
+      TypeScript: "#3178C6",
+      "Tailwind CSS": "#06B6D4",
+      "Material UI": "#007FFF",
+      Shadcn: "#FFFFFF",
+      "Node.js": "#339933",
+      Express: "#000000",
+      Fastify: "#000000",
+      Koa: "#ffffff",
+      ".NET": "#512BD4",
+      Blazor: "#512BD4",
+      PostgreSQL: "#336791",
+      MySQL: "#4479A1",
+      SQLite: "#003B57",
+      MongoDB: "#47A248",
+      Turso: "#000000",
+      Supabase: "#3ECF8E",
+      Firebase: "#FFCA28",
+      AWS: "#FF9900",
+      GCP: "#4285F4",
+      Vultr: "#007BFC",
+      Hostinger: "#673DE6",
+      Strapi: "#8E75FF",
+      Keystone: "#2F2F2F",
+      Vite: "#646CFF",
+      Docker: "#2496ED",
+      Nginx: "#009639",
+      GitHub: "#181717",
+      Postman: "#FF6C37",
+    };
+
+    return colorMap[name] || "#000000";
+  };
 
   return (
     <section id="tech-stack" className="relative py-20 overflow-hidden bg-gradient">
@@ -120,7 +192,9 @@ const TechStackSection = () => {
                 <div className="flex flex-col gap-2">
                   {stack.technologies.map((tech, techIndex) => (
                     <div key={techIndex} className="inline-flex items-center">-
-                      <tech.icon className="w-4 h-4 mx-3" style={{ color: tech.color }} />
+                      {tech.icon && (
+                        <tech.icon className="w-4 h-4 mx-3" style={{ color: tech.color }} />
+                      )}
                       <span>{tech.name}</span>
                     </div>
                   ))}
