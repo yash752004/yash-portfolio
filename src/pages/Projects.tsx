@@ -193,8 +193,9 @@ const Projects = () => {
                       <Button
                         variant="ghost"
                         size="sm"
+                        
                         onClick={closeProject}
-                        className="hover:bg-destructive/10 hover:text-destructive"
+                        className="hover:bg-destructive/10 hover:text-destructive cursor-pointer"
                       >
                         <X className="w-5 h-5" />
                       </Button>
