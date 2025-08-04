@@ -48,7 +48,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="relative py-20 overflow-hidden bg-emerald-50">
+    <section id="services" className="relative py-20 overflow-hidden bg-emerald-50 dark:bg-zinc-800">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-16">
@@ -56,7 +56,7 @@ const ServicesSection = () => {
             My Services
           </h2>
 
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl max-w-3xl mx-auto">
             Comprehensive development solutions tailored to your business needs
           </p>
         </div>
@@ -64,7 +64,7 @@ const ServicesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <div key={service.title} className="group relative">
-              <div className="relative h-full bg-white rounded-3xl p-8 transition-all duration-250 overflow-hidden hover:shadow-2xl">
+              <div className="relative h-full bg-white dark:bg-zinc-700 rounded-3xl p-8 transition-all duration-250 overflow-hidden hover:shadow-2xl">
                 {/* Background gradient on hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-3xl`} />
 
@@ -81,7 +81,7 @@ const ServicesSection = () => {
                     {service.title}
                   </h3>
 
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="mb-6 leading-relaxed">
                     {service.description}
                   </p>
 
@@ -90,7 +90,7 @@ const ServicesSection = () => {
                     {service.features.map((feature, idx) => (
                       <div
                         key={feature}
-                        className="flex items-center text-sm text-muted-foreground"
+                        className="flex items-center text-sm"
                       >
                         <div className="w-2 h-2 rounded-full bg-emerald-500 mr-3" />
                         {feature}

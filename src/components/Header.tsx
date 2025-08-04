@@ -1,13 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { useTheme } from "next-themes";
 import { Home, FolderKanban, Mail } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const { theme, setTheme } = useTheme();
+  const [theme, setTheme] = useState(localStorage.theme || "light");
 
   const navItems = [
     { name: "Home", path: "/", icon: Home },
@@ -16,6 +15,16 @@ const Header = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+      localStorage.theme = "dark";
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.theme = "light";
+    }
+  }, [theme]);
 
   return (
     <div className="fixed top-0 left-0 right-0 z-1000 shadow-lg md:shadow-none">
