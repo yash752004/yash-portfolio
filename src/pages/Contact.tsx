@@ -223,7 +223,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-repeat text-lg py-6 rounded-xl text-white"
+                  className="w-full bg-gradient-repeat text-lg py-6 rounded-xl text-white link-focus"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">

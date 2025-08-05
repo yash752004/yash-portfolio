@@ -52,16 +52,16 @@ export const TypewriterEffect = ({
   }, [currentText, currentWordIndex, isDeleting, words]);
 
   return (
-    <div className={cn("", className)}>
+    <div className={cn("h-10", className)}>
       <span>{currentText}</span>
-      <motion.span
+      {/* <motion.span
         className={cn(
-          "inline-block w-1 h-9 bg-black ml-1",
+          "inline-block w-0 h-9 bg-black ml-1",
           cursorClassName
         )}
         animate={{ opacity: [1, 0] }}
         transition={{ duration: 1, repeat: Infinity }}
-      />
+      /> */}
     </div>
   );
 };

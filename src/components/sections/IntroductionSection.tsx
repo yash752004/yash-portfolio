@@ -50,7 +50,7 @@ const IntroductionSection = () => {
 
             <Button
               type="submit"
-              className="bg-gradient-repeat-light hover:shadow-xl text-lg py-6 rounded-xl cursor-pointer transition-all"
+              className="bg-gradient-repeat-light hover:shadow-xl text-lg py-6 rounded-xl cursor-pointer transition-all link-focus"
               onClick={() => navigate('/contact')}
             >
               <div className="flex items-center text-black gap-2">

@@ -41,7 +41,7 @@ const frontendTechStack = {
   };
 
   const backendTechStack = {
-    color: "#339933",
+    color: "#35b935",
     title: "Back End",
     technologies: [
       { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
@@ -54,7 +54,7 @@ const frontendTechStack = {
   };
 
   const databaseTechStack = {
-    color: "#336791",
+    color: "#ff5555",
     title: "Database",
     technologies: [
       { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
@@ -88,7 +88,7 @@ const frontendTechStack = {
   };
   
   const buildToolsTechStack = {
-    color: "#646CFF",
+    color: "#e9e63f",
     title: "Build & Deployment",
     technologies: [
       { name: "Vite", icon: SiVite, color: "#646CFF" },
@@ -124,7 +124,7 @@ const allStack = [
                   {stack.technologies.map((tech, techIndex) => (
                     <div key={techIndex} className="inline-flex items-center">-
                       {tech.icon && (
-                        <tech.icon className="w-4 h-4 mx-3" style={{ color: tech.color }} />
+                        <tech.icon className="w-4 h-4 mx-3" style={{ color: stack.color }} />
                       )}
                       <span>{tech.name}</span>
                     </div>
@@ -138,7 +138,7 @@ const allStack = [
           <p className="text-emerald-400">Auto updates enabled. List will update automatically.</p>
           <p className="text-emerald-600">Learning, improving, and discovering new things every day.</p>
           <p>&nbsp;</p>
-          <Link to="/projects" className="text-blue-500 underline hover:text-blue-300">Click here for more Information --&gt;</Link>
+          <Link to="/projects" className="text-blue-500 underline hover:text-blue-300 link-focus">Click here for more Information --&gt;</Link>
         </div>
       </div>
     </section>
