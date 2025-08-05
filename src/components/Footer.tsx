@@ -1,40 +1,8 @@
 // Redux imports
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from '../features/contact/contactSlice';
-import type { RootState, AppDispatch } from '../store/store';
-import { useEffect } from "react";
-// import { SiGithub, SiLinkedin } from "react-icons/si";
+import React from 'react';
 
 const Footer = () => {
 
-  const dispatch = useDispatch<AppDispatch>();
-  const { data, loading, error } = useSelector((state: RootState) => state.contact);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
-  // if (loading) return <p>Loading contact info...</p>;
-  // if (error) return <p>Error: {error}</p>;
-  if (!data || Array.isArray(data)) return null;
-  
-  const { name, Email, phone, location, githubURL, linkdinURL } = data as {
-    name?: string;
-    Email?: string;
-    phone?: string;
-    location?: string;
-    githubURL?: string;
-    linkdinURL?: string;
-  };
-
-  const contactDetails = {
-    name,
-    phone,
-    location,
-    Email,
-    githubURL,
-    linkdinURL,
-  };
 
   return (
     <footer className="bg-zinc-100 dark:bg-zinc-950 pt-8">
@@ -42,12 +10,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row gap-8 justify-between text-gray-600 dark:text-gray-400">
           <div className="flex flex-col gap-0">
             <div className="font-light text-monospace">// Developed by</div>
-            <div className="font-semibold text-monospace">// {contactDetails.name}</div>
-            <div className="font-semibold text-monospace">// {contactDetails.phone}</div>
-            <div className="font-semibold text-monospace">// {contactDetails.Email}</div>
+            <div className="font-semibold text-monospace">// Yash Patel</div>
+              <div className="font-semibold text-monospace">// +91 7861945362</div>
+              <div className="font-semibold text-monospace">// yashpatel.dev01@gmail.com</div>
             <div className="font-semibold text-monospace">//&nbsp;
-              <a href={contactDetails.githubURL} target='_blank' className="underline hover:text-emerald-500">Github</a>&nbsp;|&nbsp;
-              <a href={contactDetails.linkdinURL} target='_blank' className="underline hover:text-emerald-500">LinkedIn</a>
+              <a href='https://github.com/yash752004' target='_blank' className="underline hover:text-emerald-500">Github</a>&nbsp;|&nbsp;
+              <a href='https://www.linkedin.com/in/yash-patel-18a93a230/' target='_blank' className="underline hover:text-emerald-500">LinkedIn</a>
             </div>
             {/* <div className="flex gap-4 text-monospace">
               <a href={contactDetails.github} target="_blank" className="hover:text-emerald-500"><SiGithub className="w-5 h-5" /></a>
