@@ -43,6 +43,12 @@ import sports3 from "../assets/sportsportal/3.png";
 import sports4 from "../assets/sportsportal/4.png";
 import sports5 from "../assets/sportsportal/5.png";
 
+import analitics1 from "../assets/analytics/1.png";
+import analitics2 from "../assets/analytics/2.png";
+import analitics3 from "../assets/analytics/3.png";
+import analitics4 from "../assets/analytics/4.png";
+import analitics5 from "../assets/analytics/5.png";
+
 
 interface ProjectDetails {
   id: number;
@@ -155,6 +161,23 @@ const Projects = () => {
       hasLiveLink: false,
       category: "Web App"
     },
+    {
+      id: 6,
+      title: 'Analitics Dashboard',
+      description: 'Developed a futuristic analytics dashboard that visualizes business performance through dynamic, interactive charts. Users can upload sales data via CSV, which is then processed through n8n automation workflows and displayed as actionable insights. The dashboard features a responsive, glassmorphic UI with dark mode support, enabling intuitive analysis of KPIs like sales, taxes, stock, and payment trends.',
+      tools: ['NexxtJs', 'TypeScript', 'n8n Automation', 'Charts.js', 'Tailwind CSS'],
+      thumbnail: analitics1,
+      screenshots: [
+        analitics1,
+        analitics2,
+        analitics3,
+        analitics4,
+        analitics5
+      ],
+      liveLink: "",
+      hasLiveLink: false,
+      category: "Web App"
+    }
 
 
 
