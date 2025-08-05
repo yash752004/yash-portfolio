@@ -11,14 +11,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import emailjs from 'emailjs-com';
 import { Link } from "react-router-dom";
-import { BACKEND_URL } from "../../config";
-
-interface ContactDetails {
-  name?: string;
-  Email?: string;
-  phone?: string;
-  location?: string;
-}
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -30,20 +22,7 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const [contactDetails, setContactDetails] = useState<ContactDetails | null>(null);
-  useEffect(() => {
-    const fetchContactDetails = async () => {
-      try {
-        const response = await axios.get(`${BACKEND_URL}/api/portfoliocontacts`);
-        const contactData = response.data.data[0];
-        setContactDetails(contactData);
-      } catch (error) {
-        console.error("Error fetching contact details:", error);
-      }
-    };
-
-    fetchContactDetails();
-  }, []);
+ 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -146,7 +125,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm">Email</p>
-                      <p className="font-medium">{contactDetails?.Email}</p>
+                      <p className="font-medium">yashpatel.dev01@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -155,7 +134,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm">Phone</p>
-                      <p className="font-medium">+91 {contactDetails?.phone}</p>
+                      <p className="font-medium">+91 7861945362</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
@@ -164,7 +143,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm">Location</p>
-                      <p className="font-medium">{contactDetails?.location}</p>
+                      <p className="font-medium">Ahmedabad, India</p>
                     </div>
                   </div>
                 </div>
@@ -235,8 +214,8 @@ const Contact = () => {
                   />
                   <label htmlFor="terms" className="text-sm leading-relaxed">
                     I accept the{" "}
-                    <Link to="/terms" className="text-primary underline input-focus hover:text-emerald-500">Terms & Condition</Link>
-                    {" "}and <Link to="/privacy" className="text-primary underline input-focus hover:text-emerald-500">Privacy Policy</Link>.
+                    <Link to="/terms" target="_blank" className="text-primary underline input-focus hover:text-emerald-500">Terms & Condition</Link>
+                    {" "}and <Link to="/privacy-policy" target="_blank" className="text-primary underline input-focus hover:text-emerald-500">Privacy Policy</Link>.
                   </label>
                 </div>
 
@@ -244,7 +223,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-repeat text-lg py-6 rounded-xl text-white"
+                  className="w-full bg-gradient-repeat text-lg py-6 rounded-xl text-white link-focus"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">

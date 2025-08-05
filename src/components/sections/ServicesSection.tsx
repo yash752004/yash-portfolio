@@ -1,7 +1,8 @@
-import {  Globe, Cloud, Code, Database, Rocket, Code2 } from "lucide-react";
+import { Globe, Cloud, Code, Database, Rocket, Code2 } from "lucide-react";
 
 const ServicesSection = () => {
-  const services = [
+
+const services = [
     {
       icon: Globe,
       title: "Web App Development",
@@ -46,6 +47,7 @@ const ServicesSection = () => {
       color: "from-purple-500 to-pink-500",
     },
   ];
+
 
   return (
     <section id="services" className="relative py-20 overflow-hidden bg-emerald-50 dark:bg-zinc-800">

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   SiTailwindcss, SiJavascript, SiTypescript,
   SiVite, SiNextdotjs, SiReact, SiMui, SiNodedotjs, SiExpress, SiMongodb, SiRedux,
@@ -22,8 +23,10 @@ import {
 } from "react-icons/si";
 import { Link } from "react-router-dom";
 
+
 const TechStackSection = () => {
-  const frontendTechStack = {
+
+const frontendTechStack = {
     color: "#61DAFB",
     title: "Front End",
     technologies: [
@@ -38,28 +41,28 @@ const TechStackSection = () => {
   };
 
   const backendTechStack = {
-    color: "#339933",
+    color: "#35b935",
     title: "Back End",
     technologies: [
       { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
       { name: "Express", icon: SiExpress, color: "#000000" },
       { name: "Fastify", icon: SiFastify, color: "#000000" },
       { name: "Koa", icon: SiKoa, color: "#000000" },
-      { name: ".NET", icon: SiDotnet, color: "#47A248" },
-      { name: "Blazor", icon: SiBlazor, color: "#00758F" },
+      { name: ".NET", icon: SiDotnet, color: "#512BD4" },
+      { name: "Blazor", icon: SiBlazor, color: "#512BD4" },
     ],
   };
 
   const databaseTechStack = {
-    color: "#47A248",
+    color: "#ff5555",
     title: "Database",
     technologies: [
-      { name: "PostgreSQL", icon: SiPostgresql, color: "#47A248" },
-      { name: "MySQL", icon: SiMysql, color: "#00758F" },
-      { name: "SQLite", icon: SiSqlite, color: "#00758F" },
+      { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
+      { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+      { name: "SQLite", icon: SiSqlite, color: "#003B57" },
       { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-      { name: "Turso", icon: SiTurso, color: "#47A248" },
-      { name: "Supabase", icon: SiSupabase, color: "#47A248" },
+      { name: "Turso", icon: SiTurso, color: "#000000" },
+      { name: "Supabase", icon: SiSupabase, color: "#3ECF8E" },
       { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
     ],
   };
@@ -69,41 +72,41 @@ const TechStackSection = () => {
     title: "Cloud & Hosting",
     technologies: [
       { name: "AWS", icon: SiAmazon, color: "#FF9900" },
-      { name: "GCP", icon: SiGooglecloud, color: "#000000" },
-      { name: "Vultr", icon: SiVultr, color: "#000000" },
-      { name: "Hostinger", icon: SiHostinger, color: "#000000" },
+      { name: "GCP", icon: SiGooglecloud, color: "#4285F4" },
+      { name: "Vultr", icon: SiVultr, color: "#007BFC" },
+      { name: "Hostinger", icon: SiHostinger, color: "#673DE6" },
     ],
   };
   
   const cmsTechStack = {
-    color: "#21759B",
+    color: "#8E75FF",
     title: "CMS",
     technologies: [
-      { name: "Strapi", icon: SiStrapi, color: "#21759B" },
-      { name: "Keystone", icon: SiKeystone, color: "#21759B" },
+      { name: "Strapi", icon: SiStrapi, color: "#8E75FF" },
+      { name: "Keystone", icon: SiKeystone, color: "#2F2F2F" },
     ],
   };
   
   const buildToolsTechStack = {
-    color: "#181717",
+    color: "#e9e63f",
     title: "Build & Deployment",
     technologies: [
       { name: "Vite", icon: SiVite, color: "#646CFF" },
       { name: "Docker", icon: SiDocker, color: "#2496ED" },
-      { name: "Nginx", icon: SiNginx, color: "#2496ED" },
+      { name: "Nginx", icon: SiNginx, color: "#009639" },
       { name: "GitHub", icon: SiGithub, color: "#181717" },
       { name: "Postman", icon: SiPostman, color: "#FF6C37" },
     ],
   };
 
-  const allStack = [
-    frontendTechStack,
-    backendTechStack,
-    databaseTechStack,
-    cloudTechStack,
-    cmsTechStack,
-    buildToolsTechStack,
-  ];
+const allStack = [
+  frontendTechStack,
+  backendTechStack,
+  databaseTechStack,
+  cloudTechStack,
+  cmsTechStack,
+  buildToolsTechStack,
+];
 
   return (
     <section id="tech-stack" className="relative py-20 overflow-hidden bg-gradient">
@@ -120,7 +123,9 @@ const TechStackSection = () => {
                 <div className="flex flex-col gap-2">
                   {stack.technologies.map((tech, techIndex) => (
                     <div key={techIndex} className="inline-flex items-center">-
-                      <tech.icon className="w-4 h-4 mx-3" style={{ color: tech.color }} />
+                      {tech.icon && (
+                        <tech.icon className="w-4 h-4 mx-3" style={{ color: stack.color }} />
+                      )}
                       <span>{tech.name}</span>
                     </div>
                   ))}
@@ -133,7 +138,7 @@ const TechStackSection = () => {
           <p className="text-emerald-400">Auto updates enabled. List will update automatically.</p>
           <p className="text-emerald-600">Learning, improving, and discovering new things every day.</p>
           <p>&nbsp;</p>
-          <Link to="/projects" className="text-blue-500 underline hover:text-blue-300">Click here for more Information --&gt;</Link>
+          <Link to="/projects" className="text-blue-500 underline hover:text-blue-300 link-focus">Click here for more Information --&gt;</Link>
         </div>
       </div>
     </section>
