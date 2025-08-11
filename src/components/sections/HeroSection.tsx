@@ -3,7 +3,7 @@ import { TypewriterEffect } from "@/components/ui/aceternity/typewriter-effect";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 
-import profile from "../../../public/yash png 2.png";
+import profile from "../../assets/Profile/yash-profile.png";
 
 const HeroSection = () => {
   const navigate = useNavigate();
