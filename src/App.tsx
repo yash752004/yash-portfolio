@@ -33,7 +33,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/yashpatel">
+      <BrowserRouter >
         <ScrollToTop />
         <Suspense fallback={
           <div className="flex items-center justify-center min-h-screen">
