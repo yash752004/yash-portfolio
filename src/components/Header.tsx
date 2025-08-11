@@ -32,14 +32,14 @@ const Header = () => {
         <div className="w-full flex justify-between pl-6 pr-4 py-3 rounded-full bg-glass-header">
           <div className="flex items-center gap-4 lg:gap-8">
             <span className="text-2xl font-bold text-gradient">Yash Patel</span>
-            <span className="text-sm lg:text-lg text-gray-500 text-monospace">// Full Stack Developer</span>
+            <span className="text-sm lg:text-lg text-gray-500 dark:text-gray-400 text-monospace">// Full Stack Developer</span>
           </div>
-          <div className="flex items-center gap-2 md:gap-4">
+          <div className="flex items-center gap-2 lg:gap-4">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
-                className={`px-4 py-1.5 rounded-full ${isActive(item.path) ? "text-white bg-emerald-500 shadow-lg" : "bg-gradient-repeat-transparent hover:text-white"}`}
+                className={`px-4 py-1.5 rounded-full link-focus ${isActive(item.path) ? "text-white bg-emerald-500 shadow-lg" : "bg-gradient-repeat-transparent hover:text-white"}`}
               >
                 {item.name}
               </Link>
@@ -48,11 +48,11 @@ const Header = () => {
         </div>
         <div className="flex items-center">
           {theme === "dark"
-            ? <button onClick={() => setTheme("light")} className="flex items-center gap-2 px-3 py-3 bg-purple-900 text-white rounded-full hover:shadow-lg cursor-pointer">
+            ? <button onClick={() => setTheme("light")} className="flex items-center gap-2 px-3 py-3 bg-slate-600 text-white rounded-full hover:shadow-lg cursor-pointer link-focus">
               <Moon size={24} />
             </button>
             :
-            <button onClick={() => setTheme("dark")} className="flex items-center gap-2 px-3 py-3 bg-yellow-200 rounded-full hover:shadow-lg cursor-pointer">
+            <button onClick={() => setTheme("dark")} className="flex items-center gap-2 px-3 py-3 bg-yellow-200 rounded-full hover:shadow-lg cursor-pointer link-focus">
               <Sun size={24} />
             </button>
           }
@@ -60,7 +60,7 @@ const Header = () => {
       </nav>
 
       {/* Mobile Navigation */}
-      <div className="w-full flex flex-col md:hidden p-3 bg-gray-100">
+      <div className="w-full flex flex-col md:hidden p-3 bg-glass-header">
         <nav className="w-full flex items-center justify-between">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -74,10 +74,10 @@ const Header = () => {
           </div>
           <div className="flex items-center">
             {theme === "dark"
-              ? <button onClick={() => setTheme("light")} className="flex items-center gap-2 px-3 py-3 bg-purple-900 text-white rounded-full hover:shadow-lg cursor-pointer">
+              ? <button onClick={() => setTheme("light")} className="flex items-center gap-2 px-3 py-3 bg-slate-600 text-white rounded-full hover:shadow-lg cursor-pointer link-focus">
                 <Moon size={18} />
               </button>
-              : <button onClick={() => setTheme("dark")} className="flex items-center gap-2 px-3 py-3 bg-yellow-200 rounded-full hover:shadow-lg cursor-pointer">
+              : <button onClick={() => setTheme("dark")} className="flex items-center gap-2 px-3 py-3 bg-yellow-200 rounded-full hover:shadow-lg cursor-pointer link-focus">
                 <Sun size={18} />
               </button>
             }

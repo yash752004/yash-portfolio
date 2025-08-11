@@ -11,7 +11,7 @@ const Checkbox = React.forwardRef<
   <CheckboxPrimitive.Root
     ref={ref}
     className={cn(
-      "input-checkbox input-focus",
+      "h-4 w-4 shrink-0 rounded-sm border-1 disabled:cursor-not-allowed disabled:opacity-50 input-focus",
       className
     )}
     {...props}

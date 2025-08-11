@@ -218,7 +218,7 @@ const Projects = () => {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projectDetails?.map((project, index) => (
-              <div className="shadow-xl rounded-3xl border-green-300 overflow-hidden transition-all duration-100 ease-out hover:shadow-2xl hover:scale-105">
+              <div className="shadow-xl rounded-3xl bg-gray-100 dark:bg-zinc-800 overflow-hidden transition-all duration-100 ease-out hover:shadow-2xl hover:scale-105">
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={project.thumbnail}
@@ -265,7 +265,7 @@ const Projects = () => {
                       onClick={() => openProject(project)}
                       variant="outline"
                       size="sm"
-                      className="border-none w-full rounded-xl font-bold p-6 bg-gradient-repeat text-white hover:shadow-xl"
+                      className="border-none w-full rounded-xl font-bold p-6 bg-gradient-repeat text-white hover:shadow-xl link-focus"
                     >
                       View Details
                     </Button>
@@ -322,7 +322,7 @@ const Projects = () => {
                         size="sm"
 
                         onClick={closeProject}
-                        className="hover:bg-destructive/10 hover:text-destructive cursor-pointer"
+                        className="hover:bg-destructive/10 hover:text-destructive cursor-pointer link-focus"
                       >
                         <X className="w-5 h-5" />
                       </Button>
