@@ -24,8 +24,6 @@ const ScrollToTop = () => {
   return null;
 };
 
-
-
 const queryClient = new QueryClient();
 
 const App = () => (
