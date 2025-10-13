@@ -293,7 +293,7 @@ const Projects = () => {
       </main>
 
       {/* Project Detail Modal */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {selectedProject && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -310,7 +310,7 @@ const Projects = () => {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex">
-                {/* Left side - Details */}
+                {/* Left side - Details }
                 <div className="flex-1 p-8 pt-16 overflow-y-auto max-h-[90vh] flex items-start text-white">
                   <div className="w-full max-w-xl">
                     <div className="flex items-center justify-between mb-6">
@@ -332,7 +332,7 @@ const Projects = () => {
                       {selectedProject.description}
                     </p>
 
-                    {/* Tools */}
+                    {/* Tools}
                     <div className="mb-8">
                       <h3 className="text-xl font-semibold mb-4">Technologies Used</h3>
                       <div className="flex flex-wrap gap-3">
@@ -347,7 +347,7 @@ const Projects = () => {
                       </div>
                     </div>
 
-                    {/* Links */}
+                    {/* Links }
                     <div className="flex gap-4">
                       {selectedProject.hasLiveLink && (
                         <Button asChild className="bg-glass">
@@ -365,7 +365,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Right side - Screenshots */}
+                {/* Right side - Screenshots }
                 <div className="flex-1 p-6 overflow-y-auto max-h-[90vh]">
                   <div className="flex flex-col gap-4">
                     {selectedProject.screenshots.map((src: string, index: number) => (
@@ -382,7 +382,92 @@ const Projects = () => {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
+      {/* Project Detail Modal */}
+<AnimatePresence>
+  {selectedProject && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-2000 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+      onClick={closeProject}
+    >
+    <motion.div
+  initial={{ scale: 0.8, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  exit={{ scale: 0.8, opacity: 0 }}
+  className="rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto 
+             bg-white/25 backdrop-blur-md text-gray-900 
+             dark:bg-black/60 dark:text-white 
+             shadow-2xl border border-white/20 transition-colors duration-300"
+  onClick={(e) => e.stopPropagation()}
+>
+        <div className="p-8 text-white">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-4">
+              <h2 className="text-3xl font-bold text-gradient">
+                {selectedProject.title}
+              </h2>
+
+              {selectedProject.hasLiveLink && (
+                <Button asChild className="bg-glass">
+                  <a
+                    href={selectedProject.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Live Demo
+                  </a>
+                </Button>
+              )}
+            </div>
+
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={closeProject}
+              className="hover:bg-destructive/10 hover:text-destructive cursor-pointer link-focus"
+            >
+              <X className="w-5 h-5" />
+            </Button>
+          </div>
+
+          <p className="text-lg mb-8 leading-relaxed">
+            {selectedProject.description}
+          </p>
+
+         <div className="mb-8">
+  <h3 className="text-xl font-semibold mb-4">Technologies Used</h3>
+  <div className="flex flex-wrap gap-3">
+    {selectedProject.tools.map((tool: string) => (
+      <span
+        key={tool}
+        className="px-4 py-2 border border-primary/40 rounded-full text-sm font-medium text-primary bg-primary/10 hover:bg-primary/20 transition-colors duration-200"
+      >
+        #{tool}
+      </span>
+    ))}
+  </div>
+</div>
+
+          <div className="flex flex-col gap-4 overflow-y-auto">
+            {selectedProject.screenshots.map((src: string, index: number) => (
+              <img
+                key={index}
+                src={src}
+                alt={`${selectedProject.title} screenshot ${index + 1}`}
+                className="w-full rounded-xl object-contain border hover:scale-[1.01] transition-transform duration-300"
+              />
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
+
 
       <Footer />
     </div>

@@ -11,6 +11,7 @@ const Header = () => {
   const navItems = [
     { name: "Home", path: "/", icon: Home },
     { name: "Projects", path: "/projects", icon: FolderKanban },
+    { name: "Service", path: "/service", icon: Mail },
     { name: "Contact", path: "/contact", icon: Mail },
   ];
 
