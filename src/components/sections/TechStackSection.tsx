@@ -109,9 +109,9 @@ const allStack = [
 ];
 
   return (
-    <section id="tech-stack" className="relative py-20 overflow-hidden bg-gradient">
+    <section id="tech-stack" className="relative py-20 md:py-30 overflow-hidden bg-gradient">
       <div className="container mx-auto px-6">
-        <div className="bg-gray-950/70 rounded-3xl p-6 text-monospace shadow-2xl">
+        <div className="bg-gray-950/70 rounded-3xl p-12 text-monospace shadow-2xl">
           <h2 className="font-bold text-white"># Tech Stack //</h2>
           <p className="font-bold text-yellow-400">Technologies I am comfortable working with. <span className="text-cyan-700">(Non exhaustive list)</span></p>
           <p>&nbsp;</p>

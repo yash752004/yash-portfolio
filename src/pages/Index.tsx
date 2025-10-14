@@ -1,21 +1,21 @@
 import HeroSection from "@/components/sections/HeroSection";
 import IntroductionSection from "@/components/sections/IntroductionSection";
 import ServicesSection from "@/components/sections/ServicesSection";
+import ProjectHighlightSection from "@/components/sections/ProjectHighlightSection";
 import TechStackSection from "@/components/sections/TechStackSection";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-const Index = () => {
 
+const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
       <main>
         <HeroSection />
         <ServicesSection />
+        <ProjectHighlightSection />
         <IntroductionSection />
         <TechStackSection />
-
-
       </main>
       <Footer />
     </div>

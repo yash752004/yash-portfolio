@@ -50,7 +50,7 @@ const services = [
 
 
   return (
-    <section id="services" className="relative py-20 overflow-hidden bg-emerald-50 dark:bg-zinc-800">
+    <section id="services" className="relative py-20 md:py-30 overflow-hidden bg-emerald-50 dark:bg-zinc-800">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
       <div className="relative z-10 container mx-auto px-6">
         <div className="text-center mb-16">

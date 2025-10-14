@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-1000 shadow-lg md:shadow-none">
       <nav className="container h-full mx-auto hidden md:flex items-center gap-4 px-6 pt-6">
-        <div className="w-full flex justify-between pl-6 pr-4 py-3 rounded-full bg-glass-header">
+        <div className="w-full flex justify-between pl-6 pr-4 py-3 rounded-full bg-glass-header shadow-2xl">
           <div className="flex items-center gap-4 lg:gap-8">
             <span className="text-2xl font-bold text-gradient">Yash Patel</span>
             <span className="text-sm lg:text-lg text-gray-500 dark:text-gray-400 text-monospace">// Full Stack Developer</span>
@@ -60,7 +60,7 @@ const Header = () => {
       </nav>
 
       {/* Mobile Navigation */}
-      <div className="w-full flex flex-col md:hidden p-3 bg-glass-header">
+      <div className="w-full flex flex-col md:hidden p-3 bg-glass-header shadow-2xl">
         <nav className="w-full flex items-center justify-between">
           <button
             onClick={() => setIsOpen(!isOpen)}

@@ -6,7 +6,7 @@ const IntroductionSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="introduction" className="w-full py-20">
+    <section id="introduction" className="w-full py-20 md:py-30">
       <div className="container m-auto px-6 flex flex-col lg:flex-row items-stretched gap-12">
         {/* Left: About Me */}
         <div className="w-full lg:w-1/2" >

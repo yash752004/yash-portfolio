@@ -20,7 +20,7 @@ All colors MUST be HSL.
     --gradient-primary: linear-gradient(135deg, var(--color-emerald-500), var(--color-emerald-300));
     --gradient-primary-dark: linear-gradient(135deg, var(--color-emerald-700), var(--color-emerald-800));
     --gradient-primary-light: linear-gradient(135deg, var(--color-emerald-100), var(--color-emerald-50));
-    --gradient-primary-repeat: linear-gradient(90deg, var(--color-emerald-500), var(--color-emerald-300), var(--color-emerald-500));
+    --gradient-primary-repeat: linear-gradient(90deg, var(--color-emerald-300), var(--color-emerald-400), var(--color-emerald-300));
     --gradient-primary-repeat-light: linear-gradient(90deg, var(--color-emerald-200), var(--color-white), var(--color-emerald-200));
   }
 }
@@ -53,9 +53,7 @@ All colors MUST be HSL.
 
   .text-gradient {
     background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    @apply bg-clip-text text-transparent;
   }
 
   .bg-gradient {
@@ -99,7 +97,6 @@ All colors MUST be HSL.
   .bg-glass-header {
     background: rgb(255 255 255 / 60%);
     backdrop-filter: blur(10px);
-    box-shadow: 0px 6px 20px 2px rgb(0 0 0 / 20%);
 
     @variant dark {
       background: rgb(80 85 80 / 60%);
