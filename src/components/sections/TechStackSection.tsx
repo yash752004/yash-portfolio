@@ -135,8 +135,8 @@ const allStack = [
           </div>
           <p>&nbsp;</p>
           <p>&nbsp;</p>
-          <p className="text-emerald-400">Auto updates enabled. List will update automatically.</p>
-          <p className="text-emerald-600">Learning, improving, and discovering new things every day.</p>
+          <p className="text-primary-400">Auto updates enabled. List will update automatically.</p>
+          <p className="text-primary-600">Learning, improving, and discovering new things every day.</p>
           <p>&nbsp;</p>
           <Link to="/projects" className="text-blue-500 underline hover:text-blue-300 link-focus">Click here for more Information --&gt;</Link>
         </div>

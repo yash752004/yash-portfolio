@@ -36,7 +36,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section id="faq" className="relative pt-32 pb-20 overflow-hidden bg-emerald-50 dark:bg-zinc-800">
+    <section className="relative pt-32 pb-20 overflow-hidden bg-primary-50 dark:bg-zinc-800">
       <div className="container mx-auto px-6">
         {/* FAQ Header */}
         <div className="text-center mb-16">
@@ -63,11 +63,7 @@ const FAQSection = () => {
                   <div className={`transform transition-transform duration-300 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}>
-                    {openIndex === index ? (
-                      <ChevronUp className="w-6 h-6 text-gray-500" />
-                    ) : (
-                      <ChevronDown className="w-6 h-6 text-gray-500" />
-                    )}
+                    <ChevronDown className="w-6 h-6 text-gray-500" />
                   </div>
                 </div>
                 

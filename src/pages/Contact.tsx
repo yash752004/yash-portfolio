@@ -11,6 +11,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import emailjs from 'emailjs-com';
 import { Link } from "react-router-dom";
+import FAQSection from "@/components/sections/FAQSection";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -110,13 +111,13 @@ const Contact = () => {
       <main className="pt-24 pb-12 relative overflow-hidden">
         <div className="container mx-auto px-6 py-6 relative z-10">
           <div className="flex flex-col-reverse md:flex-row gap-8 lg:gap-12">
-            <div className="w-full md:w-1/2 flex flex-col justify-start gap-12 bg-green-100 dark:bg-zinc-800 p-8 rounded-3xl">
+            <div className="w-full md:w-1/2 flex flex-col justify-start gap-12 bg-primary-50 dark:bg-zinc-800 p-8 rounded-3xl">
               <div className="flex flex-col gap-4">
                 <h1 className="text-5xl font-bold text-gradient">Get In Touch</h1>
                 <p className="text-xl">Feel free to drop a message. Let's discuss your ideas, projects or questions.</p>
                 <p className="text-2xl font-bold">Let's builds something amazing together.</p>
               </div>
-              <div className="rounded-3xl p-6 border-2 border-emerald-300 dark:border-emerald-600 bg-white dark:bg-zinc-900">
+              <div className="rounded-3xl p-6 border-2 border-primary-300 dark:border-primary-600 bg-white dark:bg-zinc-900">
                 <h3 className="text-xl font-bold mb-4">My Contact Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
@@ -149,7 +150,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full md:w-1/2 rounded-3xl bg-gray-50 dark:bg-emerald-900 shadow-lg p-8">
+            <div className="w-full md:w-1/2 rounded-3xl bg-gray-50 dark:bg-primary-900 shadow-2xl p-8">
               <h2 className="text-2xl font-bold mb-6">Tell me your Thoughts</h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -214,8 +215,8 @@ const Contact = () => {
                   />
                   <label htmlFor="terms" className="text-sm leading-relaxed">
                     I accept the{" "}
-                    <Link to="/terms" target="_blank" className="text-primary underline input-focus hover:text-emerald-500">Terms & Condition</Link>
-                    {" "}and <Link to="/privacy-policy" target="_blank" className="text-primary underline input-focus hover:text-emerald-500">Privacy Policy</Link>.
+                    <Link to="/terms" target="_blank" className="text-primary underline input-focus hover:text-primary-500">Terms & Condition</Link>
+                    {" "}and <Link to="/privacy-policy" target="_blank" className="text-primary underline input-focus hover:text-primary-500">Privacy Policy</Link>.
                   </label>
                 </div>
 
@@ -267,6 +268,7 @@ const Contact = () => {
             </motion.div> */}
           </div>
         </div>
+        <FAQSection />
       </main>
       <Footer />
     </div>

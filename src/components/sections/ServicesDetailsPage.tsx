@@ -53,7 +53,7 @@ const ServicesDetailsPage = () => {
       icon: Code2,
       title: "CMS Development",
       description: "Custom and headless CMS solutions for scalable, content-driven websites. Empower teams with easy content management workflows.",
-      color: "from-yellow-400 to-orange-500",
+      color: "from-yellow-400 to-secondary-500",
       subServices: [
         { icon: Cloud, name: "Contentful", description: "Headless CMS implementation" },
         { icon: Code2, name: "Headless CMS", description: "Decoupled content management" },
@@ -79,7 +79,7 @@ const ServicesDetailsPage = () => {
   ];
 
   return (
-    <section id="services" className="relative pt-32 pb-20 overflow-hidden bg-emerald-50 dark:bg-zinc-800">
+    <section id="services" className="relative pt-32 pb-20 overflow-hidden bg-primary-50 dark:bg-zinc-800">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
       <div className="relative z-10 container mx-auto px-6">
         
