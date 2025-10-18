@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Link } from "react-router-dom";
 
 const PrivacyPolicy = () => {
 
@@ -99,13 +100,13 @@ const PrivacyPolicy = () => {
                                 <h2 className="text-2xl font-semibold mb-4">12. Contact Us</h2>
                                 <p>
                                     If you have any questions, reach out to us at{" "}
-                                    <a href="mailto:yashpatel.dev01@gmail.com" className="text-primary underline">
+                                    <span className="text-primary underline">
                                         yashpatel.dev01@gmail.com
-                                    </a>{" "}
+                                    </span>{" "}
                                     or visit our{" "}
-                                    <a href="/contact" target="_blank" className="text-primary underline">
+                                    <Link to="/contact" target="_blank" className="link underline">
                                         contact page
-                                    </a>
+                                    </Link>
                                     .
                                 </p>
                             </section>

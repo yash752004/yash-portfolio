@@ -4,7 +4,7 @@ import { ProjectDetailSection } from "@/components/sections/ProjectDetailSection
 
 const ProjectHeroSection = () => {
   return (
-    <section className="page-section pt-50 pb-0">
+    <section className="page-section pt-40 pb-0">
       <div className="container items-start lg:px-24">
         <div className="flex flex-col">
           <h2 className="text-4xl md:text-6xl/[1.2] font-bold text-gradient max-w-3xl">Our Projects Showcase</h2>

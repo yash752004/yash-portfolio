@@ -70,13 +70,7 @@ const HeroSection = () => {
             Empowering ideas with modern technology. Secure, Scalable and Built for results.
           </div>
           <div className="w-150 text-4xl font-medium capitalize">Have a powerful vision and ready to launch something impactful?</div>
-          <Button
-            type="submit"
-            className="w-40 bg-primary-500 text-white hover:scale-105 hover:shadow-xl text-lg py-6 rounded-xl cursor-pointer transition-all duration-150 link-focus"
-            onClick={() => navigate('/contact')}
-          >
-            Let's Connect
-          </Button>
+          <Button type="submit" onClick={() => navigate('/contact')} variant="secondary">Let's Connect</Button>
         </div>
       </div>
     </section>

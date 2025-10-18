@@ -60,8 +60,6 @@ All colors MUST be HSL.
 }
 
 @layer base {
-  * { @apply cursor-default; }
-
   body {
     font-family: "DM Sans", sans-serif;
     @apply bg-white selection:bg-(--color-primary-900) selection:text-white;
@@ -148,22 +146,25 @@ All colors MUST be HSL.
     }
   }
 
-  .link-focus {
-    &:focus-visible {
-      @apply outline-2 outline-primary-700 outline-offset-4;
-
-      @variant dark {
-        @apply outline-primary-300;
-      }
-    }
-  }
-
   .typewriter {
     overflow: hidden;
     border-right: 2px solid hsl(var(--primary));
     white-space: nowrap;
     animation: typewriter 3s steps(40, end), blink-caret 0.75s step-end infinite;
   }
+}
+
+
+@utility grow-on-hover {
+  transition: all 100ms ease-out; cursor: pointer;
+  &:hover { @apply scale-105 shadow-xl; }
+}
+@utility link-focus {
+  &:focus-visible { @apply outline-2 outline-secondary-400 outline-offset-4; }
+}
+@utility link {
+  @apply rounded-sm;
+  &:hover { @apply underline text-secondary-400; }
 }
 
 @keyframes bg-scroll-x {

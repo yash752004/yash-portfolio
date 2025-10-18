@@ -16,17 +16,17 @@ const Footer = () => {
             <div className="flex gap-4 font-semibold text-monospace">
               <Send size={20} className="text-secondary-400" />
               <div className="flex gap-2">
-                <a href='https://github.com/yash752004' target='_blank' className="underline hover:text-secondary-400 link-focus">Github</a>|
-                <a href='https://www.linkedin.com/in/yash-patel-18a93a230/' target='_blank' className="underline hover:text-secondary-400 link-focus">LinkedIn</a>
+                <Link to='https://github.com/yash752004' target='_blank' className="link underline">Github</Link>|
+                <Link to='https://www.linkedin.com/in/yash-patel-18a93a230/' target='_blank' className="link underline">LinkedIn</Link>
               </div>
             </div>
           </div>
           <div className="flex flex-col gap-0 md:gap-2">
-            <Link to='/services' target="_blank" className="font-semibold hover:underline hover:text-secondary-400 link-focus">Services</Link>
-            <Link to='/projects' target="_blank" className="font-semibold hover:underline hover:text-secondary-400 link-focus">Projects</Link>
-            <Link to='/contact' target="_blank" className="font-semibold hover:underline hover:text-secondary-400 link-focus">Contact</Link>
-            <Link to="/terms" target="_blank" className="font-semibold hover:underline hover:text-secondary-400 link-focus">Terms of Service</Link>
-            <Link to='/privacy-policy' target="_blank" className="font-semibold hover:underline hover:text-secondary-400 link-focus">Privacy Policy</Link>
+            <Link to='/services' className="link link-focus font-semibold">Services</Link>
+            <Link to='/projects' className="link link-focus font-semibold">Projects</Link>
+            <Link to='/contact' className="link link-focus font-semibold">Contact</Link>
+            <Link to="/terms" className="link link-focus font-semibold">Terms of Service</Link>
+            <Link to='/privacy-policy' className="link link-focus font-semibold">Privacy Policy</Link>
           </div>
         </div>
         <div className="container mx-auto text-center mt-6 text-gray-500">

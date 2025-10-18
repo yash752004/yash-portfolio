@@ -215,8 +215,8 @@ const Contact = () => {
                   />
                   <label htmlFor="terms" className="text-sm leading-relaxed">
                     I accept the{" "}
-                    <Link to="/terms" target="_blank" className="text-primary underline input-focus hover:text-primary-500">Terms & Condition</Link>
-                    {" "}and <Link to="/privacy-policy" target="_blank" className="text-primary underline input-focus hover:text-primary-500">Privacy Policy</Link>.
+                    <Link to="/terms" target="_blank" className="link link-focus underline">Terms & Condition</Link>
+                    {" "}and <Link to="/privacy-policy" target="_blank" className="link link-focus underline">Privacy Policy</Link>.
                   </label>
                 </div>
 
@@ -224,7 +224,7 @@ const Contact = () => {
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-repeat text-lg py-6 rounded-xl text-white link-focus"
+                  className="w-full"
                 >
                   {isSubmitting ? (
                     <div className="flex items-center gap-2">

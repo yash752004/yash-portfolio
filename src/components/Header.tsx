@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Button } from "./ui/button";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const [theme, setTheme] = useState(localStorage.theme || "light");
 
   const navItems = [
@@ -34,26 +36,37 @@ const Header = () => {
             <div className="h-9"><img src="/pinak_logo_small_1.png" alt="Logo" className="size-full -mt-1" /></div>
           </div>
           <div className="flex items-center gap-2 lg:gap-4">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.path}
-              className={`px-4 py-1.5 rounded-full link-focus ${isActive(item.path) ? "text-white bg-primary-500" : "hover:bg-primary-100 hover:text-primary-500 hover:cursor-pointer"}`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              return isActive(item.path)
+                ? <p key={item.name} className="px-2 font-bold text-primary-500 underline">{item.name}</p>
+                : <Button
+                    key={item.name}
+                    type="submit"
+                    onClick={() => navigate(item.path)}
+                    variant="default"
+                    size="sm"
+                    className="rounded-full bg-transparent text-black hover:bg-primary-500 hover:text-white"
+                  >
+                      {item.name}
+                  </Button>
+            })}
           </div>
         </div>
         <div className="flex items-center">
           {theme === "dark"
-            ? <button onClick={() => setTheme("light")} className="flex items-center gap-2 p-2 bg-slate-600 text-white rounded-full hover:shadow-lg cursor-pointer link-focus">
-              <Moon size={20} />
-            </button>
+            ? <Button
+                onClick={() => setTheme("light")}
+                className="w-10 p-2 bg-slate-600 text-white rounded-full"
+              >
+                <Moon size={20} />
+              </Button>
             :
-            <button onClick={() => setTheme("dark")} className="flex items-center gap-2 p-2 bg-primary-200 rounded-full hover:shadow-lg cursor-pointer link-focus">
+            <Button
+              onClick={() => setTheme("dark")}
+              className="w-10 p-2 bg-primary-300 text-white rounded-full"
+            >
               <Sun size={20} />
-            </button>
+            </Button>
           }
         </div>
       </nav>
@@ -61,24 +74,32 @@ const Header = () => {
       {/* Mobile Navigation */}
       <div className="w-full flex flex-col md:hidden p-3 bg-glass-header shadow-2xl">
         <nav className="w-full flex items-center justify-between">
-          <button
+          <Button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:text-primary transition-colors"
+            variant="ghost"
+            className="md:hidden w-10 p-2 hover:bg-primary-500 hover:text-white"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          </Button>
           <div className="flex items-center gap-4">
             <div className="h-9"><img src="/pinak_logo_small_1.png" alt="Logo" className="size-full -mt-1" /></div>
           </div>
           <div className="flex items-center">
             {theme === "dark"
-              ? <button onClick={() => setTheme("light")} className="flex items-center gap-2 px-3 py-3 bg-slate-600 text-white rounded-full hover:shadow-lg cursor-pointer link-focus">
-                <Moon size={18} />
-              </button>
-              : <button onClick={() => setTheme("dark")} className="flex items-center gap-2 px-3 py-3 bg-yellow-200 rounded-full hover:shadow-lg cursor-pointer link-focus">
-                <Sun size={18} />
-              </button>
-            }
+              ? <Button
+                  onClick={() => setTheme("light")}
+                  className="w-10 p-2 bg-slate-600 text-white rounded-full"
+                >
+                  <Moon size={20} />
+                </Button>
+                :
+                <Button
+                  onClick={() => setTheme("dark")}
+                  className="w-10 p-2 bg-primary-300 text-white rounded-full"
+                >
+                  <Sun size={20} />
+                </Button>
+              }
           </div>
         </nav>
         <div className={"h-0 overflow-hidden transition-all duration-150 ease-in-out" + (isOpen ? " h-60" : "")}>
@@ -88,7 +109,7 @@ const Header = () => {
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className="text-lg flex items-center justify-start gap-2 hover:underline"
+                className="link link-focus text-lg flex items-center justify-start gap-2"
               >
                 {item.name}
                 {isActive(item.path) && (<div className="size-2 rounded-full bg-primary-500"></div>)}

@@ -1,10 +1,13 @@
 import headerImage from "../../assets/hero-bg.jpg";
 import { Button } from "@/components/ui/button";
-import { Check, CircleCheckBig, Sparkles } from "lucide-react";
-import { title } from "process";
+import { Check, CircleCheckBig, Cloud, Code, Code2, Database, Globe, Rocket, Sparkles } from "lucide-react";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const data = [
+export const serviceData = [
   {
+    id: "webDevelopment",
+    icon: Globe,
     tagline: "fast modern scalable",
     title: "Web Development",
     description: "Build fast, modern, and scalable websites. We craft responsive, high-performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
@@ -25,6 +28,8 @@ const data = [
     }
   },
   {
+    id: "mobileDevelopment",
+    icon: Database,
     tagline: "fast modern scalable",
     title: "Web Development",
     description: "Build fast, modern, and scalable websites. We craft responsive, high-performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
@@ -45,6 +50,8 @@ const data = [
     }
   },
   {
+    id: "ecommerceDevelopment",
+    icon: Code,
     tagline: "fast modern scalable",
     title: "Web Development",
     description: "Build fast, modern, and scalable websites. We craft responsive, high-performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
@@ -65,6 +72,8 @@ const data = [
     }
   },
   {
+    id: "customSoftwareDevelopment",
+    icon: Rocket,
     tagline: "fast modern scalable",
     title: "Web Development",
     description: "Build fast, modern, and scalable websites. We craft responsive, high-performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
@@ -85,6 +94,8 @@ const data = [
     }
   },
   {
+    id: "cmsDevelopment",
+    icon: Code2,
     tagline: "fast modern scalable",
     title: "Web Development",
     description: "Build fast, modern, and scalable websites. We craft responsive, high-performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
@@ -105,6 +116,8 @@ const data = [
     }
   },
   {
+    id: "cloudSolutions",
+    icon: Cloud,
     tagline: "fast modern scalable",
     title: "Web Development",
     description: "Build fast, modern, and scalable websites. We craft responsive, high-performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
@@ -142,7 +155,7 @@ const WidePart = ({ children }: { children: React.ReactNode }) => {
   );
 }
 
-const ImagePart = ({ service }: { service: typeof data[0] }) => {
+const ImagePart = ({ service }: { service: typeof serviceData[0] }) => {
   return (
     <div className="w-full rounded-2xl overflow-hidden shadow-xl">
       <img src={service.imageUrl} alt="img" className="w-full h-80 object-cover" />
@@ -162,10 +175,22 @@ const ImagePart = ({ service }: { service: typeof data[0] }) => {
   );
 };
 
-const DetailPart = ({ service }: { service: typeof data[0] }) => {
+const DetailPart = ({ service }: { service: typeof serviceData[0] }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1)); // Remove '#'
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
     <>
-      <div className="flex items-center gap-3 mb-4">
+      <div id={service.id} className="flex items-center gap-3 mb-4">
         <div className="rounded-full bg-white p-2 dark:bg-primary-800">
           <Sparkles className="w-6 h-6 text-primary-600" />
         </div>
@@ -187,8 +212,8 @@ const DetailPart = ({ service }: { service: typeof data[0] }) => {
       </div>
 
       <div className="flex items-center gap-4">
-        <Button className="bg-primary-600 hover:bg-primary-700 text-white py-4 px-6 rounded-xl">Get a quote</Button>
-        <a href="/contact" className="text-sm text-zinc-600 dark:text-zinc-300 hover:text-primary-600">Or contact us</a>
+        <p className=" text-zinc-600 dark:text-zinc-300 hover:text-primary-600">Contact Us And</p>
+        <Button size="sm" onClick={() => navigate("/contact")}>Get a Quote</Button>
       </div>
     </>
   );
@@ -201,7 +226,7 @@ export const ServiceDetails = () => {
       <div className="absolute -left-24 -top-24 w-72 h-72 bg-primary-200/40 rounded-full blur-3xl pointer-events-none dark:bg-primary-700/20" />
       <div className="absolute -right-28 -bottom-28 w-96 h-96 bg-pink-200/20 rounded-full blur-3xl pointer-events-none dark:bg-purple-900/20" />
 
-      {data.map((service, index) => (
+      {serviceData.map((service, index) => (
         <div key={index} className="container md:flex-row gap-8 p-0 justify-between items-stretch">
           {index % 2 === 0
             ? <>

@@ -14,6 +14,7 @@ export const ProjectDetailModel = ({ projectDetail, OnCloseModel }: { projectDet
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-2000 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
             onClick={OnCloseModel}
+            tabIndex={-1}
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
@@ -21,6 +22,7 @@ export const ProjectDetailModel = ({ projectDetail, OnCloseModel }: { projectDet
               exit={{ scale: 0.8, opacity: 0 }}
               className="rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-800 shadow-2xl transition-colors duration-300"
               onClick={(e) => e.stopPropagation()}
+              tabIndex={-1}
             >
               <div className="p-12">
                 <div className="flex items-center justify-between mb-6">
@@ -28,25 +30,14 @@ export const ProjectDetailModel = ({ projectDetail, OnCloseModel }: { projectDet
                     <h2 className="text-3xl font-bold text-gradient">{projectDetail.title}</h2>
 
                     {projectDetail.hasLiveLink && (
-                      <Button asChild className="bg-primary-100 dark:bg-primary-800">
-                        <a
-                          href={projectDetail.liveLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink className="w-4 h-4 mr-2" />
-                          Live Demo
-                        </a>
+                      <Button variant="secondary" size="sm" onClick={() => window.open(projectDetail.liveLink, "_blank")}>
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        Live Demo
                       </Button>
                     )}
                   </div>
 
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={OnCloseModel}
-                    className="bg-destructive-500 text-white hover:-translate-y-[2px] hover:shadow-md hover:text-destructive cursor-pointer link-focus transition-all duration-150 ease-out"
-                  >
+                  <Button variant="destructive" size="sm" onClick={OnCloseModel}>
                     <X size={10} className="stroke-3" />
                   </Button>
                 </div>

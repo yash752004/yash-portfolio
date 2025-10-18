@@ -29,29 +29,23 @@ const HomeIntroSection = () => {
             ))}
           </div>
         </div>
-        <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden text-white bg-white/20 p-16 shadow-2xl backdrop-blur-md">
+        <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden text-white bg-white/60 p-16 shadow-2xl backdrop-blur-md">
           <div className="h-full flex flex-col justify-center items-center gap-8 text-center">
             <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold">
-              <span className="text-secondary-300">Let's Collaborate and </span><br />
-              <span className="text-secondary-300">Grow together!</span>
+              <span className="text-primary-500">Let's Collaborate and </span><br />
+              <span className="text-primary-500">Grow together!</span>
             </h2>
 
-            <p className="text-xl text-secondary-50">
+            <p className="text-xl text-gray-800">
               Whether you need a new website, a web application, or an e-commerce platform, I can help you achieve your goals with innovative solutions and a focus on quality.
             </p>
-            <p className="text-xl text-secondary-50">
+            <p className="text-xl text-gray-800">
               Let's discuss your project and bring your ideas to life with cutting-edge technology and exceptional quality.
             </p>
 
-            <Button
-              type="submit"
-              className="bg-gradient-repeat-light hover:shadow-xl text-lg py-6 rounded-xl cursor-pointer transition-all link-focus"
-              onClick={() => navigate('/contact')}
-            >
-              <div className="flex items-center text-black gap-2">
-                <Send className="w-5 h-5" />
-                Contact Us
-              </div>
+            <Button type="submit" variant="secondary" onClick={() => navigate('/contact')}>
+              <Send className="w-5 h-5" />
+              Contact Us
             </Button>
           </div>
         </div>

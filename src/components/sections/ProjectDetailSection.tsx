@@ -7,16 +7,14 @@ import { ProjectDatas, type ProjectDetailType } from "@/projects/projectDetails"
 
 export const ProjectDetailSection = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectDetailType | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const openProject = (project: ProjectDetailType) => {
+  const openProject = (e, project: ProjectDetailType) => {
+    e.stopPropagation();
     setSelectedProject(project);
-    setCurrentImageIndex(0);
   };
 
   const closeProject = () => {
     setSelectedProject(null);
-    setCurrentImageIndex(0);
   };
 
   return (
@@ -25,7 +23,10 @@ export const ProjectDetailSection = () => {
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-rows-auto">
           {ProjectDatas?.map((project, index) => (
-            <div className="rounded-3xl bg-primary-50 dark:bg-zinc-800 overflow-hidden transition-all duration-100 ease-out hover:bg-primary-100 hover:shadow-2xl md:hover:scale-105 p-6 flex flex-col gap-6 group cursor-pointer" key={index}>
+            <div
+              className="rounded-3xl bg-secondary-50 dark:bg-zinc-800 overflow-hidden transition-all duration-100 ease-out hover:bg-secondary-100 hover:shadow-2xl md:hover:scale-105 p-6 flex flex-col gap-6 group cursor-pointer" key={index}
+              onClick={(e) => openProject(e, project)}
+            >
               <div className="h-1/2 rounded-xl border-primary-200 overflow-hidden">
                 <img
                   src={project.thumbnail}
@@ -38,7 +39,7 @@ export const ProjectDetailSection = () => {
               <div className="h-1/2 flex flex-col justify-between">
                 <div className="flex flex-col gap-4">
                   <h3 className="text-xl font-bold group-hover:text-primary transition-colors duration-300">{project.title}</h3>
-                  <p className="max-w-md text-sm mb-8 line-clamp-3">{project.description}</p>
+                  <p className="max-w-md mb-8 line-clamp-3">{project.description}</p>
                 </div>
 
                 {/* <div className="flex flex-wrap gap-2 mb-4">
@@ -58,14 +59,7 @@ export const ProjectDetailSection = () => {
                 </div> */}
 
                 <div className="flex gap-3">
-                  <Button
-                    onClick={() => openProject(project)}
-                    variant="outline"
-                    size="sm"
-                    className="border-none w-full rounded-xl font-bold p-6 bg-gradient-repeat text-white hover:shadow-xl link-focus"
-                  >
-                    View Details
-                  </Button>
+                  <Button onClick={(e) => openProject(e, project)} size="sm" className="rounded-lg mb-3">View Details</Button>
                 </div>
               </div>
             </div>

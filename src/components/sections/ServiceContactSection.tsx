@@ -1,4 +1,6 @@
 import { CheckCircle } from "lucide-react";
+import { Button } from "../ui/button";
+import { useNavigate } from "react-router-dom";
 
 const ServiceContactSection = () => {
   const services = [
@@ -12,15 +14,15 @@ const ServiceContactSection = () => {
     "Ongoing Maintenance & Support",
   ];
 
+  const navigate = useNavigate();
+
   return (
     <section className="page-section bg-secondary-300 text-black">
       <div className="container max-w-7xl md:flex-row justify-center items-stretch gap-20">
-        <div className="max-w-xl flex flex-col justify-start gap-8">
+        <div className="max-w-xl flex flex-col justify-start gap-10">
           <h2 className="text-3xl md:text-4xl font-bold">End-to-End Software & Cloud Engineering Services</h2>
           <p className="text-lg leading-relaxed">Build, deploy, and scale modern software with our engineering teams. We cover the full lifecycle — product development, cloud migration, security, and ongoing platform support to help your business grow.</p>
-          <button className="w-max bg-black text-white px-6 py-3 rounded-md font-semibold hover:bg-gray-800 transition-all">
-            Book a Consultation →
-          </button>
+          <Button onClick={() => navigate("/contact")} className="w-max rounded-lg mb-3">Book a Consultation →</Button>
         </div>
 
         <ul className="w-max space-y-4">
