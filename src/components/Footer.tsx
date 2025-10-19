@@ -7,10 +7,13 @@ const Footer = () => {
     <footer className="page-section z-10 pb-10 overflow-clip">
       <div className="container items-start gap-8">
         <Braces size={450} className="absolute right-0 md:-right-30 -bottom-20 rotate-8 -z-2 text-gray-400/20 dark:text-gray-600/20" />
-        <div className="w-40"><img src="/pinak_logo.png" alt="Logo" className="w-full -mt-4" /></div>
+        <div className="w-40">
+          <img src="/logo_color.svg" alt="Logo" className="block dark:hidden w-full -mt-4" />
+          <img src="/logo_white.svg" alt="Logo" className="hidden dark:block w-full -mt-4" />
+        </div>
         <div className="w-full flex flex-col sm:flex-row gap-8 justify-between text-gray-600 dark:text-gray-400">
           <div className="flex flex-col gap-0">
-            <div className="flex gap-4 mb-2 items-center font-semibold text-monospace"><Phone size={20} className="text-secondary-400" />+91-7861945362</div>
+            {/* <div className="flex gap-4 mb-2 items-center font-semibold text-monospace"><Phone size={20} className="text-secondary-400" />+91-7861945362</div> */}
             <div className="flex gap-4 mb-2 items-center font-semibold text-monospace"><Mail size={20} className="text-secondary-400" />contact@pinaktechnology.com</div>
             <div className="flex gap-4 mb-2 items-start font-semibold text-monospace"><MapPin size={20} className="text-secondary-400" />Pinak Technology, Mehsana, <br />Gujarat, India</div>
             <div className="flex gap-4 font-semibold text-monospace">

@@ -1,5 +1,4 @@
 import { MoveRight } from "lucide-react";
-import headerImage from "../../assets/hero-bg.jpg";
 import { serviceData } from "./ServiceDetailSection";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
@@ -42,22 +41,24 @@ const HomeServiceSection = () => {
 
               {/* Background image */}
               <div className="w-full transition-all duration-300 shrink-0 overflow-clip">
-                <img src={headerImage} alt={service.title} className="h-full object-cover brightness-75 group-hover:brightness-100 group-hover:scale-105 transition-all duration-300" />
+                <img src={service.imageUrl} alt={service.title} className="h-full object-cover group-hover:scale-105 transition-all duration-300" />
               </div>
             </article>
           ))}
         </div>
       </div>
       <div className="w-full bg-secondary-200 dark:bg-stone-700 py-12 mt-20">
-        <div className="container mx-auto items-start">
-          <h3 className="text-4xl font-bold">Wait there is more?</h3>
-          <p className="text-xl max-w-3xl text-gray-700 dark:text-gray-300">
-            We also offer custom software development, mobile app development, e-commerce solutions, and IT consulting services. Whatever your tech needs, we have the expertise to deliver high-quality results that drive your business forward.
-          </p>
-          <Button onClick={() => navigate('/contact')}>Let's Connect To Explore</Button>
-          <div className="absolute -z-1 w-80 right-5 -bottom-5">
-            <img src="/deco/block_2.png" alt="" className="hidden md:block w-full md:brightness-120"/>
+        <div className="container md:flex-row mx-auto items-start">
+          <h3 className="w-full md:w-1/2 text-4xl font-bold">Wait there is more?</h3>
+          <div className="w-full md:w-1/2 flex flex-col gap-8">
+            <p className="text-xl max-w-3xl text-gray-700 dark:text-gray-300">
+              We also offer custom software development, mobile app development, e-commerce solutions, and IT consulting services. Whatever your tech needs, we have the expertise to deliver high-quality results that drive your business forward.
+            </p>
+            <Button onClick={() => navigate('/contact')} className="w-max">Let's Connect To Explore</Button>
           </div>
+          {/* <div className="absolute -z-1 w-80 right-5 -bottom-5">
+            <img src="/deco/block_2.png" alt="" className="hidden md:block w-full md:brightness-120"/>
+          </div> */}
         </div>
       </div>
     </section>

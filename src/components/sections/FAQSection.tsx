@@ -6,29 +6,33 @@ const FAQSection = () => {
 
   const faqItems = [
     {
-      question: "Can you customize features in my token?",
-      answer: "Yes, we can fully customize your token's features. Based on your project's goals, you can define total supply, minting or burning ability, transfer rules, governance rights, rewards, and more for your token."
+      question: "What services do you provide?",
+      answer: "We provide end-to-end software and cloud engineering services: custom web & mobile apps, API and microservices design, cloud architecture & migration, DevOps and CI/CD, security reviews, and ongoing managed support."
     },
     {
-      question: "Is it expensive to develop a coin or token?",
-      answer: "The cost varies depending on the complexity and features required. We offer competitive pricing and can work within your budget while ensuring high-quality development standards."
+      question: "How long does a typical project take?",
+      answer: "Project timelines depend on scope. Small projects can take 4-8 weeks, while more complex platforms may take several months. We provide a detailed timeline after the discovery phase."
     },
     {
-      question: "How do you ensure my token's security?",
-      answer: "We implement industry-best security practices including smart contract audits, comprehensive testing, and security protocols to protect your token from vulnerabilities and attacks."
+      question: "How do you handle security and compliance?",
+      answer: "Security is integrated into every phase. We follow secure development practices, perform threat modeling, run automated and manual testing, and can support external audits and compliance (e.g., SOC2, GDPR) when required."
     },
     {
-      question: "What platforms can I launch my token on?",
-      answer: "We develop tokens for various blockchain platforms including Ethereum, Binance Smart Chain, Solana, Polygon, and other major blockchain networks based on your requirements."
+      question: "Do you help with cloud migration and cost optimization?",
+      answer: "Yes - we design cloud-native architectures, migrate workloads to AWS/Azure/GCP, and implement cost optimization strategies like autoscaling, right-sizing, and efficient storage policies."
     },
     {
-      question: "What is tokenomics and why is it important?",
-      answer: "Tokenomics refers to the economic model and distribution strategy of your token. It's crucial for determining value, utility, and long-term sustainability of your project in the market."
+      question: "What kind of support and SLAs do you offer?",
+      answer: "We offer multiple support plans, including 24/7 incident response for critical issues, regular maintenance windows, and SLAs tailored to your business needs. Contact us to discuss terms."
     },
     {
-      question: "Do I need a whitepaper for my token or coin?",
-      answer: "While not always mandatory, a whitepaper is highly recommended as it outlines your project's vision, technology, tokenomics, and roadmap, building trust with investors and users."
-    }
+      question: "Can you integrate with our existing systems and third-party tools?",
+      answer: "Absolutely - we specialize in integrating with CRMs, payment gateways, analytics platforms, identity providers, and legacy systems using secure APIs and well-defined integration patterns."
+    },
+    {
+      question: "How do we get started with your services?",
+      answer: "Simply reach out via our contact form or email. We'll schedule an initial consultation to understand your needs, discuss potential solutions, and outline next steps."
+    },
   ];
 
   const toggleFAQ = (index: number) => {
@@ -44,7 +48,7 @@ const FAQSection = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
-            Find clear, concise responses to the most commonly asked questions about our coin & token development services.
+            Find clear, concise responses to the most commonly asked questions about our software, cloud, and managed engineering services.
           </p>
         </div>
 

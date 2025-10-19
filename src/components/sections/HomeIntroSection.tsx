@@ -1,6 +1,7 @@
 import { ChevronRight, Send } from "lucide-react";
 import { Button } from "../ui/button";
 import { useNavigate } from 'react-router-dom';
+import deco_img from "../../assets/2.webp";
 
 const data = {
   title: "At Pinak We Aim,",
@@ -15,7 +16,10 @@ const HomeIntroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="page-section bg-primary-700 dark:bg-gray-700 gap-20">
+    <section className="page-section gap-20">
+      <div className="absolute -z-1 size-full top-0 left-0">
+        <img src={deco_img} alt="" className="relative size-full object-cover -z-5 mix-blend-color"/>
+      </div>
       <div className="container m-auto px-6 flex flex-col lg:flex-row justify-start items-stretched gap-12">
         {/* Left: About Me */}
         <div className="w-full lg:w-1/2" >
@@ -29,7 +33,7 @@ const HomeIntroSection = () => {
             ))}
           </div>
         </div>
-        <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden text-white bg-white/60 dark:bg-white/70 p-16 shadow-2xl backdrop-blur-md">
+        <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden text-white bg-white/70 p-16 shadow-2xl backdrop-blur-md">
           <div className="h-full flex flex-col justify-center items-center gap-8 text-center">
             <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold">
               <span className="text-primary-500">Let's Collaborate and </span><br />
@@ -49,9 +53,9 @@ const HomeIntroSection = () => {
             </Button>
           </div>
         </div>
-        <div className="absolute -z-5 w-180 -right-25 -bottom-55">
+        {/* <div className="absolute -z-5 w-180 -right-25 -bottom-55">
           <img src="/deco/block_3.png" alt="" className="w-full brightness-120"/>
-        </div>
+        </div> */}
       </div>
     </section>
   );

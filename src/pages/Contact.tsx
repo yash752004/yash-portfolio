@@ -127,8 +127,8 @@ const Contact = () => {
               <div className="w-full md:w-1/2 flex flex-col justify-start gap-12 bg-primary-50 dark:bg-gray-800 p-8 rounded-3xl">
                 <div className="flex flex-col gap-4">
                   <h1 className="text-5xl font-bold text-gradient">Get In Touch</h1>
-                  <p className="text-xl">Feel free to drop a message. Let's discuss your ideas, projects or questions.</p>
-                  <p className="text-2xl font-bold">Let's builds something amazing together.</p>
+                  <p className="text-xl">Drop a message. Let's discuss your ideas, projects or questions.</p>
+                  <p className="text-2xl font-bold">Let's builds something amazing.</p>
                 </div>
                 <div className="rounded-3xl p-6 border-2 border-primary-300 dark:border-primary-600 bg-white dark:bg-gray-900">
                   <h3 className="text-xl font-bold mb-4">My Contact Information</h3>
@@ -142,7 +142,7 @@ const Contact = () => {
                         <p className="text-sm lg:text-md font-medium">contact@pinaktechnology.com</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-4">
+                    {/* <div className="flex items-center gap-4">
                       <div className="rounded-xl flex items-center justify-center">
                         <Phone className="w-6 h-6 text-primary" />
                       </div>
@@ -150,8 +150,8 @@ const Contact = () => {
                         <p className="text-sm">Phone</p>
                         <p className="text-sm lg:text-md font-medium">+91 7861945362</p>
                       </div>
-                    </div>
-                    <div className="flex items-center gap-4">
+                    </div> */}
+                    {/* <div className="flex items-center gap-4">
                       <div className="rounded-xl flex items-center justify-center">
                         <MapPin className="w-6 h-6 text-primary" />
                       </div>
@@ -159,7 +159,7 @@ const Contact = () => {
                         <p className="text-sm">Location</p>
                         <p className="text-sm lg:text-md font-medium">Ahmedabad, India</p>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

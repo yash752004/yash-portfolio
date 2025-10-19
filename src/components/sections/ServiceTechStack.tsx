@@ -96,7 +96,7 @@ const ServiceTechStack = () => {
           ))}
         </Marquee>
 
-        <h1 className="relative z-10 text-4xl md:text-6xl/[1.2] font-bold text-gradient text-center">Technology Stack We Rigourously Use</h1>
+        <h1 className="relative z-10 text-4xl md:text-6xl/[1.2] font-bold text-primary-500 dark:text-secondary-500 text-center">Technology Stack We Rigourously Use</h1>
         <p className="relative z-10 text-xl max-w-3xl mx-auto pt-6 text-center text-gray-700 dark:text-gray-300">We leverage a diverse range of cutting-edge technologies to deliver exceptional solutions tailored to your needs.</p>
 
         {logos.map((logoSet, index) => {

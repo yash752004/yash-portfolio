@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import deco_img from "../../assets/2.webp";
 
 const data = {
   title: "Tech That Drive Success",
@@ -13,15 +14,17 @@ const data = {
   deco_img: "/deco/block_1.png",
 }
 
+
 const HomeBenefitSection = () => {
   return (
-    <section className="page-section bg-primary-700 dark:bg-gray-700 text-white">
+    <section className="page-section text-white">
+      <div className="absolute -z-1 size-full top-0 left-0 -scale-y-100">
+        <img src={deco_img} alt="" className="relative size-full object-cover -z-5 mix-blend-color"/>
+        <div className="absolute bottom-0 right-0 size-full bg-primary-700 dark:bg-gray-700 -z-2 mix-blend-lighten"></div>
+        {/* <div className="absolute bottom-10 -right-0 blur-xl w-60 h-30 bg-black/40 rounded-full -rotate-30 -z-2"></div>
+        <div className="absolute bottom-20 right-30 blur-xl w-50 h-40 bg-black/40 rounded-full -rotate-30 -z-2"></div> */}
+      </div>
       <div className="container flex-col-reverse md:flex-row gap-8 md:gap-16 items-start">
-        <div className="absolute -z-1 w-100 right-20 bottom-15">
-          <img src={data.deco_img} alt="" className="w-full brightness-120"/>
-          <div className="absolute bottom-10 -right-0 blur-xl w-60 h-30 bg-black/40 rounded-full -rotate-30 -z-2"></div>
-          <div className="absolute bottom-20 right-30 blur-xl w-50 h-40 bg-black/40 rounded-full -rotate-30 -z-2"></div>
-        </div>
         <ul className="w-full md:w-4/10 flex flex-col items-start justify-center bg-white/60 backdrop-blur-md rounded-2xl text-black p-8 lg:p-16 shadow-2xl text-lg space-y-6">
           {data.benefits.map((benefit, index) => (
             <li key={index} className="flex flex-col md:flex-row items-start gap-6">

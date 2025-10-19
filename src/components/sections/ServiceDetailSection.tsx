@@ -1,8 +1,14 @@
-import headerImage from "../../assets/hero-bg.jpg";
 import { Button } from "@/components/ui/button";
 import { Check, CircleCheckBig, Cloud, Code, Code2, Database, Globe, Rocket, Sparkles } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+
+import web_img from "../../assets/services/web_dev.svg";
+import mobile_img from "../../assets/services/mobile_dev.svg";
+import ecommerce_img from "../../assets/services/e_commerce.svg";
+import erp_img from "../../assets/services/erp.svg";
+import file_img from "../../assets/services/file_management.svg";
+import server_img from "../../assets/services/server.svg";
 
 export const serviceData = [
   {
@@ -10,16 +16,17 @@ export const serviceData = [
     icon: Globe,
     tagline: "fast modern scalable",
     title: "Web Development",
-    description: "Build fast, modern, and scalable websites. We craft responsive, high-performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
+    description: "Get responsive, high performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
     benefits: [
       "Enhanced brand credibility",
       "Faster load times & improved SEO",
       "Scalable & maintainable codebase",
+      "Consistent cross-device experience"
     ],
-    imageUrl: headerImage,
+    imageUrl: web_img,
     delivery: {
-      title: "Design & Architecture",
-      description: "Clean UI, scalable architecture, and performance-first engineering.",
+      title: "Design with Speed",
+      description: "Clean UI, scalable architecture, and performance first engineering.",
       features: [
         "Responsive website or web app",
         "SEO-optimized structure",
@@ -30,22 +37,24 @@ export const serviceData = [
   {
     id: "mobileDevelopment",
     icon: Database,
-    tagline: "fast modern scalable",
-    title: "Web Development",
-    description: "Build fast, modern, and scalable websites. We craft responsive, high-performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
+    tagline: "Your business in every hand",
+    title: "Mobile App Development",
+    description: "From native Android and iOS apps to cross-platform solutions, we create intuitive, secure, and user-focused mobile experiences that connect you directly with your audience.",
     benefits: [
-      "Enhanced brand credibility",
-      "Faster load times & improved SEO",
-      "Scalable & maintainable codebase",
+      "Broader market reach and engagement",
+      "Increased customer retention through convenience",
+      "Integration with business tools and databases",
+      "Scalable updates and feature expansion",
     ],
-    imageUrl: headerImage,
+    imageUrl: mobile_img,
     delivery: {
-      title: "Design & Architecture",
-      description: "Clean UI, scalable architecture, and performance-first engineering.",
+      title: "Everywhere Access",
+      description: "Seamless access to your services from any device.",
       features: [
-        "Responsive website or web app",
-        "SEO-optimized structure",
-        "CMS or admin panel",
+        "iOS and Android applications",
+        "Admin dashboard and API integration",
+        "UI/UX design optimized for mobile",
+        "Testing and app store deployment",
       ],
     }
   },
@@ -60,7 +69,7 @@ export const serviceData = [
       "Faster load times & improved SEO",
       "Scalable & maintainable codebase",
     ],
-    imageUrl: headerImage,
+    imageUrl: ecommerce_img,
     delivery: {
       title: "Design & Architecture",
       description: "Clean UI, scalable architecture, and performance-first engineering.",
@@ -82,7 +91,7 @@ export const serviceData = [
       "Faster load times & improved SEO",
       "Scalable & maintainable codebase",
     ],
-    imageUrl: headerImage,
+    imageUrl: erp_img,
     delivery: {
       title: "Design & Architecture",
       description: "Clean UI, scalable architecture, and performance-first engineering.",
@@ -104,7 +113,7 @@ export const serviceData = [
       "Faster load times & improved SEO",
       "Scalable & maintainable codebase",
     ],
-    imageUrl: headerImage,
+    imageUrl: server_img,
     delivery: {
       title: "Design & Architecture",
       description: "Clean UI, scalable architecture, and performance-first engineering.",
@@ -126,7 +135,7 @@ export const serviceData = [
       "Faster load times & improved SEO",
       "Scalable & maintainable codebase",
     ],
-    imageUrl: headerImage,
+    imageUrl: file_img,
     delivery: {
       title: "Design & Architecture",
       description: "Clean UI, scalable architecture, and performance-first engineering.",
@@ -157,9 +166,9 @@ const WidePart = ({ children }: { children: React.ReactNode }) => {
 
 const ImagePart = ({ service }: { service: typeof serviceData[0] }) => {
   return (
-    <div className="w-full rounded-2xl overflow-hidden shadow-xl">
-      <img src={service.imageUrl} alt="img" className="w-full h-80 object-cover" />
-      <div className="p-6 bg-primary-500 dark:bg-gray-700 text-white space-y-2">
+    <div className="w-full overflow-hidden">
+      <img src={service.imageUrl} alt="img" className="w-full h-80 object-contain" />
+      <div className="p-6 rounded-2xl bg-primary-500 dark:bg-gray-700 text-white space-y-2">
         <h5 className="text-lg font-semibold">{service.delivery.title}</h5>
         <p className="text-sm opacity-90">{service.delivery.description}</p>
         <ul className="text-sm space-y-2 mt-4">

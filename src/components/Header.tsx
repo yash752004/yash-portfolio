@@ -33,7 +33,10 @@ const Header = () => {
       <nav className="container mt-6 hidden md:flex flex-row gap-4 rounded-xl bg-white/80 dark:bg-black/50 shadow-lg backdrop-blur-md">
         <div className="w-full flex justify-between pr-4 py-3">
           <div className="flex items-center gap-4 lg:gap-8">
-            <div className="h-9"><img src="/pinak_logo_small_1.png" alt="Logo" className="size-full -mt-1" /></div>
+            <div className="h-9">
+              <img src="/logo_small_white.svg" alt="Logo" className="hidden dark:block size-full" />
+              <img src="/logo_small_color.svg" alt="Logo" className="block dark:hidden size-full" />
+            </div>
           </div>
           <div className="flex items-center gap-2 lg:gap-4">
             {navItems.map((item) => {
@@ -82,7 +85,10 @@ const Header = () => {
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
           <div className="flex items-center gap-4">
-            <div className="h-9"><img src="/pinak_logo_small_1.png" alt="Logo" className="size-full -mt-1" /></div>
+            <div className="h-9">
+              <img src="/logo_small_white.svg" alt="Logo" className="hidden dark:block size-full" />
+              <img src="/logo_small_color.svg" alt="Logo" className="block dark:hidden size-full" />
+            </div>
           </div>
           <div className="flex items-center">
             {theme === "dark"
