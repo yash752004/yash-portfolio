@@ -36,8 +36,8 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-primary-50 dark:bg-gray-800">
-      <div className="container mx-auto px-6">
+    <section className="page-section bg-primary-50 dark:bg-gray-700">
+      <div className="container">
         {/* FAQ Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">

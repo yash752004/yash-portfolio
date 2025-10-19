@@ -38,13 +38,13 @@ export const ProjectDetailSection = () => {
     <section className="page-section">
       <main className="container">
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-rows-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-rows-auto" style={{ gridAutoRows: '1fr' }}>
           {ProjectDatas?.map((project, index) => (
             <div
-              className="rounded-3xl bg-secondary-50 dark:bg-gray-800 overflow-hidden transition-all duration-100 ease-out hover:bg-secondary-100 hover:shadow-2xl md:hover:scale-105 p-6 flex flex-col gap-6 group cursor-pointer" key={index}
+              className="min-h-max rounded-3xl bg-secondary-100 dark:bg-gray-700 overflow-hidden transition-all duration-100 ease-out hover:shadow-2xl md:hover:scale-105 p-6 flex flex-col gap-6 group cursor-pointer" key={index}
               onClick={(e) => openProject(e, project)}
               role='button'
-              tabIndex={0}
+              tabIndex={-1}
             >
               <div className="h-1/2 rounded-xl border-primary-200 overflow-hidden">
                 <img

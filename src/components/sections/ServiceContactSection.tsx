@@ -17,7 +17,7 @@ const ServiceContactSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="page-section bg-secondary-300 text-black">
+    <section className="page-section bg-secondary-200 dark:bg-stone-700">
       <div className="container max-w-7xl md:flex-row justify-center items-stretch gap-20">
         <div className="max-w-xl flex flex-col justify-start gap-10">
           <h2 className="text-3xl md:text-4xl font-bold">End-to-End Software & Cloud Engineering Services</h2>
@@ -28,7 +28,7 @@ const ServiceContactSection = () => {
         <ul className="w-max space-y-4">
           {services.map((service, index) => (
             <li key={index} className="flex items-start gap-3">
-              <CheckCircle className="w-5 h-5 mt-1 text-black" />
+              <CheckCircle className="w-5 h-5 mt-1" />
               <span className="text-lg">{service}</span>
             </li>
           ))}

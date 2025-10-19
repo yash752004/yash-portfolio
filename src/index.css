@@ -137,13 +137,7 @@ All colors MUST be HSL.
   }
 
   .input-focus {
-    &:focus-visible {
-      @apply outline-2 outline-primary-700;
-
-      @variant dark {
-        @apply outline-primary-300;
-      }
-    }
+    &:focus-visible { @apply outline-2 outline-secondary-400; }
   }
 
   .typewriter {

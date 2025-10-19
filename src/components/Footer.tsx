@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className="page-section bg-gray-100 dark:bg-gray-950 z-10 pb-10 overflow-clip">
+    <footer className="page-section z-10 pb-10 overflow-clip">
       <div className="container items-start gap-8">
         <Braces size={450} className="absolute right-0 md:-right-30 -bottom-20 rotate-8 -z-2 text-gray-400/20 dark:text-gray-600/20" />
         <div className="w-40"><img src="/pinak_logo.png" alt="Logo" className="w-full -mt-4" /></div>
@@ -16,8 +16,8 @@ const Footer = () => {
             <div className="flex gap-4 font-semibold text-monospace">
               <Send size={20} className="text-secondary-400" />
               <div className="flex gap-2">
-                <Link to='https://github.com/yash752004' target='_blank' className="link underline">Github</Link>|
-                <Link to='https://www.linkedin.com/in/yash-patel-18a93a230/' target='_blank' className="link underline">LinkedIn</Link>
+                <Link to='https://github.com/yash752004' target='_blank' className="link link-focus underline">Github</Link>|
+                <Link to='https://www.linkedin.com/in/yash-patel-18a93a230/' target='_blank' className="link link-focus underline">LinkedIn</Link>
               </div>
             </div>
           </div>

@@ -27,7 +27,7 @@ const ServiceHeroSection = () => {
       {/* Heading */}
       <div className="container items-start lg:px-24">
         <div className="flex flex-col">
-          <h2 className="text-2xl md:text-6xl/[1.2] font-bold text-gradient max-w-3xl">
+          <h2 className="text-4xl md:text-6xl/[1.2] font-bold text-gradient max-w-3xl">
             Modern Web & Cloud Engineering
           </h2>
 
@@ -39,9 +39,9 @@ const ServiceHeroSection = () => {
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div key={index} className="flex flex-col items-start text-left space-y-4 bg-primary-50 rounded-2xl p-8">
+              <div key={index} className="flex flex-col items-start text-left space-y-4 bg-primary-50 dark:bg-gray-700 rounded-2xl p-8">
                 {/* Icon */}
-                <div className="rounded-full p-3 bg-secondary-100 text-secondary-500 dark:text-white">
+                <div className="rounded-full p-3 bg-secondary-100 text-secondary-500">
                   <Icon size={30} />
                 </div>
 

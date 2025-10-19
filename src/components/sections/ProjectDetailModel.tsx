@@ -20,7 +20,7 @@ export const ProjectDetailModel = ({ projectDetail, OnCloseModel }: { projectDet
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-800 shadow-2xl transition-colors duration-300"
+              className="rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white dark:bg-gray-700/60 shadow-2xl transition-colors duration-300"
               onClick={(e) => e.stopPropagation()}
               tabIndex={-1}
             >

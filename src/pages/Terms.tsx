@@ -7,7 +7,7 @@ const Terms = () => {
     <div className="min-h-screen">
       <Header />
 
-      <main className="pt-24 pb-20">
+      <main className="pt-35 pb-20">
         <div className="container mx-auto px-6 max-w-4xl">
           <div className="prose prose-invert max-w-none"  >
             <h1 className="text-4xl md:text-5xl font-bold text-gradient mb-2">
