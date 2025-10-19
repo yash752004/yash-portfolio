@@ -30,7 +30,7 @@ const Header = () => {
 
   return (
     <div className="page-section fixed top-0 left-0 right-0 z-1000 py-0 md:px-6">
-      <nav className="container mt-6 hidden md:flex flex-row gap-4 rounded-xl bg-primary-200/30 shadow-lg backdrop-blur-md">
+      <nav className="container mt-6 hidden md:flex flex-row gap-4 rounded-xl bg-white/80 dark:bg-black/50 shadow-lg backdrop-blur-md">
         <div className="w-full flex justify-between pr-4 py-3">
           <div className="flex items-center gap-4 lg:gap-8">
             <div className="h-9"><img src="/pinak_logo_small_1.png" alt="Logo" className="size-full -mt-1" /></div>
@@ -45,7 +45,7 @@ const Header = () => {
                     onClick={() => navigate(item.path)}
                     variant="default"
                     size="sm"
-                    className="rounded-full bg-transparent text-black hover:bg-primary-500 hover:text-white"
+                    className="rounded-full bg-transparent text-black dark:text-white hover:bg-primary-500 hover:text-white"
                   >
                       {item.name}
                   </Button>
@@ -56,14 +56,14 @@ const Header = () => {
           {theme === "dark"
             ? <Button
                 onClick={() => setTheme("light")}
-                className="w-10 p-2 bg-slate-600 text-white rounded-full"
+                className="w-10 p-2 bg-slate-800 text-white rounded-full"
               >
                 <Moon size={20} />
               </Button>
             :
             <Button
               onClick={() => setTheme("dark")}
-              className="w-10 p-2 bg-primary-300 text-white rounded-full"
+              className="w-10 p-2 bg-primary-500 text-white rounded-full"
             >
               <Sun size={20} />
             </Button>
@@ -88,14 +88,14 @@ const Header = () => {
             {theme === "dark"
               ? <Button
                   onClick={() => setTheme("light")}
-                  className="w-10 p-2 bg-slate-600 text-white rounded-full"
+                  className="w-10 p-2 bg-slate-800 text-white rounded-full"
                 >
                   <Moon size={20} />
                 </Button>
                 :
                 <Button
                   onClick={() => setTheme("dark")}
-                  className="w-10 p-2 bg-primary-300 text-white rounded-full"
+                  className="w-10 p-2 bg-primary-500 text-white rounded-full"
                 >
                   <Sun size={20} />
                 </Button>
@@ -112,7 +112,7 @@ const Header = () => {
                 className="link link-focus text-lg flex items-center justify-start gap-2"
               >
                 {item.name}
-                {isActive(item.path) && (<div className="size-2 rounded-full bg-primary-500"></div>)}
+                {isActive(item.path) && (<div className="size-2 rounded-full bg-secondary-400"></div>)}
               </Link>
             ))}
           </div>

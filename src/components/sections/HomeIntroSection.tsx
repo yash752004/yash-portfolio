@@ -15,12 +15,12 @@ const HomeIntroSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="page-section bg-gradient gap-20">
+    <section className="page-section bg-primary-700 dark:bg-gray-700 gap-20">
       <div className="container m-auto px-6 flex flex-col lg:flex-row justify-start items-stretched gap-12">
         {/* Left: About Me */}
         <div className="w-full lg:w-1/2" >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-200 mb-6">At Pinak We Aim,</h2>
-          <div className="text-lg md:text-xl dark:text-zinc-400 space-y-6">
+          <div className="text-lg md:text-xl dark:text-gray-400 space-y-6">
             {data.aim_fors.map((aim, index) => (
               <div key={index} className="flex items-start gap-4">
                 <ChevronRight size={24} className="text-primary-400 shrink-0 mt-1 stroke-3" />
@@ -29,7 +29,7 @@ const HomeIntroSection = () => {
             ))}
           </div>
         </div>
-        <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden text-white bg-white/60 p-16 shadow-2xl backdrop-blur-md">
+        <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden text-white bg-white/60 dark:bg-white/70 p-16 shadow-2xl backdrop-blur-md">
           <div className="h-full flex flex-col justify-center items-center gap-8 text-center">
             <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold">
               <span className="text-primary-500">Let's Collaborate and </span><br />

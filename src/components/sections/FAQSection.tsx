@@ -36,7 +36,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-primary-50 dark:bg-zinc-800">
+    <section className="relative pt-32 pb-20 overflow-hidden bg-primary-50 dark:bg-gray-800">
       <div className="container mx-auto px-6">
         {/* FAQ Header */}
         <div className="text-center mb-16">
@@ -53,7 +53,7 @@ const FAQSection = () => {
           {faqItems.map((item, index) => (
             <div key={index} className="group">
               <div 
-                className="bg-white dark:bg-zinc-800 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:shadow-lg"
+                className="bg-white dark:bg-gray-800 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:shadow-lg"
                 onClick={() => toggleFAQ(index)}
               >
                 <div className="flex justify-between items-center">

@@ -19,14 +19,14 @@ const HeroSection = () => {
             <div className="flex items-center gap-3 mb-4">
               <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-[#57ebde]/30 via-[#85f0a9]/30 to-[#aefb2a]/30">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_4px_2px_#22c55e]" />
-                <span className="text-sm font-medium text-gradient bg-clip-text">
+                <span className="text-sm font-medium text-primary-500 dark:text-white bg-clip-text">
                   Open to collaborate
                 </span>
               </div>
               {/* Badge 2: Open to collaborate */}
               <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-secondary-300/80 via-amber-200/80 to-secondary-400/60">
                 <div className="w-2 h-2 bg-secondary-500 rounded-full animate-pulse shadow-[0_0_4px_2px_#ff730c]" />
-                <span className="text-sm font-medium bg-gradient-to-r from-gray-500 to-gray-800 text-transparent bg-clip-text">
+                <span className="text-sm font-medium text-gray-500 dark:text-white">
                   Available for help
                 </span>
               </div>
@@ -39,7 +39,7 @@ const HeroSection = () => {
             </h1>
 
             {/* Animated subtitle */}
-            <div className="text-4xl font-light text-primary-700 bg-secondary-500/15 capitalize">
+            <div className="text-4xl font-light text-primary-700 bg-secondary-500/15 capitalize text-center md:text-left">
               <TypewriterEffect
                 words={[
                   "End to End Solutions",
@@ -65,11 +65,11 @@ const HeroSection = () => {
         </div>
 
         {/* Features */}
-        <div className="w-150 relative z-10 flex flex-col gap-8 items-center md:items-start">
-          <div className="w-150 text-center md:text-left text-xl font-medium uppercase text-gray-700">
+        <div className="max-w-150 relative z-10 flex flex-col gap-8 items-center md:items-start">
+          <div className="max-w-150 text-center md:text-left text-xl font-medium uppercase text-gray-700 dark:text-gray-400">
             Empowering ideas with modern technology. Secure, Scalable and Built for results.
           </div>
-          <div className="w-150 text-4xl font-medium capitalize">Have a powerful vision and ready to launch something impactful?</div>
+          <div className="max-w-150 text-4xl font-medium capitalize text-center md:text-left">Have a powerful vision and ready to launch something impactful?</div>
           <Button type="submit" onClick={() => navigate('/contact')} variant="secondary">Let's Connect</Button>
         </div>
       </div>

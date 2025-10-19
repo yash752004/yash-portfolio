@@ -1,20 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 import { ProjectDetailModel } from "@/components/sections/ProjectDetailModel";
 import { ProjectDatas, type ProjectDetailType } from "@/projects/projectDetails";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 export const ProjectDetailSection = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectDetailType | null>(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.hash == '' || location.hash == '#') {
+      setSelectedProject(null);
+      return;
+    }
+
+    const slug = location.hash.substring(1);
+    if (slug && slug.length > 0) {
+      const project = ProjectDatas.find(p => p.id === slug);
+      if (project) setSelectedProject(project);
+    }
+  }, [selectedProject, location]);
 
   const openProject = (e, project: ProjectDetailType) => {
     e.stopPropagation();
-    setSelectedProject(project);
+    navigate(`/projects#${project.id}`);
   };
 
   const closeProject = () => {
     setSelectedProject(null);
+    navigate('/projects');
   };
 
   return (
@@ -24,8 +41,10 @@ export const ProjectDetailSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-rows-auto">
           {ProjectDatas?.map((project, index) => (
             <div
-              className="rounded-3xl bg-secondary-50 dark:bg-zinc-800 overflow-hidden transition-all duration-100 ease-out hover:bg-secondary-100 hover:shadow-2xl md:hover:scale-105 p-6 flex flex-col gap-6 group cursor-pointer" key={index}
+              className="rounded-3xl bg-secondary-50 dark:bg-gray-800 overflow-hidden transition-all duration-100 ease-out hover:bg-secondary-100 hover:shadow-2xl md:hover:scale-105 p-6 flex flex-col gap-6 group cursor-pointer" key={index}
               onClick={(e) => openProject(e, project)}
+              role='button'
+              tabIndex={0}
             >
               <div className="h-1/2 rounded-xl border-primary-200 overflow-hidden">
                 <img

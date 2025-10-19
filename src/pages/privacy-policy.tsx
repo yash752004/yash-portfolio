@@ -101,7 +101,7 @@ const PrivacyPolicy = () => {
                                 <p>
                                     If you have any questions, reach out to us at{" "}
                                     <span className="text-primary underline">
-                                        yashpatel.dev01@gmail.com
+                                        contact@pinaktechnology.com
                                     </span>{" "}
                                     or visit our{" "}
                                     <Link to="/contact" target="_blank" className="link underline">

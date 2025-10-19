@@ -111,13 +111,13 @@ const Contact = () => {
       <main className="pt-24 pb-12 relative overflow-hidden">
         <div className="container mx-auto px-6 py-6 relative z-10">
           <div className="flex flex-col-reverse md:flex-row gap-8 lg:gap-12">
-            <div className="w-full md:w-1/2 flex flex-col justify-start gap-12 bg-primary-50 dark:bg-zinc-800 p-8 rounded-3xl">
+            <div className="w-full md:w-1/2 flex flex-col justify-start gap-12 bg-primary-50 dark:bg-gray-800 p-8 rounded-3xl">
               <div className="flex flex-col gap-4">
                 <h1 className="text-5xl font-bold text-gradient">Get In Touch</h1>
                 <p className="text-xl">Feel free to drop a message. Let's discuss your ideas, projects or questions.</p>
                 <p className="text-2xl font-bold">Let's builds something amazing together.</p>
               </div>
-              <div className="rounded-3xl p-6 border-2 border-primary-300 dark:border-primary-600 bg-white dark:bg-zinc-900">
+              <div className="rounded-3xl p-6 border-2 border-primary-300 dark:border-primary-600 bg-white dark:bg-gray-900">
                 <h3 className="text-xl font-bold mb-4">My Contact Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
@@ -126,7 +126,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="text-sm">Email</p>
-                      <p className="font-medium">yashpatel.dev01@gmail.com</p>
+                      <p className="font-medium">contact@pinaktechnology.com</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">

@@ -197,11 +197,11 @@ const DetailPart = ({ service }: { service: typeof serviceData[0] }) => {
         <span className="text-sm font-medium uppercase tracking-wider text-primary-600">{service.tagline}</span>
       </div>
 
-      <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-zinc-900 dark:text-white">{service.title}</h2>
-      <p className="text-lg text-zinc-700 dark:text-zinc-300 mb-6">{service.description}</p>
+      <h2 className="text-4xl md:text-5xl font-extrabold leading-tight mb-4 text-gray-900 dark:text-white">{service.title}</h2>
+      <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">{service.description}</p>
 
       <div className="w-full mb-4">
-        <ul className="text-zinc-600 dark:text-zinc-300 space-y-2">
+        <ul className="text-gray-600 dark:text-gray-300 space-y-2">
           {service.benefits.map((benefit, index) => (
             <li key={index} className="flex gap-2">
               <CircleCheckBig size={20} className="stroke-3 text-emerald-500" />
@@ -212,7 +212,7 @@ const DetailPart = ({ service }: { service: typeof serviceData[0] }) => {
       </div>
 
       <div className="flex items-center gap-4">
-        <p className=" text-zinc-600 dark:text-zinc-300 hover:text-primary-600">Contact Us And</p>
+        <p className=" text-gray-600 dark:text-gray-300 hover:text-primary-600">Contact Us And</p>
         <Button size="sm" onClick={() => navigate("/contact")}>Get a Quote</Button>
       </div>
     </>

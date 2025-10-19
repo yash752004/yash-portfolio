@@ -43,10 +43,11 @@ import analitics4 from "./Analytics/4.png";
 import analitics5 from "./Analytics/5.png";
 
 export type ProjectDetailType = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   tools: string[];
+  verticalThumbnail: string;
   thumbnail: string;
   screenshots: string[];
   liveLink: string;
@@ -56,10 +57,11 @@ export type ProjectDetailType = {
 
 export const ProjectDatas: ProjectDetailType[] = [
   {
-    id: 1,
+    id: "jewellery-ecommerce-app",
     title: "Jewellery Ecommerce App",
     description: "Developed a comprehensive Ecommerce platform for jewellery, Home page with diffrent diffrent categories.",
     tools: ['Next.JS', 'Tailwind CSS', 'NodeJs', 'Express', 'MongoDB'],
+    verticalThumbnail: ecommerse0,
     thumbnail: ecommerse0,
     screenshots: [
       ecommerse0,
@@ -75,10 +77,11 @@ export const ProjectDatas: ProjectDetailType[] = [
     category: "Web App"
   },
   {
-    id: 2,
+    id: "gemini-chat-app",
     title: "Gemini Chat App",
     description: "Built a Gemini-style conversational AI chat application with features like OTP-based authentication, multi-chatroom management, real-time AI message simulation, image uploads, and reverse infinite scroll with pagination. Implements Redux for state management, form validation with React Hook Form + Zod, and a polished, responsive UI using Material UI. Dark mode, scroll-to-bottom, and keyboard accessibility are also integrated for a complete UX.",
     tools: ['React', 'Redux', 'Material UI', 'Zod', 'JavaScript'],
+    verticalThumbnail: gemini1,
     thumbnail: gemini1,
     screenshots: [
       gemini2,
@@ -92,10 +95,11 @@ export const ProjectDatas: ProjectDetailType[] = [
     category: "Web App"
   },
   {
-    id: 3,
+    id: "carehq",
     title: "CareHQ",
     description: "Engineered a health monitoring system CareHQ using Vite, TypeScript, designed for staff operating in hazardous environments. The platform allows uploading of staff profiles and medical records, facilitates consultations, highlights abnormal health conditions, and integrates comprehensive checklists for ambulance preparedness and medicine inventory. This system improves on-site safety compliance and supports proactive health management across the organization.",
     tools: ["react", "vite", 'restApi', "typescript", "docker"],
+    verticalThumbnail: thumbail1,
     thumbnail: thumbail1,
     screenshots: [
       thumbail1,
@@ -111,10 +115,11 @@ export const ProjectDatas: ProjectDetailType[] = [
     category: "Web App"
   },
   {
-    id: 4,
+    id: "wiretime",
     title: "WiReTime",
     description: "Developed a workforce management platform used by 50+ team members to track tasks and time, improving productivity by 40%. WireTime using Vite, TypeScript, React (MUI). The application streamlines task assignment, real-time punch-in/out tracking with geolocation, leave management, and automated email notifications. Additional modules include user profile customization and a dynamic dashboard, empowering managers with clear visibility into project progress and team productivity.",
     tools: ["vite", 'restApi', "typescript", "docker"],
+    verticalThumbnail: wiretime1,
     thumbnail: wiretime1,
     screenshots: [
       wiretime1,
@@ -131,10 +136,11 @@ export const ProjectDatas: ProjectDetailType[] = [
     category: "Web App"
   },
   {
-    id: 5,
+    id: "sports-portal",
     title: "Sports Portal",
     description: "Developed an interactive Sports Portal using React, enabling users to explore training batches based on location and age group, choose from multiple packages, and seamlessly complete online payments. The platform features a dynamic landing page for user engagement and streamlines the booking process for sports programs. On the admin side, it supports batch creation, with functionalities to add trainers, configure package pricing, assign time slots, and monitor user activity. This system enhances operational efficiency and provides a unified interface for both users and administrators in managing sports training programs.",
     tools: ["react", 'MUI', 'css', "docker", 'restApi'],
+    verticalThumbnail: sports1,
     thumbnail: sports1,
     screenshots: [
       sports1,
@@ -148,10 +154,11 @@ export const ProjectDatas: ProjectDetailType[] = [
     category: "Web App"
   },
   {
-    id: 6,
+    id: "analytics-dashboard",
     title: 'Analitics Dashboard',
     description: 'Developed a futuristic analytics dashboard that visualizes business performance through dynamic, interactive charts. Users can upload sales data via CSV, which is then processed through n8n automation workflows and displayed as actionable insights. The dashboard features a responsive, glassmorphic UI with dark mode support, enabling intuitive analysis of KPIs like sales, taxes, stock, and payment trends.',
     tools: ['NexxtJs', 'TypeScript', 'n8n Automation', 'Charts.js', 'Tailwind CSS'],
+    verticalThumbnail: analitics1,
     thumbnail: analitics1,
     screenshots: [
       analitics1,

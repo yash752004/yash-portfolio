@@ -79,7 +79,7 @@ const ServicesDetailsPage = () => {
   ];
 
   return (
-    <section id="services" className="relative pt-32 pb-20 overflow-hidden bg-primary-50 dark:bg-zinc-800">
+    <section id="services" className="relative pt-32 pb-20 overflow-hidden bg-primary-50 dark:bg-gray-800">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/50 to-background" />
       <div className="relative z-10 container mx-auto px-6">
         
@@ -104,7 +104,7 @@ const ServicesDetailsPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
               {service.subServices.map((subService, index) => (
                 <div key={subService.name} className="group relative">
-                  <div className="relative h-full bg-white dark:bg-zinc-700 rounded-2xl p-6 transition-all duration-300 overflow-hidden hover:shadow-xl hover:scale-105">
+                  <div className="relative h-full bg-white dark:bg-gray-700 rounded-2xl p-6 transition-all duration-300 overflow-hidden hover:shadow-xl hover:scale-105">
                     {/* Background gradient on hover */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl`} />
 

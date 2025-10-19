@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const TypewriterEffect = ({
   words,
   className,
-  cursorClassName,
 }: {
   words: string[];
   className?: string;
