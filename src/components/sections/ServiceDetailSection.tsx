@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Check, CircleCheckBig, Cloud, Code, Code2, Database, Globe, Rocket, Sparkles } from "lucide-react";
+import { Blocks, Check, CircleCheckBig, Cloud, Globe, Server, ShoppingCart, Smartphone, Sparkles } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -36,7 +36,7 @@ export const serviceData = [
   },
   {
     id: "mobileDevelopment",
-    icon: Database,
+    icon: Smartphone,
     tagline: "Your business in every hand",
     title: "Mobile App Development",
     description: "From native Android and iOS apps to cross-platform solutions, we create intuitive, secure, and user-focused mobile experiences that connect you directly with your audience.",
@@ -59,90 +59,98 @@ export const serviceData = [
     }
   },
   {
-    id: "ecommerceDevelopment",
-    icon: Code,
-    tagline: "fast modern scalable",
-    title: "Web Development",
-    description: "Build fast, modern, and scalable websites. We craft responsive, high-performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
+    id: "privateServerManagement",
+    icon: Server,
+    tagline: "secure reliable efficient",
+    title: "Private Server & Infrastructure Management",
+    description: "Set up and manage private servers, home or hybrid clouds, and virtualized systems—providing secure hosting, backups, and maintenance for your applications and media.",
     benefits: [
-      "Enhanced brand credibility",
-      "Faster load times & improved SEO",
-      "Scalable & maintainable codebase",
+      "Data privacy and ownership",
+      "Cost-effective compared to third-party hosting",
+      "Customizable and scalable infrastructure",
+      "Improved security through isolation and monitoring",
+    ],
+    imageUrl: server_img,
+    delivery: {
+      title: "Robust Infrastructure",
+      description: "Reliable and secure server solutions tailored to your needs.",
+      features: [
+        "Server setup (Linux/Proxmox/Docker)",
+        "Virtualization and container orchestration",
+        "Automated backup and monitoring system",
+        "Maintenance and support documentation",
+      ],
+    }
+  },
+  {
+    id: "mediaFileSystemSolutions",
+    icon: Cloud,
+    tagline: "Access files anywhere",
+    title: "Media & File System Solutions",
+    description: "We build private media servers and intelligent file management systems that make storing, streaming, and sharing your digital assets effortless and secure.",
+    benefits: [
+      "Centralized, private access to your media",
+      "Reduced dependency on external storage providers",
+      "Faster internal media workflows",
+      "Scalability for growing digital assets",
+    ],
+    imageUrl: file_img,
+    delivery: {
+      title: "Streamlined Media Access",
+      description: "Secure storage. Smart organization. Seamless access.",
+      features: [
+        "Media server (Plex, Jellyfin, Nextcloud, etc.)",
+        "Secure file management interface",
+        "Automated backup and transcoding setup",
+        "Multi-device access system",
+      ],
+    }
+  },
+  {
+    id: "ecommerceDevelopment",
+    icon: ShoppingCart,
+    tagline: "Sell online effortlessly",
+    title: "E-Commerce Development & Integration",
+    description: "Launch and optimize your online store with custom e-commerce solutions. We create seamless shopping experiences that drive sales, enhance customer satisfaction, and integrate with your existing systems.",
+    benefits: [
+      "Increased online revenue channels",
+      "Streamlined sales and fulfillment processes",
+      "Secure, optimized checkout experiences",
+      "Scalable foundation for future growth",
     ],
     imageUrl: ecommerce_img,
     delivery: {
-      title: "Design & Architecture",
-      description: "Clean UI, scalable architecture, and performance-first engineering.",
+      title: "E-Commerce Solutions",
+      description: "Sell smarter. Grow faster.",
       features: [
-        "Responsive website or web app",
-        "SEO-optimized structure",
-        "CMS or admin panel",
+        "Custom e-commerce website or platform integration",
+        "Product management system",
+        "Payment gateway setup (Stripe, Razorpay, PayPal)",
+        "Order tracking and analytics dashboard",
       ],
     }
   },
   {
     id: "customSoftwareDevelopment",
-    icon: Rocket,
-    tagline: "fast modern scalable",
-    title: "Web Development",
-    description: "Build fast, modern, and scalable websites. We craft responsive, high-performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
+    icon: Blocks,
+    tagline: "Automate your business",
+    title: "ERP Systems & Business Automation",
+    description: "Optimize your operations with custom ERP solutions. We develop integrated systems that automate workflows, manage resources, and provide real-time insights to drive efficiency and growth.",
     benefits: [
-      "Enhanced brand credibility",
-      "Faster load times & improved SEO",
-      "Scalable & maintainable codebase",
+      "Improved operational efficiency",
+      "Centralized business intelligence",
+      "Reduced manual work and errors",
+      "Real-time insights for better decision-making",
     ],
     imageUrl: erp_img,
     delivery: {
-      title: "Design & Architecture",
-      description: "Clean UI, scalable architecture, and performance-first engineering.",
+      title: "ERP with Business Automation",
+      description: "Connect, simplify, and scale your operations.",
       features: [
-        "Responsive website or web app",
-        "SEO-optimized structure",
-        "CMS or admin panel",
-      ],
-    }
-  },
-  {
-    id: "cmsDevelopment",
-    icon: Code2,
-    tagline: "fast modern scalable",
-    title: "Web Development",
-    description: "Build fast, modern, and scalable websites. We craft responsive, high-performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
-    benefits: [
-      "Enhanced brand credibility",
-      "Faster load times & improved SEO",
-      "Scalable & maintainable codebase",
-    ],
-    imageUrl: server_img,
-    delivery: {
-      title: "Design & Architecture",
-      description: "Clean UI, scalable architecture, and performance-first engineering.",
-      features: [
-        "Responsive website or web app",
-        "SEO-optimized structure",
-        "CMS or admin panel",
-      ],
-    }
-  },
-  {
-    id: "cloudSolutions",
-    icon: Cloud,
-    tagline: "fast modern scalable",
-    title: "Web Development",
-    description: "Build fast, modern, and scalable websites. We craft responsive, high-performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
-    benefits: [
-      "Enhanced brand credibility",
-      "Faster load times & improved SEO",
-      "Scalable & maintainable codebase",
-    ],
-    imageUrl: file_img,
-    delivery: {
-      title: "Design & Architecture",
-      description: "Clean UI, scalable architecture, and performance-first engineering.",
-      features: [
-        "Responsive website or web app",
-        "SEO-optimized structure",
-        "CMS or admin panel",
+        "Custom ERP or modular system",
+        "Role-based dashboards and analytics",
+        "API integration with existing tools",
+        "Deployment, training, and documentation",
       ],
     }
   },
@@ -169,12 +177,12 @@ const ImagePart = ({ service }: { service: typeof serviceData[0] }) => {
     <div className="w-full overflow-hidden">
       <img src={service.imageUrl} alt="img" className="w-full h-80 object-contain" />
       <div className="p-6 rounded-2xl bg-primary-500 dark:bg-gray-700 text-white space-y-2">
-        <h5 className="text-lg font-semibold">{service.delivery.title}</h5>
-        <p className="text-sm opacity-90">{service.delivery.description}</p>
-        <ul className="text-sm space-y-2 mt-4">
+        <h3 className="text-xl font-semibold">{service.delivery.title}</h3>
+        <p className="opacity-90">{service.delivery.description}</p>
+        <ul className="space-y-2 mt-4">
           {service.delivery.features.map((feature, index) => (
             <li key={index} className="flex gap-2">
-              <Check size={20} className="stroke-3" />
+              <Check size={20} className="text-secondary-300 stroke-3" />
               {feature}
             </li>
           ))}

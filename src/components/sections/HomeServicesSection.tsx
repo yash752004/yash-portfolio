@@ -20,13 +20,13 @@ const HomeServiceSection = () => {
           {serviceData.map((service, index) => (
             <article
               key={index}
-              className="min-h-100 flex flex-col md:even:flex-col-reverse justify-between bg-secondary-200 dark:bg-stone-700 group relative rounded-3xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl cursor-pointer"
+              className="min-h-100 flex flex-col md:even:flex-col-reverse justify-between bg-secondary-50 dark:bg-stone-700 group relative rounded-3xl overflow-hidden transform transition-all duration-300 hover:shadow-2xl cursor-pointer"
             >
               {/* Card content */}
               <div className="relative w-full z-10 flex flex-col justify-between p-8 rounded-3xl space-y-4">
                 <div className="space-y-6">
                   <h3 className="w-full text-3xl font-bold transition-colors duration-300">{service.title}</h3>
-                  <div className="absolute -bottom-5 right-10 -z-1 opacity-40">
+                  <div className="absolute bottom-5 right-10 -z-1 opacity-40">
                     <service.icon className="size-50 text-secondary-400 dark:text-secondary-300 opacity-30" />
                   </div>
                   <p className="text-lg">{service.description}</p>
