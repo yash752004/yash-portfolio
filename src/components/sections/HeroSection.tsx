@@ -12,8 +12,8 @@ const HeroSection = () => {
       <div className="absolute z-0 inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
 
       {/* Content */}
-      <div className="container items-start gap-30 -mt-5 py-20 px-10 overflow-clip">
-        <div className="absolute top-0 left-0 size-full shrink-0 sm:rounded-b-2xl overflow-hidden">
+      <div className="container items-start gap-30 -mt-5 py-20 px-10">
+        <div className="absolute top-0 left-[-3%] w-[106%] h-full shrink-0 sm:rounded-2xl overflow-hidden">
           <img
             src={profile}
             alt="Profile"

@@ -11,9 +11,7 @@ const data = {
     { title: "Maintainability", desc: "clean code, tests, and documentation so your team moves faster later." },
     { title: "Business impact", desc: "product-focused engineering that improves retention and conversion." },
   ],
-  deco_img: "/deco/block_1.png",
 }
-
 
 const HomeBenefitSection = () => {
   return (

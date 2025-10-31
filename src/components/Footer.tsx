@@ -16,13 +16,13 @@ const Footer = () => {
             {/* <div className="flex gap-4 mb-2 items-center font-semibold text-monospace"><Phone size={20} className="text-secondary-400" />+91-7861945362</div> */}
             <div className="flex gap-4 mb-2 items-center font-semibold text-monospace"><Mail size={20} className="text-secondary-400" />contact@pinaktechnology.com</div>
             <div className="flex gap-4 mb-2 items-start font-semibold text-monospace"><MapPin size={20} className="text-secondary-400" />Pinak Technology, Mehsana, <br />Gujarat, India</div>
-            <div className="flex gap-4 font-semibold text-monospace">
+            {/* <div className="flex gap-4 font-semibold text-monospace">
               <Send size={20} className="text-secondary-400" />
               <div className="flex gap-2">
                 <Link to='https://github.com/yash752004' target='_blank' className="link link-focus underline">Github</Link>|
                 <Link to='https://www.linkedin.com/in/yash-patel-18a93a230/' target='_blank' className="link link-focus underline">LinkedIn</Link>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="flex flex-col items-center md:items-end gap-0 md:gap-2">
             <Link to='/services' className="link link-focus font-semibold">Services</Link>

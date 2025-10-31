@@ -1,5 +1,5 @@
 
-import ecommerse0 from "./ECommerce/0.png";
+import ecommerse0 from "./ECommerce/0.webp";
 import ecommerse1 from "./ECommerce/1.png";
 import ecommerse2 from "./ECommerce/2.png";
 import ecommerse3 from "./ECommerce/3.png";
@@ -31,10 +31,10 @@ import wiretime6 from "./WireTime/6.png";
 import wiretime7 from "./WireTime/7.jpeg";
 
 import sports1 from "./SportsPortal/1.png";
-import sports2 from "./SportsPortal/2.png";
+import sports2 from "./SportsPortal/2.webp";
 import sports3 from "./SportsPortal/3.png";
-import sports4 from "./SportsPortal/4.png";
-import sports5 from "./SportsPortal/5.png";
+import sports4 from "./SportsPortal/4.webp";
+import sports5 from "./SportsPortal/5.webp";
 
 import analitics1 from "./Analytics/1.png";
 import analitics2 from "./Analytics/2.png";

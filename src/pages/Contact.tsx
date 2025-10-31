@@ -131,7 +131,7 @@ const Contact = () => {
                   <p className="text-2xl font-bold">Let's builds something amazing.</p>
                 </div>
                 <div className="rounded-3xl p-6 border-2 border-primary-300 dark:border-primary-600 bg-white dark:bg-gray-900">
-                  <h3 className="text-xl font-bold mb-4">My Contact Information</h3>
+                  <h3 className="text-xl font-bold mb-4">Our Contact Information</h3>
                   <div className="space-y-4">
                     <div className="flex items-center gap-4">
                       <div className="rounded-xl flex items-center justify-center">
@@ -164,7 +164,7 @@ const Contact = () => {
                 </div>
               </div>
               <div className="w-full md:w-1/2 rounded-3xl bg-gray-50 dark:bg-stone-800/50 shadow-2xl p-8">
-                <h2 className="text-2xl font-bold mb-6">Tell me your Thoughts</h2>
+                <h2 className="text-2xl font-bold mb-6">Tell us your Thoughts</h2>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Name */}
