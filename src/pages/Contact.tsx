@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, Mail, MapPin, Phone } from "lucide-react";
+import { Send, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -33,8 +33,6 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-
- 
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -71,31 +69,21 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // 1. Send user-submitted message to you
-      await emailjs.send(
-        'service_0pj210f',
-        'template_smk2wgd',
-        {
+      const response = await fetch( `${import.meta.env.VITE_API_BASE_URL}/api/contact-form-detail`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          to_email: formData.email,
           message: formData.message,
-        },
-        'tditcM8PZPUoK7LvR'
-      );
+        }),
+      });
 
-      // 2. Send confirmation message to user
-      await emailjs.send(
-        'service_0pj210f',
-        'template_q8ouzz5',
-        {
-          name: formData.name,
-          email: formData.email,
-          to_email: formData.email,
-          message: formData.message,
-        },
-        'tditcM8PZPUoK7LvR'
-      );
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
 
       toast({
         title: "Message Sent!",
@@ -139,7 +127,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-sm">Email</p>
-                        <p className="text-sm lg:text-md font-medium">contact@pinaktechnology.com</p>
+                        <p className="text-sm lg:text-md font-medium">connect@pinaktechnology.com</p>
                       </div>
                     </div>
                     {/* <div className="flex items-center gap-4">

@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="w-full flex flex-col sm:flex-row gap-8 justify-between text-gray-600 dark:text-gray-400">
           <div className="flex flex-col gap-0">
             {/* <div className="flex gap-4 mb-2 items-center font-semibold text-monospace"><Phone size={20} className="text-secondary-400" />+91-7861945362</div> */}
-            <div className="flex gap-4 mb-2 items-center font-semibold text-monospace"><Mail size={20} className="text-secondary-400" />contact@pinaktechnology.com</div>
+            <div className="flex gap-4 mb-2 items-center font-semibold text-monospace"><Mail size={20} className="text-secondary-400" />connect@pinaktechnology.com</div>
             <div className="flex gap-4 mb-2 items-start font-semibold text-monospace"><MapPin size={20} className="text-secondary-400" />Pinak Technology, Mehsana, <br />Gujarat, India</div>
             {/* <div className="flex gap-4 font-semibold text-monospace">
               <Send size={20} className="text-secondary-400" />

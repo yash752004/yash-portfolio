@@ -55,7 +55,7 @@ const Terms = () => {
                 <h2 className="text-2xl font-semibold mb-4">5. Contact</h2>
                 <p>
                   If you have any questions about these terms, please contact us at{" "}
-                  <span className="text-primary underline">contact@pinaktechnology.com</span>{" "}.
+                  <span className="text-primary underline">connect@pinaktechnology.com</span>{" "}.
                 </p>
               </section>
             </div>

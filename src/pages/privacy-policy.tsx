@@ -101,7 +101,7 @@ const PrivacyPolicy = () => {
                                 <p>
                                     If you have any questions, reach out to us at{" "}
                                     <span className="text-primary underline">
-                                        contact@pinaktechnology.com
+                                        connect@pinaktechnology.com
                                     </span>{" "}
                                     or visit our{" "}
                                     <Link to="/contact" target="_blank" className="link underline">

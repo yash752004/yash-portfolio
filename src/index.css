@@ -61,8 +61,8 @@ All colors MUST be HSL.
 
 @layer base {
   body {
-    font-family: "DM Sans", sans-serif;
-    @apply bg-white selection:bg-(--color-primary-900) selection:text-white;
+    font-family: "Roboto", sans-serif;
+    @apply bg-secondary-50 selection:bg-(--color-primary-900) selection:text-white;
 
     @variant dark {
       @apply bg-neutral-900 text-gray-200;
