@@ -53,9 +53,21 @@ export type ProjectDetailType = {
   liveLink: string;
   hasLiveLink: boolean;
   category: string;
+  showOnHome: boolean;
+  showOnProjects: boolean;
 }
 
-export const ProjectDatas: ProjectDetailType[] = [
+export type ProjectConfigType = {
+  categories: string[];
+  showCategoryTabs: boolean;
+}
+
+export const ProjectConfig: ProjectConfigType = {
+  categories: ["Web Development", "Website Design"],
+  showCategoryTabs: true,
+};
+
+const initialProjectDatas: ProjectDetailType[] = [
   {
     id: "jewellery-ecommerce-app",
     title: "Jewellery Ecommerce App",
@@ -74,7 +86,9 @@ export const ProjectDatas: ProjectDetailType[] = [
     ],
     liveLink: "https://jewellery-ecommerce-flax.vercel.app/",
     hasLiveLink: true,
-    category: "Web App"
+    category: "Web Development",
+    showOnHome: true,
+    showOnProjects: true,
   },
   {
     id: "gemini-chat-app",
@@ -92,7 +106,9 @@ export const ProjectDatas: ProjectDetailType[] = [
     ],
     liveLink: "https://gemini-chat-app-gamma.vercel.app/",
     hasLiveLink: true,
-    category: "Web App"
+    category: "Web Development",
+    showOnHome: true,
+    showOnProjects: true,
   },
   {
     id: "carehq",
@@ -112,7 +128,9 @@ export const ProjectDatas: ProjectDetailType[] = [
     ],
     liveLink: "",
     hasLiveLink: false,
-    category: "Web App"
+    category: "Website Design",
+    showOnHome: true,
+    showOnProjects: true,
   },
   {
     id: "wiretime",
@@ -133,7 +151,9 @@ export const ProjectDatas: ProjectDetailType[] = [
     ],
     liveLink: "",
     hasLiveLink: false,
-    category: "Web App"
+    category: "Web Development",
+    showOnHome: true,
+    showOnProjects: true,
   },
   {
     id: "sports-portal",
@@ -151,7 +171,9 @@ export const ProjectDatas: ProjectDetailType[] = [
     ],
     liveLink: "",
     hasLiveLink: false,
-    category: "Web App"
+    category: "Website Design",
+    showOnHome: true,
+    showOnProjects: true,
   },
   {
     id: "analytics-dashboard",
@@ -169,6 +191,31 @@ export const ProjectDatas: ProjectDetailType[] = [
     ],
     liveLink: "",
     hasLiveLink: false,
-    category: "Web App"
+    category: "Web Development",
+    showOnHome: true,
+    showOnProjects: true,
   }
 ];
+
+export const getProjectDatas = (): ProjectDetailType[] => {
+  if (typeof window === "undefined") return initialProjectDatas;
+  const stored = localStorage.getItem("portfolio_projects");
+  return stored ? JSON.parse(stored) : initialProjectDatas;
+};
+
+export const getProjectConfig = (): ProjectConfigType => {
+  if (typeof window === "undefined") return ProjectConfig;
+  const stored = localStorage.getItem("portfolio_config");
+  return stored ? JSON.parse(stored) : ProjectConfig;
+};
+
+export const saveProjectDatas = (datas: ProjectDetailType[]) => {
+  localStorage.setItem("portfolio_projects", JSON.stringify(datas));
+};
+
+export const saveProjectConfig = (config: ProjectConfigType) => {
+  localStorage.setItem("portfolio_config", JSON.stringify(config));
+};
+
+// For backward compatibility while components migration
+export const ProjectDatas = initialProjectDatas;

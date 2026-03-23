@@ -2,14 +2,28 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 import { ProjectDetailModel } from "@/components/sections/ProjectDetailModel";
-import { ProjectDatas, type ProjectDetailType } from "@/projects/projectDetails";
+import { 
+  getProjectDatas, 
+  getProjectConfig, 
+  type ProjectDetailType,
+  type ProjectConfigType
+} from "@/projects/projectDetails";
 import { useLocation, useNavigate } from "react-router-dom";
 
 
 export const ProjectDetailSection = () => {
   const [selectedProject, setSelectedProject] = useState<ProjectDetailType | null>(null);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [projects, setProjects] = useState<ProjectDetailType[]>([]);
+  const [config, setConfig] = useState<ProjectConfigType | null>(null);
+  
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setProjects(getProjectDatas());
+    setConfig(getProjectConfig());
+  }, []);
 
   useEffect(() => {
     if (location.hash == '' || location.hash == '#') {
@@ -19,10 +33,10 @@ export const ProjectDetailSection = () => {
 
     const slug = location.hash.substring(1);
     if (slug && slug.length > 0) {
-      const project = ProjectDatas.find(p => p.id === slug);
+      const project = projects.find(p => p.id === slug);
       if (project) setSelectedProject(project);
     }
-  }, [selectedProject, location]);
+  }, [selectedProject, location, projects]);
 
   const openProject = (e, project: ProjectDetailType) => {
     e.stopPropagation();
@@ -34,21 +48,53 @@ export const ProjectDetailSection = () => {
     navigate('/projects');
   };
 
+  const categories = config ? ["All", ...config.categories] : ["All"];
+  const visibleProjects = projects.filter(p => p.showOnProjects !== false);
+  const filteredProjects = activeCategory === "All"
+    ? visibleProjects
+    : visibleProjects.filter(p => p.category === activeCategory);
+
+  const resolveImagePath = (path: string) => {
+    if (!path) return "";
+    if (path.startsWith('@/')) return path.replace('@/', '/src/');
+    return path;
+  };
+
   return (
     <section className="page-section">
       <main className="container">
+        {/* Category Filter */}
+        {config?.showCategoryTabs && (
+          <div className="flex flex-wrap gap-4 mb-12 justify-center">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`rounded-full px-8 py-2.5 transition-all duration-300 font-bold border ${
+                  activeCategory === category 
+                  ? "bg-primary-600 text-white border-primary-600 shadow-lg shadow-primary-600/20 scale-105" 
+                  : "bg-white/50 dark:bg-white/5 border-slate-200 dark:border-white/10 hover:border-primary-500/50 text-slate-600 dark:text-slate-400"
+                }`}
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
+        )}
+
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 grid-rows-auto" style={{ gridAutoRows: '1fr' }}>
-          {ProjectDatas?.map((project, index) => (
+          {filteredProjects?.map((project, index) => (
             <div
-              className="min-h-max rounded-3xl bg-secondary-100 dark:bg-gray-700 overflow-hidden transition-all duration-100 ease-out hover:shadow-2xl md:hover:scale-105 p-6 flex flex-col gap-6 group cursor-pointer" key={index}
+              className={`min-h-max rounded-3xl bg-secondary-100 dark:bg-gray-700 overflow-hidden transition-all duration-100 ease-out hover:shadow-2xl md:hover:scale-105 p-6 flex flex-col gap-6 group cursor-pointer`}
+              key={project.id}
               onClick={(e) => openProject(e, project)}
               role='button'
               tabIndex={-1}
             >
               <div className="h-1/2 rounded-xl border-primary-200 overflow-hidden">
                 <img
-                  src={project.thumbnail}
+                  src={resolveImagePath(project.thumbnail)}
                   alt={project.title}
                   className="size-full object-cover group-hover:scale-110 transition-transform duration-500 saturate-0 group-hover:saturate-100"
                 />

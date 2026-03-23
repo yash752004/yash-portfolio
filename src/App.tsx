@@ -11,6 +11,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Terms = lazy(() => import("./pages/Terms"));
 const PrivacyPolicy = lazy(() => import("./pages/privacy-policy"));
 const Services = lazy(() => import("./pages/Services"));
+const Admin = lazy(() => import("./pages/Admin"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Component to handle scroll to top on route change
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />

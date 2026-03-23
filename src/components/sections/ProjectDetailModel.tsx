@@ -5,6 +5,12 @@ import { ExternalLink, X } from "lucide-react";
 import { ProjectDetailType } from "@/projects/projectDetails";
 
 export const ProjectDetailModel = ({ projectDetail, OnCloseModel }: { projectDetail: ProjectDetailType, OnCloseModel: () => void }) => {
+  const resolveImagePath = (path: string) => {
+    if (!path) return "";
+    if (path.startsWith('@/')) return path.replace('@/', '/src/');
+    return path;
+  };
+
   return (
     <AnimatePresence>
         {projectDetail && (
@@ -62,7 +68,7 @@ export const ProjectDetailModel = ({ projectDetail, OnCloseModel }: { projectDet
                   {projectDetail.screenshots.map((src: string, index: number) => (
                     <img
                       key={index}
-                      src={src}
+                      src={resolveImagePath(src)}
                       alt={`${projectDetail.title} screenshot ${index + 1}`}
                       className="w-full rounded-xl object-contain"
                     />
