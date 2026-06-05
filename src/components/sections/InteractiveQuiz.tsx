@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import { 
-  Sparkles, 
-  ArrowRight, 
-  ArrowLeft, 
-  Check, 
-  Layers, 
-  Smartphone, 
-  Globe, 
-  Terminal, 
-  Clock, 
-  DollarSign, 
-  User, 
-  Mail, 
-  MessageSquare 
+import {
+  Sparkles,
+  ArrowRight,
+  ArrowLeft,
+  Check,
+  Layers,
+  Smartphone,
+  Globe,
+  Terminal,
+  Clock,
+  DollarSign,
+  User,
+  Mail,
+  MessageSquare
 } from "lucide-react";
 import { toast } from "sonner";
 
@@ -28,13 +28,13 @@ const InteractiveQuiz: React.FC = () => {
   const [projectType, setProjectType] = useState<string>("");
   const [timeline, setTimeline] = useState<string>("");
   const [budget, setBudget] = useState<string>("");
-  
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: ""
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const projectOptions: Option[] = [
@@ -91,7 +91,7 @@ const InteractiveQuiz: React.FC = () => {
     }
 
     setIsSubmitting(true);
-    
+
     setTimeout(() => {
       setIsSubmitting(false);
       toast.success("Design consultation request sent! We'll contact you in under 4 hours.");
@@ -110,12 +110,10 @@ const InteractiveQuiz: React.FC = () => {
   return (
     <section className="py-16 bg-gradient-to-b from-transparent to-slate-50 w-full" id="estimator">
       <div className="max-w-4xl mx-auto px-4">
-        
+
         {/* Title */}
         <div className="text-center mb-10">
-          <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-50 rounded-full border border-emerald-200">
-            Interactive Form
-          </span>
+
           <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mt-2">
             Build Your <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">Digital Blueprint</span>
           </h2>
@@ -126,11 +124,11 @@ const InteractiveQuiz: React.FC = () => {
 
         {/* Wizard Card Container */}
         <div className="bg-glass-premium rounded-3xl border border-white/60 p-8 md:p-12 shadow-xl relative overflow-hidden">
-          
+
           {/* Progress bar */}
           {step <= 4 && (
             <div className="w-full bg-slate-100 h-1.5 rounded-full mb-10 overflow-hidden">
-              <div 
+              <div
                 className="bg-gradient-to-r from-primary-500 to-secondary-500 h-full rounded-full transition-all duration-500 ease-out"
                 style={{ width: `${(step / 4) * 100}%` }}
               />
@@ -150,11 +148,10 @@ const InteractiveQuiz: React.FC = () => {
                   <button
                     key={opt.id}
                     onClick={() => setProjectType(opt.id)}
-                    className={`flex items-start gap-4 p-5 rounded-2xl border text-left transition-all ${
-                      projectType === opt.id 
-                        ? "bg-white border-primary-500 shadow-md ring-2 ring-primary-500/10" 
+                    className={`flex items-start gap-4 p-5 rounded-2xl border text-left transition-all ${projectType === opt.id
+                        ? "bg-white border-primary-500 shadow-md ring-2 ring-primary-500/10"
                         : "bg-slate-50/50 border-slate-200 hover:border-slate-300 hover:bg-white"
-                    }`}
+                      }`}
                   >
                     <div className="p-3 rounded-xl bg-slate-100/80 mt-1">
                       {opt.icon}
@@ -182,11 +179,10 @@ const InteractiveQuiz: React.FC = () => {
                   <button
                     key={opt.id}
                     onClick={() => setTimeline(opt.id)}
-                    className={`flex flex-col items-center justify-between p-6 rounded-2xl border text-center transition-all ${
-                      timeline === opt.id 
-                        ? "bg-white border-primary-500 shadow-md ring-2 ring-primary-500/10" 
+                    className={`flex flex-col items-center justify-between p-6 rounded-2xl border text-center transition-all ${timeline === opt.id
+                        ? "bg-white border-primary-500 shadow-md ring-2 ring-primary-500/10"
                         : "bg-slate-50/50 border-slate-200 hover:border-slate-300 hover:bg-white"
-                    }`}
+                      }`}
                   >
                     <div className="p-3 rounded-xl bg-slate-100/80 mb-4">
                       {opt.icon}
@@ -214,11 +210,10 @@ const InteractiveQuiz: React.FC = () => {
                   <button
                     key={opt.id}
                     onClick={() => setBudget(opt.id)}
-                    className={`flex flex-col items-center justify-between p-6 rounded-2xl border text-center transition-all ${
-                      budget === opt.id 
-                        ? "bg-white border-primary-500 shadow-md ring-2 ring-primary-500/10" 
+                    className={`flex flex-col items-center justify-between p-6 rounded-2xl border text-center transition-all ${budget === opt.id
+                        ? "bg-white border-primary-500 shadow-md ring-2 ring-primary-500/10"
                         : "bg-slate-50/50 border-slate-200 hover:border-slate-300 hover:bg-white"
-                    }`}
+                      }`}
                   >
                     <div className="p-3 rounded-xl bg-slate-100/80 mb-4">
                       {opt.icon}

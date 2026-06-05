@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense, useEffect } from "react";
-import { LoaderOne } from "@/components/ui/loader";
+import { CodeLoader } from "@/components/ui/CodeLoader";
 
 const Home = lazy(() => import("./pages/Home"));
 const Projects = lazy(() => import("./pages/Projects"));
@@ -32,14 +32,9 @@ const App = () => (
   <TooltipProvider>
     <Toaster />
     <Sonner />
-    {/* <BrowserRouter basename="/yashpatel"> */}
     <BrowserRouter>
       <ScrollToTop />
-      <Suspense fallback={
-        <div className="flex items-center justify-center min-h-screen">
-          <LoaderOne />
-        </div>
-      }>
+      <Suspense fallback={<CodeLoader />}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />

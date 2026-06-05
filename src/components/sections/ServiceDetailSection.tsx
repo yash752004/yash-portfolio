@@ -365,56 +365,37 @@ const ServiceCard: React.FC<{ service: typeof extendedServiceData[0] }> = ({ ser
   const Icon = service.icon;
 
   return (
-    <div className="group relative bg-white rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:shadow-primary-500/10 transition-all duration-500 overflow-hidden flex flex-col h-full">
-      {/* Header Image Section */}
-      <div className="relative h-72 bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-8 overflow-hidden border-b border-slate-100/50">
-        {/* Decorative background glow */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl group-hover:bg-primary-500/20 transition-colors duration-500" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary-500/10 rounded-full blur-3xl group-hover:bg-secondary-500/20 transition-colors duration-500" />
-        
-        {/* Service Icon watermark */}
-        <div className="absolute -bottom-10 -right-10 text-slate-900/[0.03] group-hover:text-primary-500/10 transition-colors duration-500 transform group-hover:scale-110">
-          <Icon className="w-64 h-64" />
-        </div>
-
-        {/* Floating Tagline Badge */}
-        <div className="absolute top-6 left-6 z-20">
-          <div className="px-4 py-1.5 bg-white/80 backdrop-blur-md border border-white/50 rounded-full shadow-sm flex items-center">
-            <span className="text-[10px] font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
-              {service.tagline}
-            </span>
-          </div>
-        </div>
-
-        {/* Hero Image */}
-        <img 
-          src={service.imageUrl} 
-          alt={service.title} 
-          className="relative z-10 w-full h-full object-contain transform group-hover:scale-[1.03] transition-transform duration-700" 
-        />
-      </div>
-
+    <div className="group relative bg-white/80 backdrop-blur-md rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:-translate-y-1 hover:shadow-primary-500/10 transition-all duration-500 overflow-hidden flex flex-col h-full">
       {/* Content Section */}
-      <div className="p-8 md:p-10 flex flex-col flex-grow relative z-10 bg-white">
+      <div className="p-6 flex flex-col flex-grow relative z-10">
+        
+        {/* Floating Tagline Badge */}
+        <div className="mb-6">
+          <span className="inline-flex px-3 py-1 bg-primary-50 border border-primary-100 rounded-full text-[10px] font-black uppercase tracking-widest text-primary-600 shadow-sm">
+            {service.tagline}
+          </span>
+        </div>
         
         {/* Title & Icon */}
-        <div className="flex items-center gap-5 mb-6">
-          <div className="w-14 h-14 flex-shrink-0 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/60 flex items-center justify-center shadow-inner group-hover:border-primary-500/30 transition-colors duration-300">
-            <Icon className="w-6 h-6 text-primary-500" />
+        <div className="flex items-center gap-4 mb-5">
+          <div className="relative w-12 h-12 flex-shrink-0 rounded-2xl p-[2px] bg-gradient-to-br from-slate-200/60 to-slate-100 group-hover:from-primary-500 group-hover:to-secondary-500 transition-all duration-500 shadow-inner">
+            <div className="w-full h-full rounded-[14px] bg-white flex items-center justify-center">
+              <Icon className="w-5 h-5 text-primary-500" />
+            </div>
           </div>
           <div>
-            <h2 className="text-2xl font-black text-slate-900 leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary-500 group-hover:to-secondary-500 transition-all duration-300">
+            <h2 className="text-xl font-black text-slate-900 leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary-500 group-hover:to-secondary-500 transition-all duration-300">
               {service.title}
             </h2>
           </div>
         </div>
 
-        <p className="text-slate-500 text-sm leading-relaxed mb-8">
+        <p className="text-slate-500 text-xs leading-relaxed mb-6">
           {service.description}
         </p>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3 mb-10 flex-grow">
+        <div className="flex flex-col gap-y-2 mb-8 flex-grow">
           {service.benefits.map((benefit, i) => (
             <div key={i} className="flex items-start gap-3">
               <div className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center border border-emerald-100">
@@ -426,21 +407,20 @@ const ServiceCard: React.FC<{ service: typeof extendedServiceData[0] }> = ({ ser
         </div>
 
         {/* Footer / Action */}
-        <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6 mt-auto">
+        <div className="pt-5 border-t border-slate-100 flex items-center justify-between gap-4 mt-auto">
           <div className="flex flex-col">
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Delivering</span>
-            <span className="text-sm font-bold text-slate-800 flex items-center gap-1.5">
-              <Sparkles className="w-4 h-4 text-primary-500" />
+            <span className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-0.5">Delivering</span>
+            <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-primary-500" />
               {service.delivery.title}
             </span>
           </div>
           
           <button 
             onClick={() => navigate("/contact")}
-            className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-secondary-500 hover:to-primary-500 text-white font-bold text-xs shadow-lg shadow-primary-500/20 hover:shadow-secondary-500/30 transition-all flex items-center justify-center gap-2 group/btn flex-shrink-0"
+            className="w-10 h-10 rounded-xl bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-secondary-500 hover:to-primary-500 text-white flex items-center justify-center shadow-lg shadow-primary-500/20 hover:shadow-secondary-500/30 transition-all group/btn flex-shrink-0"
           >
-            <span>Get a Quote</span>
-            <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+            <ChevronRight className="w-5 h-5 group-hover/btn:translate-x-0.5 transition-transform" />
           </button>
         </div>
 
@@ -478,8 +458,8 @@ export const ServiceDetails: React.FC = () => {
           </h2>
         </div>
 
-        {/* 2 columns per row Dribbble-inspired grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-10">
+        {/* 3 columns per row Dribbble-inspired grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
           {extendedServiceData.map((service, index) => (
             <div id={service.id} key={index}>
               <ServiceCard service={service} />
