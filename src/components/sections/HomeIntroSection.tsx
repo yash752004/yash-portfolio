@@ -1,61 +1,85 @@
-import { ChevronRight, Send } from "lucide-react";
-import { Button } from "../ui/button";
-import { useNavigate } from 'react-router-dom';
-import deco_img from "../../assets/2.webp";
+import React from "react";
+import { ChevronRight, Send, ShieldCheck, Sparkles, CheckCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-const data = {
-  title: "At Pinak We Aim,",
-  aim_fors: [
-    "To be a trusted technology partner, delivering innovative solutions that drive business success.",
-    "To empower businesses with cutting-edge web and software development services tailored to their unique needs.",
-    "To foster long-term relationships built on transparency, quality, and mutual growth.",
-  ]
-}
-
-const HomeIntroSection = () => {
+const HomeIntroSection: React.FC = () => {
   const navigate = useNavigate();
 
+  const aims = [
+    "To be a trusted long-term engineering partner, delivering custom architectures that drive actual business scale.",
+    "To empower founders and modern enterprises with cutting-edge SaaS, Cloud DevOps, and robust frontends.",
+    "To foster transparent relations built on rock-solid delivery parameters, security guidelines, and mutual growth."
+  ];
+
+  const visions = [
+    "To become the global benchmark for innovative and scalable digital solutions that redefine industry standards.",
+    "To continuously explore new technologies and design paradigms to stay ahead of the digital curve.",
+    "To build a sustainable tech ecosystem that empowers our clients, our team, and our communities alike."
+  ];
+
   return (
-    <section className="page-section gap-20">
-      <div className="absolute -z-1 size-full top-0 left-0">
-        <img src={deco_img} alt="" className="relative size-full object-cover -z-5 mix-blend-color"/>
+    <section className="py-24 bg-transparent w-full relative overflow-hidden">
+      
+      {/* Backdrop glowing drops using Pinak colors */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-[30%] left-[10%] w-[30rem] h-[30rem] bg-emerald-50/45 rounded-full blur-3xl" />
+        <div className="absolute bottom-[20%] right-[10%] w-[35rem] h-[35rem] bg-indigo-50/35 rounded-full blur-3xl" />
       </div>
-      <div className="container m-auto px-6 flex flex-col lg:flex-row justify-start items-stretched gap-12">
-        {/* Left: About Me */}
-        <div className="w-full lg:w-1/2" >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-200 mb-6">At Pinak We Aim,</h2>
-          <div className="text-lg md:text-xl dark:text-gray-400 space-y-6">
-            {data.aim_fors.map((aim, index) => (
-              <div key={index} className="flex items-start gap-4">
-                <ChevronRight size={24} className="text-primary-400 shrink-0 mt-1 stroke-3" />
-                <p className="text-gray-300">{aim}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="w-full lg:w-1/2 rounded-3xl overflow-hidden text-white bg-white/70 p-16 shadow-2xl backdrop-blur-md">
-          <div className="h-full flex flex-col justify-center items-center gap-8 text-center">
-            <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold">
-              <span className="text-primary-500">Let's Collaborate and </span><br />
-              <span className="text-primary-500">Grow together!</span>
-            </h2>
 
-            <p className="text-xl text-gray-800">
-              Whether you need a new website, a web application, or an e-commerce platform, I can help you achieve your goals with innovative solutions and a focus on quality.
-            </p>
-            <p className="text-xl text-gray-800">
-              Let's discuss your project and bring your ideas to life with cutting-edge technology and exceptional quality.
-            </p>
-
-            <Button type="submit" variant="secondary" onClick={() => navigate('/contact')}>
-              <Send className="w-5 h-5" />
-              Contact Us
-            </Button>
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Column: Aims list */}
+          <div className="lg:col-span-6 space-y-6">
+            <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-50 rounded-full border border-emerald-200">
+              Our Missions
+            </span>
+            <h3 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-none uppercase">
+              AT PINAK <br />
+              <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
+                WE STRIVE FOR ROI
+              </span>
+            </h3>
+            
+            <div className="space-y-4 pt-2">
+              {aims.map((aim, index) => (
+                <div key={index} className="flex items-start gap-3.5">
+                  <CheckCircle2 className="size-5 text-primary-500 shrink-0 mt-0.5" />
+                  <p className="text-slate-655 text-xs md:text-sm font-semibold leading-relaxed">
+                    {aim}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
+
+          {/* Right Column: Vision list */}
+          <div className="lg:col-span-6 space-y-6 lg:pl-8">
+            <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-600 bg-primary-50 rounded-full border border-primary-200">
+              Our Vision
+            </span>
+            <h3 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-none uppercase">
+              SHAPING THE <br />
+              <span className="bg-gradient-to-r from-secondary-500 to-primary-500 bg-clip-text text-transparent">
+                DIGITAL FRONTIER
+              </span>
+            </h3>
+            
+            <div className="space-y-4 pt-2">
+              {visions.map((vision, index) => (
+                <div key={index} className="flex items-start gap-3.5">
+                  <div className="size-5 shrink-0 mt-0.5 rounded-full bg-secondary-50 border border-secondary-200 flex items-center justify-center">
+                    <div className="size-2 rounded-full bg-secondary-500" />
+                  </div>
+                  <p className="text-slate-655 text-xs md:text-sm font-semibold leading-relaxed">
+                    {vision}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
-        {/* <div className="absolute -z-5 w-180 -right-25 -bottom-55">
-          <img src="/deco/block_3.png" alt="" className="w-full brightness-120"/>
-        </div> */}
       </div>
     </section>
   );

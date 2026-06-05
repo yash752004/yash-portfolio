@@ -1,7 +1,6 @@
-import { Button } from "@/components/ui/button";
-import { Blocks, Check, CircleCheckBig, Cloud, Globe, Server, ShoppingCart, Smartphone, Sparkles } from "lucide-react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Check, CheckCircle2, Globe, Smartphone, Server, Cloud, ShoppingCart, Blocks, Sparkles, Code, Package, MessageCircle, Bot, Settings, PenTool, Wrench, ChevronRight, Gamepad2, Glasses, FileSpreadsheet } from "lucide-react";
 
 import web_img from "../../assets/services/web_dev.svg";
 import mobile_img from "../../assets/services/mobile_dev.svg";
@@ -10,13 +9,177 @@ import erp_img from "../../assets/services/erp.svg";
 import file_img from "../../assets/services/file_management.svg";
 import server_img from "../../assets/services/server.svg";
 
-export const serviceData = [
+
+
+// We augment the 12 services with the detailed fields required by the old layout
+export const extendedServiceData = [
   {
-    id: "webDevelopment",
+    id: "custom-software",
+    icon: Code,
+    tagline: "tailored robust scalable",
+    title: "Custom Software Development",
+    description: "Tailored software solutions designed from the ground up to perfectly align with your unique business logic and operational needs.",
+    benefits: [
+      "Perfectly mapped to your workflows",
+      "Scalable for future business growth",
+      "No recurring licensing fees",
+      "High-security architecture"
+    ],
+    imageUrl: web_img,
+    delivery: {
+      title: "End-to-End Engineering",
+      description: "From concept to deployment, we build software that works for you.",
+      features: [
+        "Bespoke business logic",
+        "Secure cloud deployment",
+        "Continuous integration"
+      ],
+    }
+  },
+  {
+    id: "erp",
+    icon: Blocks,
+    tagline: "centralize automate grow",
+    title: "ERP Solutions",
+    description: "Comprehensive Enterprise Resource Planning systems to centralize data, automate workflows, and optimize resource management.",
+    benefits: [
+      "Unified data access across departments",
+      "Automated manual workflows",
+      "Real-time business insights",
+      "Improved regulatory compliance"
+    ],
+    imageUrl: erp_img,
+    delivery: {
+      title: "Business OS Blueprint",
+      description: "Centralized control for complex business operations.",
+      features: [
+        "Role-based access control",
+        "Financial reporting dashboard",
+        "Third-party API integration"
+      ],
+    }
+  },
+  {
+    id: "inventory",
+    icon: Package,
+    tagline: "track predict deliver",
+    title: "Inventory Management",
+    description: "Smart tracking systems to monitor stock levels, predict demand, and streamline your supply chain operations in real-time.",
+    benefits: [
+      "Prevent stockouts and overstocking",
+      "Real-time location tracking",
+      "Automated reorder alerts",
+      "Seamless barcode/RFID scanning"
+    ],
+    imageUrl: ecommerce_img,
+    delivery: {
+      title: "Smart Supply Chain",
+      description: "Complete visibility over your physical assets.",
+      features: [
+        "Multi-warehouse support",
+        "Supplier management portal",
+        "Demand forecasting AI"
+      ],
+    }
+  },
+  {
+    id: "server",
+    icon: Server,
+    tagline: "secure reliable efficient",
+    title: "Server Management",
+    description: "Secure setup, monitoring, and maintenance of your server infrastructure ensuring maximum uptime and data protection.",
+    benefits: [
+      "Guaranteed 99.9% uptime",
+      "Proactive security patching",
+      "Automated disaster recovery",
+      "Optimized resource allocation"
+    ],
+    imageUrl: server_img,
+    delivery: {
+      title: "Infrastructure as a Service",
+      description: "Rock-solid foundations for digital products.",
+      features: [
+        "24/7 performance monitoring",
+        "Automated daily backups",
+        "Load balancing setup"
+      ],
+    }
+  },
+  {
+    id: "whatsapp",
+    icon: MessageCircle,
+    tagline: "connect engage resolve",
+    title: "WhatsApp Integration",
+    description: "Automated WhatsApp API solutions for instant customer support, notifications, and interactive chatbot flows.",
+    benefits: [
+      "Direct channel to customers",
+      "Automated support resolution",
+      "Rich media message templates",
+      "Integration with CRM systems"
+    ],
+    imageUrl: mobile_img,
+    delivery: {
+      title: "Conversational Commerce",
+      description: "Engage users where they already are.",
+      features: [
+        "Automated chat flows",
+        "Template message broadcasting",
+        "Human-handoff capability"
+      ],
+    }
+  },
+  {
+    id: "ai",
+    icon: Bot,
+    tagline: "smart predictive autonomous",
+    title: "AI Integration",
+    description: "Embedding cutting-edge Artificial Intelligence models into your existing applications to automate complex decision-making.",
+    benefits: [
+      "Reduced manual processing time",
+      "Hyper-personalized user experiences",
+      "Predictive trend analysis",
+      "Natural language processing"
+    ],
+    imageUrl: file_img,
+    delivery: {
+      title: "Intelligent Systems",
+      description: "Next-generation capabilities for modern apps.",
+      features: [
+        "Custom LLM fine-tuning",
+        "Image & text generation",
+        "Automated data insights"
+      ],
+    }
+  },
+  {
+    id: "mobile",
+    icon: Smartphone,
+    tagline: "native fluid engaging",
+    title: "Mobile App Development",
+    description: "High-performance native and cross-platform mobile applications that deliver seamless user experiences on iOS and Android.",
+    benefits: [
+      "Access to device hardware features",
+      "Offline functionality capabilities",
+      "Push notification engagement",
+      "Broad app store reach"
+    ],
+    imageUrl: mobile_img,
+    delivery: {
+      title: "Mobile First Strategy",
+      description: "Putting your business in the user's pocket.",
+      features: [
+        "React Native / Flutter builds",
+        "App Store & Play Store publishing",
+        "Secure offline data sync"
+      ],
+    }
+  },
+  {
+    id: "web",
     icon: Globe,
     tagline: "fast modern scalable",
     title: "Web Development",
-    description: "Get responsive, high performance websites and web apps that reflect your brand, drive engagement, and scale effortlessly as your business grows.",
+    description: "Modern, responsive, and SEO-optimized web applications built to convert visitors and scale seamlessly.",
     benefits: [
       "Enhanced brand credibility",
       "Faster load times & improved SEO",
@@ -28,235 +191,303 @@ export const serviceData = [
       title: "Design with Speed",
       description: "Clean UI, scalable architecture, and performance first engineering.",
       features: [
-        "Responsive website or web app",
+        "Responsive web apps",
         "SEO-optimized structure",
-        "CMS or admin panel",
+        "CMS admin panels"
       ],
     }
   },
   {
-    id: "mobileDevelopment",
-    icon: Smartphone,
-    tagline: "Your business in every hand",
-    title: "Mobile App Development",
-    description: "From native Android and iOS apps to cross-platform solutions, we create intuitive, secure, and user-focused mobile experiences that connect you directly with your audience.",
-    benefits: [
-      "Broader market reach and engagement",
-      "Increased customer retention through convenience",
-      "Integration with business tools and databases",
-      "Scalable updates and feature expansion",
-    ],
-    imageUrl: mobile_img,
-    delivery: {
-      title: "Everywhere Access",
-      description: "Seamless access to your services from any device.",
-      features: [
-        "iOS and Android applications",
-        "Admin dashboard and API integration",
-        "UI/UX design optimized for mobile",
-        "Testing and app store deployment",
-      ],
-    }
-  },
-  {
-    id: "privateServerManagement",
-    icon: Server,
-    tagline: "secure reliable efficient",
-    title: "Private Server & Infrastructure Management",
-    description: "Set up and manage private servers, home or hybrid clouds, and virtualized systems—providing secure hosting, backups, and maintenance for your applications and media.",
-    benefits: [
-      "Data privacy and ownership",
-      "Cost-effective compared to third-party hosting",
-      "Customizable and scalable infrastructure",
-      "Improved security through isolation and monitoring",
-    ],
-    imageUrl: server_img,
-    delivery: {
-      title: "Robust Infrastructure",
-      description: "Reliable and secure server solutions tailored to your needs.",
-      features: [
-        "Server setup (Linux/Proxmox/Docker)",
-        "Virtualization and container orchestration",
-        "Automated backup and monitoring system",
-        "Maintenance and support documentation",
-      ],
-    }
-  },
-  {
-    id: "mediaFileSystemSolutions",
+    id: "cloud",
     icon: Cloud,
-    tagline: "Access files anywhere",
-    title: "Media & File System Solutions",
-    description: "We build private media servers and intelligent file management systems that make storing, streaming, and sharing your digital assets effortless and secure.",
+    tagline: "agile secure limitless",
+    title: "Cloud Solutions",
+    description: "Robust cloud architecture setups providing scalable compute power, secure data storage, and efficient CI/CD pipelines.",
     benefits: [
-      "Centralized, private access to your media",
-      "Reduced dependency on external storage providers",
-      "Faster internal media workflows",
-      "Scalability for growing digital assets",
+      "Pay-as-you-go cost efficiency",
+      "Infinite horizontal scaling",
+      "Global content delivery",
+      "Enhanced data redundancy"
     ],
     imageUrl: file_img,
     delivery: {
-      title: "Streamlined Media Access",
-      description: "Secure storage. Smart organization. Seamless access.",
+      title: "Cloud Native Architecture",
+      description: "Deploy faster, scale indefinitely.",
       features: [
-        "Media server (Plex, Jellyfin, Nextcloud, etc.)",
-        "Secure file management interface",
-        "Automated backup and transcoding setup",
-        "Multi-device access system",
+        "AWS/GCP/Azure migrations",
+        "Kubernetes orchestration",
+        "Automated CI/CD pipelines"
       ],
     }
   },
   {
-    id: "ecommerceDevelopment",
-    icon: ShoppingCart,
-    tagline: "Sell online effortlessly",
-    title: "E-Commerce Development & Integration",
-    description: "Launch and optimize your online store with custom e-commerce solutions. We create seamless shopping experiences that drive sales, enhance customer satisfaction, and integrate with your existing systems.",
+    id: "plc",
+    icon: Settings,
+    tagline: "connect monitor control",
+    title: "PLC Integration",
+    description: "Connecting heavy industrial machinery with digital dashboards using Programmable Logic Controllers for IoT monitoring.",
     benefits: [
-      "Increased online revenue channels",
-      "Streamlined sales and fulfillment processes",
-      "Secure, optimized checkout experiences",
-      "Scalable foundation for future growth",
-    ],
-    imageUrl: ecommerce_img,
-    delivery: {
-      title: "E-Commerce Solutions",
-      description: "Sell smarter. Grow faster.",
-      features: [
-        "Custom e-commerce website or platform integration",
-        "Product management system",
-        "Payment gateway setup (Stripe, Razorpay, PayPal)",
-        "Order tracking and analytics dashboard",
-      ],
-    }
-  },
-  {
-    id: "customSoftwareDevelopment",
-    icon: Blocks,
-    tagline: "Automate your business",
-    title: "ERP Systems & Business Automation",
-    description: "Optimize your operations with custom ERP solutions. We develop integrated systems that automate workflows, manage resources, and provide real-time insights to drive efficiency and growth.",
-    benefits: [
-      "Improved operational efficiency",
-      "Centralized business intelligence",
-      "Reduced manual work and errors",
-      "Real-time insights for better decision-making",
+      "Real-time machine telemetry",
+      "Predictive maintenance alerts",
+      "Remote operational control",
+      "Reduced manufacturing downtime"
     ],
     imageUrl: erp_img,
     delivery: {
-      title: "ERP with Business Automation",
-      description: "Connect, simplify, and scale your operations.",
+      title: "Industrial IoT",
+      description: "Bridging the physical and digital factory.",
       features: [
-        "Custom ERP or modular system",
-        "Role-based dashboards and analytics",
-        "API integration with existing tools",
-        "Deployment, training, and documentation",
+        "Sensor data aggregation",
+        "Real-time monitoring dashboards",
+        "Automated safety protocols"
       ],
     }
   },
+  {
+    id: "uiux",
+    icon: PenTool,
+    tagline: "intuitive beautiful accessible",
+    title: "UI/UX Design",
+    description: "Crafting intuitive, beautiful, and user-centric interfaces that enhance engagement and simplify complex user journeys.",
+    benefits: [
+      "Higher user retention rates",
+      "Reduced cognitive load",
+      "Accessible to all demographics",
+      "Consistent brand identity"
+    ],
+    imageUrl: web_img,
+    delivery: {
+      title: "User-Centric Design",
+      description: "Experiences people love to use.",
+      features: [
+        "High-fidelity prototyping",
+        "User journey mapping",
+        "Comprehensive design systems"
+      ],
+    }
+  },
+  {
+    id: "support",
+    icon: Wrench,
+    tagline: "maintain optimize protect",
+    title: "Support & Maintenance",
+    description: "Reliable ongoing technical support and proactive system maintenance to keep your digital products running flawlessly.",
+    benefits: [
+      "Peace of mind operations",
+      "Continuous performance optimization",
+      "Rapid bug resolution",
+      "Regular technology updates"
+    ],
+    imageUrl: erp_img,
+    delivery: {
+      title: "Proactive Care",
+      description: "We handle the tech so you can handle business.",
+      features: [
+        "SLA-backed response times",
+        "Monthly health reports",
+        "Continuous security scanning"
+      ],
+    }
+  },
+  {
+    id: "ar-vr",
+    icon: Glasses,
+    tagline: "immerse visualize train",
+    title: "AR/VR Solutions",
+    description: "Immersive Augmented and Virtual Reality experiences tailored for training, product visualization, and interactive marketing.",
+    benefits: [
+      "Engaging product visualizations",
+      "Safe virtual training environments",
+      "Interactive marketing campaigns",
+      "Next-generation user interfaces"
+    ],
+    imageUrl: web_img,
+    delivery: {
+      title: "Immersive Experiences",
+      description: "Bringing your physical world into the digital realm.",
+      features: [
+        "WebXR & native VR apps",
+        "3D modeling & optimization",
+        "Cross-platform headset support"
+      ],
+    }
+  },
+  {
+    id: "gaming",
+    icon: Gamepad2,
+    tagline: "play engage scale",
+    title: "Gaming Development",
+    description: "End-to-end game development services creating engaging, performant, and scalable gaming experiences across multiple platforms.",
+    benefits: [
+      "High-performance rendering",
+      "Cross-platform multiplayer architecture",
+      "Engaging gameplay mechanics",
+      "Seamless in-app monetization"
+    ],
+    imageUrl: mobile_img,
+    delivery: {
+      title: "Interactive Entertainment",
+      description: "Building worlds that captivate players.",
+      features: [
+        "Unity & Unreal Engine",
+        "Backend server infrastructure",
+        "Asset creation & animation"
+      ],
+    }
+  },
+  {
+    id: "excel-automation",
+    icon: FileSpreadsheet,
+    tagline: "automate migrate optimize",
+    title: "Excel to Automation",
+    description: "Transforming cumbersome Excel spreadsheets into streamlined, secure, and fully automated web applications or workflows.",
+    benefits: [
+      "Eliminate manual data entry errors",
+      "Secure cloud database storage",
+      "Real-time team collaboration",
+      "Automated reports and alerts"
+    ],
+    imageUrl: file_img,
+    delivery: {
+      title: "Workflow Modernization",
+      description: "Turning spreadsheets into powerful software.",
+      features: [
+        "Data schema migration",
+        "Custom analytics dashboards",
+        "API integration & webhooks"
+      ],
+    }
+  }
 ];
 
-const NarrowPart = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="lg:bg-secondary-100 lg:dark:bg-stone-700 w-full lg:w-125 shrink-0 px-4 lg:px-12 py-0 lg:py-30 flex flex-col gap-8 items-start justify-center">
-      {children}
-    </div>
-  );
-};
+const ServiceCard: React.FC<{ service: typeof extendedServiceData[0] }> = ({ service }) => {
+  const navigate = useNavigate();
+  const Icon = service.icon;
 
-const WidePart = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="w-full py-0 lg:py-20 px-4 lg:pl-6 flex flex-col justify-center gap-4">
-      {children}
-    </div>
-  );
-}
+    <div className="group relative bg-white rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:shadow-primary-500/10 transition-all duration-500 overflow-hidden flex flex-col h-full">
+      {/* Header Image Section */}
+      <div className="relative h-72 bg-gradient-to-br from-slate-50 to-slate-100 flex items-center justify-center p-8 overflow-hidden border-b border-slate-100/50">
+        {/* Decorative background glow */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl group-hover:bg-primary-500/20 transition-colors duration-500" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary-500/10 rounded-full blur-3xl group-hover:bg-secondary-500/20 transition-colors duration-500" />
+        
+        {/* Service Icon watermark */}
+        <div className="absolute -bottom-10 -right-10 text-slate-900/[0.03] group-hover:text-primary-500/10 transition-colors duration-500 transform group-hover:scale-110">
+          <Icon className="w-64 h-64" />
+        </div>
 
-const ImagePart = ({ service }: { service: typeof serviceData[0] }) => {
-  return (
-    <div className="w-full overflow-hidden">
-      <img src={service.imageUrl} alt="img" className="w-full h-80 object-contain" />
-      <div className="p-6 rounded-2xl bg-primary-500 dark:bg-gray-700 text-white space-y-2">
-        <h3 className="text-xl font-semibold">{service.delivery.title}</h3>
-        <p className="opacity-90">{service.delivery.description}</p>
-        <ul className="space-y-2 mt-4">
-          {service.delivery.features.map((feature, index) => (
-            <li key={index} className="flex gap-2">
-              <Check size={20} className="text-secondary-300 stroke-3" />
-              {feature}
-            </li>
+        {/* Floating Tagline Badge */}
+        <div className="absolute top-6 left-6 z-20">
+          <div className="px-4 py-1.5 bg-white/80 backdrop-blur-md border border-white/50 rounded-full shadow-sm flex items-center">
+            <span className="text-[10px] font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
+              {service.tagline}
+            </span>
+          </div>
+        </div>
+
+        {/* Hero Image */}
+        <img 
+          src={service.imageUrl} 
+          alt={service.title} 
+          className="relative z-10 w-full h-full object-contain transform group-hover:scale-[1.03] transition-transform duration-700" 
+        />
+      </div>
+
+      {/* Content Section */}
+      <div className="p-8 md:p-10 flex flex-col flex-grow relative z-10 bg-white">
+        
+        {/* Title & Icon */}
+        <div className="flex items-center gap-5 mb-6">
+          <div className="w-14 h-14 flex-shrink-0 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200/60 flex items-center justify-center shadow-inner group-hover:border-primary-500/30 transition-colors duration-300">
+            <Icon className="w-6 h-6 text-primary-500" />
+          </div>
+          <div>
+            <h2 className="text-2xl font-black text-slate-900 leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-primary-500 group-hover:to-secondary-500 transition-all duration-300">
+              {service.title}
+            </h2>
+          </div>
+        </div>
+
+        <p className="text-slate-500 text-sm leading-relaxed mb-8">
+          {service.description}
+        </p>
+
+        {/* Features Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-3 mb-10 flex-grow">
+          {service.benefits.map((benefit, i) => (
+            <div key={i} className="flex items-start gap-3">
+              <div className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center border border-emerald-100">
+                <Check className="w-3 h-3 text-emerald-500" strokeWidth={3} />
+              </div>
+              <span className="text-xs font-bold text-slate-600 leading-tight">{benefit}</span>
+            </div>
           ))}
-        </ul>
+        </div>
+
+        {/* Footer / Action */}
+        <div className="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6 mt-auto">
+          <div className="flex flex-col">
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Delivering</span>
+            <span className="text-sm font-bold text-slate-800 flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4 text-primary-500" />
+              {service.delivery.title}
+            </span>
+          </div>
+          
+          <button 
+            onClick={() => navigate("/contact")}
+            className="px-6 py-3.5 rounded-xl bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-secondary-500 hover:to-primary-500 text-white font-bold text-xs shadow-lg shadow-primary-500/20 hover:shadow-secondary-500/30 transition-all flex items-center justify-center gap-2 group/btn flex-shrink-0"
+          >
+            <span>Get a Quote</span>
+            <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+          </button>
+        </div>
+
       </div>
     </div>
   );
 };
 
-const DetailPart = ({ service }: { service: typeof serviceData[0] }) => {
-  const navigate = useNavigate();
+export const ServiceDetails: React.FC = () => {
   const location = useLocation();
 
   useEffect(() => {
     if (location.hash) {
-      const element = document.getElementById(location.hash.substring(1)); // Remove '#'
+      const element = document.getElementById(location.hash.substring(1));
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, [location]);
 
   return (
-    <>
-      <div id={service.id} className="flex items-center gap-3 text-primary-600 dark:text-primary-300">
-        <div className="rounded-full bg-white p-2 dark:bg-stone-500">
-          <Sparkles className="w-6 h-6" />
+    <section className="py-24 bg-transparent w-full">
+      <div className="max-w-[85rem] mx-auto px-6">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-600 bg-primary-50 rounded-full border border-primary-100 mb-6 inline-block">
+            Our Capabilities
+          </span>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            Engineering Solutions for <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
+              Modern Enterprises
+            </span>
+          </h2>
         </div>
-        <span className="text-sm font-medium uppercase tracking-wider">{service.tagline}</span>
-      </div>
 
-      <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white">{service.title}</h2>
-      <p className="text-lg text-gray-700 dark:text-gray-300">{service.description}</p>
-
-      <div className="w-full">
-        <ul className="text-gray-600 dark:text-gray-300 space-y-2">
-          {service.benefits.map((benefit, index) => (
-            <li key={index} className="flex gap-2">
-              <CircleCheckBig size={20} className="stroke-3 text-emerald-500" />
-              {benefit}
-            </li>
+        {/* 2 columns per row Dribbble-inspired grid */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-10">
+          {extendedServiceData.map((service, index) => (
+            <div id={service.id} key={index}>
+              <ServiceCard service={service} />
+            </div>
           ))}
-        </ul>
-      </div>
-
-      <div className="flex items-center gap-4">
-        <p className=" text-gray-600 dark:text-gray-300 hover:text-primary-600">Contact Us And</p>
-        <Button size="sm" onClick={() => navigate("/contact")}>Get a Quote</Button>
-      </div>
-    </>
-  );
-};
-
-export const ServiceDetails = () => {
-  return (
-    <section className="page-section p-0 gap-30 lg:gap-0 mb-20 lg:mb-0">
-      {/* Decorative blurred shapes */}
-      {/* <div className="absolute -left-24 -top-24 w-72 h-72 bg-primary-200/40 rounded-full blur-3xl pointer-events-none dark:bg-primary-700/20" />
-      <div className="absolute -right-28 -bottom-28 w-96 h-96 bg-pink-200/20 rounded-full blur-3xl pointer-events-none dark:bg-purple-900/20" /> */}
-
-      {serviceData.map((service, index) => (
-        <div key={index} className="container flex-col-reverse even:flex-col lg:flex-row lg:even:flex-row gap-8 p-0 justify-between items-stretch">
-          {index % 2 === 0
-            ? <>
-              <WidePart><ImagePart service={service} /></WidePart>
-              <NarrowPart><DetailPart service={service} /></NarrowPart>
-            </>
-            : <>
-              <WidePart><DetailPart service={service} /></WidePart>
-              <NarrowPart><ImagePart service={service} /></NarrowPart>
-            </>
-          }
         </div>
-      ))}
+      </div>
     </section>
   );
 };
+

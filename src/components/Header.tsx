@@ -1,130 +1,126 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Button } from "./ui/button";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const [theme, setTheme] = useState(localStorage.theme || "light");
 
   const navItems = [
     { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
     { name: "Services", path: "/services" },
     { name: "Projects", path: "/projects" },
+    { name: "Blog", path: "/blog" },
     { name: "Contact", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-      localStorage.theme = "dark";
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.theme = "light";
-    }
-  }, [theme]);
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <div className="page-section fixed top-0 left-0 right-0 z-1000 py-0 md:px-6">
-      <nav className="container mt-6 hidden md:flex flex-row gap-4 rounded-xl bg-white/80 dark:bg-black/50 shadow-lg backdrop-blur-md">
-        <div className="w-full flex justify-between pr-4 py-3">
-          <div className="flex items-center gap-4 lg:gap-8">
-            <div className="h-9">
-              <img src="/logo_small_white.svg" alt="Logo" className="hidden dark:block size-full" />
-              <img src="/logo_small_color.svg" alt="Logo" className="block dark:hidden size-full" />
-            </div>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 md:px-8">
+      {/* Desktop Navigation */}
+      <div className={`max-w-6xl mx-auto rounded-full transition-all duration-300 ${
+        scrolled 
+          ? "bg-white/80 shadow-md backdrop-blur-md border border-white/60 py-2 px-6" 
+          : "bg-white/40 backdrop-blur-sm border border-white/20 py-3 px-8"
+      } hidden md:flex items-center justify-between`}>
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="h-10 flex items-center">
+            <img src="/logo_color.svg" alt="Pinak Technology" className="h-full object-contain group-hover:scale-[1.02] transition-transform duration-300" />
           </div>
-          <div className="flex items-center gap-2 lg:gap-4">
-            {navItems.map((item) => {
-              return isActive(item.path)
-                ? <p key={item.name} className="px-2 font-bold text-primary-500 underline">{item.name}</p>
-                : <Button
-                    key={item.name}
-                    type="submit"
-                    onClick={() => navigate(item.path)}
-                    variant="default"
-                    size="sm"
-                    className="rounded-full bg-transparent text-black dark:text-white hover:bg-primary-500 hover:text-white"
-                  >
-                      {item.name}
-                  </Button>
-            })}
-          </div>
-        </div>
-        <div className="flex items-center">
-          {theme === "dark"
-            ? <Button
-                onClick={() => setTheme("light")}
-                className="w-10 p-2 bg-slate-800 text-white rounded-full"
+        </Link>
+
+        <div className="flex items-center gap-2">
+          {navItems.map((item) => {
+            const active = isActive(item.path);
+            return (
+              <button
+                key={item.name}
+                onClick={() => navigate(item.path)}
+                className={`relative px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 ${
+                  active 
+                    ? "bg-primary-50 text-primary-600 shadow-sm shadow-primary-500/10 border border-primary-100" 
+                    : "text-slate-600 hover:text-primary-500 hover:bg-slate-50"
+                }`}
               >
-                <Moon size={20} />
-              </Button>
-            :
-            <Button
-              onClick={() => setTheme("dark")}
-              className="w-10 p-2 bg-primary-500 text-white rounded-full"
-            >
-              <Sun size={20} />
-            </Button>
-          }
+                {item.name}
+              </button>
+            );
+          })}
         </div>
-      </nav>
+
+        <button 
+          onClick={() => navigate("/contact")}
+          className="flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-secondary-500 hover:to-primary-500 text-white text-xs font-bold rounded-full transition-all shadow-md shadow-primary-500/10 hover:shadow-secondary-500/20"
+        >
+          <span>Partner With Us</span>
+          <Sparkles className="size-3.5" />
+        </button>
+      </div>
 
       {/* Mobile Navigation */}
-      <div className="w-full flex flex-col md:hidden p-3 bg-glass-header shadow-2xl">
-        <nav className="w-full flex items-center justify-between">
-          <Button
+      <div className={`md:hidden rounded-2xl transition-all duration-300 ${
+        scrolled || isOpen
+          ? "bg-white/95 shadow-lg border border-white/80" 
+          : "bg-white/60 border border-white/20"
+      } p-3.5`}>
+        <div className="flex items-center justify-between">
+          <Link to="/" className="flex items-center">
+            <img src="/logo_color.svg" alt="Pinak Technology" className="h-7 object-contain" />
+          </Link>
+
+          <button
             onClick={() => setIsOpen(!isOpen)}
-            variant="ghost"
-            className="md:hidden w-10 p-2 hover:bg-primary-500 hover:text-white"
+            className="p-2 hover:bg-slate-100 rounded-xl transition-all text-slate-600"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
-          <div className="flex items-center gap-4">
-            <div className="h-9">
-              <img src="/logo_small_white.svg" alt="Logo" className="hidden dark:block size-full" />
-              <img src="/logo_small_color.svg" alt="Logo" className="block dark:hidden size-full" />
-            </div>
-          </div>
-          <div className="flex items-center">
-            {theme === "dark"
-              ? <Button
-                  onClick={() => setTheme("light")}
-                  className="w-10 p-2 bg-slate-800 text-white rounded-full"
-                >
-                  <Moon size={20} />
-                </Button>
-                :
-                <Button
-                  onClick={() => setTheme("dark")}
-                  className="w-10 p-2 bg-primary-500 text-white rounded-full"
-                >
-                  <Sun size={20} />
-                </Button>
-              }
-          </div>
-        </nav>
-        <div className={"h-0 overflow-hidden transition-all duration-150 ease-in-out" + (isOpen ? " h-60" : "")}>
-          <div className="md:hidden mt-4 px-3 py-4 flex flex-col items-start gap-6 overflow-hidden">
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
+
+        <div className={`overflow-hidden transition-all duration-300 ${
+          isOpen ? "max-h-64 mt-4 opacity-100" : "max-h-0 opacity-0"
+        }`}>
+          <div className="flex flex-col gap-2 p-2">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className="link link-focus text-lg flex items-center justify-start gap-2"
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center justify-between ${
+                  isActive(item.path)
+                    ? "bg-slate-50 text-slate-900 border-l-4 border-primary-500"
+                    : "text-slate-600 hover:bg-slate-50/50 hover:text-slate-900"
+                }`}
               >
                 {item.name}
-                {isActive(item.path) && (<div className="size-2 rounded-full bg-secondary-400"></div>)}
               </Link>
             ))}
+            <Link
+              to="/contact"
+              onClick={() => setIsOpen(false)}
+              className="mt-2 text-center py-2.5 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-sm font-bold rounded-xl shadow-sm"
+            >
+              Get in Touch
+            </Link>
           </div>
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 

@@ -40,50 +40,80 @@ const FAQSection = () => {
   };
 
   return (
-    <section className="page-section bg-primary-50 dark:bg-gray-700">
-      <div className="container">
+    <section className="py-24 bg-transparent w-full relative overflow-hidden">
+      
+      {/* Decorative Background Glows */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute top-[20%] left-[-10%] w-[40rem] h-[40rem] bg-primary-100/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[35rem] h-[35rem] bg-secondary-100/20 rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+        
         {/* FAQ Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gradient mb-6">
-            Frequently Asked Questions
+        <div className="text-center mb-16 space-y-4">
+          <span className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary-600 bg-primary-50 rounded-full border border-primary-100 inline-block shadow-sm">
+            Support & Clarity
+          </span>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight leading-none uppercase">
+            FREQUENTLY ASKED <br />
+            <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
+              QUESTIONS
+            </span>
           </h2>
-          <p className="text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
+          <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed pt-2">
             Find clear, concise responses to the most commonly asked questions about our software, cloud, and managed engineering services.
           </p>
         </div>
 
         {/* FAQ Items */}
-        <div className="max-w-4xl mx-auto space-y-4">
-          {faqItems.map((item, index) => (
-            <div key={index} className="group">
+        <div className="space-y-4">
+          {faqItems.map((item, index) => {
+            const isOpen = openIndex === index;
+            return (
               <div 
-                className="bg-white dark:bg-gray-800 rounded-xl p-6 cursor-pointer transition-all duration-300 hover:shadow-lg"
+                key={index} 
+                className={`group bg-white rounded-2xl border transition-all duration-300 overflow-hidden cursor-pointer ${
+                  isOpen 
+                    ? "border-primary-200 shadow-lg shadow-primary-500/5 ring-1 ring-primary-50" 
+                    : "border-slate-100 shadow-sm hover:border-primary-200 hover:shadow-md"
+                }`}
                 onClick={() => toggleFAQ(index)}
               >
-                <div className="flex justify-between items-center">
-                  <h3 className="text-lg md:text-xl font-semibold text-gray-800 dark:text-white pr-4">
+                <div className="p-6 md:p-8 flex justify-between items-center gap-6">
+                  <h3 className={`text-lg md:text-xl font-bold transition-colors ${
+                    isOpen ? "text-primary-600" : "text-slate-800 group-hover:text-primary-600"
+                  }`}>
                     {item.question}
                   </h3>
-                  <div className={`transform transition-transform duration-300 ${
-                    openIndex === index ? 'rotate-180' : ''
+                  <div className={`shrink-0 flex items-center justify-center size-10 rounded-full transition-all duration-300 ${
+                    isOpen 
+                      ? "bg-primary-500 text-white rotate-180 shadow-md shadow-primary-500/20" 
+                      : "bg-slate-50 text-slate-400 group-hover:bg-primary-50 group-hover:text-primary-500"
                   }`}>
-                    <ChevronDown className="w-6 h-6 text-gray-500" />
+                    <ChevronDown className="size-5 stroke-[2.5]" />
                   </div>
                 </div>
                 
-                <div className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
-                }`}>
-                  <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      {item.answer}
-                    </p>
+                <div 
+                  className={`grid transition-all duration-300 ease-in-out ${
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-6 md:px-8 pb-6 md:pb-8 pt-0">
+                      <div className="w-full h-px bg-slate-100 mb-6" />
+                      <p className="text-slate-600 leading-relaxed font-medium">
+                        {item.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
+
       </div>
     </section>
   );

@@ -1,39 +1,75 @@
-// Redux imports
-import { Braces, Mail, MapPin, Phone, Send } from 'lucide-react';
+import React from 'react';
+import { Mail, MapPin, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
-    <footer className="page-section z-10 pb-10 overflow-clip">
-      <div className="container items-start gap-8">
-        <Braces size={450} className="absolute right-0 md:-right-30 -bottom-20 rotate-8 -z-2 text-gray-400/20 dark:text-gray-600/20" />
-        <div className="w-40">
-          <img src="/logo_color.svg" alt="Logo" className="block dark:hidden w-full -mt-4" />
-          <img src="/logo_white.svg" alt="Logo" className="hidden dark:block w-full -mt-4" />
-        </div>
-        <div className="w-full flex flex-col sm:flex-row gap-8 justify-between text-gray-600 dark:text-gray-400">
-          <div className="flex flex-col gap-0">
-            {/* <div className="flex gap-4 mb-2 items-center font-semibold text-monospace"><Phone size={20} className="text-secondary-400" />+91-7861945362</div> */}
-            <div className="flex gap-4 mb-2 items-center font-semibold text-monospace"><Mail size={20} className="text-secondary-400" />connect@pinaktechnology.com</div>
-            <div className="flex gap-4 mb-2 items-start font-semibold text-monospace"><MapPin size={20} className="text-secondary-400" />Pinak Technology, Mehsana, <br />Gujarat, India</div>
-            {/* <div className="flex gap-4 font-semibold text-monospace">
-              <Send size={20} className="text-secondary-400" />
-              <div className="flex gap-2">
-                <Link to='https://github.com/yash752004' target='_blank' className="link link-focus underline">Github</Link>|
-                <Link to='https://www.linkedin.com/in/yash-patel-18a93a230/' target='_blank' className="link link-focus underline">LinkedIn</Link>
+    <footer className="relative bg-slate-50 border-t border-slate-200/80 py-16 overflow-hidden">
+      
+      {/* Decorative Glow background */}
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-indigo-50 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-0 w-80 h-80 bg-primary-50 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 pb-12 border-b border-slate-200">
+          
+          {/* Column 1: Brand details */}
+          <div className="space-y-4">
+            <Link to="/" className="flex items-center gap-2 group">
+              <div className="h-8 flex items-center">
+                <img src="/logo_color.svg" alt="Pinak Technology" className="h-full object-contain group-hover:scale-[1.02] transition-transform duration-300" />
               </div>
-            </div> */}
+            </Link>
+            <p className="text-slate-500 text-sm leading-relaxed max-w-sm">
+              Creating high-performance digital products, robust SaaS platforms, and secure cloud infrastructures that build trust and optimize business conversions.
+            </p>
+            <div className="flex gap-3">
+              <a href="https://github.com/yash752004" target="_blank" rel="noreferrer" className="flex items-center justify-center size-8 rounded-lg bg-white border border-slate-200 text-slate-500 hover:bg-slate-900 hover:text-white transition-all">
+                <FaGithub className="size-4" />
+              </a>
+              <a href="https://www.linkedin.com/company/pinaktechnology/" target="_blank" rel="noreferrer" className="flex items-center justify-center size-8 rounded-lg bg-white border border-slate-200 text-slate-500 hover:bg-blue-600 hover:text-white transition-all">
+                <FaLinkedin className="size-4" />
+              </a>
+            </div>
           </div>
-          <div className="flex flex-col items-center md:items-end gap-0 md:gap-2">
-            <Link to='/services' className="link link-focus font-semibold">Services</Link>
-            <Link to='/projects' className="link link-focus font-semibold">Projects</Link>
-            <Link to='/contact' className="link link-focus font-semibold">Contact</Link>
-            <Link to="/terms" className="link link-focus font-semibold">Terms of Service</Link>
-            <Link to='/privacy-policy' className="link link-focus font-semibold">Privacy Policy</Link>
+
+          {/* Column 2: Direct Contact */}
+          <div className="space-y-4">
+            <h4 className="font-bold text-slate-800 text-sm uppercase tracking-wider">Get in Touch</h4>
+            <div className="space-y-3 text-slate-500 text-sm">
+              <div className="flex gap-3 items-center">
+                <Mail size={16} className="text-primary-500" />
+                <a href="mailto:connect@pinaktechnology.com" className="hover:text-slate-900 transition-colors font-medium">connect@pinaktechnology.com</a>
+              </div>
+              <div className="flex gap-3 items-start">
+                <MapPin size={16} className="text-primary-500 mt-0.5" />
+                <span className="leading-relaxed">Pinak Technology, Mehsana,<br />Gujarat, India</span>
+              </div>
+            </div>
           </div>
+
+          {/* Column 3: Navigation */}
+          <div className="space-y-4">
+            <h4 className="font-bold text-slate-800 text-sm uppercase tracking-wider">Quick Navigation</h4>
+            <div className="grid grid-cols-2 gap-2 text-sm text-slate-500 font-medium">
+              <Link to="/" className="hover:text-slate-900 transition-colors">Home</Link>
+              <Link to="/services" className="hover:text-slate-900 transition-colors">Services</Link>
+              <Link to="/projects" className="hover:text-slate-900 transition-colors">Projects</Link>
+              <Link to="/contact" className="hover:text-slate-900 transition-colors">Contact</Link>
+              <Link to="/terms" className="hover:text-slate-900 transition-colors">Terms</Link>
+              <Link to="/privacy-policy" className="hover:text-slate-900 transition-colors">Privacy</Link>
+            </div>
+          </div>
+
         </div>
-        <div className="container mx-auto text-center mt-6 text-gray-500">
-          &copy; 2025 All rights reserved.
+
+        <div className="flex flex-col sm:flex-row justify-between items-center mt-8 text-xs text-slate-400 font-medium gap-4">
+          <p>&copy; {new Date().getFullYear()} Pinak Technology. All rights reserved.</p>
+          <div className="flex items-center gap-1">
+            <Sparkles className="size-3 text-secondary-500" />
+            <span>Designed for Premium Conversions</span>
+          </div>
         </div>
       </div>
     </footer>

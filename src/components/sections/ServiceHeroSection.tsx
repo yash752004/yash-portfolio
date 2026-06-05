@@ -1,7 +1,13 @@
+import React from "react";
 import { Server, Cloud, Zap } from "lucide-react";
-import deco_img from "../../assets/4.webp";
 
-const services = [
+interface HeroService {
+  title: string;
+  description: string;
+  icon: React.ComponentType<{ size?: number | string }>;
+}
+
+const services: HeroService[] = [
   {
     title: "Professional Analysis",
     description:
@@ -22,40 +28,45 @@ const services = [
   },
 ];
 
-const ServiceHeroSection = () => {
+const ServiceHeroSection: React.FC = () => {
   return (
-    <section className="page-section py-50">
-      <div className="absolute -z-1 size-full top-0 left-0 opacity-50">
-        <img src={deco_img} alt="" className="relative size-full object-cover"/>
-      </div>
-      {/* Heading */}
-      <div className="container items-start lg:px-24">
-        <div className="flex flex-col">
-          <h2 className="text-4xl md:text-6xl/[1.2] font-bold text-primary-500 dark:text-secondary-500 max-w-3xl">
-            Modern Web & Cloud Engineering
-          </h2>
+    <section className="relative pt-36 pb-12 overflow-hidden bg-transparent">
+      
+      {/* Background spotlights matching Pinak colors */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0a0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0a0_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none z-0" />
+      <div className="absolute top-[10%] left-[10%] w-[35rem] h-[35rem] bg-primary-100/30 rounded-full blur-3xl pointer-events-none z-0" />
 
-          <p className="text-lg md:text-xl pt-6 text-gray-700 dark:text-gray-300 max-w-3xl">
-            We design and build robust, secure, and scalable software to accelerate product delivery and business outcomes.
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="flex flex-col items-start text-left max-w-3xl space-y-4">
+          <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-50 rounded-full border border-emerald-200">
+            Our Blueprints
+          </span>
+          <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight leading-none uppercase">
+            MODERN WEB & <br />
+            <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
+              CLOUD ENGINEERING
+            </span>
+          </h2>
+          <p className="text-slate-500 text-base md:text-lg leading-relaxed pt-2">
+            We design and build robust, secure, and scalable software platforms to accelerate product delivery and maximize business outcomes.
           </p>
         </div>
-        <div className="w-full mt-16 grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+        <div className="w-full mt-16 grid grid-cols-1 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <div key={index} className="flex flex-col items-start text-left space-y-4 bg-primary-50 dark:bg-gray-700 rounded-2xl p-8">
-                {/* Icon */}
-                <div className="rounded-full p-3 bg-secondary-100 text-secondary-500">
-                  <Icon size={30} />
+              <div 
+                key={index} 
+                className="flex flex-col items-start text-left space-y-4 bg-glass-premium border border-slate-200/60 rounded-3xl p-8 card-hover-effect shadow-md"
+              >
+                <div className="rounded-xl p-3 bg-slate-100/80 text-primary-500">
+                  <Icon size={24} />
                 </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-semibold text-primary-500 dark:text-white">
+                <h3 className="text-lg font-bold text-slate-800">
                   {service.title}
                 </h3>
-
-                {/* Description */}
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-slate-500 text-xs md:text-sm leading-relaxed">
                   {service.description}
                 </p>
               </div>
