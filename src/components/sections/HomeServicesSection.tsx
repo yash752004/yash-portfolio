@@ -9,7 +9,7 @@ const HomeServiceSection: React.FC = () => {
   return (
     <section className="py-24 bg-transparent w-full">
       <div className="max-w-6xl mx-auto px-6">
-        
+
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-8 space-y-4">
@@ -33,7 +33,7 @@ const HomeServiceSection: React.FC = () => {
         {/* Bento Service Cards list */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicesData.slice(0, 3).map((svc) => (
-            <div 
+            <div
               key={svc.id}
               className="bg-glass-premium border border-slate-200/60 rounded-[32px] p-8 shadow-xl card-hover-effect flex flex-col justify-between"
             >
@@ -60,7 +60,7 @@ const HomeServiceSection: React.FC = () => {
                 </ul>
               </div>
 
-              <button 
+              <button
                 onClick={() => navigate('/contact')}
                 className="mt-8 text-xs font-bold text-emerald-600 hover:text-primary-700 flex items-center gap-1 group/link text-left w-fit"
               >
@@ -73,7 +73,7 @@ const HomeServiceSection: React.FC = () => {
 
         {/* View All Services Button */}
         <div className="mt-12 flex justify-center">
-          <button 
+          <button
             onClick={() => navigate('/services')}
             className="px-8 py-3.5 border border-slate-200 hover:border-primary-500 text-slate-700 hover:text-primary-600 font-bold rounded-2xl shadow-sm hover:shadow-md transition-all flex items-center gap-2 group bg-white"
           >
@@ -92,7 +92,7 @@ const HomeServiceSection: React.FC = () => {
             </p>
           </div>
 
-          <button 
+          <button
             onClick={() => navigate('/contact')}
             className="px-8 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-secondary-500 hover:to-primary-500 text-white font-bold text-sm rounded-2xl shadow-lg shadow-primary-500/10 hover:shadow-secondary-500/20 hover:scale-[1.01] transition-all flex-shrink-0"
           >

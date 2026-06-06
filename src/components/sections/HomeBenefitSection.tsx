@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircle2, ShieldCheck, Zap, BarChart3, Sparkles } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Zap, BarChart3, Sparkles, LayoutDashboard } from "lucide-react";
 
 interface BenefitItem {
   title: string;
@@ -11,10 +11,10 @@ interface BenefitItem {
 const HomeBenefitSection: React.FC = () => {
   const benefits: BenefitItem[] = [
     { 
-      title: "Predictable, Agile Delivery", 
-      desc: "Clear milestones, weekly reports, and on-time launches. No surprises, just prompt progress.",
-      badge: "Delivery",
-      icon: <Zap className="size-5 text-amber-500" />
+      title: "Interactive Client Dashboard", 
+      desc: "Track live project updates and give direct feedback on tasks in real-time. This ensures superior quality, fewer revisions, and lightning-fast delivery.",
+      badge: "Transparency",
+      icon: <LayoutDashboard className="size-5 text-amber-500" />
     },
     { 
       title: "Performance & Security First", 
@@ -49,7 +49,7 @@ const HomeBenefitSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-8 pr-0 lg:pr-8">
             <div className="space-y-4">
               <span className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary-600 bg-primary-50 rounded-full border border-primary-100 inline-block shadow-sm shadow-primary-500/5">
-                Why Partner With Us
+                Why Choose Us?
               </span>
               <h3 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight leading-[1.1] uppercase">
                 TECH THAT DRIVES <br />
