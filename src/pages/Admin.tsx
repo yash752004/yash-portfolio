@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useProjects, ProjectDetailType } from "@/hooks/useProjects";
 import { useBlogs, BlogType } from "@/hooks/useBlogs";
-import { getProjectConfig, saveProjectConfig, ProjectConfigType } from "@/projects/projectDetails";
+import { useCategories } from "@/hooks/useCategories";
 
 import { ProjectsTable } from "@/components/admin/ProjectsTable";
 import { ProjectEditor } from "@/components/admin/ProjectEditor";
@@ -29,9 +29,9 @@ const Admin = () => {
   // Firebase Hooks
   const { projects, addProject, updateProject, deleteProject } = useProjects();
   const { blogs, addBlog, updateBlog, deleteBlog } = useBlogs();
-
-  // Local config for Categories (should be moved to DB eventually, keeping local for now as per previous logic)
-  const [config, setConfig] = useState<ProjectConfigType>(getProjectConfig());
+  const { categories, addCategory, updateCategory, deleteCategory } = useCategories();
+  
+  const categoryNames = React.useMemo(() => categories.map(c => c.name), [categories]);
 
   // Editor States
   const [isEditingProject, setIsEditingProject] = useState(false);
@@ -44,11 +44,47 @@ const Admin = () => {
   const [projectSearchTerm, setProjectSearchTerm] = useState("");
   const [projectCategoryFilter, setProjectCategoryFilter] = useState("all");
 
-  const filteredAdminProjects = projects.filter(p => {
-    const matchesSearch = p.title.toLowerCase().includes(projectSearchTerm.toLowerCase());
-    const matchesCategory = projectCategoryFilter === "all" || p.category === projectCategoryFilter;
-    return matchesSearch && matchesCategory;
-  });
+  const isFiltersActive = projectSearchTerm !== "" || projectCategoryFilter !== "all";
+
+  const filteredAdminProjects = React.useMemo(() => {
+    return projects.filter(p => {
+      const matchesSearch = p.title.toLowerCase().includes(projectSearchTerm.toLowerCase());
+      const matchesCategory = projectCategoryFilter === "all" || p.category === projectCategoryFilter;
+      return matchesSearch && matchesCategory;
+    });
+  }, [projects, projectSearchTerm, projectCategoryFilter]);
+
+  // Local admin projects for drag-and-drop
+  const [localAdminProjects, setLocalAdminProjects] = useState<ProjectDetailType[]>([]);
+  const [isOrderChanged, setIsOrderChanged] = useState(false);
+
+  React.useEffect(() => {
+    if (!isOrderChanged) {
+      setLocalAdminProjects(filteredAdminProjects);
+    }
+  }, [filteredAdminProjects, isOrderChanged]);
+
+  const handleReorderProjects = (newOrder: ProjectDetailType[]) => {
+    setLocalAdminProjects(newOrder);
+    setIsOrderChanged(true);
+  };
+
+  const handleSaveProjectOrder = async () => {
+    try {
+      const promises = localAdminProjects.map((proj, index) => {
+        if (proj.order !== index) {
+          return updateProject(proj.id, { order: index });
+        }
+        return Promise.resolve();
+      });
+      await Promise.all(promises);
+      toast.success("Project order saved successfully!");
+      setIsOrderChanged(false);
+    } catch (err: any) {
+      toast.error("Failed to save project order.");
+      console.error(err);
+    }
+  };
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,15 +105,13 @@ const Admin = () => {
   };
 
   // --- Category Handlers ---
-  const handleAddCategory = (name: string) => {
-    if (!name || config.categories.includes(name)) return;
-    const newConfig = { ...config, categories: [...config.categories, name] };
-    setConfig(newConfig);
-    saveProjectConfig(newConfig);
+  const handleAddCategory = async (name: string) => {
+    if (!name || categoryNames.includes(name)) return;
+    await addCategory({ name });
     toast.success("Category added");
   };
 
-  const handleDeleteCategory = (name: string) => {
+  const handleDeleteCategory = async (name: string) => {
     // Check if category is assigned to any project
     const isAssigned = projects.some(p => p.category === name);
     if (isAssigned) {
@@ -85,20 +119,20 @@ const Admin = () => {
       return;
     }
 
-    const newConfig = { ...config, categories: config.categories.filter(c => c !== name) };
-    setConfig(newConfig);
-    saveProjectConfig(newConfig);
-    toast.success("Category deleted");
+    const cat = categories.find(c => c.name === name);
+    if (cat) {
+      await deleteCategory(cat.id);
+      toast.success("Category deleted");
+    }
   };
 
   const handleEditCategory = async (oldName: string, newName: string) => {
-    if (!newName || newName === oldName || config.categories.includes(newName)) return;
+    if (!newName || newName === oldName || categoryNames.includes(newName)) return;
     
-    // Update config
-    const newCategories = config.categories.map(c => c === oldName ? newName : c);
-    const newConfig = { ...config, categories: newCategories };
-    setConfig(newConfig);
-    saveProjectConfig(newConfig);
+    const cat = categories.find(c => c.name === oldName);
+    if (cat) {
+      await updateCategory(cat.id, { name: newName });
+    }
 
     // Update all projects that have the old category
     const affectedProjects = projects.filter(p => p.category === oldName);
@@ -140,6 +174,11 @@ const Admin = () => {
       return;
     }
     await updateProject(id, { showOnHome: !current });
+  };
+
+  const handleToggleProjectsPageProject = async (id: string, current: boolean) => {
+    await updateProject(id, { showOnProjects: !current });
+    toast.success(`Project ${!current ? 'will now' : 'will no longer'} appear on the Userside Projects page.`);
   };
 
   // --- Blog Handlers ---
@@ -196,7 +235,7 @@ const Admin = () => {
             Pinak<span className="text-primary-600">.</span>
           </h2>
           <nav className="space-y-2 flex flex-col">
-            <Button variant={activeTab === "projects" ? "default" : "ghost"} onClick={() => { setActiveTab("projects"); setIsEditingProject(false); }} className={`w-full justify-start text-left font-bold ${activeTab === "projects" ? "bg-primary-600 text-white" : "text-slate-500"}`}>Projects</Button>
+            <Button variant={activeTab === "projects" ? "default" : "ghost"} onClick={() => { setActiveTab("projects"); setIsEditingProject(false); setIsOrderChanged(false); }} className={`w-full justify-start text-left font-bold ${activeTab === "projects" ? "bg-primary-600 text-white" : "text-slate-500"}`}>Projects</Button>
             <Button variant={activeTab === "categories" ? "default" : "ghost"} onClick={() => setActiveTab("categories")} className={`w-full justify-start text-left font-bold ${activeTab === "categories" ? "bg-primary-600 text-white" : "text-slate-500"}`}>Categories</Button>
             <Button variant={activeTab === "blogs" ? "default" : "ghost"} onClick={() => { setActiveTab("blogs"); setIsEditingBlog(false); }} className={`w-full justify-start text-left font-bold ${activeTab === "blogs" ? "bg-primary-600 text-white" : "text-slate-500"}`}>Blogs</Button>
             <Button variant={activeTab === "home" ? "default" : "ghost"} onClick={() => setActiveTab("home")} className={`w-full justify-start text-left font-bold ${activeTab === "home" ? "bg-primary-600 text-white" : "text-slate-500"}`}>Homepage Showcase</Button>
@@ -220,7 +259,7 @@ const Admin = () => {
             {isEditingProject ? (
               <ProjectEditor
                 initialData={editingProjectData || undefined}
-                config={config}
+                categories={categoryNames}
                 onSave={handleSaveProject}
                 onCancel={() => setIsEditingProject(false)}
                 onAddCategory={handleAddCategory}
@@ -231,7 +270,12 @@ const Admin = () => {
               <div className="space-y-6">
                 <div className="flex justify-between items-center">
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">All Projects</h3>
-                  <Button onClick={handleAddNewProject} className="bg-primary-600 hover:bg-primary-700 font-bold rounded-xl px-6">+ Add Project</Button>
+                  <div className="flex gap-4">
+                    {isOrderChanged && (
+                      <Button onClick={handleSaveProjectOrder} className="bg-emerald-600 hover:bg-emerald-700 font-bold rounded-xl px-6">Save Order</Button>
+                    )}
+                    <Button onClick={handleAddNewProject} className="bg-primary-600 hover:bg-primary-700 font-bold rounded-xl px-6">+ Add Project</Button>
+                  </div>
                 </div>
                 
                 {/* Filters */}
@@ -249,17 +293,20 @@ const Admin = () => {
                     onChange={(e) => setProjectCategoryFilter(e.target.value)}
                   >
                     <option value="all">All Categories</option>
-                    {config?.categories.map(cat => (
+                    {categoryNames.map(cat => (
                       <option key={cat} value={cat}>{cat}</option>
                     ))}
                   </select>
                 </div>
 
                 <ProjectsTable
-                  projects={filteredAdminProjects}
+                  projects={localAdminProjects}
                   onEdit={handleEditProject}
                   onDelete={deleteProject}
                   onToggleHome={handleToggleHomeProject}
+                  onToggleProjectsPage={handleToggleProjectsPageProject}
+                  isReorderable={!isFiltersActive}
+                  onReorder={handleReorderProjects}
                 />
               </div>
             )}
@@ -267,7 +314,7 @@ const Admin = () => {
         )}
         {activeTab === "categories" && (
           <CategoryManager 
-            categories={config?.categories || []}
+            categories={categoryNames}
             projects={projects}
             onAddCategory={handleAddCategory}
             onEditCategory={handleEditCategory}
@@ -280,7 +327,7 @@ const Admin = () => {
             {isEditingBlog ? (
               <BlogEditor
                 initialData={editingBlogData || undefined}
-                categories={config?.categories || []}
+                categories={categoryNames}
                 onSave={handleSaveBlog}
                 onCancel={() => setIsEditingBlog(false)}
               />
@@ -307,7 +354,7 @@ const Admin = () => {
             <h3 className="text-2xl font-bold mb-6">Manage Categories</h3>
             <p className="text-slate-500 mb-6">In the future, you can use a Dialog to manage these here. For now, they are managed via ProjectConfig.</p>
             <div className="flex flex-wrap gap-4">
-              {config.categories.map(c => (
+              {categoryNames.map(c => (
                 <span key={c} className="px-4 py-2 bg-slate-100 dark:bg-white/10 rounded-xl font-medium">{c}</span>
               ))}
             </div>

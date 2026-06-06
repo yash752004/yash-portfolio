@@ -1,14 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowUpRight, Sparkles, TrendingUp } from "lucide-react";
-import { useProjects } from "@/hooks/useProjects";
+import { useHomeProjects } from "@/hooks/useProjects";
 
 const HomeProjectSection: React.FC = () => {
   const navigate = useNavigate();
-  const { projects } = useProjects();
-  
-  // Only show projects that have showOnHome checked in the admin panel
-  const homeProjects = projects.filter(p => p.showOnHome);
+  const { homeProjects } = useHomeProjects();
 
   return (
     <section className="py-24 bg-transparent w-full">
@@ -45,7 +42,7 @@ const HomeProjectSection: React.FC = () => {
               {/* Preview image */}
               <div className="h-44 w-full bg-slate-100/50 flex items-center justify-center p-4 border-b border-slate-100">
                 <img 
-                  src={proj.image} 
+                  src={proj.thumbnail} 
                   alt={proj.title} 
                   className="max-h-full max-w-full object-contain group-hover:scale-[1.03] transition-transform duration-500" 
                 />
@@ -64,12 +61,14 @@ const HomeProjectSection: React.FC = () => {
                   </h3>
                 </div>
 
-                <div className="pt-3 border-t border-slate-50 flex items-center justify-between">
-                  <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider">ROI Metric</span>
-                  <span className="text-xs font-bold text-slate-800 flex items-center gap-0.5">
-                    <TrendingUp className="size-3 text-primary-500" /> {proj.metrics}
-                  </span>
-                </div>
+                {proj.metricsEnabled && (
+                  <div className="pt-3 border-t border-slate-50 flex items-center justify-between">
+                    <span className="text-[9px] text-slate-400 font-extrabold uppercase tracking-wider">ROI Metric</span>
+                    <span className="text-xs font-bold text-slate-800 flex items-center gap-0.5">
+                      <TrendingUp className="size-3 text-primary-500" /> {proj.metricsValue}
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
           ))}

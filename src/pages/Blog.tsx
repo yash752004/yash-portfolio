@@ -41,7 +41,7 @@ const Blog: React.FC = () => {
           {featuredBlog && (
             <Link to={`/blog/${featuredBlog.id}`} className="block bg-white rounded-3xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition-all group mb-20">
               <div className="flex flex-col lg:flex-row">
-                <div className="w-full lg:w-3/5 relative overflow-hidden h-64 lg:h-auto">
+                <div className="w-full lg:w-3/5 relative overflow-hidden h-[400px] lg:h-[500px]">
                   <img 
                     src={featuredBlog.image} 
                     alt={featuredBlog.title} 
@@ -77,7 +77,7 @@ const Blog: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {recentBlogs.map((blog) => (
                 <Link to={`/blog/${blog.id}`} key={blog.id} className="block bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-md transition-all group flex flex-col">
-                  <div className="h-48 overflow-hidden relative">
+                  <div className="h-[250px] w-full overflow-hidden relative">
                     <img 
                       src={blog.image} 
                       alt={blog.title} 

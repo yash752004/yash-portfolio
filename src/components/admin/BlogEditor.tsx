@@ -23,16 +23,19 @@ const QuillEditor = ({ value, onChange }: { value: string; onChange: (val: strin
         theme: "snow",
         placeholder: "Compose your trade analysis, strategies, or market thoughts here...",
         modules: {
-          toolbar: [
-            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-            ['bold', 'italic', 'underline', 'strike'],
-            [{ 'color': [] }, { 'background': [] }],
-            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-            [{ 'align': [] }],
-            ['blockquote', 'code-block'],
-            ['link', 'image'],
-            ['clean']
-          ]
+          table: true,
+          toolbar: {
+            container: [
+              [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+              ['bold', 'italic', 'underline', 'strike'],
+              [{ 'color': [] }, { 'background': [] }],
+              [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+              [{ 'align': [] }],
+              ['blockquote', 'code-block'],
+              ['link', 'image'],
+              ['clean']
+            ]
+          }
         }
       });
 
@@ -56,16 +59,33 @@ const QuillEditor = ({ value, onChange }: { value: string; onChange: (val: strin
     }
   }, [value]);
 
+  const insertTable = () => {
+    if (quillInstance.current) {
+      const tableModule = quillInstance.current.getModule('table') as any;
+      if (tableModule) {
+        tableModule.insertTable(3, 3); // Inserts a 3x3 table
+      }
+    }
+  };
+
   return (
     <div className="space-y-2 mb-12">
       <div className="flex justify-between items-center mb-2">
         <label className="text-sm font-bold text-slate-800 dark:text-white block">Description *</label>
-        <button 
-          onClick={() => window.open("", "_blank")?.document.write(`<html><head><title>Preview</title><style>body { font-family: system-ui; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; } img { max-width: 100%; border-radius: 12px; } table { border-collapse: collapse; width: 100%; } th, td { border: 1px solid #ddd; padding: 8px; }</style></head><body><div>${value}</div></body></html>`)}
-          className="text-sm font-bold text-primary-600 hover:text-primary-700 flex items-center gap-1"
-        >
-          <Eye size={16} /> Preview Published View
-        </button>
+        <div className="flex items-center gap-4">
+          <button 
+            onClick={insertTable}
+            className="text-sm font-bold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition-colors"
+          >
+            + Insert Table
+          </button>
+          <button 
+            onClick={() => window.open("", "_blank")?.document.write(`<html><head><title>Preview</title><style>body { font-family: system-ui; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; } img { max-width: 100%; border-radius: 12px; } table { border-collapse: collapse; width: 100%; } th, td { border: 1px solid #ddd; padding: 8px; }</style></head><body><div>${value}</div></body></html>`)}
+            className="text-sm font-bold text-primary-600 hover:text-primary-700 flex items-center gap-1"
+          >
+            <Eye size={16} /> Preview Published View
+          </button>
+        </div>
       </div>
       <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm flex flex-col">
         <div ref={editorRef} style={{ minHeight: '350px', fontSize: '15px' }} />
@@ -102,7 +122,7 @@ export const BlogEditor = ({ initialData, categories, onSave, onCancel }: BlogEd
         canvas.height = height;
         const ctx = canvas.getContext('2d');
         ctx?.drawImage(img, 0, 0, width, height);
-        resolve(canvas.toDataURL('image/jpeg', 0.6)); // 60% quality JPEG
+        resolve(canvas.toDataURL('image/webp', 0.5)); // 50% quality WebP
       };
       img.src = dataUrl;
     });

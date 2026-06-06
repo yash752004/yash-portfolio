@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 
 interface ProjectEditorProps {
   initialData?: Partial<ProjectDetailType>;
-  config: ProjectConfigType | null;
+  categories: string[];
   onSave: (project: Omit<ProjectDetailType, "id"> | Partial<ProjectDetailType>) => void;
   onCancel: () => void;
   onAddCategory?: (name: string) => void;
@@ -14,10 +14,10 @@ interface ProjectEditorProps {
   onEditCategory?: (oldName: string, newName: string) => void;
 }
 
-export const ProjectEditor = ({ initialData, config, onSave, onCancel, onAddCategory, onDeleteCategory, onEditCategory }: ProjectEditorProps) => {
+export const ProjectEditor = ({ initialData, categories, onSave, onCancel, onAddCategory, onDeleteCategory, onEditCategory }: ProjectEditorProps) => {
   const [title, setTitle] = useState(initialData?.title || "");
   const [description, setDescription] = useState(initialData?.description || "");
-  const [category, setCategory] = useState(initialData?.category || config?.categories?.[0] || "");
+  const [category, setCategory] = useState(initialData?.category || categories?.[0] || "");
   const [metricsEnabled, setMetricsEnabled] = useState(initialData?.metricsEnabled ?? true);
   const [metricsValue, setMetricsValue] = useState(initialData?.metricsValue || "+140% Growth");
   const [metricsLabel, setMetricsLabel] = useState(initialData?.metricsLabel || "Operations scale");
@@ -34,7 +34,7 @@ export const ProjectEditor = ({ initialData, config, onSave, onCancel, onAddCate
   const thumbInputRef = useRef<HTMLInputElement>(null);
   const screenshotInputRef = useRef<HTMLInputElement>(null);
 
-  const compressImage = (dataUrl: string, maxWidth = 800): Promise<string> => {
+  const compressImage = (dataUrl: string, maxWidth = 600): Promise<string> => {
     return new Promise((resolve) => {
       const img = new Image();
       img.onload = () => {
@@ -49,7 +49,7 @@ export const ProjectEditor = ({ initialData, config, onSave, onCancel, onAddCate
         canvas.height = height;
         const ctx = canvas.getContext('2d');
         ctx?.drawImage(img, 0, 0, width, height);
-        resolve(canvas.toDataURL('image/jpeg', 0.6)); // 60% quality JPEG
+        resolve(canvas.toDataURL('image/webp', 0.5)); // 50% quality WebP for significantly smaller size
       };
       img.src = dataUrl;
     });
@@ -60,7 +60,7 @@ export const ProjectEditor = ({ initialData, config, onSave, onCancel, onAddCate
     if (file) {
       const reader = new FileReader();
       reader.onloadend = async () => {
-        const compressed = await compressImage(reader.result as string, 800);
+        const compressed = await compressImage(reader.result as string, 600);
         setThumbnail(compressed);
       };
       reader.readAsDataURL(file);
@@ -73,7 +73,7 @@ export const ProjectEditor = ({ initialData, config, onSave, onCancel, onAddCate
       Array.from(files).forEach(file => {
         const reader = new FileReader();
         reader.onloadend = async () => {
-          const compressed = await compressImage(reader.result as string, 1200);
+          const compressed = await compressImage(reader.result as string, 800);
           setScreenshots(prev => [...prev, compressed]);
         };
         reader.readAsDataURL(file);
@@ -110,7 +110,30 @@ export const ProjectEditor = ({ initialData, config, onSave, onCancel, onAddCate
     setKeyCapabilities(keyCapabilities.filter((_, i) => i !== idx));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
+    // Re-compress existing images if they are too large (e.g., from before the compression fix)
+    let finalThumbnail = thumbnail;
+    if (thumbnail && thumbnail.length > 150000) {
+      try {
+        finalThumbnail = await compressImage(thumbnail, 600);
+      } catch (e) {
+        console.warn("Failed to recompress thumbnail", e);
+      }
+    }
+    
+    let finalScreenshots = [];
+    for (const shot of screenshots) {
+      if (shot.length > 150000) {
+        try {
+          finalScreenshots.push(await compressImage(shot, 800));
+        } catch (e) {
+          finalScreenshots.push(shot);
+        }
+      } else {
+        finalScreenshots.push(shot);
+      }
+    }
+
     onSave({
       title,
       description,
@@ -118,9 +141,9 @@ export const ProjectEditor = ({ initialData, config, onSave, onCancel, onAddCate
       metricsEnabled,
       metricsValue,
       metricsLabel,
-      thumbnail,
-      verticalThumbnail: thumbnail, // use same for now
-      screenshots,
+      thumbnail: finalThumbnail,
+      verticalThumbnail: finalThumbnail, // use same for now
+      screenshots: finalScreenshots,
       tools,
       keyCapabilities,
       showOnHome: initialData?.showOnHome ?? false,
@@ -196,7 +219,7 @@ export const ProjectEditor = ({ initialData, config, onSave, onCancel, onAddCate
                         </button>
                       </div>
                       <div className="space-y-2 max-h-60 overflow-y-auto pr-2">
-                        {config?.categories?.map(cat => (
+                        {categories?.map(cat => (
                           <div key={cat} className="flex items-center justify-between p-3 bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl">
                             {editingCategory === cat ? (
                               <div className="flex items-center gap-2 flex-1 mr-2">
@@ -259,10 +282,10 @@ export const ProjectEditor = ({ initialData, config, onSave, onCancel, onAddCate
                 </Dialog>
               </div>
               <select value={category} onChange={e => setCategory(e.target.value)} className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-white/10 bg-transparent focus:outline-none focus:ring-2 focus:ring-primary-500">
-                {config?.categories?.map(cat => (
+                {categories?.map(cat => (
                   <option key={cat} value={cat} className="text-slate-900">{cat}</option>
                 ))}
-                {!config?.categories?.includes(category) && category && (
+                {!categories?.includes(category) && category && (
                   <option value={category} className="text-slate-900">{category}</option>
                 )}
               </select>

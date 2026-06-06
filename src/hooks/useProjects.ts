@@ -28,6 +28,7 @@ export interface ProjectDetailType {
   category: string;
   showOnHome: boolean;
   showOnProjects: boolean;
+  order?: number;
 }
 
 export const useProjects = () => {
@@ -45,6 +46,8 @@ export const useProjects = () => {
       snapshot.forEach((doc) => {
         projData.push({ id: doc.id, ...doc.data() } as ProjectDetailType);
       });
+      // Sort projects by order ascending, fallback to 0
+      projData.sort((a, b) => (a.order || 0) - (b.order || 0));
       setProjects(projData);
       setLoading(false);
     }, (error) => {
@@ -89,6 +92,8 @@ export const useHomeProjects = () => {
       snapshot.forEach((doc) => {
         projData.push({ id: doc.id, ...doc.data() } as ProjectDetailType);
       });
+      // Sort projects by order ascending, fallback to 0
+      projData.sort((a, b) => (a.order || 0) - (b.order || 0));
       setHomeProjects(projData);
       setLoading(false);
     });
