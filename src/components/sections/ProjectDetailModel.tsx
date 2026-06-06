@@ -7,6 +7,7 @@ import { ProjectDetailType } from "@/projects/projectDetails";
 export const ProjectDetailModel = ({ projectDetail, OnCloseModel }: { projectDetail: ProjectDetailType, OnCloseModel: () => void }) => {
   const resolveImagePath = (path: string) => {
     if (!path) return "";
+    if (path.startsWith("data:image")) return path;
     if (path.startsWith('@/')) return path.replace('@/', '/src/');
     return path;
   };

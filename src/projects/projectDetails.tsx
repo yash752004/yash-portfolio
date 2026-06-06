@@ -47,6 +47,7 @@ export type ProjectDetailType = {
   title: string;
   description: string;
   tools: string[];
+  keyCapabilities?: string[];
   verticalThumbnail: string;
   thumbnail: string;
   screenshots: string[];

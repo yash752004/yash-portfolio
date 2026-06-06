@@ -56,7 +56,8 @@ export const ProjectDetailSection = () => {
 
   const resolveImagePath = (path: string) => {
     if (!path) return "";
-    if (path.startsWith('@/')) return path.replace('@/', '/src/');
+    if (path.startsWith("data:image")) return path;
+    if (path.startsWith("@/")) return path.replace("@/", "/src/");
     return path;
   };
 

@@ -1,50 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowUpRight, Sparkles, TrendingUp } from "lucide-react";
-
-// Importing local high-fidelity assets
-import crmImg from "@/assets/1.webp";
-import shopImg from "@/assets/services/e_commerce.svg";
-import cloudImg from "@/assets/services/server.svg";
-
-interface HomeProject {
-  id: string;
-  title: string;
-  category: string;
-  desc: string;
-  metrics: string;
-  image: string;
-}
+import { useProjects } from "@/hooks/useProjects";
 
 const HomeProjectSection: React.FC = () => {
   const navigate = useNavigate();
-
-  const homeProjects: HomeProject[] = [
-    {
-      id: "crm",
-      title: "Enterprise SaaS CRM Platform",
-      category: "SaaS Platform",
-      desc: "Multi-tenant workspace sandboxes and pipelines.",
-      metrics: "+140% speed",
-      image: crmImg
-    },
-    {
-      id: "shop",
-      title: "High-Volume B2B E-Commerce Suite",
-      category: "Web Application",
-      desc: "Lightning fast shopping Experience catalog queries.",
-      metrics: "3.2x conversion",
-      image: shopImg
-    },
-    {
-      id: "monitor",
-      title: "AWS Cloud Monitoring Engine",
-      category: "Cloud Architecture",
-      desc: "Infrastructure as Code blueprints deploying self-healing pools.",
-      metrics: "99.99% uptime",
-      image: cloudImg
-    }
-  ];
+  const { projects } = useProjects();
+  
+  // Only show projects that have showOnHome checked in the admin panel
+  const homeProjects = projects.filter(p => p.showOnHome);
 
   return (
     <section className="py-24 bg-transparent w-full">
