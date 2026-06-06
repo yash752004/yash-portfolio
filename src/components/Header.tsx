@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, Sparkles, Linkedin, Instagram } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -25,13 +26,24 @@ const Header = () => {
       } else {
         setScrolled(false);
       }
+      
+      const totalScroll = document.documentElement.scrollTop;
+      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scroll = totalScroll / windowHeight;
+      setScrollProgress(scroll * 100 || 0);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 md:px-8">
+    <>
+      {/* Scroll Progress Bar */}
+      <div 
+        className="fixed top-0 left-0 h-1.5 z-[100] bg-gradient-to-r from-primary-500 via-secondary-400 to-secondary-500 transition-all duration-75 ease-out rounded-r-full"
+        style={{ width: `${scrollProgress}%` }}
+      />
+      <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 md:px-8 mt-1.5">
       {/* Desktop Navigation */}
       <div className={`max-w-6xl mx-auto rounded-full transition-all duration-300 ${scrolled
           ? "bg-white/80 shadow-md backdrop-blur-md border border-white/60 py-2 px-6"
@@ -114,10 +126,21 @@ const Header = () => {
             >
               Contact
             </Link>
+
+            {/* Social Links */}
+            <div className="mt-2 pt-4 border-t border-slate-100 flex items-center justify-center gap-4">
+              <a href="https://linkedin.com/company/pinaktechnology" target="_blank" rel="noreferrer" className="p-2 text-slate-400 hover:text-primary-500 hover:bg-primary-50 rounded-full transition-all">
+                <Linkedin className="size-5" />
+              </a>
+              <a href="https://instagram.com/pinaktechnology" target="_blank" rel="noreferrer" className="p-2 text-slate-400 hover:text-primary-500 hover:bg-primary-50 rounded-full transition-all">
+                <Instagram className="size-5" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </header>
+    </>
   );
 };
 
