@@ -31,6 +31,19 @@ export const useCategories = () => {
       snapshot.forEach((doc) => {
         catData.push({ id: doc.id, ...doc.data() } as CategoryType);
       });
+      
+      // Auto-seed default categories if database is completely empty
+      if (catData.length === 0) {
+        const defaultCategories = ["Mobile Apps", "Websites", "Cloud", "SaaS"];
+        defaultCategories.forEach(async (name) => {
+          try {
+            await addDoc(collection(db, "categories"), { name });
+          } catch (e) {
+            console.error("Failed to seed category", e);
+          }
+        });
+      }
+
       // Sort categories alphabetically or by order
       catData.sort((a, b) => {
         if (a.order !== undefined && b.order !== undefined) {

@@ -15,6 +15,7 @@ import {
   MessageSquare
 } from "lucide-react";
 import { toast } from "sonner";
+import { useContacts } from "@/hooks/useContacts";
 
 interface Option {
   id: string;
@@ -36,6 +37,7 @@ const InteractiveQuiz: React.FC = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { addContact } = useContacts();
 
   const projectOptions: Option[] = [
     { id: "saas", label: "Custom SaaS Platform", desc: "Performance-focused cloud application with multi-tenancy & billing", icon: <Layers className="size-5 text-secondary-500" /> },
@@ -92,11 +94,29 @@ const InteractiveQuiz: React.FC = () => {
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const pLabel = projectOptions.find(o => o.id === projectType)?.label || projectType;
+      const tLabel = timelineOptions.find(o => o.id === timeline)?.label || timeline;
+      const bLabel = budgetOptions.find(o => o.id === budget)?.label || budget;
+
+      await addContact({
+        source: 'Digital Blueprint',
+        name: formData.name,
+        email: formData.email,
+        projectType: pLabel,
+        timeline: tLabel,
+        budget: bLabel,
+        message: formData.message || "Requested Digital Blueprint Consultation",
+      });
+
       toast.success("Design consultation request sent! We'll contact you in under 4 hours.");
       setStep(5);
-    }, 1500);
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to submit request. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const resetQuiz = () => {

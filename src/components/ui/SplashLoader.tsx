@@ -1,53 +1,53 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useEffect, useState, useRef, useCallback } from "react";
 
-// Words to cycle through — custom greetings
-const words = ["Hi", "Hello", "Namaste", "Welcome"];
-
 interface SplashLoaderProps {
   onComplete: () => void;
 }
 
+// Adjust this value to make the loader faster or slower (in milliseconds)
+const LOADER_SPEED_MS = 1500;
+
 export const SplashLoader = ({ onComplete }: SplashLoaderProps) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const onCompleteRef = useRef(onComplete);
   onCompleteRef.current = onComplete;
 
-  // Word cycling logic:
-  // Cycle every 400ms. Keep the last word ("Welcome") visible longer.
-  useEffect(() => {
-    const firstWordTimer = setTimeout(() => {
-      intervalRef.current = setInterval(() => {
-        setCurrentIndex((prev) => {
-          if (prev >= words.length - 1) {
-            if (intervalRef.current) clearInterval(intervalRef.current);
-            return prev;
-          }
-          return prev + 1;
-        });
-      }, 400); // slightly slower speed for better readability
-    }, 600); // initial delay before starting to swap
+  const getGreeting = (p: number) => {
+    if (p < 35) return "Hi";
+    if (p < 70) return "Hello";
+    if (p < 100) return "Namaste";
+    return "Welcome";
+  };
 
-    return () => {
-      clearTimeout(firstWordTimer);
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
+  useEffect(() => {
+    // Smooth progress counter from 0 to 100
+    const intervalTime = 20; // 20ms for smooth 50fps animation
+    const step = 100 / (LOADER_SPEED_MS / intervalTime);
+
+    const timer = setInterval(() => {
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(timer);
+          return 100;
+        }
+        return Math.min(prev + step, 100);
+      });
+    }, intervalTime);
+
+    return () => clearInterval(timer);
   }, []);
 
-  // Total time before exit starts:
-  // 600ms initial + 400ms * (words.length - 1) + 600ms pause on last word
-  const totalBeforeExit = 600 + 400 * (words.length - 1) + 600;
-
-  // Trigger the slide-up exit animation
+  // Trigger the exit animation shortly after hitting 100%
   useEffect(() => {
-    const exitTimer = setTimeout(() => {
-      setIsVisible(false);
-    }, totalBeforeExit);
-
-    return () => clearTimeout(exitTimer);
-  }, [totalBeforeExit]);
+    if (progress === 100) {
+      const exitTimer = setTimeout(() => {
+        setIsVisible(false);
+      }, 500); // Wait half a second at 100% before exiting
+      return () => clearTimeout(exitTimer);
+    }
+  }, [progress]);
 
   // Call onComplete AFTER the exit animation finishes
   const handleExitComplete = useCallback(() => {
@@ -76,10 +76,10 @@ export const SplashLoader = ({ onComplete }: SplashLoaderProps) => {
             />
           </div>
 
-          {/* Centered cycling greeting with gradient text */}
+          {/* Centered progressive greeting with gradient text */}
           <div className="flex items-center justify-center">
-            <p className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter bg-gradient-to-r from-primary-600 to-secondary-500 bg-clip-text text-transparent">
-              {words[currentIndex]}
+            <p className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tighter bg-gradient-to-r from-primary-600 to-secondary-500 bg-clip-text text-transparent w-[300px] text-center">
+              {getGreeting(progress)}
             </p>
           </div>
         </motion.div>

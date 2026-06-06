@@ -149,6 +149,16 @@ All colors MUST be HSL.
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
+  .bg-glass-premium {
+    background: rgb(255 255 255 / 40%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    @variant dark {
+      background: rgb(30 30 30 / 40%);
+    }
+  }
+
   .input-focus {
     &:focus-visible { @apply outline-2 outline-secondary-400; }
   }

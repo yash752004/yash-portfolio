@@ -1,7 +1,7 @@
 import React from 'react';
 import { Mail, MapPin, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer: React.FC = () => {
   return (
@@ -25,8 +25,8 @@ const Footer: React.FC = () => {
               Creating high-performance digital products, robust SaaS platforms, and secure cloud infrastructures that build trust and optimize business conversions.
             </p>
             <div className="flex gap-3">
-              <a href="https://github.com/yash752004" target="_blank" rel="noreferrer" className="flex items-center justify-center size-8 rounded-lg bg-white border border-slate-200 text-slate-500 hover:bg-slate-900 hover:text-white transition-all">
-                <FaGithub className="size-4" />
+              <a href="https://www.instagram.com/pinaktechnology/" target="_blank" rel="noreferrer" className="flex items-center justify-center size-8 rounded-lg bg-white border border-slate-200 text-slate-500 hover:border-transparent hover:bg-gradient-to-r hover:from-purple-500 hover:via-pink-500 hover:to-orange-500 hover:text-white transition-all shadow-sm hover:shadow-md">
+                <FaInstagram className="size-4" />
               </a>
               <a href="https://www.linkedin.com/company/pinaktechnology/" target="_blank" rel="noreferrer" className="flex items-center justify-center size-8 rounded-lg bg-white border border-slate-200 text-slate-500 hover:bg-blue-600 hover:text-white transition-all">
                 <FaLinkedin className="size-4" />

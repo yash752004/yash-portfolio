@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { 
-  Code2, 
-  MapPin, 
-  Sparkles, 
-  ArrowUpRight, 
-  Layers, 
+import {
+  Code2,
+  MapPin,
+  Sparkles,
+  ArrowUpRight,
+  Layers,
   Terminal,
   Globe,
   Briefcase,
@@ -41,12 +41,12 @@ const BentoGrid: React.FC = () => {
       newServices.push(service);
     }
     setSelectedServices(newServices);
-    
+
     let weeks = 0;
     if (newServices.includes("web")) weeks += 4;
     if (newServices.includes("saas")) weeks += 8;
     if (newServices.includes("cloud")) weeks += 3;
-    
+
     if (weeks === 0) setProjectEstimate("Select a service");
     else setProjectEstimate(`~${weeks} Weeks`);
   };
@@ -54,7 +54,7 @@ const BentoGrid: React.FC = () => {
   return (
     <section className="py-12 bg-transparent w-full">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
-        
+
         {/* Section Title */}
         <div className="text-center mb-12">
           <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-600 bg-primary-50 rounded-full border border-primary-200">
@@ -70,9 +70,9 @@ const BentoGrid: React.FC = () => {
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[220px]">
-          
+
           {/* Cell 1: Availability Status (1x2 span) */}
-          <div 
+          <div
             className="md:col-span-2 bg-glass-premium rounded-3xl p-8 border border-white/60 flex flex-col justify-between card-hover-effect relative overflow-hidden group"
           >
             <div className="absolute top-0 right-0 w-48 h-48 bg-primary-100/30 rounded-full blur-3xl pointer-events-none group-hover:bg-primary-200/40 transition-all duration-500" />
@@ -85,7 +85,7 @@ const BentoGrid: React.FC = () => {
                 Accepting New Partnerships
               </span>
             </div>
-            
+
             <div className="space-y-3 relative z-10">
               <h3 className="text-2xl md:text-3xl font-bold text-slate-800 leading-tight">
                 Architecting high-availability software platforms & custom SaaS solutions.
@@ -95,14 +95,11 @@ const BentoGrid: React.FC = () => {
               </p>
             </div>
 
-            <div className="flex items-center gap-2 text-slate-500 text-xs tracking-wider uppercase font-semibold">
-              <MapPin className="size-4 text-primary-500" />
-              <span>HQ: Gujarat, India — Collaborating Globally (EST, CET, IST)</span>
-            </div>
+
           </div>
 
           {/* Cell 2: Quick Stats & Achievements (1x1 span) */}
-          <div 
+          <div
             className="bg-glass-premium rounded-3xl p-8 border border-white/60 flex flex-col justify-between card-hover-effect"
           >
             <div>
@@ -115,9 +112,7 @@ const BentoGrid: React.FC = () => {
               <h4 className="text-lg font-bold text-slate-800">
                 Proven Agency Track Record
               </h4>
-              <p className="text-slate-400 text-xs mt-1">
-                Enterprise grade reliability, clean architectures, and prompt deliveries.
-              </p>
+
             </div>
 
             <div className="space-y-2">
@@ -129,11 +124,15 @@ const BentoGrid: React.FC = () => {
                 <CheckCircle2 className="size-4 text-primary-500" />
                 <span>100% On-Time Milestones</span>
               </div>
+              <div className="flex items-center gap-2 text-sm text-slate-600 font-semibold">
+                <CheckCircle2 className="size-4 text-primary-500" />
+                <span>100% Client Satisfaction Rate</span>
+              </div>
             </div>
           </div>
 
           {/* Cell 3: Corporate Response SLA & NDA (1x1 span) */}
-          <div 
+          <div
             className="bg-glass-premium rounded-3xl p-6 border border-white/60 flex flex-col justify-between card-hover-effect overflow-hidden"
           >
             <div className="flex items-center justify-between">
@@ -160,11 +159,11 @@ const BentoGrid: React.FC = () => {
           </div>
 
           {/* Cell 4: Live Estimator Tool (1x2 span) */}
-          <div 
+          <div
             className="md:col-span-2 bg-glass-premium rounded-3xl p-8 border border-white/60 flex flex-col justify-between card-hover-effect relative overflow-hidden group"
           >
             <div className="absolute top-0 right-0 w-48 h-48 bg-secondary-100/30 rounded-full blur-3xl pointer-events-none group-hover:bg-secondary-200/40 transition-all duration-500" />
-            
+
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-full border border-indigo-100">
                 Interactive Cost Estimator
@@ -178,33 +177,30 @@ const BentoGrid: React.FC = () => {
               <div>
                 <h4 className="text-sm font-bold text-slate-700 mb-2">Select Target Deliverables:</h4>
                 <div className="flex flex-wrap gap-2">
-                  <button 
+                  <button
                     onClick={() => handleServiceToggle("web")}
-                    className={`px-3 py-1.5 rounded-xl border text-xs font-medium transition-all ${
-                      selectedServices.includes("web") 
-                        ? "bg-primary-500 border-primary-500 text-white shadow-sm" 
-                        : "bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300"
-                    }`}
+                    className={`px-3 py-1.5 rounded-xl border text-xs font-medium transition-all ${selectedServices.includes("web")
+                      ? "bg-primary-500 border-primary-500 text-white shadow-sm"
+                      : "bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300"
+                      }`}
                   >
                     Custom Web App
                   </button>
-                  <button 
+                  <button
                     onClick={() => handleServiceToggle("saas")}
-                    className={`px-3 py-1.5 rounded-xl border text-xs font-medium transition-all ${
-                      selectedServices.includes("saas") 
-                        ? "bg-primary-500 border-primary-500 text-white shadow-sm" 
-                        : "bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300"
-                    }`}
+                    className={`px-3 py-1.5 rounded-xl border text-xs font-medium transition-all ${selectedServices.includes("saas")
+                      ? "bg-primary-500 border-primary-500 text-white shadow-sm"
+                      : "bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300"
+                      }`}
                   >
                     SaaS Platform
                   </button>
-                  <button 
+                  <button
                     onClick={() => handleServiceToggle("cloud")}
-                    className={`px-3 py-1.5 rounded-xl border text-xs font-medium transition-all ${
-                      selectedServices.includes("cloud") 
-                        ? "bg-primary-500 border-primary-500 text-white shadow-sm" 
-                        : "bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300"
-                    }`}
+                    className={`px-3 py-1.5 rounded-xl border text-xs font-medium transition-all ${selectedServices.includes("cloud")
+                      ? "bg-primary-500 border-primary-500 text-white shadow-sm"
+                      : "bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300"
+                      }`}
                   >
                     Cloud & CI/CD Setup
                   </button>

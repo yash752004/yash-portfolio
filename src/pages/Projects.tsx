@@ -8,17 +8,21 @@ import {
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useProjects } from "@/hooks/useProjects";
+import { useProjectConfig } from "@/hooks/useProjectConfig";
+import { GradientSpinner } from "@/components/ui/GradientSpinner";
 
 const Projects: React.FC = () => {
   const navigate = useNavigate();
   const [filter, setFilter] = useState<"all" | "saas" | "web" | "cloud" | string>("all");
   const [activeProject, setActiveProject] = useState<string | null>(null);
-  const { projects } = useProjects();
+  const { projects, loading: projectsLoading } = useProjects();
+  const { config, loading: configLoading } = useProjectConfig();
 
-  const filteredProjects = filter === "all" ? projects : projects.filter(p => p.category === filter);
+  const activeProjects = projects.filter(p => p.showOnProjects !== false);
+  const filteredProjects = filter === "all" ? activeProjects : activeProjects.filter(p => p.category === filter);
 
   // Extract unique categories for the filter buttons
-  const uniqueCategories = ["all", ...Array.from(new Set(projects.map(p => p.category).filter(Boolean)))];
+  const uniqueCategories = ["all", ...Array.from(new Set(activeProjects.map(p => p.category).filter(Boolean)))];
 
   return (
     <div className="min-h-screen relative bg-slate-50">
@@ -50,25 +54,32 @@ const Projects: React.FC = () => {
             </p>
 
             {/* Category Filters */}
-            <div className="flex flex-wrap justify-center gap-2 pt-6">
-              {uniqueCategories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setFilter(cat)}
-                  className={`px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full border transition-all ${
-                    filter === cat 
-                      ? "bg-slate-900 border-slate-900 text-white shadow-sm" 
-                      : "bg-white border-slate-200 text-slate-500 hover:border-slate-300"
-                  }`}
-                >
-                  {cat === "all" ? "All Works" : cat}
-                </button>
-              ))}
-            </div>
+            {config.showCategoryFilter && (
+              <div className="flex flex-wrap justify-center gap-2 pt-6">
+                {uniqueCategories.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setFilter(cat)}
+                    className={`px-5 py-2 text-xs font-bold uppercase tracking-wider rounded-full border transition-all ${
+                      filter === cat 
+                        ? "bg-slate-900 border-slate-900 text-white shadow-sm" 
+                        : "bg-white border-slate-200 text-slate-500 hover:border-slate-300"
+                    }`}
+                  >
+                    {cat === "all" ? "All Works" : cat}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
+          {/* Grid Layout or Loader */}
+          {(projectsLoading || configLoading) ? (
+            <div className="flex justify-center items-center py-24">
+              <GradientSpinner />
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
             {filteredProjects.map((project) => (
               <div
                 key={project.id}
@@ -120,15 +131,22 @@ const Projects: React.FC = () => {
               </div>
             ))}
           </div>
-
+          )}
         </div>
       </main>
 
       {/* Floating Detailed Overlay Modal - Dribbble Style Case Study */}
       {activeProject && (
-        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 md:p-8 z-[9999] animate-fadeIn">
+        <div 
+          className="fixed inset-0 bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-4 md:p-8 z-[9999] animate-fadeIn"
+          onClick={() => setActiveProject(null)}
+        >
           {projects.filter(p => p.id === activeProject).map((project) => (
-            <div key={project.id} className="bg-white rounded-[2rem] w-full max-w-6xl max-h-[90vh] overflow-y-auto shadow-2xl relative flex flex-col [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full">
+            <div 
+              key={project.id} 
+              onClick={(e) => e.stopPropagation()}
+              className="bg-white rounded-[2rem] w-full max-w-6xl max-h-[90vh] overflow-y-auto shadow-2xl relative flex flex-col [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-slate-300 [&::-webkit-scrollbar-thumb]:rounded-full"
+            >
               
               {/* Close Button */}
               <button 

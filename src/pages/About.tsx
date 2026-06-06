@@ -116,11 +116,11 @@ const About: React.FC = () => {
             {/* Founder - Nayan Patel */}
             <div className="group bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-sm flex flex-col items-center text-center transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/10 hover:border-primary-200 hover:-translate-y-1">
               <div className="w-36 h-36 rounded-full overflow-hidden mb-8 border-4 border-slate-50 shadow-inner group-hover:border-primary-100 transition-colors duration-300">
-                <img src="/2.jpg" alt="Nayan Patel" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
+                <img src="/n.png" alt="Nayan Patel" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
               </div>
-              <h4 className="font-extrabold text-slate-800 mb-3 text-lg group-hover:text-primary-600 transition-colors">Bringing our ideals to life</h4>
+              <h4 className="font-extrabold text-slate-800 mt-4 mb-3 text-lg group-hover:text-primary-600 transition-colors">Bringing our ideals to life</h4>
               <p className="text-slate-500 text-sm leading-relaxed mb-6 italic max-w-xs mx-auto">
-                "As head of the company, my job is to ensure everyone is focused and aligned with a single goal of bringing scalable, top-tier digital architecture to our clients."
+                "I’m passionate about building technology that is practical, scalable, and driven by real-world outcomes. Every product I create is focused on delivering long-term value rather than short-term trends."
               </p>
               
               <h3 className="text-xl font-black text-slate-900 mb-1">Nayan Patel</h3>
@@ -133,11 +133,11 @@ const About: React.FC = () => {
             {/* Co-founder - Yash Patel */}
             <div className="group bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-sm flex flex-col items-center text-center transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/10 hover:border-primary-200 hover:-translate-y-1">
               <div className="w-36 h-36 rounded-full overflow-hidden mb-8 border-4 border-slate-50 shadow-inner group-hover:border-primary-100 transition-colors duration-300">
-                <img src="/1.jpg" alt="Yash Patel" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
+                <img src="/y.png" alt="Yash Patel" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
               </div>
-              <h4 className="font-extrabold text-slate-800 mb-3 text-lg group-hover:text-primary-600 transition-colors">Enabling our future</h4>
+              <h4 className="font-extrabold text-slate-800 mt-4 mb-3 text-lg group-hover:text-primary-600 transition-colors">Enabling our future</h4>
               <p className="text-slate-500 text-sm leading-relaxed mb-6 italic max-w-xs mx-auto">
-                "My number one job is getting things done. I focus on supporting the broader team so that we can offer the most robust and scalable service possible."
+                "I’m always exploring new technologies, refining processes, and seeking opportunities to create solutions that make a meaningful difference."
               </p>
               
               <h3 className="text-xl font-black text-slate-900 mb-1">Yash Patel</h3>

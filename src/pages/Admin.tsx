@@ -11,25 +11,32 @@ import { useNavigate } from "react-router-dom";
 import { useProjects, ProjectDetailType } from "@/hooks/useProjects";
 import { useBlogs, BlogType } from "@/hooks/useBlogs";
 import { useCategories } from "@/hooks/useCategories";
+import { useContacts } from "@/hooks/useContacts";
+import { useProjectConfig } from "@/hooks/useProjectConfig";
 
 import { ProjectsTable } from "@/components/admin/ProjectsTable";
 import { ProjectEditor } from "@/components/admin/ProjectEditor";
 import { BlogsTable } from "@/components/admin/BlogsTable";
 import { BlogEditor } from "@/components/admin/BlogEditor";
 import { CategoryManager } from "@/components/admin/CategoryManager";
+import { Dashboard } from "@/components/admin/Dashboard";
+import { ContactsManager } from "@/components/admin/ContactsManager";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { GradientSpinner } from "@/components/ui/GradientSpinner";
 
 const Admin = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<"projects" | "categories" | "blogs" | "home">("projects");
+  const [activeTab, setActiveTab] = useState<"dashboard" | "projects" | "categories" | "blogs" | "leads">("dashboard");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isAuthorized, setIsAuthorized] = useState(() => sessionStorage.getItem("adminAuth") === "true");
 
   // Firebase Hooks
-  const { projects, addProject, updateProject, deleteProject } = useProjects();
+  const { projects, addProject, updateProject, deleteProject, loading: projectsLoading } = useProjects();
   const { blogs, addBlog, updateBlog, deleteBlog } = useBlogs();
   const { categories, addCategory, updateCategory, deleteCategory } = useCategories();
+  const { contacts, updateContactStatus, deleteContact } = useContacts();
+  const { config, updateConfig } = useProjectConfig();
   
   const categoryNames = React.useMemo(() => categories.map(c => c.name), [categories]);
 
@@ -49,7 +56,7 @@ const Admin = () => {
   const filteredAdminProjects = React.useMemo(() => {
     return projects.filter(p => {
       const matchesSearch = p.title.toLowerCase().includes(projectSearchTerm.toLowerCase());
-      const matchesCategory = projectCategoryFilter === "all" || p.category === projectCategoryFilter;
+      const matchesCategory = projectCategoryFilter === "all" || (p.category || "").toLowerCase() === projectCategoryFilter.toLowerCase();
       return matchesSearch && matchesCategory;
     });
   }, [projects, projectSearchTerm, projectCategoryFilter]);
@@ -235,10 +242,11 @@ const Admin = () => {
             Pinak<span className="text-primary-600">.</span>
           </h2>
           <nav className="space-y-2 flex flex-col">
+            <Button variant={activeTab === "dashboard" ? "default" : "ghost"} onClick={() => setActiveTab("dashboard")} className={`w-full justify-start text-left font-bold ${activeTab === "dashboard" ? "bg-primary-600 text-white" : "text-slate-500"}`}>Dashboard</Button>
             <Button variant={activeTab === "projects" ? "default" : "ghost"} onClick={() => { setActiveTab("projects"); setIsEditingProject(false); setIsOrderChanged(false); }} className={`w-full justify-start text-left font-bold ${activeTab === "projects" ? "bg-primary-600 text-white" : "text-slate-500"}`}>Projects</Button>
             <Button variant={activeTab === "categories" ? "default" : "ghost"} onClick={() => setActiveTab("categories")} className={`w-full justify-start text-left font-bold ${activeTab === "categories" ? "bg-primary-600 text-white" : "text-slate-500"}`}>Categories</Button>
             <Button variant={activeTab === "blogs" ? "default" : "ghost"} onClick={() => { setActiveTab("blogs"); setIsEditingBlog(false); }} className={`w-full justify-start text-left font-bold ${activeTab === "blogs" ? "bg-primary-600 text-white" : "text-slate-500"}`}>Blogs</Button>
-            <Button variant={activeTab === "home" ? "default" : "ghost"} onClick={() => setActiveTab("home")} className={`w-full justify-start text-left font-bold ${activeTab === "home" ? "bg-primary-600 text-white" : "text-slate-500"}`}>Homepage Showcase</Button>
+            <Button variant={activeTab === "leads" ? "default" : "ghost"} onClick={() => setActiveTab("leads")} className={`w-full justify-start text-left font-bold ${activeTab === "leads" ? "bg-primary-600 text-white" : "text-slate-500"}`}>Leads & Contacts</Button>
           </nav>
         </div>
         <div className="p-6 border-t border-slate-200 dark:border-white/10">
@@ -254,6 +262,14 @@ const Admin = () => {
           <p className="text-slate-500 mt-2 font-medium">Manage your {activeTab} data and configurations directly connected to Firebase.</p>
         </div>
 
+        {activeTab === "dashboard" && (
+          <Dashboard 
+            projects={projects}
+            categories={categories}
+            contacts={contacts}
+            blogs={blogs}
+          />
+        )}
         {activeTab === "projects" && (
           <div>
             {isEditingProject ? (
@@ -270,7 +286,19 @@ const Admin = () => {
               <div className="space-y-6">
                 <div className="flex justify-between items-center">
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">All Projects</h3>
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 items-center">
+                    <div className="flex items-center gap-2 mr-4 bg-slate-100 px-4 py-2 rounded-xl">
+                      <input 
+                        type="checkbox" 
+                        id="showCategoryFilter"
+                        checked={config.showCategoryFilter}
+                        onChange={(e) => updateConfig({ showCategoryFilter: e.target.checked })}
+                        className="w-4 h-4 rounded text-primary-600 focus:ring-primary-500"
+                      />
+                      <label htmlFor="showCategoryFilter" className="text-sm font-bold text-slate-700 cursor-pointer">
+                        Show Category Filters on User Side
+                      </label>
+                    </div>
                     {isOrderChanged && (
                       <Button onClick={handleSaveProjectOrder} className="bg-emerald-600 hover:bg-emerald-700 font-bold rounded-xl px-6">Save Order</Button>
                     )}
@@ -299,15 +327,21 @@ const Admin = () => {
                   </select>
                 </div>
 
-                <ProjectsTable
-                  projects={localAdminProjects}
-                  onEdit={handleEditProject}
-                  onDelete={deleteProject}
-                  onToggleHome={handleToggleHomeProject}
-                  onToggleProjectsPage={handleToggleProjectsPageProject}
-                  isReorderable={!isFiltersActive}
-                  onReorder={handleReorderProjects}
-                />
+                {projectsLoading ? (
+                  <div className="flex justify-center items-center py-20 bg-white dark:bg-slate-900 rounded-[32px] border border-slate-200 dark:border-white/10 shadow-sm">
+                    <GradientSpinner />
+                  </div>
+                ) : (
+                  <ProjectsTable
+                    projects={localAdminProjects}
+                    onEdit={handleEditProject}
+                    onDelete={deleteProject}
+                    onToggleHome={handleToggleHomeProject}
+                    onToggleProjectsPage={handleToggleProjectsPageProject}
+                    isReorderable={!isFiltersActive}
+                    onReorder={handleReorderProjects}
+                  />
+                )}
               </div>
             )}
           </div>
@@ -348,24 +382,12 @@ const Admin = () => {
           </div>
         )}
 
-        {/* Keeping simple Category & Home views for now, can be expanded later */}
-        {activeTab === "categories" && (
-          <div className="bg-white dark:bg-white/5 p-8 rounded-3xl shadow-xl">
-            <h3 className="text-2xl font-bold mb-6">Manage Categories</h3>
-            <p className="text-slate-500 mb-6">In the future, you can use a Dialog to manage these here. For now, they are managed via ProjectConfig.</p>
-            <div className="flex flex-wrap gap-4">
-              {categoryNames.map(c => (
-                <span key={c} className="px-4 py-2 bg-slate-100 dark:bg-white/10 rounded-xl font-medium">{c}</span>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {activeTab === "home" && (
-          <div className="bg-white dark:bg-white/5 p-8 rounded-3xl shadow-xl">
-            <h3 className="text-2xl font-bold mb-6">Homepage Showcase</h3>
-            <p className="text-slate-500 mb-6">Go to the Projects tab and check the "Show on Home" box to select which 3 projects appear on the homepage.</p>
-          </div>
+        {activeTab === "leads" && (
+          <ContactsManager 
+            contacts={contacts}
+            onUpdateStatus={updateContactStatus}
+            onDelete={deleteContact}
+          />
         )}
 
       </main>

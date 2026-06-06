@@ -14,7 +14,6 @@ const Header = () => {
     { name: "Services", path: "/services" },
     { name: "Projects", path: "/projects" },
     { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -113,9 +112,13 @@ const Header = () => {
             <Link
               to="/contact"
               onClick={() => setIsOpen(false)}
-              className="mt-2 text-center py-2.5 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-sm font-bold rounded-xl shadow-sm"
+              className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center justify-between ${
+                isActive("/contact")
+                  ? "bg-slate-50 text-slate-900 border-l-4 border-primary-500"
+                  : "text-slate-600 hover:bg-slate-50/50 hover:text-slate-900"
+              }`}
             >
-              Get in Touch
+              Contact
             </Link>
           </div>
         </div>

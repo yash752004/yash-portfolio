@@ -2,10 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { ArrowUpRight, Sparkles, TrendingUp } from "lucide-react";
 import { useHomeProjects } from "@/hooks/useProjects";
+import { GradientSpinner } from "@/components/ui/GradientSpinner";
 
 const HomeProjectSection: React.FC = () => {
   const navigate = useNavigate();
-  const { homeProjects } = useHomeProjects();
+  const { homeProjects, loading } = useHomeProjects();
 
   return (
     <section className="py-24 bg-transparent w-full">
@@ -32,8 +33,13 @@ const HomeProjectSection: React.FC = () => {
         </div>
 
         {/* Bento grid layout for projects */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {homeProjects.map((proj) => (
+        {loading ? (
+          <div className="flex justify-center items-center py-12">
+            <GradientSpinner />
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {homeProjects.map((proj) => (
             <div 
               key={proj.id}
               onClick={() => navigate(`/projects#${proj.id}`)}
@@ -73,7 +79,17 @@ const HomeProjectSection: React.FC = () => {
             </div>
           ))}
         </div>
+        )}
 
+        <div className="mt-12 text-center">
+          <button 
+            onClick={() => navigate('/projects')}
+            className="group relative px-6 py-3 font-semibold text-slate-900 bg-white border border-slate-200 rounded-full hover:border-slate-300 hover:shadow-md transition-all duration-300 overflow-hidden inline-flex items-center gap-2"
+          >
+            <span className="relative z-10">View All Case Studies</span>
+            <ArrowUpRight className="size-4 relative z-10 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </button>
+        </div>
       </div>
     </section>
   );

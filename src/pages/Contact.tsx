@@ -9,16 +9,19 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import FAQSection from "@/components/sections/FAQSection";
+import { useContacts } from "@/hooks/useContacts";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     service: "",
     message: "",
     acceptTerms: false,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { addContact } = useContacts();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -37,7 +40,7 @@ const Contact: React.FC = () => {
       return;
     }
 
-    if (!formData.name || !formData.email || !formData.message) {
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
       toast.error("Please fill out all the required contact fields.");
       return;
     }
@@ -45,25 +48,17 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/contact-form-detail`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          service: formData.service,
-          message: formData.message,
-        }),
+      await addContact({
+        source: 'Contact Form',
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        message: formData.message,
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to send message");
-      }
-
       toast.success("Message sent! Pinak Technology will contact you soon.");
-      setFormData({ name: "", email: "", message: "", acceptTerms: false });
+      setFormData({ name: "", email: "", phone: "", service: "", message: "", acceptTerms: false });
     } catch (error) {
       console.error(error);
       toast.error("Submission failed. Please check network parameters.");
@@ -136,6 +131,19 @@ const Contact: React.FC = () => {
                     </div>
                   </div>
                 </div>
+
+                {/* Location Map */}
+                <div className="w-full h-48 md:h-56 mt-6 rounded-2xl overflow-hidden border border-slate-100">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.4478532459043!2d72.37764159999999!3d23.5882661!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395c410020103f27%3A0x281fe402cfe48488!2sPinak%20technology!5e0!3m2!1sen!2sin!4v1780753682320!5m2!1sen!2sin" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
               </div>
 
               <div className="p-5 bg-slate-50 border border-slate-100 rounded-2xl space-y-2.5">
@@ -168,17 +176,30 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Work Email *</label>
+                    <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Contact Number *</label>
                     <Input
-                      name="email"
-                      type="email"
+                      name="phone"
+                      type="tel"
                       required
-                      value={formData.email}
+                      value={formData.phone}
                       onChange={handleInputChange}
-                      placeholder="e.g. john@company.com"
+                      placeholder="e.g. +91 98765 43210"
                       className="bg-slate-50 border-slate-200 focus-visible:ring-primary-500"
                     />
                   </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Work Email *</label>
+                  <Input
+                    name="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="e.g. john@company.com"
+                    className="bg-slate-50 border-slate-200 focus-visible:ring-primary-500"
+                  />
                 </div>
 
                 <div className="space-y-1.5">
