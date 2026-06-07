@@ -4,6 +4,7 @@ import {
   Smartphone, Globe, Cloud, Settings, PenTool, Wrench,
   Gamepad2, Glasses, FileSpreadsheet
 } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 
 export interface ServiceData {
   id: string;
@@ -46,7 +47,7 @@ export const servicesData: ServiceData[] = [
     id: "whatsapp",
     title: "WhatsApp Integration",
     desc: "Automated WhatsApp API solutions for instant customer support, notifications, and interactive chatbot flows.",
-    icon: <MessageCircle className="size-6 text-green-500" />,
+    icon: <SiWhatsapp className="size-6 text-green-500" />,
     points: ["Automated notifications", "Customer support bots", "API integrations"]
   },
   {

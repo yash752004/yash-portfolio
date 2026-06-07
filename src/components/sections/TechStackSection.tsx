@@ -133,9 +133,12 @@ const allStack = [
                 <p className="text-white">------------</p>
                 <div className="flex flex-col gap-2">
                   {stack.technologies.map((tech, techIndex) => (
-                    <div key={techIndex} className="inline-flex items-center">-
-                      {tech.icon && (
-                        <tech.icon className="w-4 h-4 mx-3" style={{ color: stack.color }} />
+                    <div key={techIndex} className="inline-flex items-center">
+                      <span>-</span>
+                      {tech.icon ? (
+                        <tech.icon className="w-4 h-4 mx-3 flex-shrink-0" style={{ color: stack.color }} />
+                      ) : (
+                        <span className="w-4 h-4 mx-3 flex-shrink-0" />
                       )}
                       <span>{tech.name}</span>
                     </div>

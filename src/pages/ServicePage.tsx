@@ -27,7 +27,7 @@ const ServicePage: React.FC = () => {
   const Icon = service.icon;
 
   return (
-    <div className="min-h-screen relative bg-slate-50 font-sans">
+    <div className="min-h-screen relative bg-slate-50 font-sans overflow-x-hidden">
       <Helmet>
         <title>{service.title} | Pinak Technology</title>
         <meta name="description" content={`Expert ${service.title} services. ${service.description}`} />

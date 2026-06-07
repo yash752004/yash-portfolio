@@ -13,7 +13,6 @@ import { useBlogs, BlogType } from "@/hooks/useBlogs";
 import { useCategories } from "@/hooks/useCategories";
 import { useContacts } from "@/hooks/useContacts";
 import { useProjectConfig } from "@/hooks/useProjectConfig";
-import { useApplications } from "@/hooks/useApplications";
 
 import { ProjectsTable } from "@/components/admin/ProjectsTable";
 import { ProjectEditor } from "@/components/admin/ProjectEditor";
@@ -35,11 +34,10 @@ const Admin = () => {
   const [isAuthorized, setIsAuthorized] = useState(() => sessionStorage.getItem("adminAuth") === "true");
 
   // Firebase Hooks
-  const { projects, addProject, updateProject, deleteProject, loading: projectsLoading } = useProjects();
-  const { blogs, addBlog, updateBlog, deleteBlog } = useBlogs();
+  const { projects, addProject, updateProject, deleteProject, reorderProjects } = useProjects();
   const { categories, addCategory, updateCategory, deleteCategory } = useCategories();
+  const { blogs, addBlog, updateBlog, deleteBlog } = useBlogs();
   const { contacts, updateContactStatus, deleteContact } = useContacts();
-  const { applications, updateApplicationStatus, deleteApplication } = useApplications();
   const { config, updateConfig } = useProjectConfig();
   
   const categoryNames = React.useMemo(() => categories.map(c => c.name), [categories]);

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { lazy, Suspense, useEffect, useState } from "react";
 import { CodeLoader } from "@/components/ui/CodeLoader";
 import { SplashLoader } from "@/components/ui/SplashLoader";
+import WhatsAppFAB from "./components/WhatsAppFAB";
 
 const Home = lazy(() => import("./pages/Home"));
 const Projects = lazy(() => import("./pages/Projects"));
@@ -72,6 +73,7 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
+        <WhatsAppFAB />
       </BrowserRouter>
     </TooltipProvider>
   );

@@ -11,6 +11,7 @@ import { useProjects } from "@/hooks/useProjects";
 import { useProjectConfig } from "@/hooks/useProjectConfig";
 import { GradientSpinner } from "@/components/ui/GradientSpinner";
 import { Helmet } from "react-helmet-async";
+import TestimonialSection from "@/components/sections/TestimonialSection";
 
 const Projects: React.FC = () => {
   const navigate = useNavigate();
@@ -139,6 +140,8 @@ const Projects: React.FC = () => {
           )}
         </div>
       </main>
+
+      <TestimonialSection />
 
       {/* Floating Detailed Overlay Modal - Dribbble Style Case Study */}
       {activeProject && (

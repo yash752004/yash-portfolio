@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Check, CheckCircle2, Globe, Smartphone, Server, Cloud, ShoppingCart, Blocks, Sparkles, Code, Package, MessageCircle, Bot, Settings, PenTool, Wrench, ChevronRight, Gamepad2, Glasses, FileSpreadsheet } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 
 import web_img from "../../assets/services/web_dev.svg";
 import mobile_img from "../../assets/services/mobile_dev.svg";
@@ -107,7 +108,7 @@ export const extendedServiceData = [
   },
   {
     id: "whatsapp",
-    icon: MessageCircle,
+    icon: SiWhatsapp,
     tagline: "connect engage resolve",
     title: "WhatsApp Integration",
     description: "Automated WhatsApp API solutions for instant customer support, notifications, and interactive chatbot flows.",

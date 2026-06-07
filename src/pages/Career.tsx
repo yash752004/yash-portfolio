@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import { Code2, Gamepad2, Component, ArrowRight, CheckCircle2, Mail } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { useState, useRef } from "react";
-import { useApplications } from "@/hooks/useApplications";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";

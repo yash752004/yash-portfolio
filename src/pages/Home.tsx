@@ -19,7 +19,7 @@ const Home: React.FC = () => {
         <title>Pinak Technology | Custom Software Development Company in India</title>
         <meta name="description" content="Leading custom software development company in India specializing in scalable digital solutions, CRM, ERP, and AI automation for startups." />
       </Helmet>
-      
+
       {/* Absolute Ambient spots */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <div className="absolute top-[10%] left-[5%] w-[35rem] h-[35rem] bg-primary-100/10 rounded-full blur-3xl" />
@@ -28,28 +28,28 @@ const Home: React.FC = () => {
       </div>
 
       <Header />
-      
+
       <main className="relative z-10">
         <HeroSection />
-        
+
         {/* Domains Marquee Section */}
         <DomainMarqueeSection />
-        
+
         {/* Modern Bento Overview grid */}
         <BentoGrid />
-        
+
         <HomeBenefitSection />
-        
+
         <HomeServiceSection />
-        
+
         {/* Technology Stack We Rigorously Use marquee */}
         <ServiceTechStack />
-        
+
         <HomeProjectSection />
-        
+
         {/* Testimonials Auto Slide Section */}
         <TestimonialSection />
-        
+
         {/* Strategic lead generation quiz estimator */}
         <InteractiveQuiz />
       </main>

@@ -7,6 +7,8 @@ All colors MUST be HSL.
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --font-sans: "Roboto", sans-serif;
+  
   --color-primary-50: var(--color-blue-50);
   --color-primary-100: var(--color-blue-100);
   --color-primary-200: var(--color-blue-200);

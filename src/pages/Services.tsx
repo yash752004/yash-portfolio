@@ -5,6 +5,7 @@ import ServiceContactSection from "@/components/sections/ServiceContactSection";
 import ServiceTechStack from "@/components/sections/ServiceTechStack";
 import ServiceHeroSection from "@/components/sections/ServiceHeroSection";
 import { ServiceDetails } from "@/components/sections/ServiceDetailSection";
+import TestimonialSection from "@/components/sections/TestimonialSection";
 import { Helmet } from "react-helmet-async";
 
 const Services: React.FC = () => {
@@ -27,6 +28,7 @@ const Services: React.FC = () => {
         <ServiceHeroSection />
         <ServiceDetails />
         <ServiceTechStack />
+        <TestimonialSection />
         <ServiceContactSection />
       </main>
 
