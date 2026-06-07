@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { ArrowLeft, Calendar, User, Tag, Facebook, Twitter, Linkedin, Link2 } from "lucide-react";
+import { ArrowLeft, Calendar, Tag, Facebook, Twitter, Linkedin, Link2 } from "lucide-react";
 import { useBlogs } from "@/hooks/useBlogs";
 import { formatDate } from "@/lib/utils";
 import { toast } from "sonner";
@@ -91,7 +91,6 @@ const BlogDetails: React.FC = () => {
                   {blog.title}
                 </h1>
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-6 text-slate-500 font-medium">
-                  <span className="flex items-center gap-2"><User size={18} /> {blog.author}</span>
                   <span className="flex items-center gap-2"><Calendar size={18} /> {formatDate(blog.date)}</span>
                 </div>
               </header>
@@ -131,7 +130,7 @@ const BlogDetails: React.FC = () => {
             <aside className="lg:col-span-1">
               <div className="sticky top-32 space-y-8">
                 {/* Key Takeaways */}
-                {blog.keyFeatures && blog.keyFeatures.length > 0 ? (
+                {blog.keyFeatures && blog.keyFeatures.length > 0 && (
                   <div className="bg-primary-50 rounded-[2.5rem] p-8 md:p-10 border border-primary-100 shadow-sm">
                     <h3 className="text-2xl font-bold text-slate-900 mb-6">Key Takeaways</h3>
                     <ul className="space-y-4">
@@ -144,19 +143,6 @@ const BlogDetails: React.FC = () => {
                         </li>
                       ))}
                     </ul>
-                  </div>
-                ) : (
-                  <div className="bg-white rounded-[2.5rem] p-8 md:p-10 border border-slate-100 shadow-sm">
-                    <h3 className="text-xl font-bold text-slate-900 mb-4">About the Author</h3>
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 font-bold text-xl">
-                        {blog.author.charAt(0).toUpperCase()}
-                      </div>
-                      <div>
-                        <p className="font-bold text-slate-900">{blog.author}</p>
-                        <p className="text-sm text-slate-500">Author</p>
-                      </div>
-                    </div>
                   </div>
                 )}
               </div>

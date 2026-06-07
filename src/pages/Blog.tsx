@@ -2,7 +2,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
-import { ArrowRight, Calendar, User } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { useBlogs } from "@/hooks/useBlogs";
 import { formatDate } from "@/lib/utils";
 
@@ -54,7 +54,6 @@ const Blog: React.FC = () => {
                 <div className="w-full lg:w-2/5 p-8 md:p-12 flex flex-col justify-center">
                   <div className="flex items-center gap-4 text-sm text-slate-500 mb-4">
                     <span className="flex items-center gap-1.5"><Calendar size={16} /> {formatDate(featuredBlog.date)}</span>
-                    <span className="flex items-center gap-1.5"><User size={16} /> {featuredBlog.author}</span>
                   </div>
                   <h2 className="text-2xl md:text-4xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-primary-500 transition-colors">
                     {featuredBlog.title}
@@ -90,7 +89,6 @@ const Blog: React.FC = () => {
                   <div className="p-6 flex flex-col flex-grow">
                     <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
                       <span>{formatDate(blog.date)}</span>
-                      <span>{blog.author}</span>
                     </div>
                     <h4 className="text-xl font-bold text-slate-900 mb-3 line-clamp-2 group-hover:text-primary-500 transition-colors">
                       {blog.title}
