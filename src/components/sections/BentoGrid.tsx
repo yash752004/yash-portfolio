@@ -180,7 +180,7 @@ const BentoGrid: React.FC = () => {
                   <button
                     onClick={() => handleServiceToggle("web")}
                     className={`px-3 py-1.5 rounded-xl border text-xs font-medium transition-all ${selectedServices.includes("web")
-                      ? "bg-primary-500 border-primary-500 text-white shadow-sm"
+                      ? "bg-gradient-to-r from-primary-500 to-secondary-500 border-transparent text-white shadow-md shadow-primary-500/20"
                       : "bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300"
                       }`}
                   >
@@ -189,7 +189,7 @@ const BentoGrid: React.FC = () => {
                   <button
                     onClick={() => handleServiceToggle("saas")}
                     className={`px-3 py-1.5 rounded-xl border text-xs font-medium transition-all ${selectedServices.includes("saas")
-                      ? "bg-primary-500 border-primary-500 text-white shadow-sm"
+                      ? "bg-gradient-to-r from-primary-500 to-secondary-500 border-transparent text-white shadow-md shadow-primary-500/20"
                       : "bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300"
                       }`}
                   >
@@ -198,7 +198,7 @@ const BentoGrid: React.FC = () => {
                   <button
                     onClick={() => handleServiceToggle("cloud")}
                     className={`px-3 py-1.5 rounded-xl border text-xs font-medium transition-all ${selectedServices.includes("cloud")
-                      ? "bg-primary-500 border-primary-500 text-white shadow-sm"
+                      ? "bg-gradient-to-r from-primary-500 to-secondary-500 border-transparent text-white shadow-md shadow-primary-500/20"
                       : "bg-slate-50 border-slate-200 text-slate-600 hover:border-slate-300"
                       }`}
                   >

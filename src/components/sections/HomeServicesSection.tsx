@@ -75,7 +75,7 @@ const HomeServiceSection: React.FC = () => {
         <div className="mt-12 flex justify-center">
           <button
             onClick={() => navigate('/services')}
-            className="px-8 py-3.5 border border-slate-200 hover:border-primary-500 text-slate-700 hover:text-primary-600 font-bold rounded-2xl shadow-sm hover:shadow-md transition-all flex items-center gap-2 group bg-white"
+            className="px-8 py-3.5 border border-slate-200 text-slate-700 font-bold rounded-2xl shadow-sm transition-all flex items-center gap-2 group bg-white hover:bg-gradient-to-r hover:from-primary-500 hover:to-secondary-500 hover:text-white hover:border-transparent hover:shadow-md"
           >
             View All Services
             <ChevronRight className="size-4 group-hover:translate-x-1 transition-transform" />
