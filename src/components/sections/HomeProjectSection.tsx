@@ -83,7 +83,7 @@ const HomeProjectSection: React.FC = () => {
 
         <div className="mt-12 text-center">
           <button 
-            onClick={() => navigate('/projects')}
+            onClick={() => navigate('/case-studies')}
             className="group relative px-6 py-3 font-semibold text-slate-900 bg-white border border-slate-200 rounded-full hover:bg-gradient-to-r hover:from-primary-500 hover:to-secondary-500 hover:text-white hover:border-transparent hover:shadow-md transition-all duration-300 overflow-hidden inline-flex items-center gap-2"
           >
             <span className="relative z-10">View All Case Studies</span>
