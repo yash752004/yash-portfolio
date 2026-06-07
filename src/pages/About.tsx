@@ -1,7 +1,9 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HomeIntroSection from "@/components/sections/HomeIntroSection";
+import AboutContactSection from "@/components/sections/AboutContactSection";
 import { Target, PenTool, Code, CheckCircle, Rocket, Wrench } from "lucide-react";
 
 const About: React.FC = () => {
@@ -13,7 +15,11 @@ const About: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen relative bg-slate-50">
+    <div className="min-h-screen relative bg-slate-50 overflow-hidden">
+      <Helmet>
+        <title>About Us | Top SaaS Development Agency | Pinak Technology</title>
+        <meta name="description" content="Pinak Technology is a top SaaS development agency and CRM development company. Meet our passionate team of engineers and designers." />
+      </Helmet>
       <Header />
 
       {/* Decorative Background Grid & Glow */}
@@ -30,9 +36,7 @@ const About: React.FC = () => {
             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">Pinak Technology</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            We are a team of passionate engineers and designers dedicated to building
-            faster, reliable, and secure software solutions. Our mission is to transform
-            your innovative ideas into scalable digital realities.
+            As a top <strong>CRM development company in Gujarat</strong> and a premier <strong>custom software development company in India</strong>, our team of passionate engineers and designers is dedicated to building faster, reliable, and secure solutions. Our mission is to transform your innovative ideas into scalable digital realities.
           </p>
         </section>
 

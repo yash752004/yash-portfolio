@@ -31,7 +31,7 @@ export const servicesData: ServiceData[] = [
   {
     id: "inventory",
     title: "Inventory Management",
-    desc: "Smart tracking systems to monitor stock levels, predict demand, and streamline your supply chain operations in real-time.",
+    desc: "As a specialized warehouse management software development company, we build smart tracking systems to monitor stock levels, predict demand, and streamline supply chains.",
     icon: <Package className="size-6 text-cyan-500" />,
     points: ["Real-time stock tracking", "Demand forecasting", "Supplier integrations"]
   },

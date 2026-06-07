@@ -99,6 +99,16 @@ const frontendTechStack = {
     ],
   };
 
+  const aiTechStack = {
+    color: "#a855f7",
+    title: "AI Tools",
+    technologies: [
+      { name: "ChatGPT", icon: null, color: "#10a37f" },
+      { name: "Gemini", icon: null, color: "#4285f4" },
+      { name: "Midjourney", icon: null, color: "#ffffff" },
+    ],
+  };
+
 const allStack = [
   frontendTechStack,
   backendTechStack,
@@ -106,6 +116,7 @@ const allStack = [
   cloudTechStack,
   cmsTechStack,
   buildToolsTechStack,
+  aiTechStack,
 ];
 
   return (

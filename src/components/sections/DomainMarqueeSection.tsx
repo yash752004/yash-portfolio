@@ -3,7 +3,7 @@ import {
   ShoppingCart, Factory, Truck, Calculator, 
   HeartPulse, GraduationCap, Building2, Utensils, 
   ShoppingBag, Briefcase, Plane, Gamepad2, 
-  Glasses, Landmark, CreditCard 
+  Glasses, Landmark, CreditCard, Shirt 
 } from 'lucide-react';
 
 const domains = [
@@ -22,6 +22,7 @@ const domains = [
   { name: "AR/VR", icon: Glasses },
   { name: "Banking", icon: Landmark },
   { name: "Fintech", icon: CreditCard },
+  { name: "Fashion", icon: Shirt },
 ];
 
 const DomainMarqueeSection: React.FC = () => {

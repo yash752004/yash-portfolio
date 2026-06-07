@@ -365,7 +365,10 @@ const ServiceCard: React.FC<{ service: typeof extendedServiceData[0] }> = ({ ser
   const Icon = service.icon;
 
   return (
-    <div className="group relative bg-white/80 backdrop-blur-md rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:-translate-y-1 hover:shadow-primary-500/10 transition-all duration-500 overflow-hidden flex flex-col h-full">
+    <div 
+      onClick={() => navigate(`/services/${service.id}`)}
+      className="group relative bg-white/80 backdrop-blur-md rounded-3xl border border-slate-100 shadow-xl shadow-slate-200/40 hover:shadow-2xl hover:-translate-y-1 hover:shadow-primary-500/10 transition-all duration-500 overflow-hidden flex flex-col h-full cursor-pointer"
+    >
       {/* Content Section */}
       <div className="p-6 flex flex-col flex-grow relative z-10">
         
@@ -417,7 +420,7 @@ const ServiceCard: React.FC<{ service: typeof extendedServiceData[0] }> = ({ ser
           </div>
           
           <button 
-            onClick={() => navigate("/contact")}
+            onClick={() => navigate(`/services/${service.id}`)}
             className="w-10 h-10 rounded-xl bg-gradient-to-r from-primary-500 to-secondary-500 hover:from-secondary-500 hover:to-primary-500 text-white flex items-center justify-center shadow-lg shadow-primary-500/20 hover:shadow-secondary-500/30 transition-all group/btn flex-shrink-0"
           >
             <ChevronRight className="w-5 h-5 group-hover/btn:translate-x-0.5 transition-transform" />

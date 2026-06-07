@@ -1,5 +1,6 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 // Initialize with environment variables that the user needs to provide in .env.local
 const firebaseConfig = {
@@ -19,5 +20,6 @@ try {
   console.warn("Firebase initialization failed, probably due to missing config.", error);
 }
 
-// Export the Firestore database instance
+// Export the Firestore database and Storage instances
 export const db = app ? getFirestore(app) : null;
+export const storage = app ? getStorage(app) : null;

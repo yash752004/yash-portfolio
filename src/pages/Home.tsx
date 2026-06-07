@@ -10,10 +10,15 @@ import InteractiveQuiz from "@/components/sections/InteractiveQuiz";
 import ServiceTechStack from "@/components/sections/ServiceTechStack";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const Home: React.FC = () => {
   return (
     <div className="min-h-screen relative bg-slate-50">
+      <Helmet>
+        <title>Pinak Technology | Custom Software Development Company in India</title>
+        <meta name="description" content="Leading custom software development company in India specializing in scalable digital solutions, CRM, ERP, and AI automation for startups." />
+      </Helmet>
       
       {/* Absolute Ambient spots */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">

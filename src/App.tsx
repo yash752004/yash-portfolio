@@ -18,6 +18,8 @@ const About = lazy(() => import("./pages/About"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogDetails = lazy(() => import("./pages/BlogDetails"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Career = lazy(() => import("./pages/Career"));
+const ServicePage = lazy(() => import("./pages/ServicePage"));
 
 // Component to handle scroll to top on route change
 const ScrollToTop = () => {
@@ -56,8 +58,10 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route path="/services/:id" element={<ServicePage />} />
+            <Route path="/case-studies" element={<Projects />} />
             <Route path="/about" element={<About />} />
+            <Route path="/career" element={<Career />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogDetails />} />
             <Route path="/contact" element={<Contact />} />

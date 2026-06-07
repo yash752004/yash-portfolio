@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import FAQSection from "@/components/sections/FAQSection";
 import { useContacts } from "@/hooks/useContacts";
+import { Helmet } from "react-helmet-async";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -69,6 +70,10 @@ const Contact: React.FC = () => {
 
   return (
     <div className="min-h-screen relative bg-slate-50">
+      <Helmet>
+        <title>Contact Us | Pinak Technology</title>
+        <meta name="description" content="Get in touch with Pinak Technology to discuss your vision. Partner with us for high-ROI custom software development." />
+      </Helmet>
       <Header />
 
       {/* Decorative Background Grid & Glow */}

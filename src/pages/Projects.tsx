@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useProjects } from "@/hooks/useProjects";
 import { useProjectConfig } from "@/hooks/useProjectConfig";
 import { GradientSpinner } from "@/components/ui/GradientSpinner";
+import { Helmet } from "react-helmet-async";
 
 const Projects: React.FC = () => {
   const navigate = useNavigate();
@@ -26,6 +27,10 @@ const Projects: React.FC = () => {
 
   return (
     <div className="min-h-screen relative bg-slate-50">
+      <Helmet>
+        <title>Case Studies & Projects | Pinak Technology</title>
+        <meta name="description" content="Explore custom systems, production platforms, and scalable cloud structures built by Pinak Technology." />
+      </Helmet>
       <Header />
 
       {/* Decorative Background Grid & Glow */}

@@ -5,10 +5,15 @@ import ServiceContactSection from "@/components/sections/ServiceContactSection";
 import ServiceTechStack from "@/components/sections/ServiceTechStack";
 import ServiceHeroSection from "@/components/sections/ServiceHeroSection";
 import { ServiceDetails } from "@/components/sections/ServiceDetailSection";
+import { Helmet } from "react-helmet-async";
 
 const Services: React.FC = () => {
   return (
     <div className="min-h-screen relative bg-slate-50">
+      <Helmet>
+        <title>Our Services | Custom Web Application Development Company | Pinak Technology</title>
+        <meta name="description" content="Explore our enterprise cloud architecture solutions and custom web application development services. Pinak Technology engineers solutions for modern enterprises." />
+      </Helmet>
       
       {/* Decorative Glow background with Pinak branding colors (Green/Mint & Blue/Indigo) */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">

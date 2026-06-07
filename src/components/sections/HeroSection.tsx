@@ -195,7 +195,7 @@ const HeroSection: React.FC = () => {
               We Engineer{" "}
               <br className="hidden sm:block" />
               <span className="bg-gradient-to-r from-primary-500 via-primary-600 to-secondary-500 bg-clip-text text-transparent">
-                High-ROI Software
+                Custom Software
               </span>
               <br />
               <span className="text-slate-400 text-3xl sm:text-4xl md:text-5xl xl:text-6xl">
@@ -203,9 +203,7 @@ const HeroSection: React.FC = () => {
               </span>
             </h1>
             <p className="text-slate-500 text-base md:text-lg font-medium max-w-xl leading-relaxed">
-              Pinak Technology builds secure cloud architectures, custom SaaS
-              platforms, and lightning-fast web systems — from concept to
-              production in weeks, not months.
+              Pinak Technology is a leading <strong>custom software development company in India</strong>. As a premier <strong>AI automation agency for startups</strong>, we build secure cloud architectures, custom SaaS platforms, and lightning-fast web systems — from concept to production in weeks.
             </p>
           </motion.div>
 
@@ -258,13 +256,13 @@ const HeroSection: React.FC = () => {
                 ))}
               </div>
               <p className="text-xs text-slate-500 font-medium">
-                Trusted by <span className="text-slate-700 font-bold">20+</span>{" "}
+                Trusted by <span className="text-slate-700 font-bold">30+</span>{" "}
                 companies worldwide
               </p>
             </div>
 
             {/* Stats row */}
-            <div className="grid grid-cols-3 gap-6 md:gap-10 pt-5 border-t border-slate-200/60">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 pt-5 border-t border-slate-200/60">
               <div>
                 <span className="text-2xl md:text-3xl font-black text-slate-800">
                   <AnimatedCounter end={100} suffix="%" />
@@ -287,6 +285,14 @@ const HeroSection: React.FC = () => {
                 </span>
                 <p className="text-[10px] text-slate-400 font-extrabold uppercase mt-0.5 tracking-wider">
                   Uptime SLA
+                </p>
+              </div>
+              <div>
+                <span className="text-2xl md:text-3xl font-black text-slate-800">
+                  <AnimatedCounter end={10} suffix="+" />
+                </span>
+                <p className="text-[10px] text-slate-400 font-extrabold uppercase mt-0.5 tracking-wider">
+                  Years Experience
                 </p>
               </div>
             </div>
