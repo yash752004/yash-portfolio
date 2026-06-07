@@ -34,7 +34,7 @@ const Admin = () => {
   const [isAuthorized, setIsAuthorized] = useState(() => sessionStorage.getItem("adminAuth") === "true");
 
   // Firebase Hooks
-  const { projects, addProject, updateProject, deleteProject, reorderProjects } = useProjects();
+  const { projects, loading: projectsLoading, addProject, updateProject, deleteProject } = useProjects();
   const { categories, addCategory, updateCategory, deleteCategory } = useCategories();
   const { blogs, addBlog, updateBlog, deleteBlog } = useBlogs();
   const { contacts, updateContactStatus, deleteContact } = useContacts();

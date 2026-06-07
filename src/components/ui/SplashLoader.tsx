@@ -15,9 +15,9 @@ export const SplashLoader = ({ onComplete }: SplashLoaderProps) => {
   onCompleteRef.current = onComplete;
 
   const getGreeting = (p: number) => {
-    if (p < 35) return "Hi";
-    if (p < 70) return "Hello";
-    if (p < 100) return "Namaste";
+    if (p <= 25) return "Hii";
+    if (p <= 50) return "Hello";
+    if (p <= 75) return "Namaste";
     return "Welcome";
   };
 
