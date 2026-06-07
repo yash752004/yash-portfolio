@@ -22,13 +22,14 @@ import { CategoryManager } from "@/components/admin/CategoryManager";
 import { Dashboard } from "@/components/admin/Dashboard";
 import { ContactsManager } from "@/components/admin/ContactsManager";
 import { ApplicationsManager } from "@/components/admin/ApplicationsManager";
+import { TestimonialsManager } from "@/components/admin/TestimonialsManager";
 import { SitemapViewer } from "@/components/admin/SitemapViewer";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { GradientSpinner } from "@/components/ui/GradientSpinner";
 
 const Admin = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<"dashboard" | "projects" | "categories" | "blogs" | "leads" | "sitemap">("dashboard");
+  const [activeTab, setActiveTab] = useState<"dashboard" | "projects" | "categories" | "blogs" | "leads" | "testimonials" | "sitemap">("dashboard");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isAuthorized, setIsAuthorized] = useState(() => sessionStorage.getItem("adminAuth") === "true");
@@ -249,6 +250,7 @@ const Admin = () => {
             <Button variant={activeTab === "categories" ? "default" : "ghost"} onClick={() => setActiveTab("categories")} className={`w-full justify-start text-left font-bold ${activeTab === "categories" ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md" : "text-slate-500"}`}>Categories</Button>
             <Button variant={activeTab === "blogs" ? "default" : "ghost"} onClick={() => { setActiveTab("blogs"); setIsEditingBlog(false); }} className={`w-full justify-start text-left font-bold ${activeTab === "blogs" ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md" : "text-slate-500"}`}>Blogs</Button>
             <Button variant={activeTab === "leads" ? "default" : "ghost"} onClick={() => setActiveTab("leads")} className={`w-full justify-start text-left font-bold ${activeTab === "leads" ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md" : "text-slate-500"}`}>Leads & Contacts</Button>
+            <Button variant={activeTab === "testimonials" ? "default" : "ghost"} onClick={() => setActiveTab("testimonials")} className={`w-full justify-start text-left font-bold ${activeTab === "testimonials" ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md" : "text-slate-500"}`}>Testimonials</Button>
             <Button variant={activeTab === "sitemap" ? "default" : "ghost"} onClick={() => setActiveTab("sitemap")} className={`w-full justify-start text-left font-bold ${activeTab === "sitemap" ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md" : "text-slate-500"}`}>SEO & Sitemap</Button>
           </nav>
         </div>
@@ -391,6 +393,10 @@ const Admin = () => {
             onUpdateStatus={updateContactStatus}
             onDelete={deleteContact}
           />
+        )}
+
+        {activeTab === "testimonials" && (
+          <TestimonialsManager />
         )}
 
         {activeTab === "sitemap" && (

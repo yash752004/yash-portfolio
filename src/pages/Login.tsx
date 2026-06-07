@@ -15,7 +15,7 @@ const Login = () => {
     if (password === "pinak1234") {
       sessionStorage.setItem("adminAuth", "true");
       toast.success("Login successful");
-      navigate("/portal");
+      navigate("/admin");
     } else {
       toast.error("Invalid password");
     }
