@@ -114,7 +114,7 @@ const Header = () => {
             </button>
           </div>
 
-          <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-104 mt-4 opacity-100" : "max-h-0 opacity-0"
+          <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-115 mt-4 opacity-100" : "max-h-0 opacity-0"
             }`}>
             <div className="flex flex-col gap-2 p-2">
               {navItems.map((item) => (
