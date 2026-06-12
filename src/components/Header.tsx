@@ -72,6 +72,19 @@ const Header = () => {
                 </button>
               );
             })}
+            <button
+              onClick={() => {
+                if (location.pathname !== '/') {
+                  navigate('/');
+                  setTimeout(() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' }), 300);
+                } else {
+                  document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="relative px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 text-slate-600 hover:text-primary-500 hover:bg-slate-50"
+            >
+              Products
+            </button>
           </div>
 
           <button
@@ -117,6 +130,20 @@ const Header = () => {
                   {item.name}
                 </Link>
               ))}
+              <button
+                onClick={() => {
+                  setIsOpen(false);
+                  if (location.pathname !== '/') {
+                    navigate('/');
+                    setTimeout(() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' }), 300);
+                  } else {
+                    document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className="px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center justify-between text-slate-600 hover:bg-slate-50/50 hover:text-slate-900"
+              >
+                Products
+              </button>
               <Link
                 to="/contact"
                 onClick={() => setIsOpen(false)}

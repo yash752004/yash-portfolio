@@ -5,6 +5,7 @@ import BentoGrid from "@/components/sections/BentoGrid";
 import HomeBenefitSection from "@/components/sections/HomeBenefitSection";
 import HomeServiceSection from "@/components/sections/HomeServicesSection";
 import HomeProjectSection from "@/components/sections/HomeProjectSection";
+import HomeProductsSection from "@/components/sections/HomeProductsSection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
 import InteractiveQuiz from "@/components/sections/InteractiveQuiz";
 import ServiceTechStack from "@/components/sections/ServiceTechStack";
@@ -46,6 +47,8 @@ const Home: React.FC = () => {
         <ServiceTechStack />
 
         <HomeProjectSection />
+
+        <HomeProductsSection />
 
         {/* Testimonials Auto Slide Section */}
         <TestimonialSection />

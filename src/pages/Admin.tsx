@@ -24,12 +24,13 @@ import { ContactsManager } from "@/components/admin/ContactsManager";
 import { ApplicationsManager } from "@/components/admin/ApplicationsManager";
 import { TestimonialsManager } from "@/components/admin/TestimonialsManager";
 import { SitemapViewer } from "@/components/admin/SitemapViewer";
+import { ProductsManager } from "@/components/admin/ProductsManager";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { GradientSpinner } from "@/components/ui/GradientSpinner";
 
 const Admin = () => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<"dashboard" | "projects" | "categories" | "blogs" | "leads" | "testimonials" | "sitemap">("dashboard");
+  const [activeTab, setActiveTab] = useState<"dashboard" | "projects" | "products" | "categories" | "blogs" | "leads" | "testimonials" | "sitemap">("dashboard");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isAuthorized, setIsAuthorized] = useState(() => sessionStorage.getItem("adminAuth") === "true");
@@ -247,6 +248,7 @@ const Admin = () => {
           <nav className="space-y-2 flex flex-col">
             <Button variant={activeTab === "dashboard" ? "default" : "ghost"} onClick={() => setActiveTab("dashboard")} className={`w-full justify-start text-left font-bold ${activeTab === "dashboard" ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md" : "text-slate-500"}`}>Dashboard</Button>
             <Button variant={activeTab === "projects" ? "default" : "ghost"} onClick={() => { setActiveTab("projects"); setIsEditingProject(false); setIsOrderChanged(false); }} className={`w-full justify-start text-left font-bold ${activeTab === "projects" ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md" : "text-slate-500"}`}>Projects</Button>
+            <Button variant={activeTab === "products" ? "default" : "ghost"} onClick={() => setActiveTab("products")} className={`w-full justify-start text-left font-bold ${activeTab === "products" ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md" : "text-slate-500"}`}>Products</Button>
             <Button variant={activeTab === "categories" ? "default" : "ghost"} onClick={() => setActiveTab("categories")} className={`w-full justify-start text-left font-bold ${activeTab === "categories" ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md" : "text-slate-500"}`}>Categories</Button>
             <Button variant={activeTab === "blogs" ? "default" : "ghost"} onClick={() => { setActiveTab("blogs"); setIsEditingBlog(false); }} className={`w-full justify-start text-left font-bold ${activeTab === "blogs" ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md" : "text-slate-500"}`}>Blogs</Button>
             <Button variant={activeTab === "leads" ? "default" : "ghost"} onClick={() => setActiveTab("leads")} className={`w-full justify-start text-left font-bold ${activeTab === "leads" ? "bg-gradient-to-r from-primary-500 to-secondary-500 text-white shadow-md" : "text-slate-500"}`}>Leads & Contacts</Button>
@@ -351,6 +353,11 @@ const Admin = () => {
             )}
           </div>
         )}
+
+        {activeTab === "products" && (
+          <ProductsManager />
+        )}
+
         {activeTab === "categories" && (
           <CategoryManager 
             categories={categoryNames}
