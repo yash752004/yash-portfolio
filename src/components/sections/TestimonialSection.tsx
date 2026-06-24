@@ -28,7 +28,7 @@ const TestimonialSection: React.FC = () => {
 
         <div
           className="flex w-fit marquee-left hover:[animation-play-state:paused] gap-6 px-6"
-          style={{ animationDuration: '40s' }}
+          style={{ animationDuration: '60s' }}
         >
           {/* Duplicate the array 3 times to ensure a seamless infinite loop */}
           {[...testimonials, ...testimonials, ...testimonials].map((testimonial, index) => (
@@ -36,16 +36,18 @@ const TestimonialSection: React.FC = () => {
               key={`${testimonial.id}-${index}`}
               className="flex-shrink-0 w-[300px] md:w-[350px] lg:w-[400px] h-[350px] rounded-[32px] overflow-hidden relative flex flex-col justify-between bg-white text-slate-900 shadow-sm border border-slate-100"
             >
-              <div className="p-8 flex flex-col h-full bg-glass-premium">
-                <div className="w-12 h-12 rounded-full overflow-hidden mb-8 border border-slate-100 shadow-sm">
-                  <img src={testimonial.image || "https://i.pravatar.cc/300?img=12"} alt={testimonial.name} className="w-full h-full object-cover" />
+              <div className="p-8 flex flex-col h-full bg-glass-premium justify-center relative">
+                <div className="absolute top-6 left-6 text-8xl text-slate-100 font-serif leading-none select-none pointer-events-none opacity-50">
+                  "
                 </div>
 
-                <p className="text-[15px] leading-relaxed text-slate-600 font-medium flex-grow italic">
-                  "{testimonial.text}"
-                </p>
+                <div className="flex-grow flex flex-col justify-center relative z-10">
+                  <p className="text-[16px] md:text-[17px] leading-relaxed text-slate-600 font-medium italic">
+                    "{testimonial.text}"
+                  </p>
+                </div>
 
-                <div className="mt-8">
+                <div className="mt-6 pt-6 border-t border-slate-100/60 relative z-10">
                   <h4 className="text-xl font-extrabold text-slate-900 tracking-tight mb-1">
                     {testimonial.name}
                   </h4>
