@@ -55,8 +55,8 @@ const ProjectThumbnailMarqueeSection: React.FC = () => {
           Our Portfolio
         </span>
         <h2 className="mt-4 text-3xl md:text-5xl font-black text-slate-900 tracking-tight">
-          SELECTED{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
+          PREVIOUS{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-orange-500">
             WORKS
           </span>
         </h2>
@@ -67,10 +67,10 @@ const ProjectThumbnailMarqueeSection: React.FC = () => {
       <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
 
       <div className="flex flex-col gap-6">
-        {/* Row 1 - Fast */}
+        {/* Row 1 - Normal */}
         <div
           className="flex w-fit marquee-left hover:[animation-play-state:paused] gap-6 px-3"
-          style={{ animationDuration: "60s" }}
+          style={{ animationDuration: "80s" }}
         >
           {row1.map((item, index) => (
             <div

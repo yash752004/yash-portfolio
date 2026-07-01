@@ -267,7 +267,7 @@ const HeroSection: React.FC = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 pt-5 border-t border-slate-200/60">
               <div>
                 <span className="text-2xl md:text-3xl font-black text-slate-800">
-                  <AnimatedCounter end={100} suffix="%" />
+                  100%
                 </span>
                 <p className="text-[10px] text-slate-400 font-extrabold uppercase mt-0.5 tracking-wider">
                   On-Time Delivery
@@ -275,7 +275,7 @@ const HeroSection: React.FC = () => {
               </div>
               <div>
                 <span className="text-2xl md:text-3xl font-black text-slate-800">
-                  <AnimatedCounter end={15} suffix="+" />
+                  15+
                 </span>
                 <p className="text-[10px] text-slate-400 font-extrabold uppercase mt-0.5 tracking-wider">
                   AI Solutions Built
@@ -283,7 +283,7 @@ const HeroSection: React.FC = () => {
               </div>
               <div>
                 <span className="text-2xl md:text-3xl font-black text-slate-800">
-                  <AnimatedCounter end={30} suffix="+" />
+                  30+
                 </span>
                 <p className="text-[10px] text-slate-400 font-extrabold uppercase mt-0.5 tracking-wider">
                   Worldwide Clients
@@ -291,7 +291,7 @@ const HeroSection: React.FC = () => {
               </div>
               <div>
                 <span className="text-2xl md:text-3xl font-black text-slate-800">
-                  <AnimatedCounter end={10} suffix="+" />
+                  10+
                 </span>
                 <p className="text-[10px] text-slate-400 font-extrabold uppercase mt-0.5 tracking-wider">
                   Years Experience

@@ -4,22 +4,48 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HomeIntroSection from "@/components/sections/HomeIntroSection";
 import AboutContactSection from "@/components/sections/AboutContactSection";
-import ProjectThumbnailMarqueeSection from "@/components/sections/ProjectThumbnailMarqueeSection";
-import { Target, PenTool, Code, CheckCircle, Rocket, Wrench } from "lucide-react";
+// import ProjectThumbnailMarqueeSection from "@/components/sections/ProjectThumbnailMarqueeSection";
+import {
+  Target,
+  PenTool,
+  Code,
+  CheckCircle,
+  Rocket,
+  Wrench,
+} from "lucide-react";
 
 const About: React.FC = () => {
   const workSteps = [
-    { title: "Discovery & Design", icon: Target, desc: "Understanding your vision and creating architectural blueprints." },
-    { title: "Development", icon: Code, desc: "Writing clean, scalable, and robust code using modern tech stacks." },
-    { title: "Testing & QA", icon: CheckCircle, desc: "Rigorous testing to ensure bug-free and performant delivery." },
-    { title: "Deploy & Support", icon: Rocket, desc: "Launching securely and providing ongoing optimization." }
+    {
+      title: "Process Audit",
+      icon: Target,
+      desc: "Identifying operational bottlenecks and mapping out AI and automation opportunities.",
+    },
+    {
+      title: "Intelligent Architecture",
+      icon: PenTool,
+      desc: "Designing scalable cloud architectures and custom AI models tailored to your data.",
+    },
+    {
+      title: "System Engineering",
+      icon: Code,
+      desc: "Developing robust automation pipelines and seamless ERP integrations.",
+    },
+    {
+      title: "Deployment & Scaling",
+      icon: Rocket,
+      desc: "Securely launching systems with ongoing monitoring and continuous optimization.",
+    },
   ];
 
   return (
     <div className="min-h-screen relative bg-slate-50 overflow-hidden">
       <Helmet>
         <title>About Us | Top SaaS Development Agency | Pinak Technology</title>
-        <meta name="description" content="Pinak Technology is a top SaaS development agency and CRM development company. Meet our passionate team of engineers and designers." />
+        <meta
+          name="description"
+          content="Pinak Technology is a top SaaS development agency and CRM development company. Meet our passionate team of engineers and designers."
+        />
       </Helmet>
       <Header />
 
@@ -32,52 +58,104 @@ const About: React.FC = () => {
 
       <main className="relative z-10 pt-36 pb-20">
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-4 md:px-8 mb-24 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">Pinak Technology</span>
+        <section className="max-w-7xl mx-auto px-4 md:px-8 mb-2 text-center pb-10 md:pb-16">
+          <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full border border-primary-200 bg-white shadow-sm text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600 mb-4">
+            Who We Are
+          </span>
+          <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight uppercase">
+            ABOUT{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
+              PINAK TECHNOLOGY
+            </span>
           </h1>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            As a premier <strong>custom software development company</strong>, we specialize in building bespoke software solutions and cutting-edge <strong>AI integrations</strong> that help businesses automate and scale. Our team of passionate engineers and designers is dedicated to building fast, reliable, and secure technology to transform your innovative ideas into scalable digital realities.
+            We are an engineering powerhouse focused on{" "}
+            <strong>Business Automation</strong> and{" "}
+            <strong>AI Integration</strong>. We build intelligent workflows and
+            bespoke software solutions that eliminate manual bottlenecks, reduce
+            operational costs, and help businesses scale effortlessly.
           </p>
         </section>
 
         {/* Our Missions Section (Moved from Home) */}
         <HomeIntroSection />
 
-        <ProjectThumbnailMarqueeSection />
-
         {/* How We Work (Zigzag Layout) */}
-        <section className="max-w-[1400px] mx-auto px-4 md:px-8 mb-32 relative py-20 bg-transparent">
-
+        <section className="max-w-[1400px] mx-auto px-4 md:px-8 mb-32 relative pb-20 pt-4 bg-transparent">
           {/* Floating Spheres (Decorative) */}
           {/* <div className="absolute top-10 right-20 w-24 h-24 rounded-full bg-white shadow-[0_10px_40px_-10px_rgba(0,0,0,0.08)]" />
           <div className="absolute bottom-10 right-40 w-40 h-40 rounded-full bg-white shadow-[0_20px_50px_-10px_rgba(0,0,0,0.08)]" />
           <div className="absolute -bottom-10 left-1/3 w-20 h-20 rounded-full bg-white shadow-[0_8px_30px_-8px_rgba(0,0,0,0.08)]" /> */}
 
-          <div className="text-center mb-24 relative z-10">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">How We Work</h2>
-            <p className="text-lg text-slate-600">Our proven Software Development Life Cycle ensures quality at every step.</p>
+          <div className="text-center mb-24 relative z-10 px-4">
+            <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-50 rounded-full border border-emerald-200">
+              Our Process
+            </span>
+            <h2 className="mt-4 text-3xl md:text-5xl font-black text-slate-900 tracking-tight uppercase">
+              HOW WE{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-orange-500">
+                WORK
+              </span>
+            </h2>
+            <p className="mt-6 text-slate-600 text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+              Our proven Software Development Life Cycle ensures quality at
+              every step.
+            </p>
           </div>
 
           <div className="flex flex-col lg:flex-row justify-center items-center lg:items-stretch relative z-10 gap-16 lg:gap-0 mt-12 max-w-6xl mx-auto">
             {workSteps.map((step, index) => {
               const isEven = index % 2 === 0;
               return (
-                <div key={index} className="w-full lg:w-1/4 px-4 flex flex-col relative items-center lg:items-start min-h-[300px]">
-
+                <div
+                  key={index}
+                  className="w-full lg:w-1/4 px-4 flex flex-col relative items-center lg:items-start min-h-[300px]"
+                >
                   {/* Dotted Arrow Connector (Desktop only) */}
                   {index < workSteps.length - 1 && (
                     <div className="hidden lg:block absolute top-1/2 left-[55%] w-full h-[120px] -translate-y-1/2 z-0 pointer-events-none pr-4">
-                      <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" className="overflow-visible">
+                      <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 100 100"
+                        preserveAspectRatio="none"
+                        className={`overflow-visible ${isEven ? "rotate-[15deg]" : "-rotate-[10deg]"}`}
+                      >
                         {isEven ? (
                           <>
-                            <path d="M 0,20 C 40,20 60,80 100,80" fill="transparent" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6,6" vectorEffect="non-scaling-stroke" />
-                            <path d="M 95,73 L 100,80 L 95,87" fill="transparent" stroke="#94a3b8" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+                            <path
+                              d="M 0,20 C 40,20 60,80 100,80"
+                              fill="transparent"
+                              stroke="#94a3b8"
+                              strokeWidth="2"
+                              strokeDasharray="6,6"
+                              vectorEffect="non-scaling-stroke"
+                            />
+                            <path
+                              d="M 95,73 L 100,80 L 95,87"
+                              fill="transparent"
+                              stroke="#94a3b8"
+                              strokeWidth="2"
+                              vectorEffect="non-scaling-stroke"
+                            />
                           </>
                         ) : (
                           <>
-                            <path d="M 0,80 C 40,80 60,20 100,20" fill="transparent" stroke="#94a3b8" strokeWidth="2" strokeDasharray="6,6" vectorEffect="non-scaling-stroke" />
-                            <path d="M 95,13 L 100,20 L 95,27" fill="transparent" stroke="#94a3b8" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+                            <path
+                              d="M 0,80 C 40,80 60,20 100,20"
+                              fill="transparent"
+                              stroke="#94a3b8"
+                              strokeWidth="2"
+                              strokeDasharray="6,6"
+                              vectorEffect="non-scaling-stroke"
+                            />
+                            <path
+                              d="M 95,13 L 100,20 L 95,27"
+                              fill="transparent"
+                              stroke="#94a3b8"
+                              strokeWidth="2"
+                              vectorEffect="non-scaling-stroke"
+                            />
                           </>
                         )}
                       </svg>
@@ -85,8 +163,9 @@ const About: React.FC = () => {
                   )}
 
                   {/* Item Content */}
-                  <div className={`flex w-full h-full ${isEven ? 'flex-col' : 'flex-col-reverse'} justify-between items-center lg:items-center relative z-10 lg:py-0 gap-6 lg:gap-0`}>
-
+                  <div
+                    className={`flex w-full h-full ${isEven ? "flex-col" : "flex-col-reverse"} justify-between items-center lg:items-center relative z-10 lg:py-0 gap-6 lg:gap-0`}
+                  >
                     {/* Circle Icon */}
                     <div className="size-28 lg:size-32 rounded-full border-[8px] border-white bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white shadow-xl shadow-primary-500/20 shrink-0 transform transition-transform hover:scale-105 group">
                       <step.icon className="w-10 h-10 lg:w-12 lg:h-12 stroke-[1.5] group-hover:animate-bounce" />
@@ -94,17 +173,24 @@ const About: React.FC = () => {
 
                     {/* Text Block */}
                     <div className="text-center lg:text-left w-[200px]">
-                      <h3 className="text-3xl font-black text-slate-900 mb-1">0{index + 1}</h3>
-                      <h4 className="text-[17px] font-bold text-slate-800 mb-2 leading-tight">{step.title}</h4>
-                      <p className="text-[13px] text-slate-500 leading-relaxed font-medium">{step.desc}</p>
+                      <h3 className="text-3xl font-black text-slate-900 mb-1">
+                        0{index + 1}
+                      </h3>
+                      <h4 className="text-[17px] font-bold text-slate-800 mb-2 leading-tight">
+                        {step.title}
+                      </h4>
+                      <p className="text-[13px] text-slate-500 leading-relaxed font-medium">
+                        {step.desc}
+                      </p>
                     </div>
-
                   </div>
                 </div>
               );
             })}
           </div>
         </section>
+
+        {/* <ProjectThumbnailMarqueeSection /> */}
 
         {/* Leadership Section */}
         {/* <section className="max-w-6xl mx-auto px-4 md:px-8 mt-12 mb-20">
@@ -153,7 +239,6 @@ const About: React.FC = () => {
             </div>
           </div>
         </section> */}
-
       </main>
 
       <Footer />

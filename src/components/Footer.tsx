@@ -102,11 +102,17 @@ const Footer: React.FC = () => {
               >
                 Services
               </Link>
-              <Link
+              {/* <Link
                 to="/projects"
                 className="hover:text-slate-900 transition-colors"
               >
                 Projects
+              </Link> */}
+              <Link
+                to="/products"
+                className="hover:text-slate-900 transition-colors"
+              >
+                Products
               </Link>
               <Link
                 to="/contact"
@@ -130,7 +136,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div 
+        <div
           ref={textRef}
           onMouseMove={handleMouseMove}
           onMouseEnter={() => setIsHovering(true)}
@@ -140,8 +146,8 @@ const Footer: React.FC = () => {
           <span className="text-[13vw] font-black text-slate-900/5 tracking-tighter leading-none select-none whitespace-nowrap">
             PINAK TECH
           </span>
-          <span 
-            className="text-[13vw] font-black tracking-tighter leading-none select-none whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-primary-500 to-secondary-500 absolute pointer-events-none transition-opacity duration-300"
+          <span
+            className="text-[13vw] font-black tracking-tighter leading-none select-none whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-blue-500 absolute pointer-events-none transition-opacity duration-300"
             style={{
               opacity: isHovering ? 1 : 0,
               WebkitMaskImage: `radial-gradient(circle 200px at ${mousePos.x}px ${mousePos.y}px, black 15%, transparent 100%)`,
