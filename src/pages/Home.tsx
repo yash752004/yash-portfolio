@@ -1,14 +1,14 @@
 import React from "react";
 import HeroSection from "@/components/sections/HeroSection";
 import DomainMarqueeSection from "@/components/sections/DomainMarqueeSection";
-import BentoGrid from "@/components/sections/BentoGrid";
+// import BentoGrid from "@/components/sections/BentoGrid";
 import HomeBenefitSection from "@/components/sections/HomeBenefitSection";
 import HomeServiceSection from "@/components/sections/HomeServicesSection";
 import HomeProjectSection from "@/components/sections/HomeProjectSection";
 import HomeProductsSection from "@/components/sections/HomeProductsSection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
 import InteractiveQuiz from "@/components/sections/InteractiveQuiz";
-import ServiceTechStack from "@/components/sections/ServiceTechStack";
+// import ServiceTechStack from "@/components/sections/ServiceTechStack";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
@@ -17,8 +17,13 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen relative bg-slate-50">
       <Helmet>
-        <title>Pinak Technology | Custom Software Development Company in India</title>
-        <meta name="description" content="Leading custom software development company in India specializing in scalable digital solutions, CRM, ERP, and AI automation for startups." />
+        <title>
+          Pinak Technology | Custom Software Development Company in India
+        </title>
+        <meta
+          name="description"
+          content="Leading custom software development company in India specializing in scalable digital solutions, CRM, ERP, and AI automation for startups."
+        />
       </Helmet>
 
       {/* Absolute Ambient spots */}
@@ -37,16 +42,16 @@ const Home: React.FC = () => {
         <DomainMarqueeSection />
 
         {/* Modern Bento Overview grid */}
-        <BentoGrid />
+        {/* <BentoGrid /> */}
 
         <HomeBenefitSection />
 
         <HomeServiceSection />
 
         {/* Technology Stack We Rigorously Use marquee */}
-        <ServiceTechStack />
+        {/* <ServiceTechStack /> */}
 
-        <HomeProjectSection />
+        {/* <HomeProjectSection /> */}
 
         <HomeProductsSection />
 

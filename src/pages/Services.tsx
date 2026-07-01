@@ -2,7 +2,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ServiceContactSection from "@/components/sections/ServiceContactSection";
-import ServiceTechStack from "@/components/sections/ServiceTechStack";
+// import ServiceTechStack from "@/components/sections/ServiceTechStack";
 import ServiceHeroSection from "@/components/sections/ServiceHeroSection";
 import { ServiceDetails } from "@/components/sections/ServiceDetailSection";
 import TestimonialSection from "@/components/sections/TestimonialSection";
@@ -27,7 +27,7 @@ const Services: React.FC = () => {
       <main className="relative z-10">
         <ServiceHeroSection />
         <ServiceDetails />
-        <ServiceTechStack />
+        {/* <ServiceTechStack /> */}
         <TestimonialSection />
         <ServiceContactSection />
       </main>

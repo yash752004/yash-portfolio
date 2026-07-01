@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import HomeIntroSection from "@/components/sections/HomeIntroSection";
 import AboutContactSection from "@/components/sections/AboutContactSection";
+import ProjectThumbnailMarqueeSection from "@/components/sections/ProjectThumbnailMarqueeSection";
 import { Target, PenTool, Code, CheckCircle, Rocket, Wrench } from "lucide-react";
 
 const About: React.FC = () => {
@@ -29,19 +30,21 @@ const About: React.FC = () => {
         <div className="absolute top-[40%] right-[5%] w-[45rem] h-[45rem] bg-secondary-100/20 rounded-full blur-3xl" />
       </div>
 
-      <main className="relative z-10 pt-32 pb-20">
+      <main className="relative z-10 pt-36 pb-20">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-4 md:px-8 mb-24 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
             About <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">Pinak Technology</span>
           </h1>
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            As a top <strong>CRM development company in Gujarat</strong> and a premier <strong>custom software development company in India</strong>, our team of passionate engineers and designers is dedicated to building faster, reliable, and secure solutions. Our mission is to transform your innovative ideas into scalable digital realities.
+            As a premier <strong>custom software development company</strong>, we specialize in building bespoke software solutions and cutting-edge <strong>AI integrations</strong> that help businesses automate and scale. Our team of passionate engineers and designers is dedicated to building fast, reliable, and secure technology to transform your innovative ideas into scalable digital realities.
           </p>
         </section>
 
         {/* Our Missions Section (Moved from Home) */}
         <HomeIntroSection />
+
+        <ProjectThumbnailMarqueeSection />
 
         {/* How We Work (Zigzag Layout) */}
         <section className="max-w-[1400px] mx-auto px-4 md:px-8 mb-32 relative py-20 bg-transparent">
@@ -104,7 +107,7 @@ const About: React.FC = () => {
         </section>
 
         {/* Leadership Section */}
-        <section className="max-w-6xl mx-auto px-4 md:px-8 mt-12 mb-20">
+        {/* <section className="max-w-6xl mx-auto px-4 md:px-8 mt-12 mb-20">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight uppercase">
               Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">Leadership</span>
@@ -117,7 +120,6 @@ const About: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Founder - Nayan Patel */}
             <div className="group bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-sm flex flex-col items-center text-center transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/10 hover:border-primary-200 hover:-translate-y-1">
               <div className="w-36 h-36 rounded-full overflow-hidden mb-8 border-4 border-slate-50 shadow-inner group-hover:border-primary-100 transition-colors duration-300">
                 <img src="/n.png" alt="Nayan Patel" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
@@ -134,7 +136,6 @@ const About: React.FC = () => {
               </a>
             </div>
 
-            {/* Co-founder - Yash Patel */}
             <div className="group bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-sm flex flex-col items-center text-center transition-all duration-300 hover:shadow-2xl hover:shadow-primary-500/10 hover:border-primary-200 hover:-translate-y-1">
               <div className="w-36 h-36 rounded-full overflow-hidden mb-8 border-4 border-slate-50 shadow-inner group-hover:border-primary-100 transition-colors duration-300">
                 <img src="/y.png" alt="Yash Patel" className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
@@ -151,7 +152,7 @@ const About: React.FC = () => {
               </a>
             </div>
           </div>
-        </section>
+        </section> */}
 
       </main>
 

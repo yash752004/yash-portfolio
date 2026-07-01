@@ -72,7 +72,7 @@ const CodeTerminal = () => {
     if (lineIndex >= codeLines.length) return;
     const timer = setTimeout(
       () => setLineIndex((prev) => prev + 1),
-      800 + lineIndex * 200
+      800 + lineIndex * 200,
     );
     return () => clearTimeout(timer);
   }, [lineIndex, codeLines.length]);
@@ -154,8 +154,7 @@ const HeroSection: React.FC = () => {
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-[5%] right-[5%] w-[35rem] h-[35rem] rounded-full blur-[100px] pointer-events-none z-0"
         style={{
-          background:
-            "radial-gradient(circle, #fed7aa 0%, transparent 70%)",
+          background: "radial-gradient(circle, #fed7aa 0%, transparent 70%)",
         }}
       />
 
@@ -164,7 +163,7 @@ const HeroSection: React.FC = () => {
         {/* Left Side: Headlines, Trust, CTA */}
         <div className="lg:col-span-7 text-left space-y-7 flex flex-col items-start justify-center">
           {/* Trust badges row */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -182,7 +181,7 @@ const HeroSection: React.FC = () => {
               <Star className="size-3.5 text-amber-500 fill-amber-500" />
               <span>5.0 Client Rating</span>
             </div>
-          </motion.div>
+          </motion.div> */}
 
           {/* Headline */}
           <motion.div
@@ -192,8 +191,7 @@ const HeroSection: React.FC = () => {
             className="space-y-4"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-slate-900 tracking-tight leading-[1.05]">
-              We Engineer{" "}
-              <br className="hidden sm:block" />
+              We Engineer <br className="hidden sm:block" />
               <span className="bg-gradient-to-r from-primary-500 via-primary-600 to-secondary-500 bg-clip-text text-transparent">
                 Custom Software
               </span>
@@ -203,7 +201,11 @@ const HeroSection: React.FC = () => {
               </span>
             </h1>
             <p className="text-slate-500 text-base md:text-lg font-medium max-w-xl leading-relaxed">
-              Pinak Technology is a leading <strong>custom software development company in India</strong>. As a premier <strong>AI automation agency for startups</strong>, we build secure cloud architectures, custom SaaS platforms, and lightning-fast web systems — from concept to production in weeks.
+              Pinak Technology is a leading{" "}
+              <strong>custom software development company in India</strong>. As
+              a premier <strong>AI automation agency for startups</strong>, we
+              build secure cloud architectures, custom SaaS platforms, and
+              lightning-fast web systems — from concept to production in weeks.
             </p>
           </motion.div>
 
@@ -239,7 +241,7 @@ const HeroSection: React.FC = () => {
             className="w-full max-w-lg"
           >
             {/* Client logos / trust strip */}
-            <div className="flex items-center gap-3 mb-5">
+            {/* <div className="flex items-center gap-3 mb-5">
               <div className="flex -space-x-2">
                 {[
                   "bg-gradient-to-br from-blue-400 to-blue-600",
@@ -259,7 +261,7 @@ const HeroSection: React.FC = () => {
                 Trusted by <span className="text-slate-700 font-bold">30+</span>{" "}
                 companies worldwide
               </p>
-            </div>
+            </div> */}
 
             {/* Stats row */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10 pt-5 border-t border-slate-200/60">
@@ -273,18 +275,18 @@ const HeroSection: React.FC = () => {
               </div>
               <div>
                 <span className="text-2xl md:text-3xl font-black text-slate-800">
-                  <AnimatedCounter end={4} prefix="< " suffix=" hr" />
+                  <AnimatedCounter end={15} suffix="+" />
                 </span>
                 <p className="text-[10px] text-slate-400 font-extrabold uppercase mt-0.5 tracking-wider">
-                  Response Time
+                  AI Solutions Built
                 </p>
               </div>
               <div>
                 <span className="text-2xl md:text-3xl font-black text-slate-800">
-                  <AnimatedCounter end={99} suffix=".9%" />
+                  <AnimatedCounter end={30} suffix="+" />
                 </span>
                 <p className="text-[10px] text-slate-400 font-extrabold uppercase mt-0.5 tracking-wider">
-                  Uptime SLA
+                  Worldwide Clients
                 </p>
               </div>
               <div>
@@ -349,7 +351,12 @@ const HeroSection: React.FC = () => {
             <div className="flex items-center justify-between pb-3 border-b border-slate-100/80">
               <div className="flex items-center gap-2.5">
                 <div className="size-8 rounded-xl  from-primary-500 to-primary-700 flex items-center justify-center shadow-sm overflow-hidden p-1.5">
-                  <img src="/pinak_favicon.svg" alt="Pinak" className="w-full h-full object-contain" style={{ pointerEvents: 'auto' }} />
+                  <img
+                    src="/pinak_favicon.svg"
+                    alt="Pinak"
+                    className="w-full h-full object-contain"
+                    style={{ pointerEvents: "auto" }}
+                  />
                 </div>
                 <div>
                   <span className="text-xs font-bold text-slate-800 block">

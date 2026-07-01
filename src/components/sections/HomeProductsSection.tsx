@@ -14,23 +14,19 @@ const HomeProductsSection: React.FC = () => {
       <div className="max-w-6xl mx-auto px-6">
         
         {/* Section Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
-          <div className="lg:col-span-8 space-y-4">
-            <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-50 rounded-full border border-emerald-200">
-              Our Products
+        <div className="text-center mb-12 relative z-10 px-4">
+          <span className="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-600 bg-emerald-50 rounded-full border border-emerald-200">
+            Our Products
+          </span>
+          <h2 className="mt-4 text-3xl md:text-5xl font-black text-slate-900 tracking-tight uppercase">
+            EXPLORE OUR{" "}
+            <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
+              READY-TO-USE SOLUTIONS
             </span>
-            <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight leading-none uppercase">
-              EXPLORE OUR <br />
-              <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">
-                READY-TO-USE SOLUTIONS
-              </span>
-            </h2>
-          </div>
-          <div className="lg:col-span-4">
-            <p className="text-slate-500 text-sm md:text-base leading-relaxed">
-              Accelerate your business with our specialized, market-tested software products designed for scale and efficiency.
-            </p>
-          </div>
+          </h2>
+          <p className="mt-4 text-slate-500 text-sm md:text-base leading-relaxed max-w-2xl mx-auto">
+            Accelerate your business with our specialized, market-tested software products designed for scale and efficiency.
+          </p>
         </div>
 
         {/* Bento grid layout for products */}
@@ -70,7 +66,7 @@ const HomeProductsSection: React.FC = () => {
                         </span>
                         <ArrowUpRight className="size-4 text-slate-400 group-hover:text-primary-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                       </div>
-                      <h3 className="font-extrabold text-slate-800 text-xl leading-tight group-hover:text-emerald-600 transition-colors">
+                      <h3 className="font-extrabold text-slate-800 text-base leading-tight group-hover:text-emerald-600 transition-colors">
                         {product.name}
                       </h3>
                       <p className="text-sm font-medium text-slate-500 line-clamp-2">

@@ -238,13 +238,6 @@ const ProductPage: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <div className="p-6 bg-primary-50 rounded-3xl border border-primary-100 mt-8">
-                <div className="flex items-center gap-3 mb-2">
-                  <Users className="text-primary-600" />
-                  <h4 className="font-bold text-slate-900">Primary Users</h4>
-                </div>
-                <p className="text-slate-600 font-medium">{product.primaryUsers}</p>
-              </div>
             </div>
 
           </div>

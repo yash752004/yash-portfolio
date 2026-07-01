@@ -10,10 +10,31 @@ import erp_img from "../../assets/services/erp.svg";
 import file_img from "../../assets/services/file_management.svg";
 import server_img from "../../assets/services/server.svg";
 
-
-
-// We augment the 12 services with the detailed fields required by the old layout
+// We augment the services with the detailed fields required by the old layout
 export const extendedServiceData = [
+  {
+    id: "ai",
+    icon: Bot,
+    tagline: "smart predictive autonomous",
+    title: "AI Integration",
+    description: "Embedding cutting-edge Artificial Intelligence models into your existing applications to automate complex decision-making.",
+    benefits: [
+      "AI Product Development",
+      "AI Calling Agents",
+      "Predictive trend analysis",
+      "Natural language processing"
+    ],
+    imageUrl: file_img,
+    delivery: {
+      title: "Intelligent Systems",
+      description: "Next-generation capabilities for modern apps.",
+      features: [
+        "Custom LLM fine-tuning",
+        "Image & text generation",
+        "Automated data insights"
+      ],
+    }
+  },
   {
     id: "custom-software",
     icon: Code,
@@ -24,7 +45,7 @@ export const extendedServiceData = [
       "Perfectly mapped to your workflows",
       "Scalable for future business growth",
       "No recurring licensing fees",
-      "High-security architecture"
+      "AI Integrations"
     ],
     imageUrl: web_img,
     delivery: {
@@ -47,7 +68,7 @@ export const extendedServiceData = [
       "Unified data access across departments",
       "Automated manual workflows",
       "Real-time business insights",
-      "Improved regulatory compliance"
+      "AI Integrations"
     ],
     imageUrl: erp_img,
     delivery: {
@@ -70,7 +91,7 @@ export const extendedServiceData = [
       "Prevent stockouts and overstocking",
       "Real-time location tracking",
       "Automated reorder alerts",
-      "Seamless barcode/RFID scanning"
+      "AI Integrations"
     ],
     imageUrl: ecommerce_img,
     delivery: {
@@ -93,7 +114,7 @@ export const extendedServiceData = [
       "Guaranteed 99.9% uptime",
       "Proactive security patching",
       "Automated disaster recovery",
-      "Optimized resource allocation"
+      "AI Integrations"
     ],
     imageUrl: server_img,
     delivery: {
@@ -116,7 +137,7 @@ export const extendedServiceData = [
       "Direct channel to customers",
       "Automated support resolution",
       "Rich media message templates",
-      "Integration with CRM systems"
+      "AI Integrations"
     ],
     imageUrl: mobile_img,
     delivery: {
@@ -130,29 +151,6 @@ export const extendedServiceData = [
     }
   },
   {
-    id: "ai",
-    icon: Bot,
-    tagline: "smart predictive autonomous",
-    title: "AI Integration",
-    description: "Embedding cutting-edge Artificial Intelligence models into your existing applications to automate complex decision-making.",
-    benefits: [
-      "Reduced manual processing time",
-      "Hyper-personalized user experiences",
-      "Predictive trend analysis",
-      "Natural language processing"
-    ],
-    imageUrl: file_img,
-    delivery: {
-      title: "Intelligent Systems",
-      description: "Next-generation capabilities for modern apps.",
-      features: [
-        "Custom LLM fine-tuning",
-        "Image & text generation",
-        "Automated data insights"
-      ],
-    }
-  },
-  {
     id: "mobile",
     icon: Smartphone,
     tagline: "native fluid engaging",
@@ -162,7 +160,7 @@ export const extendedServiceData = [
       "Access to device hardware features",
       "Offline functionality capabilities",
       "Push notification engagement",
-      "Broad app store reach"
+      "AI Integrations"
     ],
     imageUrl: mobile_img,
     delivery: {
@@ -185,7 +183,7 @@ export const extendedServiceData = [
       "Enhanced brand credibility",
       "Faster load times & improved SEO",
       "Scalable & maintainable codebase",
-      "Consistent cross-device experience"
+      "AI Integrations"
     ],
     imageUrl: web_img,
     delivery: {
@@ -208,7 +206,7 @@ export const extendedServiceData = [
       "Pay-as-you-go cost efficiency",
       "Infinite horizontal scaling",
       "Global content delivery",
-      "Enhanced data redundancy"
+      "AI Integrations"
     ],
     imageUrl: file_img,
     delivery: {
@@ -231,7 +229,7 @@ export const extendedServiceData = [
       "Real-time machine telemetry",
       "Predictive maintenance alerts",
       "Remote operational control",
-      "Reduced manufacturing downtime"
+      "AI Integrations"
     ],
     imageUrl: erp_img,
     delivery: {
@@ -254,7 +252,7 @@ export const extendedServiceData = [
       "Higher user retention rates",
       "Reduced cognitive load",
       "Accessible to all demographics",
-      "Consistent brand identity"
+      "AI Integrations"
     ],
     imageUrl: web_img,
     delivery: {
@@ -277,7 +275,7 @@ export const extendedServiceData = [
       "Peace of mind operations",
       "Continuous performance optimization",
       "Rapid bug resolution",
-      "Regular technology updates"
+      "AI Integrations"
     ],
     imageUrl: erp_img,
     delivery: {
@@ -300,7 +298,7 @@ export const extendedServiceData = [
       "Engaging product visualizations",
       "Safe virtual training environments",
       "Interactive marketing campaigns",
-      "Next-generation user interfaces"
+      "AI Integrations"
     ],
     imageUrl: web_img,
     delivery: {
@@ -323,7 +321,7 @@ export const extendedServiceData = [
       "High-performance rendering",
       "Cross-platform multiplayer architecture",
       "Engaging gameplay mechanics",
-      "Seamless in-app monetization"
+      "AI Integrations"
     ],
     imageUrl: mobile_img,
     delivery: {
@@ -346,7 +344,7 @@ export const extendedServiceData = [
       "Eliminate manual data entry errors",
       "Secure cloud database storage",
       "Real-time team collaboration",
-      "Automated reports and alerts"
+      "AI Integrations"
     ],
     imageUrl: file_img,
     delivery: {
@@ -474,4 +472,3 @@ export const ServiceDetails: React.FC = () => {
     </section>
   );
 };
-

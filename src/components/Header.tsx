@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, Sparkles, Linkedin, Instagram } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import path from "path";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,12 +11,14 @@ const Header = () => {
   const navigate = useNavigate();
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
+    // { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
-    { name: "Case Studies", path: "/case-studies" },
-    { name: "Career", path: "/career" },
-    { name: "Blog", path: "/blog" },
+    { name: "Products", path: "/products" },
+    // { name: "Case Studies", path: "/case-studies" },
+    // { name: "Career", path: "/career" },
+    // { name: "Blog", path: "/blog" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -29,7 +32,9 @@ const Header = () => {
       }
 
       const totalScroll = document.documentElement.scrollTop;
-      const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const windowHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
       const scroll = totalScroll / windowHeight;
       setScrollProgress(scroll * 100 || 0);
     };
@@ -39,20 +44,23 @@ const Header = () => {
 
   return (
     <>
-      {/* Scroll Progress Bar */}
-      <div
-        className="fixed top-0 left-0 h-1.5 z-[100] bg-gradient-to-r from-primary-500 via-secondary-400 to-secondary-500 transition-all duration-75 ease-out rounded-r-full"
-        style={{ width: `${scrollProgress}%` }}
-      />
+      {/* Scroll Progress Bar Removed */}
       <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 md:px-8 mt-1.5">
         {/* Desktop Navigation */}
-        <div className={`max-w-6xl mx-auto rounded-full transition-all duration-300 ${scrolled
-          ? "bg-white/80 shadow-md backdrop-blur-md border border-white/60 py-2 px-6"
-          : "bg-white/40 backdrop-blur-sm border border-white/20 py-3 px-8"
-          } hidden md:flex items-center justify-between`}>
+        <div
+          className={`max-w-6xl mx-auto rounded-full transition-all duration-300 ${
+            scrolled
+              ? "bg-white/80 shadow-md backdrop-blur-md border border-white/60 py-2 px-6"
+              : "bg-white/40 backdrop-blur-sm border border-white/20 py-3 px-8"
+          } hidden md:flex items-center justify-between`}
+        >
           <Link to="/" className="flex items-center gap-3 group">
             <div className="h-10 flex items-center">
-              <img src="/logo_color.svg" alt="Pinak Technology" className="h-full object-contain group-hover:scale-[1.02] transition-transform duration-300" />
+              <img
+                src="/logo_color.svg"
+                alt="Pinak Technology"
+                className="h-full object-contain group-hover:scale-[1.02] transition-transform duration-300"
+              />
             </div>
           </Link>
 
@@ -63,28 +71,16 @@ const Header = () => {
                 <button
                   key={item.name}
                   onClick={() => navigate(item.path)}
-                  className={`relative px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 ${active
-                    ? "bg-primary-50 text-primary-600 shadow-sm shadow-primary-500/10 border border-primary-100"
-                    : "text-slate-600 hover:text-primary-500 hover:bg-slate-50"
-                    }`}
+                  className={`relative px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 ${
+                    active
+                      ? "bg-primary-50 text-primary-600 shadow-sm shadow-primary-500/10 border border-primary-100"
+                      : "text-slate-600 hover:text-primary-500 hover:bg-slate-50"
+                  }`}
                 >
                   {item.name}
                 </button>
               );
             })}
-            <button
-              onClick={() => {
-                if (location.pathname !== '/') {
-                  navigate('/');
-                  setTimeout(() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' }), 300);
-                } else {
-                  document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-              className="relative px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 text-slate-600 hover:text-primary-500 hover:bg-slate-50"
-            >
-              Products
-            </button>
           </div>
 
           <button
@@ -97,13 +93,20 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        <div className={`md:hidden rounded-2xl transition-all duration-300 ${scrolled || isOpen
-          ? "bg-white/95 shadow-lg border border-white/80"
-          : "bg-white/60 border border-white/20"
-          } p-4 py-5`}>
+        <div
+          className={`md:hidden rounded-2xl transition-all duration-300 ${
+            scrolled || isOpen
+              ? "bg-white/95 shadow-lg border border-white/80"
+              : "bg-white/60 border border-white/20"
+          } p-4 py-5`}
+        >
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center">
-              <img src="/logo_color.svg" alt="Pinak Technology" className="h-8 object-contain" />
+              <img
+                src="/logo_color.svg"
+                alt="Pinak Technology"
+                className="h-8 object-contain"
+              />
             </Link>
 
             <button
@@ -114,53 +117,54 @@ const Header = () => {
             </button>
           </div>
 
-          <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-115 mt-4 opacity-100" : "max-h-0 opacity-0"
-            }`}>
+          <div
+            className={`overflow-hidden transition-all duration-300 ${
+              isOpen ? "max-h-115 mt-4 opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
             <div className="flex flex-col gap-2 p-2">
+              <Link
+                to="/"
+                onClick={() => setIsOpen(false)}
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center justify-between ${
+                  isActive("/")
+                    ? "bg-slate-50 text-slate-900 border-l-4 border-primary-500"
+                    : "text-slate-600 hover:bg-slate-50/50 hover:text-slate-900"
+                }`}
+              >
+                Home
+              </Link>
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center justify-between ${isActive(item.path)
-                    ? "bg-slate-50 text-slate-900 border-l-4 border-primary-500"
-                    : "text-slate-600 hover:bg-slate-50/50 hover:text-slate-900"
-                    }`}
+                  className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center justify-between ${
+                    isActive(item.path)
+                      ? "bg-slate-50 text-slate-900 border-l-4 border-primary-500"
+                      : "text-slate-600 hover:bg-slate-50/50 hover:text-slate-900"
+                  }`}
                 >
                   {item.name}
                 </Link>
               ))}
-              <button
-                onClick={() => {
-                  setIsOpen(false);
-                  if (location.pathname !== '/') {
-                    navigate('/');
-                    setTimeout(() => document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' }), 300);
-                  } else {
-                    document.getElementById('products')?.scrollIntoView({ behavior: 'smooth' });
-                  }
-                }}
-                className="px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center justify-between text-slate-600 hover:bg-slate-50/50 hover:text-slate-900"
-              >
-                Products
-              </button>
-              <Link
-                to="/contact"
-                onClick={() => setIsOpen(false)}
-                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center justify-between ${isActive("/contact")
-                  ? "bg-slate-50 text-slate-900 border-l-4 border-primary-500"
-                  : "text-slate-600 hover:bg-slate-50/50 hover:text-slate-900"
-                  }`}
-              >
-                Contact
-              </Link>
 
               {/* Social Links */}
               <div className="mt-2 pt-4 border-t border-slate-100 flex items-center justify-center gap-4">
-                <a href="https://linkedin.com/company/pinaktechnology" target="_blank" rel="noreferrer" className="p-2 text-slate-400 hover:text-primary-500 hover:bg-primary-50 rounded-full transition-all">
+                <a
+                  href="https://linkedin.com/company/pinaktechnology"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2 text-slate-400 hover:text-primary-500 hover:bg-primary-50 rounded-full transition-all"
+                >
                   <Linkedin className="size-5" />
                 </a>
-                <a href="https://instagram.com/pinaktechnology" target="_blank" rel="noreferrer" className="p-2 text-slate-400 hover:text-primary-500 hover:bg-primary-50 rounded-full transition-all">
+                <a
+                  href="https://instagram.com/pinaktechnology"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-2 text-slate-400 hover:text-primary-500 hover:bg-primary-50 rounded-full transition-all"
+                >
                   <Instagram className="size-5" />
                 </a>
               </div>
