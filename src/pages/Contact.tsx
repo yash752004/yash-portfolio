@@ -88,9 +88,11 @@ const Contact: React.FC = () => {
           
           {/* Header Title */}
           <div className="text-center mb-16 space-y-4">
-            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full border border-primary-200 bg-white shadow-sm text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">
-              Get in Touch
-            </span>
+            <div className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full border border-primary-200 bg-white shadow-sm">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">
+                Get in Touch
+              </span>
+            </div>
             <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight leading-none uppercase">
               PARTNER WITH <br />
               <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">

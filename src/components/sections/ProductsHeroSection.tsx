@@ -38,9 +38,11 @@ const ProductsHeroSection: React.FC = () => {
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center mx-auto max-w-3xl space-y-4">
-          <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full border border-primary-200 bg-white shadow-sm text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">
-            Digital Products
-          </span>
+          <div className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full border border-primary-200 bg-white shadow-sm">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">
+              Digital Products
+            </span>
+          </div>
           <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tight leading-none uppercase">
             POWERFUL SAAS <br />
             <span className="bg-gradient-to-r from-primary-500 to-secondary-500 bg-clip-text text-transparent">

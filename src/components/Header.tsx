@@ -73,11 +73,13 @@ const Header = () => {
                   onClick={() => navigate(item.path)}
                   className={`relative px-4 py-2 text-sm font-bold rounded-full transition-all duration-300 ${
                     active
-                      ? "bg-primary-50 text-primary-600 shadow-sm shadow-primary-500/10 border border-primary-100"
+                      ? "bg-white shadow-sm shadow-primary-500/10 border border-primary-100"
                       : "text-slate-600 hover:text-primary-500 hover:bg-slate-50"
                   }`}
                 >
-                  {item.name}
+                  <span className={active ? "text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600" : ""}>
+                    {item.name}
+                  </span>
                 </button>
               );
             })}
@@ -126,26 +128,36 @@ const Header = () => {
               <Link
                 to="/"
                 onClick={() => setIsOpen(false)}
-                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center justify-between ${
+                className={`relative py-2.5 rounded-xl text-sm font-bold transition-all flex items-center justify-between overflow-hidden ${
                   isActive("/")
-                    ? "bg-slate-50 text-slate-900 border-l-4 border-primary-500"
-                    : "text-slate-600 hover:bg-slate-50/50 hover:text-slate-900"
+                    ? "bg-slate-50 pl-5 pr-4"
+                    : "text-slate-600 hover:bg-slate-50/50 hover:text-slate-900 px-4"
                 }`}
               >
-                Home
+                {isActive("/") && (
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-500 to-secondary-500" />
+                )}
+                <span className={isActive("/") ? "text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600" : ""}>
+                  Home
+                </span>
               </Link>
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
                   onClick={() => setIsOpen(false)}
-                  className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all flex items-center justify-between ${
+                  className={`relative py-2.5 rounded-xl text-sm font-bold transition-all flex items-center justify-between overflow-hidden ${
                     isActive(item.path)
-                      ? "bg-slate-50 text-slate-900 border-l-4 border-primary-500"
-                      : "text-slate-600 hover:bg-slate-50/50 hover:text-slate-900"
+                      ? "bg-slate-50 pl-5 pr-4"
+                      : "text-slate-600 hover:bg-slate-50/50 hover:text-slate-900 px-4"
                   }`}
                 >
-                  {item.name}
+                  {isActive(item.path) && (
+                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-primary-500 to-secondary-500" />
+                  )}
+                  <span className={isActive(item.path) ? "text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600" : ""}>
+                    {item.name}
+                  </span>
                 </Link>
               ))}
 

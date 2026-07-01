@@ -59,9 +59,11 @@ const About: React.FC = () => {
       <main className="relative z-10 pt-36 pb-20">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-4 md:px-8 mb-2 text-center pb-10 md:pb-16">
-          <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full border border-primary-200 bg-white shadow-sm text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600 mb-4">
-            Who We Are
-          </span>
+          <div className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full border border-primary-200 bg-white shadow-sm mb-4">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-secondary-600">
+              Who We Are
+            </span>
+          </div>
           <h1 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 tracking-tight uppercase">
             ABOUT{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500">
