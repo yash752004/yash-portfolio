@@ -19,6 +19,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    outDir: "dist/pinak-web",
+    outDir: "dist/pinak-site",
   },
 }));
