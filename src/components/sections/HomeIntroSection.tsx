@@ -29,7 +29,7 @@ const HomeIntroSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-transparent w-full relative overflow-hidden ">
+    <section className="bg-transparent w-full relative overflow-hidden pb-24">
       {/* Backdrop glowing drops using Pinak colors */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-[10%] left-[10%] w-[30rem] h-[30rem] bg-emerald-50/45 rounded-full blur-3xl" />
@@ -161,7 +161,7 @@ const HomeIntroSection: React.FC = () => {
         </div>
 
         {/* CTA Card: Let's Work Together */}
-        <div className="bg-white rounded-[2rem] p-8 md:p-12 relative overflow-hidden shadow-[0_15px_50px_-15px_rgba(0,0,0,0.1)] border border-slate-100 flex flex-col md:flex-row items-center justify-between w-full gap-8 lg:gap-12">
+        <div className="mt-24 bg-white rounded-[2rem] p-8 md:p-12 relative overflow-hidden shadow-[0_15px_50px_-15px_rgba(0,0,0,0.1)] border border-slate-100 flex flex-col md:flex-row items-center justify-between w-full gap-8 lg:gap-12">
           {/* Left Text Block */}
           <div className="relative z-10 flex-1 text-left">
             <h4 className="text-[11px] md:text-[12px] font-bold uppercase tracking-[0.15em] text-blue-500 mb-4">
